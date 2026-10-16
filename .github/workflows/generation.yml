@@ -5,7 +5,7 @@ name: Génération vidéo IA (Kaggle)
 # Secret nécessaire : KAGGLE_API_TOKEN (KAGGLE_USERNAME facultatif, antoinesustrac par défaut).
 on:
   push:
-    paths: ["specs/**", "refs/**"]
+    paths: ["specs/**", "refs/**", ".github/workflows/generation.yml"]
   workflow_dispatch:
 
 permissions:
@@ -45,7 +45,15 @@ jobs:
       - name: Envoi sur Kaggle et attente
         if: steps.fiches.outputs.liste != ''
         run: |
+          # Tolère un secret collé avec « export KAGGLE_API_TOKEN= », des guillemets ou des espaces.
+          token="${KAGGLE_API_TOKEN#export }"; token="${token#KAGGLE_API_TOKEN=}"
+          export KAGGLE_API_TOKEN=$(printf '%s' "$token" | tr -d '[:space:]"'"'")
+          echo "::add-mask::$KAGGLE_API_TOKEN"
           pip install -q kaggle
+          if ! kaggle kernels list --mine --page-size 1 >/dev/null 2>&1; then
+            echo "::error::Kaggle refuse le jeton KAGGLE_API_TOKEN (invalide ou supprimé). Régénère-le sur kaggle.com/settings et remplace le secret."
+            exit 1
+          fi
           command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
           python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
           kaggle kernels push -p build/kernel --accelerator NvidiaTeslaT4
