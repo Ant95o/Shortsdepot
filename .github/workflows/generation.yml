@@ -5,7 +5,7 @@ name: Génération vidéo IA (Kaggle)
 # Secret nécessaire : KAGGLE_API_TOKEN (KAGGLE_USERNAME facultatif, antoinesustrac par défaut).
 on:
   push:
-    paths: ["specs/**", "refs/**", ".github/workflows/generation.yml"]
+    paths: ["specs/**", "refs/**", "shorts/kaggle.py", "shorts/kaggle_job/**", ".github/workflows/generation.yml"]
   workflow_dispatch:
 
 permissions:
