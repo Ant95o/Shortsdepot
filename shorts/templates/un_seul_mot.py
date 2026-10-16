@@ -102,7 +102,8 @@ def render(spec: dict, workdir: Path, out: Path, providers: list[str]) -> dict:
         q_start = t
         dq = say("narrateur", item["question"], q_start)
         typing_start = q_start + dq + 0.1
-        a_start = typing_start + 0.65
+        # « suspense » : durée des trois points avant la réponse, à allonger sur les réponses clés.
+        a_start = typing_start + item.get("suspense", 0.65)
         da = say("ia", item["reponse"], a_start)
         events.append((item, q_start, typing_start, a_start))
         t = a_start + da + 0.5
@@ -156,6 +157,7 @@ def render(spec: dict, workdir: Path, out: Path, providers: list[str]) -> dict:
     hook_font = font("bold", 76)
     hook_lines = wrap(spec["accroche"], hook_font, 860)
     cta_font = font("black", 78)
+    counter_font = font("bold", 40)
     cta_lines = wrap(spec["appel"], cta_font, 860)
 
     def centered_block(layer, lines, fnt, alpha, center_y, fill=WHITE):
@@ -190,6 +192,12 @@ def render(spec: dict, workdir: Path, out: Path, providers: list[str]) -> dict:
         if now < events[0][1] + 0.25:  # accroche, effacée quand la première question arrive
             fade = min(1.0, now / 0.3) * (1 - min(1.0, max(0.0, now - events[0][1]) / 0.25))
             centered_block(overlay, hook_lines, hook_font, int(255 * fade), 900)
+        current = sum(1 for e in events if now >= e[1])
+        if 0 < current and now < cta_start:  # compteur de questions, la dernière en jaune
+            last = current == len(events)
+            label = "DERNIÈRE QUESTION" if last else f"QUESTION {current}/{len(events)}"
+            ImageDraw.Draw(overlay).text((WIDTH / 2, 418), label, font=counter_font,
+                                         fill=YELLOW if last else (150, 156, 170), anchor="mm")
         if now >= cta_start:
             k = ease_out(min(1.0, (now - cta_start) / 0.35))
             od = ImageDraw.Draw(overlay)
