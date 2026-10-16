@@ -2,7 +2,7 @@ name: Génération vidéo IA (Kaggle)
 
 # Génère sur les GPU gratuits de Kaggle les plans des fiches qui ont une section
 # « generation » et dont les clips manquent, les ajoute au dépôt puis lance le rendu.
-# Secrets nécessaires : KAGGLE_USERNAME et KAGGLE_API_TOKEN.
+# Secret nécessaire : KAGGLE_API_TOKEN (KAGGLE_USERNAME facultatif, antoinesustrac par défaut).
 on:
   push:
     paths: ["specs/**", "refs/**"]
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 240
     env:
-      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME || 'antoinesustrac' }}
       KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
