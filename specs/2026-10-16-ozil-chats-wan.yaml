@@ -20,14 +20,13 @@ generation:
       prompt: "Night football match in a packed stadium, TV broadcast shot. Anthropomorphic cats and dogs play football standing upright on two legs. A ginger tabby cat in a red shirt with white sleeves stops the ball in front of an empty goal, two dog defenders in green kits, a bulldog and a German shepherd, slide in and miss, the cat taps the ball into the net and celebrates. Realistic fur, cinematic stadium lighting."
 score: {gauche: Chats, droite: Chiens, avant: "2-2", apres: "3-2", minute: "87'"}
 commentaire:
-  - {texte: "87e minute, deux partout entre les chats et les chiens.", a: 0.2}
-  - {texte: "Miaouzil part seul !"}
-  - {texte: "Le gardien sort… petit lob !", a: 3.2}
-  - {texte: "Mais deux chiens reviennent…", a: 5.0}
-  - {texte: "Il attend… il attend…"}
-  - {texte: "Il les efface tous les deux !", a: 6.6}
-  - {texte: "BUT ! MIAOUZIL !", a: 8.2, but: true}
-  - {texte: "Le but de la saison !"}
+  # Calé sur les 10 s de plans : phrases courtes, sinon la dernière image reste figée.
+  - {texte: "Miaouzil part seul !", a: 0.1}
+  - {texte: "Petit lob !", a: 1.6}
+  - {texte: "Le gardien est battu !", a: 2.9}
+  - {texte: "Mais les chiens reviennent…", a: 5.0}
+  - {texte: "Il les efface !", a: 6.8}
+  - {texte: "BUT ! MIAOUZIL !", a: 8.3, but: true}
 fin: {texte: "Team chat ou team chien ?", duree: 2.5}
 publication:
   titre: "Le but d'Özil… mais c'est un chat"
