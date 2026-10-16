@@ -48,5 +48,10 @@ generation:
 
 Au push, le workflow `generation.yml` envoie les plans manquants sur un GPU gratuit de Kaggle
 (Wan 2.1 1.3B accéléré par le LoRA CausVid), récupère les vidéos, les ajoute au dépôt et lance le rendu.
+
+Pour reprendre une trend existante, un plan peut pointer vers une vidéo de référence placée dans `refs/`
+(`reference: refs/xxx.mp4`, `debut: 4.5`). Le plan est alors généré avec Wan 2.1 VACE : la carte de
+profondeur de la référence (Depth Anything V2) guide les mouvements et le cadrage, le prompt décide
+de qui joue. `force` (0 à 1, 0,8 par défaut) règle à quel point la référence est suivie.
 Il faut deux secrets dans le dépôt : `KAGGLE_USERNAME` et `KAGGLE_API_TOKEN`
 (Kaggle > Settings > API, avec un compte dont le téléphone est vérifié).

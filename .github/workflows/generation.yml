@@ -5,7 +5,7 @@ name: Génération vidéo IA (Kaggle)
 # Secrets nécessaires : KAGGLE_USERNAME et KAGGLE_API_TOKEN.
 on:
   push:
-    paths: ["specs/**"]
+    paths: ["specs/**", "refs/**"]
   workflow_dispatch:
 
 permissions:
@@ -46,6 +46,7 @@ jobs:
         if: steps.fiches.outputs.liste != ''
         run: |
           pip install -q kaggle
+          command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
           python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
           kaggle kernels push -p build/kernel --accelerator NvidiaTeslaT4
           kernel="$KAGGLE_USERNAME/shortsdepot-generation"
