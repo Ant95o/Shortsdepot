@@ -31,7 +31,8 @@ def mix_clips(clips: list[tuple[float, Path]], total: float, dst: Path) -> None:
         ms = int(start * 1000)
         filters.append(f"[{i}:a]aformat=channel_layouts=stereo,adelay={ms}|{ms}[a{i}]")
     inputs = "[0:a]" + "".join(f"[a{i}]" for i in range(1, len(clips) + 1))
-    filters.append(f"{inputs}amix=inputs={len(clips) + 1}:normalize=0:duration=first[out]")
+    # Volume ramené à -14 LUFS, le niveau visé par TikTok, Instagram et YouTube.
+    filters.append(f"{inputs}amix=inputs={len(clips) + 1}:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[out]")
     run_ffmpeg([*args, "-filter_complex", ";".join(filters), "-map", "[out]", "-ar", str(SAMPLE_RATE), str(dst)])
 
 
