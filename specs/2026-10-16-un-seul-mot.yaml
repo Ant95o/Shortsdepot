@@ -1,0 +1,19 @@
+# Trend « Réponds en un seul mot » (proposée le 16/10/2026)
+gabarit: un_seul_mot
+voix:
+  narrateur: {edge: fr-FR-HenriNeural, rate: "+8%", espeak: fr}
+  ia: {edge: fr-FR-DeniseNeural, rate: "+0%", espeak: "fr+f3"}
+accroche: "J'ai forcé l'IA à répondre en un seul mot."
+questions:
+  - {question: "Le meilleur moment de la journée ?", reponse: "Sieste."}
+  - {question: "L'ananas sur la pizza ?", reponse: "Validé."}
+  - {question: "Les lundis, ça sert à quoi ?", reponse: "Rien."}
+  - {question: "Le secret pour être heureux ?", reponse: "Croissants."}
+  - {question: "Les chats ou les chiens ?", reponse: "Chats."}
+  - {question: "Tu vas nous remplacer quand ?", reponse: "Bientôt."}
+appel: "Pose-lui ta question en commentaire."
+publication:
+  titre: "J'ai forcé l'IA à répondre en un seul mot"
+  description: "La dernière réponse fait peur. Pose ta question en commentaire, je la lui transmets."
+  hashtags: ["#ia", "#unseulmot", "#humour", "#chatgpt", "#pourtoi"]
+  contenu_ia: true
