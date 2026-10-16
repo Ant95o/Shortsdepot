@@ -1,0 +1,75 @@
+name: Génération vidéo IA (Kaggle)
+
+# Génère sur les GPU gratuits de Kaggle les plans des fiches qui ont une section
+# « generation » et dont les clips manquent, les ajoute au dépôt puis lance le rendu.
+# Secrets nécessaires : KAGGLE_USERNAME et KAGGLE_API_TOKEN.
+on:
+  push:
+    paths: ["specs/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: generation
+  cancel-in-progress: false
+
+jobs:
+  generation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fiches à générer
+        id: fiches
+        run: |
+          pip install -q pyyaml
+          specs=$(python -m shorts.kaggle a-generer | tr '\n' ' ')
+          echo "liste=$specs" >> "$GITHUB_OUTPUT"
+          if [ -z "$specs" ]; then echo "Rien à générer."; exit 0; fi
+          if [ -z "$KAGGLE_USERNAME" ] || [ -z "$KAGGLE_API_TOKEN" ]; then
+            echo "::warning::Secrets Kaggle absents : génération sautée."
+            echo "liste=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Envoi sur Kaggle et attente
+        if: steps.fiches.outputs.liste != ''
+        run: |
+          pip install -q kaggle
+          python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
+          kaggle kernels push -p build/kernel --accelerator NvidiaTeslaT4
+          kernel="$KAGGLE_USERNAME/shortsdepot-generation"
+          sleep 60
+          for i in $(seq 1 200); do
+            status=$(kaggle kernels status "$kernel" 2>&1 || true)
+            echo "$status"
+            case "$status" in
+              *COMPLETE*|*complete*) break ;;
+              *ERROR*|*error*|*CANCEL*|*cancel*) kaggle kernels output "$kernel" -p build/sortie || true; tail -50 build/sortie/*.log 2>/dev/null; exit 1 ;;
+            esac
+            sleep 60
+          done
+          kaggle kernels output "$kernel" -p build/sortie
+          python -m shorts.kaggle recuperer build/sortie ${{ steps.fiches.outputs.liste }}
+
+      - name: Ajout des clips et lancement du rendu
+        if: steps.fiches.outputs.liste != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add clips/
+          git commit -m "Clips générés sur Kaggle"
+          git push origin HEAD:${{ github.ref_name }}
+          gh workflow run rendu.yml --ref ${{ github.ref_name }}

@@ -1,0 +1,32 @@
+# Même vidéo que 2026-10-16-ozil-chats.yaml, plans générés automatiquement par Wan sur Kaggle.
+gabarit: clips_commentes
+voix:
+  commentateur: {edge: fr-FR-HenriNeural, rate: "+18%", pitch: "+4Hz", espeak: fr}
+clips:
+  - clips/ozil-chats-wan/plan1.mp4
+  - clips/ozil-chats-wan/plan2.mp4
+  - clips/ozil-chats-wan/plan3.mp4
+generation:
+  plans:
+    - fichier: clips/ozil-chats-wan/plan1.mp4
+      prompt: "Night football match in a packed stadium, TV broadcast pitch-side tracking shot. A ginger tabby cat wearing a red football shirt with white sleeves sprints alone toward goal, dribbling a soccer ball with its paws. A golden retriever goalkeeper in a plain green kit rushes out of the box. The cat chips the ball softly over the diving dog goalkeeper. Realistic, cinematic stadium lighting, shallow depth of field, vertical 9:16."
+    - fichier: clips/ozil-chats-wan/plan2.mp4
+      prompt: "Night football stadium, TV broadcast close tracking shot near the goal line. A ginger tabby cat in a red shirt with white sleeves stops the ball in front of an empty goal. Two dog defenders, a bulldog and a German shepherd in plain green kits, slide in desperately toward the ball. The cat calmly drags the ball back and both dogs slide past it, missing completely. Tense slow motion, realistic, cinematic lighting, vertical 9:16."
+    - fichier: clips/ozil-chats-wan/plan3.mp4
+      prompt: "Night football stadium, TV broadcast shot. A ginger tabby cat in a red shirt with white sleeves gently taps the soccer ball into the empty net, then runs toward the corner flag and celebrates with arms raised while a crowd of cats in the stands goes wild, flashes and confetti. Two dogs in green kits lie on the grass behind, defeated. Realistic, joyful, cinematic lighting, vertical 9:16."
+score: {gauche: Chats, droite: Chiens, avant: "2-2", apres: "3-2", minute: "87'"}
+commentaire:
+  - {texte: "87e minute, deux partout entre les chats et les chiens.", a: 0.2}
+  - {texte: "Miaouzil part seul !"}
+  - {texte: "Le gardien sort… petit lob !", a: 3.2}
+  - {texte: "Mais deux chiens reviennent…", a: 5.2}
+  - {texte: "Il attend… il attend…"}
+  - {texte: "Il les efface tous les deux !", a: 8.6}
+  - {texte: "BUT ! MIAOUZIL !", a: 10.4, but: true}
+  - {texte: "Le but de la saison !"}
+fin: {texte: "Team chat ou team chien ?", duree: 2.5}
+publication:
+  titre: "Le but d'Özil… mais c'est un chat"
+  description: "Miaouzil contre l'équipe des chiens, 87e minute. Team chat ou team chien ?"
+  hashtags: ["#ozil", "#chat", "#chien", "#football", "#ia", "#pourtoi"]
+  contenu_ia: true

@@ -35,3 +35,18 @@ python -m shorts specs/2026-10-16-un-seul-mot.yaml --sortie rendus
 Sortie : 1080x1920, 30 i/s, H.264 + AAC 48 kHz stéréo, compatible avec les 4 plateformes.
 
 Police Inter sous licence SIL OFL 1.1 (`shorts/assets/fonts/OFL.txt`).
+
+## Vidéo IA générée automatiquement (Kaggle)
+
+Une fiche peut demander la génération de ses plans avec une section `generation` :
+
+```yaml
+generation:
+  plans:
+    - {fichier: clips/ma-video/plan1.mp4, prompt: "…", graine: 42}
+```
+
+Au push, le workflow `generation.yml` envoie les plans manquants sur un GPU gratuit de Kaggle
+(Wan 2.1 1.3B accéléré par le LoRA CausVid), récupère les vidéos, les ajoute au dépôt et lance le rendu.
+Il faut deux secrets dans le dépôt : `KAGGLE_USERNAME` et `KAGGLE_API_TOKEN`
+(Kaggle > Settings > API, avec un compte dont le téléphone est vérifié).
