@@ -89,6 +89,19 @@ def preparer(folder: Path, user: str, specs: list[Path]) -> None:
     print(f"{len(shots)} plan(s) à générer")
 
 
+def pousser(folder: Path, accelerator: str) -> None:
+    """Envoie le notebook sur Kaggle en affichant la raison exacte d'un refus."""
+    from kaggle.api.kaggle_api_extended import KaggleApi
+    from requests import HTTPError
+
+    api = KaggleApi()
+    api.authenticate()
+    try:
+        api.kernels_push_cli(str(folder), timeout=None, acc=accelerator)
+    except HTTPError as exc:
+        sys.exit(f"Kaggle a refusé l'envoi : {exc}\n{exc.response.text}")
+
+
 def recuperer(output: Path, specs: list[Path]) -> None:
     for shot in _shots(specs):
         src = output / shot["out"]
@@ -105,6 +118,8 @@ if __name__ == "__main__":
         a_generer()
     elif cmd == "preparer":
         preparer(Path(rest[0]), rest[1], [Path(s) for s in rest[2:]])
+    elif cmd == "pousser":
+        pousser(Path(rest[0]), rest[1])
     elif cmd == "recuperer":
         recuperer(Path(rest[0]), [Path(s) for s in rest[1:]])
     else:

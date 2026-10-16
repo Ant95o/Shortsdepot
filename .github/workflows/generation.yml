@@ -55,8 +55,12 @@ jobs:
             exit 1
           fi
           command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          # Le propriétaire du notebook doit être le compte du jeton : on le demande à Kaggle.
+          compte=$(python -c "from kaggle.api.kaggle_api_extended import KaggleApi as K; a=K(); a.authenticate(); print(a.config_values['username'])")
+          echo "Compte Kaggle : $compte"
+          export KAGGLE_USERNAME="$compte"
           python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
-          kaggle kernels push -p build/kernel --accelerator NvidiaTeslaT4
+          python -m shorts.kaggle pousser build/kernel NvidiaTeslaT4
           kernel="$KAGGLE_USERNAME/shortsdepot-generation"
           sleep 60
           for i in $(seq 1 200); do
