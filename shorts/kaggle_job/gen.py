@@ -13,6 +13,7 @@ références y sont jointes en base64 (Kaggle n'envoie que ce fichier).
 import base64
 import gc
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +23,8 @@ subprocess.run(
      "peft", "ftfy", "imageio", "imageio-ffmpeg"],
     check=True,
 )
+
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
 import imageio.v3 as iio  # noqa: E402
 import torch  # noqa: E402
@@ -61,6 +64,10 @@ def load(cls, model: str, flow_shift: float):
         print(f"LoRA CausVid non chargé ({exc}), génération en 25 étapes", flush=True)
         fast = False
     pipe.enable_model_cpu_offload()
+    try:
+        pipe.vae.enable_tiling()  # l'encodage de la vidéo de contrôle tient alors sur le T4
+    except Exception:
+        pass
     return pipe, fast
 
 
@@ -90,8 +97,16 @@ for shot in sorted(SHOTS, key=lambda s: "ref" in s):
         current = (cls, *load(cls, VACE if cls is WanVACEPipeline else T2V, 3.0 if cls is WanVACEPipeline else 8.0))
     _, pipe, fast = current
     print(f"Génération de {shot['out']}{' (avec référence)' if 'ref' in shot else ''}…", flush=True)
+    # Le texte est encodé à part puis l'encodeur (11 Go) est renvoyé en RAM : sinon il reste
+    # sur le GPU pendant l'encodage de la vidéo de contrôle et le T4 (15 Go) déborde.
+    with torch.no_grad():
+        embeds, negative = pipe.encode_prompt(shot["prompt"], NEGATIVE, do_classifier_free_guidance=not fast,
+                                              max_sequence_length=512, device="cuda", dtype=dtype)
+    pipe.text_encoder.to("cpu")
+    gc.collect()
+    torch.cuda.empty_cache()
     args = dict(
-        prompt=shot["prompt"], negative_prompt=NEGATIVE, height=HEIGHT, width=WIDTH, num_frames=FRAMES,
+        prompt_embeds=embeds, negative_prompt_embeds=negative, height=HEIGHT, width=WIDTH, num_frames=FRAMES,
         num_inference_steps=6 if fast else 25, guidance_scale=1.0 if fast else 5.0,
         generator=torch.Generator("cuda").manual_seed(int(shot.get("seed", 42))),
     )
