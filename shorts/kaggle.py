@@ -37,13 +37,17 @@ def _missing_shots(spec_path: Path) -> list[dict]:
 
 
 def _reference(path: Path, start: float) -> str:
-    """Extrait 5 s de la référence au format de Wan (480x832, 16 i/s, 81 images), en base64."""
+    """Extrait 5 s de la référence (16 i/s, 81 images), en base64.
+
+    Kaggle refuse un script de plus de 1 Mo : la référence voyage en 240x416 et est
+    agrandie en 480x832 sur Kaggle, ce qui suffit pour en tirer la profondeur.
+    """
     with tempfile.TemporaryDirectory() as tmp:
         clip = Path(tmp) / "ref.mp4"
         subprocess.run([
             "ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start}", "-i", str(path),
-            "-vf", "fps=16,scale=480:832:force_original_aspect_ratio=increase,crop=480:832,setsar=1",
-            "-frames:v", "81", "-an", "-c:v", "libx264", "-crf", "26", "-pix_fmt", "yuv420p", str(clip),
+            "-vf", "fps=16,scale=240:416:force_original_aspect_ratio=increase,crop=240:416,setsar=1",
+            "-frames:v", "81", "-an", "-c:v", "libx264", "-crf", "30", "-preset", "slow", "-pix_fmt", "yuv420p", str(clip),
         ], check=True)
         return base64.b64encode(clip.read_bytes()).decode()
 
@@ -80,6 +84,9 @@ def preparer(folder: Path, user: str, specs: list[Path]) -> None:
         jobs.append(job)
     payload = json.dumps(jobs, ensure_ascii=False)
     (folder / "gen.py").write_text(TEMPLATE.read_text(encoding="utf-8").replace("__SHOTS__", payload), encoding="utf-8")
+    script = (folder / "gen.py").stat().st_size
+    if script > 950_000:
+        sys.exit(f"Script de {script // 1000} ko : Kaggle refuse au-delà de 1 Mo, générer moins de plans à la fois")
     (folder / "kernel-metadata.json").write_text(json.dumps({
         "id": f"{user}/{SLUG}", "title": SLUG, "code_file": "gen.py", "language": "python",
         "kernel_type": "script", "is_private": True, "enable_gpu": True, "enable_internet": True,
