@@ -9,7 +9,7 @@ clips:
   - clips/ozil-chats-wan/plan2.mp4
 generation:
   plans:
-    # « debut » : seconde de la vidéo de référence où commence le plan de 5 s (16/10 : 1er essai).
+    # « debut » : seconde de la vidéo de référence où commence le plan de 5 s (16/10 : essai après vérification du téléphone).
     - fichier: clips/ozil-chats-wan/plan1.mp4
       reference: refs/ozil-but.mp4
       debut: 0.5
