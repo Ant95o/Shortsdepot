@@ -7,10 +7,10 @@ from pathlib import Path
 
 import yaml
 
-from .templates import un_seul_mot
+from .templates import clips_commentes, un_seul_mot
 from .tts import DEFAULT_PROVIDERS
 
-TEMPLATES = {"un_seul_mot": un_seul_mot.render}
+TEMPLATES = {"un_seul_mot": un_seul_mot.render, "clips_commentes": clips_commentes.render}
 
 
 def main() -> None:
@@ -24,6 +24,10 @@ def main() -> None:
 
     for path in args.specs:
         spec = yaml.safe_load(path.read_text(encoding="utf-8"))
+        missing = [c for c in spec.get("clips", []) if not Path(c).exists()]
+        if missing:
+            print(f"{path} : en attente des clips {', '.join(missing)}, rendu sauté")
+            continue
         out = args.sortie / f"{path.stem}.mp4"
         with tempfile.TemporaryDirectory() as work:
             info = TEMPLATES[spec["gabarit"]](spec, Path(work), out, args.voix.split(","))

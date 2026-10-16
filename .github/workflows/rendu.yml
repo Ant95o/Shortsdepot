@@ -49,6 +49,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -z "$(ls rendus 2>/dev/null)" ]; then echo "Aucune vidéo rendue (clips manquants ?)"; exit 0; fi
           mv rendus /tmp/rendus
           if git fetch origin rendus 2>/dev/null; then
             git checkout -B rendus origin/rendus

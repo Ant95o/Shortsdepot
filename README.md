@@ -15,6 +15,9 @@ Usine à shorts : génération, montage et publication de vidéos courtes 9:16
 | Gabarit | Format |
 | --- | --- |
 | `un_seul_mot` | Conversation avec une IA qui ne répond qu'en un mot, voix off, bulles animées |
+| `clips_commentes` | Clips (vidéo IA ou rushes) recadrés en 9:16, voix de commentateur, sous-titres, tableau de score, carte de fin |
+
+Une fiche dont les clips ne sont pas encore dans `clips/` est sautée sans erreur.
 
 ## Voix off
 
