@@ -16,6 +16,7 @@ SPACES = {
     "i2v": "Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
     "image": "black-forest-labs/FLUX.1-schnell",
     "image_dev": "black-forest-labs/FLUX.1-dev",
+    "retouche": "black-forest-labs/FLUX.1-Kontext-Dev",
 }
 OUT = Path("essais/sortie")
 
@@ -110,5 +111,44 @@ def generer() -> None:
             api_name="/generate_video"), "i2v"))
 
 
+# Images clés de la référence (secondes) et mouvement attendu entre deux clés : la vidéo générée
+# part de l'une et arrive sur la suivante, donc elle suit les positions de l'original.
+CLES = [0.5, 2.75, 5.0]
+MOUVEMENTS = [
+    "The ginger cat runs with the ball and softly chips it over the golden retriever goalkeeper who rushes out "
+    "and dives, same camera movement as a TV broadcast, smooth realistic motion",
+    "The golden retriever goalkeeper falls on the grass while the ball loops high over him, the ginger cat keeps "
+    "running and watches the ball, same camera movement as a TV broadcast, smooth realistic motion",
+]
+RETOUCHE = ("Replace every football player with anthropomorphic animals standing on two legs: the attacker in the "
+            "yellow shirt becomes a ginger tabby cat wearing a red shirt with white sleeves and white shorts, the "
+            "goalkeeper becomes a golden retriever dog goalkeeper in a green jersey and gloves. Keep exactly the "
+            "same poses, positions, ball, camera framing, stadium, crowd and lighting. Remove the watermark text.")
+
+
+def cles() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    try:
+        Client(SPACES["retouche"]).view_api(print_info=True)
+    except Exception as exc:
+        print(f"retouche indisponible : {exc}", flush=True)
+    images = []
+    for i, t in enumerate(CLES):
+        brute = OUT / f"cle{i}_ref.png"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(t), "-i", "refs/ozil-but.mp4",
+                        "-frames:v", "1", str(brute)], check=True)
+        res = Client(SPACES["retouche"]).predict(input_image=handle_file(str(brute)), prompt=RETOUCHE, seed=7,
+                                                 randomize_seed=False, guidance_scale=2.5, api_name="/infer")
+        copier(res, f"cle{i}")
+        images.append(next(p for p in OUT.glob(f"cle{i}.*")))
+    for i, mouvement in enumerate(MOUVEMENTS):
+        duree = CLES[i + 1] - CLES[i]
+        essai(f"segment {i}", lambda: copier(Client(SPACES["i2v"]).predict(
+            input_image=handle_file(str(images[i])), last_image=handle_file(str(images[i + 1])), prompt=mouvement,
+            steps=8, negative_prompt=NEGATIF, duration_seconds=duree, guidance_scale=1, guidance_scale_2=1, seed=42,
+            randomize_seed=False, quality=10, scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16,
+            safe_mode=False, video_component=True, api_name="/generate_video"), f"segment{i}"))
+
+
 if __name__ == "__main__":
-    {"api": api, "generer": generer}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles}[sys.argv[1]]()
