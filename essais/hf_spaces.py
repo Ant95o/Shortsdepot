@@ -80,7 +80,8 @@ def generer() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     chat = essai("image du chat", lambda: image(CHAT, "chat"))
     scene = essai("image de la scène", lambda: image(SCENE, "scene"))
-    if chat:
+    # 20/10 : Animate garde le joueur humain (visage brouillé), il ne sait pas le changer en chat.
+    if chat and "animate" in sys.argv[2:]:
         # Remplacement du joueur par le chat sur le lob (0,5 à 5 s de la référence Kling).
         extrait = OUT / "reference_lob.mp4"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", "0.5", "-t", "4.5", "-i", "refs/ozil-but.mp4",
@@ -95,7 +96,7 @@ def generer() -> None:
         essai("i2v", lambda: copier(Client(SPACES["i2v"]).predict(
             input_image=handle_file(str(scene)), last_image=None, prompt=MOUVEMENT, steps=6, negative_prompt=NEGATIF,
             duration_seconds=5, guidance_scale=1, guidance_scale_2=1, seed=42, randomize_seed=False, quality=5,
-            scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier="16", safe_mode=False, video_component=True,
+            scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16, safe_mode=False, video_component=True,
             api_name="/generate_video"), "i2v"))
 
 
