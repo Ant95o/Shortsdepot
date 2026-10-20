@@ -9,6 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+import inspect
 import os
 
 from gradio_client import Client as _Client, handle_file
@@ -26,7 +27,9 @@ OUT = Path("essais/sortie")
 
 def Client(space):
     """Client Gradio, avec le jeton du compte Hugging Face gratuit s'il existe (quota GPU plus grand)."""
-    return _Client(space, hf_token=os.environ.get("HF_TOKEN") or None)
+    jeton = os.environ.get("HF_TOKEN") or None
+    nom = "token" if "token" in inspect.signature(_Client.__init__).parameters else "hf_token"
+    return _Client(space, **{nom: jeton})
 
 
 def api() -> None:
