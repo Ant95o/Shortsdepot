@@ -145,21 +145,16 @@ PROFONDEUR = ("TV broadcast shot of a night football match in a packed stadium. 
 
 
 def retoucher(brute: Path, nom: str) -> Path:
-    try:
-        client = Client(SPACES["profondeur"])
-        client.view_api(print_info=True)
-        res = client.predict(handle_file(str(brute)), PROFONDEUR, api_name="/infer")
-        copier(res, f"{nom}_profondeur")
-    except Exception as exc:
-        print(f"profondeur : échec : {exc}", flush=True)
-    image = brute
-    for j, consigne in enumerate(RETOUCHES):
-        res = Client(SPACES["retouche"]).predict(input_image=handle_file(str(image)), prompt=consigne, seed=7,
-                                                 randomize_seed=False, guidance_scale=2.5, api_name="/infer")
-        copier(res, f"{nom}_etape{j}")
-        image = next(OUT.glob(f"{nom}_etape{j}.*"))
-    shutil.copy(image, OUT / f"{nom}{image.suffix}")
-    return OUT / f"{nom}{image.suffix}"
+    """Redessine l'image clé en chats contre chiens en suivant la profondeur (donc les poses) de l'originale.
+
+    20/10 : Kontext (retouche) recadre en gros plan et perd le lob, même joueur par joueur ;
+    FLUX.1-Depth garde la pose (plongeon du gardien). Un seul appel par image pour ménager le quota.
+    """
+    res = Client(SPACES["profondeur"]).predict(control_image=handle_file(str(brute)), prompt=PROFONDEUR, seed=7,
+                                               randomize_seed=False, width=576, height=1024, guidance_scale=10,
+                                               num_inference_steps=28, api_name="/infer")
+    copier(res, nom)
+    return next(OUT.glob(f"{nom}.*"))
 
 
 def cles() -> None:
