@@ -1,0 +1,40 @@
+name: Essai Spaces Hugging Face (Wan 2.2)
+
+# Essai des démos gratuites de Wan 2.2 14B sur Hugging Face, sans carte bancaire.
+# Secret facultatif : HF_TOKEN (compte Hugging Face gratuit, plus de quota GPU).
+on:
+  push:
+    paths: ["essais/hf_spaces.py", ".github/workflows/essai-hf.yml"]
+  workflow_dispatch:
+    inputs:
+      etape:
+        default: api
+
+permissions:
+  contents: write
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q gradio_client
+      - run: python essais/hf_spaces.py ${{ inputs.etape || 'api' }}
+      - name: Sauvegarde des sorties sur la branche essais
+        if: always()
+        run: |
+          [ -d essais/sortie ] || exit 0
+          cp -r essais/sortie /tmp/sortie
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin essais || true
+          git checkout -B essais origin/essais 2>/dev/null || git checkout --orphan essais
+          git rm -rfq . || true
+          mkdir -p sortie && cp -r /tmp/sortie/* sortie/
+          git add sortie && git commit -qm "Essai Spaces Hugging Face" && git push origin essais
