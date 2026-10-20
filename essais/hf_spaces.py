@@ -9,7 +9,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-from gradio_client import Client, handle_file
+import os
+
+from gradio_client import Client as _Client, handle_file
 
 SPACES = {
     "animate": "alexnasa/Wan2.2-Animate-ZEROGPU",
@@ -17,8 +19,14 @@ SPACES = {
     "image": "black-forest-labs/FLUX.1-schnell",
     "image_dev": "black-forest-labs/FLUX.1-dev",
     "retouche": "black-forest-labs/FLUX.1-Kontext-Dev",
+    "profondeur": "black-forest-labs/FLUX.1-Depth-dev",
 }
 OUT = Path("essais/sortie")
+
+
+def Client(space):
+    """Client Gradio, avec le jeton du compte Hugging Face gratuit s'il existe (quota GPU plus grand)."""
+    return _Client(space, hf_token=os.environ.get("HF_TOKEN") or None)
 
 
 def api() -> None:
@@ -120,27 +128,47 @@ MOUVEMENTS = [
     "The golden retriever goalkeeper falls on the grass while the ball loops high over him, the ginger cat keeps "
     "running and watches the ball, same camera movement as a TV broadcast, smooth realistic motion",
 ]
-RETOUCHE = ("Replace every football player with anthropomorphic animals standing on two legs: the attacker in the "
-            "yellow shirt becomes a ginger tabby cat wearing a red shirt with white sleeves and white shorts, the "
-            "goalkeeper becomes a golden retriever dog goalkeeper in a green jersey and gloves. Keep exactly the "
-            "same poses, positions, ball, camera framing, stadium, crowd and lighting. Remove the watermark text.")
+# Kontext recompose la scène si on lui demande de tout changer : un joueur à la fois.
+RETOUCHES = [
+    "Change only the player in the yellow shirt into an anthropomorphic ginger tabby cat wearing a red shirt with "
+    "white sleeves and white shorts. Keep his exact pose, position and size. Do not change anything else.",
+    "Change only the goalkeeper into an anthropomorphic golden retriever dog goalkeeper in a green jersey with "
+    "gloves. Keep his exact pose, position and size. Do not change anything else.",
+]
+# Le modèle « profondeur » redessine toute l'image en suivant la silhouette exacte de l'originale.
+PROFONDEUR = ("TV broadcast shot of a night football match in a packed stadium. The attacker is an anthropomorphic "
+              "ginger tabby cat in a red shirt with white sleeves, the goalkeeper is an anthropomorphic golden "
+              "retriever dog in a green jersey and gloves. Realistic fur, cinematic floodlights, sharp details")
+
+
+def retoucher(brute: Path, nom: str) -> Path:
+    try:
+        client = Client(SPACES["profondeur"])
+        client.view_api(print_info=True)
+        res = client.predict(handle_file(str(brute)), PROFONDEUR, api_name="/infer")
+        copier(res, f"{nom}_profondeur")
+    except Exception as exc:
+        print(f"profondeur : échec : {exc}", flush=True)
+    image = brute
+    for j, consigne in enumerate(RETOUCHES):
+        res = Client(SPACES["retouche"]).predict(input_image=handle_file(str(image)), prompt=consigne, seed=7,
+                                                 randomize_seed=False, guidance_scale=2.5, api_name="/infer")
+        copier(res, f"{nom}_etape{j}")
+        image = next(OUT.glob(f"{nom}_etape{j}.*"))
+    shutil.copy(image, OUT / f"{nom}{image.suffix}")
+    return OUT / f"{nom}{image.suffix}"
 
 
 def cles() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    try:
-        Client(SPACES["retouche"]).view_api(print_info=True)
-    except Exception as exc:
-        print(f"retouche indisponible : {exc}", flush=True)
     images = []
     for i, t in enumerate(CLES):
         brute = OUT / f"cle{i}_ref.png"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(t), "-i", "refs/ozil-but.mp4",
                         "-frames:v", "1", str(brute)], check=True)
-        res = Client(SPACES["retouche"]).predict(input_image=handle_file(str(brute)), prompt=RETOUCHE, seed=7,
-                                                 randomize_seed=False, guidance_scale=2.5, api_name="/infer")
-        copier(res, f"cle{i}")
-        images.append(next(p for p in OUT.glob(f"cle{i}.*")))
+        images.append(retoucher(brute, f"cle{i}"))
+    if "images" in sys.argv[2:]:
+        return
     for i, mouvement in enumerate(MOUVEMENTS):
         duree = CLES[i + 1] - CLES[i]
         essai(f"segment {i}", lambda: copier(Client(SPACES["i2v"]).predict(
