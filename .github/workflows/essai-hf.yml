@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       etape:
-        default: api
+        default: generer
 
 permissions:
   contents: write
@@ -24,8 +24,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q gradio_client
-      - run: python essais/hf_spaces.py ${{ inputs.etape || 'api' }}
+      - run: pip install -q gradio_client && (command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg))
+      - run: python essais/hf_spaces.py ${{ inputs.etape || 'generer' }}
       - name: Sauvegarde des sorties sur la branche essais
         if: always()
         run: |
