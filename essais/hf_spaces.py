@@ -15,6 +15,7 @@ SPACES = {
     "animate": "alexnasa/Wan2.2-Animate-ZEROGPU",
     "i2v": "Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
     "image": "black-forest-labs/FLUX.1-schnell",
+    "image_dev": "black-forest-labs/FLUX.1-dev",
 }
 OUT = Path("essais/sortie")
 
@@ -52,12 +53,16 @@ def copier(resultat, nom: str) -> None:
 CHAT = ("Full body photo of an anthropomorphic ginger tabby cat football player standing upright on two legs, "
         "wearing a plain red football shirt with white sleeves, white shorts, red socks and boots, "
         "realistic fur, confident expression, night stadium background, cinematic lighting, vertical framing")
-SCENE = ("Night football match in a packed stadium, TV broadcast shot. An anthropomorphic ginger tabby cat in a "
-         "red shirt with white sleeves runs with the ball toward goal, a golden retriever goalkeeper in a green kit "
-         "rushes out, other dog defenders in green chase behind. Realistic fur, cinematic floodlights, vertical framing")
-MOUVEMENT = ("The cat sprints with the ball and softly chips it over the diving golden retriever goalkeeper, "
-             "the ball loops into the net, the crowd erupts, smooth realistic motion, TV broadcast camera follows")
-NEGATIF = "human players, human faces, extra legs, deformed paws, blurry, low quality, text, watermark, logos"
+SCENE = ("Low angle TV broadcast shot of a night football match in a packed stadium. In the foreground an "
+         "anthropomorphic ginger tabby cat in a red shirt with white sleeves dribbles the ball toward goal. "
+         "In the background a golden retriever dog goalkeeper wearing green gloves and a green jersey runs out of "
+         "his goal, and two dog defenders, a bulldog and a German shepherd in green jerseys, chase on four paws. "
+         "Every player is an animal, the only humans are tiny blurry spectators in the stands. Realistic fur, "
+         "cinematic floodlights, sharp details, vertical framing")
+MOUVEMENT = ("The ginger cat sprints with the ball and softly chips it over the golden retriever goalkeeper who "
+             "dives with his paws, the ball loops into the net, the dog defenders stop and stare, the crowd erupts. "
+             "All players stay animals, smooth realistic motion, TV broadcast camera follows the action, sharp details")
+NEGATIF = "human players, human legs, human body, people on the pitch, man, woman, human faces, extra legs, deformed paws, blurry, low quality, text, watermark, logos"
 
 
 def essai(nom, fn):
@@ -70,15 +75,20 @@ def essai(nom, fn):
 
 
 def image(prompt, nom):
-    res = Client(SPACES["image"]).predict(prompt=prompt, seed=7, randomize_seed=False, width=576, height=1024,
-                                          num_inference_steps=4, api_name="/infer")
+    try:  # FLUX.1-dev suit mieux le prompt (aucun humain sur le terrain) ; schnell en secours
+        res = Client(SPACES["image_dev"]).predict(prompt=prompt, seed=7, randomize_seed=False, width=576, height=1024,
+                                                  guidance_scale=3.5, num_inference_steps=28, api_name="/infer")
+    except Exception as exc:
+        print(f"FLUX.1-dev indisponible ({exc}), FLUX.1-schnell à la place", flush=True)
+        res = Client(SPACES["image"]).predict(prompt=prompt, seed=7, randomize_seed=False, width=576, height=1024,
+                                              num_inference_steps=4, api_name="/infer")
     copier(res, nom)
     return next(OUT.glob(f"{nom}.*"))
 
 
 def generer() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    chat = essai("image du chat", lambda: image(CHAT, "chat"))
+    chat = essai("image du chat", lambda: image(CHAT, "chat")) if "animate" in sys.argv[2:] else None
     scene = essai("image de la scène", lambda: image(SCENE, "scene"))
     # 20/10 : Animate garde le joueur humain (visage brouillé), il ne sait pas le changer en chat.
     if chat and "animate" in sys.argv[2:]:
@@ -94,8 +104,8 @@ def generer() -> None:
                 break
     if scene:
         essai("i2v", lambda: copier(Client(SPACES["i2v"]).predict(
-            input_image=handle_file(str(scene)), last_image=None, prompt=MOUVEMENT, steps=6, negative_prompt=NEGATIF,
-            duration_seconds=5, guidance_scale=1, guidance_scale_2=1, seed=42, randomize_seed=False, quality=5,
+            input_image=handle_file(str(scene)), last_image=None, prompt=MOUVEMENT, steps=8, negative_prompt=NEGATIF,
+            duration_seconds=5, guidance_scale=1, guidance_scale_2=1, seed=42, randomize_seed=False, quality=10,
             scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16, safe_mode=False, video_component=True,
             api_name="/generate_video"), "i2v"))
 
