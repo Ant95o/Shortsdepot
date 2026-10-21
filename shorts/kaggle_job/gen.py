@@ -88,8 +88,24 @@ def depth_frames(shot: dict) -> list[Image.Image]:
 
 
 current = None  # (classe, pipeline, rapide) : un seul modèle en mémoire à la fois
-for shot in sorted(SHOTS, key=lambda s: "ref" in s):
-    cls = WanVACEPipeline if "ref" in shot else WanPipeline
+def first_frame(shot: dict) -> tuple[list[Image.Image], list[Image.Image]]:
+    """Prolonge un plan : la première image est imposée, Wan invente les 80 suivantes."""
+    if "suite" in shot:  # dernière image du plan précédent, généré plus haut dans ce script
+        start = Image.fromarray(iio.imread(OUT / shot["suite"])[-1]).convert("RGB").resize((WIDTH, HEIGHT))
+    else:
+        path = OUT / f"depart_{shot['out']}.jpg"
+        path.write_bytes(base64.b64decode(shot["depart"]))
+        start = Image.open(path).convert("RGB").resize((WIDTH, HEIGHT))
+    grey = Image.new("RGB", (WIDTH, HEIGHT), (127, 127, 127))
+    video = [start] + [grey] * (FRAMES - 1)
+    mask = [Image.new("L", (WIDTH, HEIGHT), 0)] + [Image.new("L", (WIDTH, HEIGHT), 255)] * (FRAMES - 1)
+    return video, mask
+
+
+VACE_KEYS = ("ref", "depart", "suite")
+# Tri stable : l'ordre des prolongements (plan puis sa suite) est conservé.
+for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
+    cls = WanVACEPipeline if any(k in shot for k in VACE_KEYS) else WanPipeline
     if current is None or current[0] is not cls:
         current = None
         gc.collect()
@@ -113,6 +129,10 @@ for shot in sorted(SHOTS, key=lambda s: "ref" in s):
     if "ref" in shot:
         args["video"] = depth_frames(shot)
         args["conditioning_scale"] = float(shot.get("force", 0.8))
+        if fast:
+            args["num_inference_steps"] = 8
+    elif "depart" in shot or "suite" in shot:
+        args["video"], args["mask"] = first_frame(shot)
         if fast:
             args["num_inference_steps"] = 8
     frames = pipe(**args).frames[0]

@@ -1,5 +1,7 @@
 # Trend « Ramalama » du 21/10 (marche costumée), version animale : un chat en Dracula.
-# Plans générés sur Kaggle ; le son de la trend s'ajoute dans l'appli au moment de publier.
+# Plan 1 : Hugging Face (Wan 2.2 14B). Plans 2 et 3 : prolongés sur Kaggle (Wan 2.1 VACE)
+# à partir de la dernière image du plan précédent, pour garder le même chat (~15 s au total).
+# Le son de la trend s'ajoute dans l'appli au moment de publier.
 generation:
   plans:
     - fichier: clips/ramalama-chat/plan1.mp4
@@ -8,6 +10,14 @@ generation:
     - fichier: clips/ramalama-chat/plan2.mp4
       graine: 7
       prompt: "A ginger cat in a black Dracula cape with a high red collar struts down a candlelit gothic corridor straight toward the camera, slow-motion runway walk, cape flowing, purple and orange Halloween light, fog on the floor. Realistic fur, cinematic, low camera."
+    - fichier: clips/ramalama-chat/suite1.mp4
+      depart: refs/trends/ramalama-fin.jpg
+      graine: 11
+      prompt: "The ginger cat dressed as Dracula, standing on its hind legs in the warm candlelit castle hallway, spreads its black and red cape wide like wings, opens its mouth to show tiny vampire fangs with a dramatic hiss, then strikes a confident pose. Low camera, realistic fur, cinematic lighting, smooth motion."
+    - fichier: clips/ramalama-chat/suite2.mp4
+      suite_de: clips/ramalama-chat/suite1.mp4
+      graine: 12
+      prompt: "The ginger cat dressed as Dracula drops back on four paws and struts confidently past the camera down the warm candlelit castle hallway like a runway model, its black cape with red lining swirling behind it. Low tracking camera, realistic fur, cinematic lighting, smooth motion."
 publication:
   titre: "Ramalama… version Dracula 🧛"
   hashtags: ["#ramalama", "#halloween", "#chat", "#dracula", "#pourtoi"]

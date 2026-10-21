@@ -8,6 +8,10 @@ Une fiche demande une génération avec une section :
   generation:
     plans:
       - {fichier: clips/xxx/plan1.mp4, prompt: "…", graine: 42}
+      # prolongement d'un plan existant (première image imposée, Wan 2.1 VACE) :
+      - {fichier: clips/xxx/plan3.mp4, prompt: "…", depart: refs/xxx-fin.jpg}
+      # puis prolongement du plan précédent généré dans le même envoi :
+      - {fichier: clips/xxx/plan4.mp4, prompt: "…", suite_de: clips/xxx/plan3.mp4}
       # avec une vidéo de référence (mouvements et cadrage repris, 5 s à partir de « debut ») :
       - {fichier: clips/xxx/plan2.mp4, prompt: "…", reference: refs/xxx.mp4, debut: 4.5, force: 0.8}
 """
@@ -62,6 +66,10 @@ def _shots(specs: list[Path]) -> list[dict]:
                 shot["reference"] = plan["reference"]
                 shot["debut"] = float(plan.get("debut", 0))
                 shot["force"] = float(plan.get("force", 0.8))
+            if plan.get("depart"):
+                shot["depart"] = plan["depart"]
+            if plan.get("suite_de"):  # prolonge un plan généré dans le même envoi
+                shot["suite"] = next(s["out"] for s in shots if s["fichier"] == plan["suite_de"])
             shots.append(shot)
     return shots
 
@@ -81,6 +89,10 @@ def preparer(folder: Path, user: str, specs: list[Path]) -> None:
         if "reference" in s:
             job["ref"] = _reference(Path(s["reference"]), s["debut"])
             job["force"] = s["force"]
+        if "suite" in s:
+            job["suite"] = s["suite"]
+        if "depart" in s:
+            job["depart"] = base64.b64encode(Path(s["depart"]).read_bytes()).decode()
         jobs.append(job)
     payload = json.dumps(jobs, ensure_ascii=False)
     (folder / "gen.py").write_text(TEMPLATE.read_text(encoding="utf-8").replace("__SHOTS__", payload), encoding="utf-8")
