@@ -176,5 +176,38 @@ def cles() -> None:
             safe_mode=False, video_component=True, api_name="/generate_video"), f"segment{i}"))
 
 
+# Plans des trends du 21/10 : image de départ (FLUX) puis animation (Wan 2.2 14B).
+PLANS_TRENDS = [
+    ("ramalama",
+     "Low angle shot at floor level in a dark gothic hallway lit by candles, an anthropomorphic ginger tabby cat "
+     "dressed as Dracula with a long black and red cape walks toward the camera on two legs, only its paws, legs "
+     "and the bottom of the cape are visible in the lower part of the frame, realistic fur, cinematic, vertical framing",
+     "The cat struts confidently toward the camera to the beat, the camera slowly tilts up from the paws to reveal "
+     "the whole cat dressed as Dracula, who stops, swirls his cape and shows his little vampire fangs, "
+     "smooth realistic motion, cinematic lighting", 5),
+    ("saxo",
+     "Cozy living room at dusk, a fluffy ginger tabby cat sits on a wooden shelf next to a fragile blue ceramic "
+     "vase standing right at the edge, the cat stares straight at the camera with a mischievous look, realistic "
+     "fur, cinematic, vertical framing",
+     "Slow dramatic push-in on the cat, the cat keeps staring at the camera, then slowly raises one paw toward "
+     "the vase, the vase starts to wobble at the edge of the shelf, tension builds, smooth realistic motion", 4),
+]
+
+
+def trends() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    for nom, prompt_image, mouvement, duree in PLANS_TRENDS:
+        if [a for a in sys.argv[2:] if a != nom and a in {p[0] for p in PLANS_TRENDS}]:
+            continue
+        depart = essai(f"image {nom}", lambda: image(prompt_image, f"{nom}_depart"))
+        if not depart:
+            continue
+        essai(f"vidéo {nom}", lambda: copier(Client(SPACES["i2v"]).predict(
+            input_image=handle_file(str(depart)), last_image=None, prompt=mouvement, steps=6, negative_prompt=NEGATIF,
+            duration_seconds=duree, guidance_scale=1, guidance_scale_2=1, seed=42, randomize_seed=False, quality=10,
+            scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16, safe_mode=False, video_component=True,
+            api_name="/generate_video"), nom))
+
+
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends}[sys.argv[1]]()
