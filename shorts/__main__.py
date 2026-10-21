@@ -24,6 +24,9 @@ def main() -> None:
 
     for path in args.specs:
         spec = yaml.safe_load(path.read_text(encoding="utf-8"))
+        if "gabarit" not in spec:
+            print(f"{path} : pas de gabarit (plans seuls, montés à part), rendu sauté")
+            continue
         missing = [c for c in spec.get("clips", []) if not Path(c).exists()]
         if missing:
             print(f"{path} : en attente des clips {', '.join(missing)}, rendu sauté")
