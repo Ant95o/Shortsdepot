@@ -14,17 +14,13 @@ OUT = Path("essais/sons")
 UA = {"User-Agent": "Shortsdepot/1.0 (https://github.com/Ant95o/Shortsdepot)"}
 LIBRES = ("public domain", "cc0", "pd", "cc by", "cc-by")
 RECHERCHES = {
-    "toccata": "Toccata and Fugue in D minor BWV 565 organ",
-    "orgue": "spooky organ",
-    "miaou": "cat meow",
-    "feulement": "cat hiss",
-    "ronron": "cat purr",
-    "rire": "evil laugh",
     "tonnerre": "thunder",
-    "coeur": "heartbeat",
-    "saxophone": "saxophone jazz solo",
-    "chauvesouris": "bats",
-    "loup": "wolf howl",
+    "orage": "thunderstorm",
+    "coeur": "heart beat",
+    "saxophone": "saxophone",
+    "sax": "tenor saxophone",
+    "loup": "wolf howling",
+    "rire": "laugh",
 }
 
 
@@ -36,7 +32,7 @@ def api(**params) -> dict:
 
 def chercher(cle: str, texte: str, n: int = 4) -> list[dict]:
     res = api(action="query", generator="search", gsrsearch=f"{texte} filetype:audio", gsrnamespace=6,
-              gsrlimit=15, prop="imageinfo", iiprop="url|size|mime|extmetadata")
+              gsrlimit=40, prop="imageinfo", iiprop="url|size|mime|extmetadata")
     trouves = []
     for page in (res.get("query", {}).get("pages", {}) or {}).values():
         info = (page.get("imageinfo") or [{}])[0]
