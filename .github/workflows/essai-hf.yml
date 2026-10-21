@@ -29,12 +29,12 @@ jobs:
       - name: Sauvegarde des sorties sur la branche essais
         if: always()
         run: |
-          [ -d essais/sortie ] || exit 0
+          [ -n "$(ls -A essais/sortie 2>/dev/null)" ] || exit 0
           cp -r essais/sortie /tmp/sortie
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin essais || true
           git checkout -B essais origin/essais 2>/dev/null || git checkout --orphan essais
           git rm -rfq . || true
-          mkdir -p sortie && cp -r /tmp/sortie/* sortie/
+          [ -n "$(ls -A /tmp/sortie)" ] || exit 0; mkdir -p sortie && cp -r /tmp/sortie/* sortie/
           git add sortie && git commit -qm "Essai Spaces Hugging Face" && git push origin essais
