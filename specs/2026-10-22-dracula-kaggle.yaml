@@ -1,0 +1,12 @@
+# Essai du 22/10 : Wan 2.2 5B sur Kaggle (sans quota) contre Wan 2.2 14B sur Hugging Face,
+# même chat Dracula en rendu « vidéo de téléphone ». Plans seuls, montés à part.
+generation:
+  plans:
+    - fichier: clips/dracula-kaggle/plan1.mp4
+      modele: wan22-5b
+      graine: 42
+      prompt: "Handheld smartphone video filmed at floor level in a real apartment hallway at night with warm ceiling lights and a wooden floor. A real ginger tabby cat wearing a small black Dracula cape with red lining and a stand-up collar walks slowly and confidently straight toward the camera like a model on a runway, the cape gently bouncing. Natural colors, photorealistic, sharp focus, realistic cat walk."
+    - fichier: clips/dracula-kaggle/plan2.mp4
+      modele: wan22-5b
+      graine: 7
+      prompt: "Handheld smartphone video filmed at floor level in a real apartment hallway at night with warm ceiling lights and a wooden floor. A real ginger tabby cat wearing a small black Dracula cape with red lining sits right in front of the camera, looks up into the lens, then opens its mouth wide and hisses, showing its sharp little fangs, ears flattening back. Natural colors, photorealistic, sharp focus."

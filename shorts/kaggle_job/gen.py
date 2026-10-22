@@ -34,6 +34,7 @@ from huggingface_hub import hf_hub_download  # noqa: E402
 from PIL import Image  # noqa: E402
 
 T2V = "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+TI2V = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"  # Wan 2.2 5B, plus net ; plans avec « modele: wan22-5b »
 VACE = "Wan-AI/Wan2.1-VACE-1.3B-diffusers"
 DEPTH = "depth-anything/Depth-Anything-V2-Small-hf"
 LORA = ("Kijai/WanVideo_comfy", "Wan21_CausVid_bidirect2_T2V_1_3B_lora_rank32.safetensors")
@@ -56,12 +57,14 @@ def load(cls, model: str, flow_shift: float):
     pipe = cls.from_pretrained(model, vae=vae, torch_dtype=dtype)
     pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config, flow_shift=flow_shift)
     try:
+        if model == TI2V:
+            raise ValueError("pas de LoRA CausVid pour Wan 2.2")
         pipe.load_lora_weights(hf_hub_download(*LORA), adapter_name="causvid")
         pipe.set_adapters(["causvid"], [0.95 if cls is WanPipeline else 0.7])
         pipe.fuse_lora()
         fast = True
     except Exception as exc:  # LoRA incompatible : génération classique, plus lente
-        print(f"LoRA CausVid non chargé ({exc}), génération en 25 étapes", flush=True)
+        print(f"LoRA CausVid non chargé ({exc}), génération sans accélération", flush=True)
         fast = False
     pipe.enable_model_cpu_offload()
     try:
@@ -105,13 +108,15 @@ def first_frame(shot: dict) -> tuple[list[Image.Image], list[Image.Image]]:
 VACE_KEYS = ("ref", "depart", "suite")
 # Tri stable : l'ordre des prolongements (plan puis sa suite) est conservé.
 for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
+    wan22 = shot.get("modele") == "wan22-5b"
     cls = WanVACEPipeline if any(k in shot for k in VACE_KEYS) else WanPipeline
-    if current is None or current[0] is not cls:
+    model = TI2V if wan22 else VACE if cls is WanVACEPipeline else T2V
+    if current is None or current[:2] != (cls, model):
         current = None
         gc.collect()
         torch.cuda.empty_cache()
-        current = (cls, *load(cls, VACE if cls is WanVACEPipeline else T2V, 3.0 if cls is WanVACEPipeline else 8.0))
-    _, pipe, fast = current
+        current = (cls, model, *load(cls, model, 5.0 if wan22 else 3.0 if cls is WanVACEPipeline else 8.0))
+    _, _, pipe, fast = current
     print(f"Génération de {shot['out']}{' (avec référence)' if 'ref' in shot else ''}…", flush=True)
     # Le texte est encodé à part puis l'encodeur (11 Go) est renvoyé en RAM : sinon il reste
     # sur le GPU pendant l'encodage de la vidéo de contrôle et le T4 (15 Go) déborde.
@@ -126,6 +131,8 @@ for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
         num_inference_steps=6 if fast else 25, guidance_scale=1.0 if fast else 5.0,
         generator=torch.Generator("cuda").manual_seed(int(shot.get("seed", 42))),
     )
+    if wan22:  # 5 s à 24 i/s, la cadence native de Wan 2.2 ; dimensions multiples de 32
+        args.update(height=960, width=544, num_frames=121, num_inference_steps=30)
     if "ref" in shot:
         args["video"] = depth_frames(shot)
         args["conditioning_scale"] = float(shot.get("force", 0.8))
@@ -136,5 +143,5 @@ for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
         if fast:
             args["num_inference_steps"] = 8
     frames = pipe(**args).frames[0]
-    export_to_video(frames, str(OUT / shot["out"]), fps=16)
+    export_to_video(frames, str(OUT / shot["out"]), fps=24 if wan22 else 16)
     print(f"{shot['out']} prêt", flush=True)

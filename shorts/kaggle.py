@@ -8,6 +8,8 @@ Une fiche demande une génération avec une section :
   generation:
     plans:
       - {fichier: clips/xxx/plan1.mp4, prompt: "…", graine: 42}
+      # avec Wan 2.2 5B (plus net, plus lent, texte seul) :
+      - {fichier: clips/xxx/plan5.mp4, prompt: "…", modele: wan22-5b}
       # prolongement d'un plan existant (première image imposée, Wan 2.1 VACE) :
       - {fichier: clips/xxx/plan3.mp4, prompt: "…", depart: refs/xxx-fin.jpg}
       # puis prolongement du plan précédent généré dans le même envoi :
@@ -68,6 +70,8 @@ def _shots(specs: list[Path]) -> list[dict]:
                 shot["force"] = float(plan.get("force", 0.8))
             if plan.get("depart"):
                 shot["depart"] = plan["depart"]
+            if plan.get("modele"):
+                shot["modele"] = plan["modele"]
             if plan.get("suite_de"):  # prolonge un plan généré dans le même envoi
                 shot["suite"] = next(s["out"] for s in shots if s["fichier"] == plan["suite_de"])
             shots.append(shot)
@@ -85,7 +89,7 @@ def preparer(folder: Path, user: str, specs: list[Path]) -> None:
     folder.mkdir(parents=True, exist_ok=True)
     jobs = []
     for s in shots:
-        job = {k: s[k] for k in ("out", "prompt", "seed")}
+        job = {k: s[k] for k in ("out", "prompt", "seed", "modele") if k in s}
         if "reference" in s:
             job["ref"] = _reference(Path(s["reference"]), s["debut"])
             job["force"] = s["force"]
