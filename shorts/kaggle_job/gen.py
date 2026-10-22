@@ -28,7 +28,8 @@ os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
 import imageio.v3 as iio  # noqa: E402
 import torch  # noqa: E402
-from diffusers import AutoencoderKLWan, UniPCMultistepScheduler, WanPipeline, WanVACEPipeline  # noqa: E402
+from diffusers import (AutoencoderKLWan, UniPCMultistepScheduler, WanImageToVideoPipeline, WanPipeline,  # noqa: E402
+                       WanVACEPipeline)  # noqa: E402
 from diffusers.utils import export_to_video  # noqa: E402
 from huggingface_hub import hf_hub_download  # noqa: E402
 from PIL import Image  # noqa: E402
@@ -91,14 +92,18 @@ def depth_frames(shot: dict) -> list[Image.Image]:
 
 
 current = None  # (classe, pipeline, rapide) : un seul modèle en mémoire à la fois
+def start_image(shot: dict, size: tuple[int, int]) -> Image.Image:
+    """Image imposée au début du plan : fin du plan précédent (« suite ») ou image jointe (« depart »)."""
+    if "suite" in shot:  # dernière image du plan précédent, généré plus haut dans ce script
+        return Image.fromarray(iio.imread(OUT / shot["suite"])[-1]).convert("RGB").resize(size)
+    path = OUT / f"depart_{shot['out']}.jpg"
+    path.write_bytes(base64.b64decode(shot["depart"]))
+    return Image.open(path).convert("RGB").resize(size)
+
+
 def first_frame(shot: dict) -> tuple[list[Image.Image], list[Image.Image]]:
     """Prolonge un plan : la première image est imposée, Wan invente les 80 suivantes."""
-    if "suite" in shot:  # dernière image du plan précédent, généré plus haut dans ce script
-        start = Image.fromarray(iio.imread(OUT / shot["suite"])[-1]).convert("RGB").resize((WIDTH, HEIGHT))
-    else:
-        path = OUT / f"depart_{shot['out']}.jpg"
-        path.write_bytes(base64.b64decode(shot["depart"]))
-        start = Image.open(path).convert("RGB").resize((WIDTH, HEIGHT))
+    start = start_image(shot, (WIDTH, HEIGHT))
     grey = Image.new("RGB", (WIDTH, HEIGHT), (127, 127, 127))
     video = [start] + [grey] * (FRAMES - 1)
     mask = [Image.new("L", (WIDTH, HEIGHT), 0)] + [Image.new("L", (WIDTH, HEIGHT), 255)] * (FRAMES - 1)
@@ -109,7 +114,10 @@ VACE_KEYS = ("ref", "depart", "suite")
 # Tri stable : l'ordre des prolongements (plan puis sa suite) est conservé.
 for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
     wan22 = shot.get("modele") == "wan22-5b"
-    cls = WanVACEPipeline if any(k in shot for k in VACE_KEYS) else WanPipeline
+    if wan22:  # Wan 2.2 5B fait texte→vidéo et image→vidéo : la suite d'un plan part de sa dernière image
+        cls = WanImageToVideoPipeline if any(k in shot for k in ("depart", "suite")) else WanPipeline
+    else:
+        cls = WanVACEPipeline if any(k in shot for k in VACE_KEYS) else WanPipeline
     model = TI2V if wan22 else VACE if cls is WanVACEPipeline else T2V
     if current is None or current[:2] != (cls, model):
         current = None
@@ -132,12 +140,14 @@ for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
         generator=torch.Generator("cuda").manual_seed(int(shot.get("seed", 42))),
     )
     if wan22:  # 5 s à 24 i/s, la cadence native de Wan 2.2 ; dimensions multiples de 32
-        args.update(height=960, width=544, num_frames=121, num_inference_steps=30)
+        args.update(height=960, width=544, num_frames=121, num_inference_steps=40)
     if "ref" in shot:
         args["video"] = depth_frames(shot)
         args["conditioning_scale"] = float(shot.get("force", 0.8))
         if fast:
             args["num_inference_steps"] = 8
+    elif wan22 and ("depart" in shot or "suite" in shot):
+        args["image"] = start_image(shot, (544, 960))
     elif "depart" in shot or "suite" in shot:
         args["video"], args["mask"] = first_frame(shot)
         if fast:
