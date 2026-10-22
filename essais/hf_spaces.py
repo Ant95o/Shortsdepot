@@ -209,5 +209,44 @@ def trends() -> None:
             api_name="/generate_video"), nom))
 
 
+# Chat Dracula v2 (22/10) : rendu « vidéo de téléphone » dans un vrai couloir d'appartement, plutôt
+# qu'un château de cinéma ; un seul plan continu prolongé depuis sa dernière image (même modèle partout).
+DRACULA_IMAGE = (
+    "Smartphone photo, vertical, taken at floor level in a real apartment hallway at night, warm ceiling lights, "
+    "wooden floor, a real ginger tabby cat wearing a small black Dracula cape with a red lining and a stand-up "
+    "collar, standing on four paws at the far end of the hallway looking at the camera, natural colors, sharp focus, "
+    "photorealistic, no text")
+DRACULA_PLANS = [
+    ("dracula_a", "Handheld phone footage at floor level: the cat in the Dracula cape walks slowly and confidently "
+     "straight toward the camera along the hallway, like a model on a runway, the cape gently bouncing, "
+     "realistic natural cat walk, smooth motion, sharp details"),
+    ("dracula_b", "Handheld phone footage: the cat in the Dracula cape stops right in front of the camera, looks up "
+     "into the lens, then opens its mouth wide and hisses, showing its sharp little fangs, ears flattening back, "
+     "realistic cat hissing, smooth motion, sharp details"),
+]
+
+
+def derniere_image(video: Path) -> Path:
+    sortie = video.with_name(video.stem + "_fin.png")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-sseof", "-0.1", "-i", str(video), "-frames:v", "1", str(sortie)],
+                   check=True)
+    return sortie
+
+
+def dracula() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    depart = essai("image dracula", lambda: image(DRACULA_IMAGE, "dracula_depart"))
+    for nom, mouvement in DRACULA_PLANS:
+        if not depart:
+            return
+        essai(f"vidéo {nom}", lambda: copier(Client(SPACES["i2v"]).predict(
+            input_image=handle_file(str(depart)), last_image=None, prompt=mouvement, steps=8, negative_prompt=NEGATIF,
+            duration_seconds=5, guidance_scale=1, guidance_scale_2=1, seed=42, randomize_seed=False, quality=10,
+            scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16, safe_mode=False, video_component=True,
+            api_name="/generate_video"), nom))
+        video = OUT / f"{nom}.mp4"
+        depart = derniere_image(video) if video.exists() else None
+
+
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula}[sys.argv[1]]()
