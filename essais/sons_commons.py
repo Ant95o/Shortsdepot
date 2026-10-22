@@ -1,4 +1,4 @@
-"""Cherche des sons libres (domaine public / CC) sur Wikimedia Commons et les télécharge.
+"""Cherche des sons ou vidéos libres (domaine public / CC) sur Wikimedia Commons et les télécharge.
 
   python essais/sons_commons.py   → essais/sons/*.(ogg|mp3|wav|flac) + essais/sons/liste.json
 """
@@ -14,14 +14,13 @@ OUT = Path("essais/sons")
 UA = {"User-Agent": "Shortsdepot/1.0 (https://github.com/Ant95o/Shortsdepot)"}
 LIBRES = ("public domain", "cc0", "pd", "cc by", "cc-by")
 RECHERCHES = {
-    "tonnerre": "thunder",
-    "orage": "thunderstorm",
-    "coeur": "heart beat",
-    "saxophone": "saxophone",
-    "sax": "tenor saxophone",
-    "loup": "wolf howling",
-    "rire": "laugh",
+    "chat_marche": "cat walking",
+    "chat_vers_camera": "cat walking towards camera",
+    "chat_roux": "ginger cat video",
+    "couloir": "castle corridor candles",
+    "chat_feule": "cat hissing video",
 }
+TYPE = "video"  # « audio » pour les sons
 
 
 def api(**params) -> dict:
@@ -30,8 +29,8 @@ def api(**params) -> dict:
         return json.load(r)
 
 
-def chercher(cle: str, texte: str, n: int = 4) -> list[dict]:
-    res = api(action="query", generator="search", gsrsearch=f"{texte} filetype:audio", gsrnamespace=6,
+def chercher(cle: str, texte: str, n: int = 6) -> list[dict]:
+    res = api(action="query", generator="search", gsrsearch=f"{texte} filetype:{TYPE}", gsrnamespace=6,
               gsrlimit=40, prop="imageinfo", iiprop="url|size|mime|extmetadata")
     trouves = []
     for page in (res.get("query", {}).get("pages", {}) or {}).values():
@@ -40,7 +39,7 @@ def chercher(cle: str, texte: str, n: int = 4) -> list[dict]:
         licence = meta.get("LicenseShortName", {}).get("value", "")
         if not any(l in licence.lower() for l in LIBRES) or "nc" in licence.lower().split():
             continue
-        if info.get("size", 0) > 25_000_000:
+        if info.get("size", 0) > 60_000_000:
             continue
         auteur = re.sub("<[^>]+>", "", meta.get("Artist", {}).get("value", ""))[:120]
         trouves.append({"cle": cle, "titre": page["title"], "url": info["url"], "licence": licence,
