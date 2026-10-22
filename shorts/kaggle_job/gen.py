@@ -142,7 +142,29 @@ for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
         args["video"], args["mask"] = first_frame(shot)
         if fast:
             args["num_inference_steps"] = 8
-    frames = pipe(**args).frames[0]
+    if wan22:
+        # Le décodage VAE de 121 images fait déborder les 30 Go de RAM tant que le transformeur
+        # et l'encodeur de texte sont chargés : on sort les latents, on les libère, puis on décode.
+        args["output_type"] = "latent"
+        latents = pipe(**args).frames
+        vae, processor = pipe.vae, pipe.video_processor
+        current = pipe = None
+        gc.collect()
+        torch.cuda.empty_cache()
+        with torch.no_grad():
+            latents = latents.to("cuda", vae.dtype)
+            z = vae.config.z_dim
+            mean = torch.tensor(vae.config.latents_mean).view(1, z, 1, 1, 1).to(latents)
+            std = torch.tensor(vae.config.latents_std).view(1, z, 1, 1, 1).to(latents)
+            try:
+                vae.to("cuda")
+            except Exception:  # le crochet d'offload s'en charge alors au décodage
+                pass
+            video = vae.decode(latents * std + mean, return_dict=False)[0]
+        frames = processor.postprocess_video(video.cpu(), output_type="np")[0]
+        del vae, latents, video
+    else:
+        frames = pipe(**args).frames[0]
     export_to_video(frames, str(OUT / shot["out"]), fps=24 if wan22 else 16)
     print(f"{shot['out']} prêt", flush=True)
     # Libère la RAM entre deux plans : sans ça, le 2e plan Wan 2.2 5B dépasse les 30 Go de Kaggle.
