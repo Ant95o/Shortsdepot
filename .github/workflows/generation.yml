@@ -7,6 +7,11 @@ on:
   push:
     paths: ["specs/**", "refs/**", "shorts/kaggle.py", "shorts/kaggle_job/**", ".github/workflows/generation.yml"]
   workflow_dispatch:
+    inputs:
+      recuperer:
+        description: "Récupérer seulement les plans déjà générés par le dernier notebook Kaggle (sans relancer)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -59,21 +64,27 @@ jobs:
           compte=$(python -c "from kaggle.api.kaggle_api_extended import KaggleApi as K; a=K(); a.authenticate(); print(a.config_values['username'])")
           echo "Compte Kaggle : $compte"
           export KAGGLE_USERNAME="$compte"
-          python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
-          python -m shorts.kaggle pousser build/kernel NvidiaTeslaT4
           kernel="$KAGGLE_USERNAME/shortsdepot-generation"
-          sleep 60
-          for i in $(seq 1 200); do
-            status=$(kaggle kernels status "$kernel" 2>&1 || true)
-            echo "$status"
-            case "$status" in
-              *COMPLETE*|*complete*) break ;;
-              *ERROR*|*error*|*CANCEL*|*cancel*) kaggle kernels output "$kernel" -p build/sortie || true; tail -50 build/sortie/*.log 2>/dev/null; exit 1 ;;
-            esac
+          echec=0
+          if [ "${{ inputs.recuperer }}" != "true" ]; then
+            python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
+            python -m shorts.kaggle pousser build/kernel NvidiaTeslaT4
             sleep 60
-          done
-          kaggle kernels output "$kernel" -p build/sortie
-          python -m shorts.kaggle recuperer build/sortie ${{ steps.fiches.outputs.liste }}
+            for i in $(seq 1 200); do
+              status=$(kaggle kernels status "$kernel" 2>&1 || true)
+              echo "$status"
+              case "$status" in
+                *COMPLETE*|*complete*) break ;;
+                *ERROR*|*error*|*CANCEL*|*cancel*) echec=1; break ;;
+              esac
+              sleep 60
+            done
+          fi
+          kaggle kernels output "$kernel" -p build/sortie || true
+          [ "$echec" = 1 ] && tail -50 build/sortie/*.log 2>/dev/null
+          # Les plans réussis sont gardés même si le notebook a planté sur un plan suivant.
+          python -m shorts.kaggle recuperer build/sortie ${{ steps.fiches.outputs.liste }} || echec=1
+          echo "echec=$echec" >> "$GITHUB_ENV"
 
       - name: Ajout des clips et lancement du rendu
         if: steps.fiches.outputs.liste != ''
@@ -83,6 +94,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add clips/
-          git commit -m "Clips générés sur Kaggle"
-          git push origin HEAD:${{ github.ref_name }}
-          gh workflow run rendu.yml --ref ${{ github.ref_name }}
+          if git diff --cached --quiet; then echo "Aucun clip récupéré."; else
+            git commit -m "Clips générés sur Kaggle"
+            git push origin HEAD:${{ github.ref_name }}
+            gh workflow run rendu.yml --ref ${{ github.ref_name }}
+          fi
+          [ "$echec" != 1 ] || { echo "::error::Le notebook Kaggle a échoué sur au moins un plan."; exit 1; }

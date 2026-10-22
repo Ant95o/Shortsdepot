@@ -126,13 +126,18 @@ def pousser(folder: Path, accelerator: str) -> None:
 
 
 def recuperer(output: Path, specs: list[Path]) -> None:
+    """Copie les plans présents dans la sortie Kaggle ; échoue à la fin s'il en manque."""
+    manquants = []
     for shot in _shots(specs):
         src = output / shot["out"]
         if not src.exists():
-            sys.exit(f"Plan absent de la sortie Kaggle : {shot['out']} ({shot['fichier']})")
+            manquants.append(f"{shot['out']} ({shot['fichier']})")
+            continue
         Path(shot["fichier"]).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(src, shot["fichier"])
         print(f"{shot['fichier']} récupéré")
+    if manquants:
+        sys.exit("Plans absents de la sortie Kaggle : " + ", ".join(manquants))
 
 
 if __name__ == "__main__":

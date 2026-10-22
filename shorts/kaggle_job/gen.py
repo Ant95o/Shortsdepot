@@ -145,3 +145,7 @@ for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
     frames = pipe(**args).frames[0]
     export_to_video(frames, str(OUT / shot["out"]), fps=24 if wan22 else 16)
     print(f"{shot['out']} prêt", flush=True)
+    # Libère la RAM entre deux plans : sans ça, le 2e plan Wan 2.2 5B dépasse les 30 Go de Kaggle.
+    del frames, args, embeds, negative
+    gc.collect()
+    torch.cuda.empty_cache()
