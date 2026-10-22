@@ -20,7 +20,7 @@ from pathlib import Path
 
 subprocess.run(
     [sys.executable, "-m", "pip", "install", "-q", "diffusers>=0.35", "transformers", "accelerate",
-     "peft", "ftfy", "imageio", "imageio-ffmpeg"],
+     "peft", "ftfy", "imageio", "imageio-ffmpeg", "spandrel"],
     check=True,
 )
 
@@ -92,6 +92,29 @@ def depth_frames(shot: dict) -> list[Image.Image]:
 
 
 current = None  # (classe, pipeline, rapide) : un seul modèle en mémoire à la fois
+def upscale(frames):
+    """Real-ESRGAN x2 image par image : rend le détail (poils, yeux) que Wan 2.2 5B laisse un peu flou."""
+    try:
+        import numpy as np
+        from spandrel import ModelLoader
+
+        model = ModelLoader().load_from_file(hf_hub_download("ai-forever/Real-ESRGAN", "RealESRGAN_x2.pth"))
+        model = model.model.half().cuda().eval()
+        out = []
+        with torch.no_grad():
+            for f in frames:
+                x = torch.from_numpy(np.ascontiguousarray(f)).permute(2, 0, 1)[None].half().cuda()
+                y = model(x).clamp(0, 1)[0].permute(1, 2, 0).float().cpu().numpy()
+                out.append(Image.fromarray((y * 255).round().astype(np.uint8)))  # PIL : export_to_video ne le remultiplie pas
+        del model
+        torch.cuda.empty_cache()
+        print(f"agrandi en {out[0].width}x{out[0].height}", flush=True)
+        return out
+    except Exception as exc:  # l'agrandissement est un bonus : sans lui le plan reste livrable
+        print(f"agrandissement Real-ESRGAN impossible ({exc}), plan gardé en 544x960", flush=True)
+        return frames
+
+
 def start_image(shot: dict, size: tuple[int, int]) -> Image.Image:
     """Image imposée au début du plan : fin du plan précédent (« suite ») ou image jointe (« depart »)."""
     if "suite" in shot:  # dernière image du plan précédent, généré plus haut dans ce script
@@ -171,7 +194,7 @@ for shot in sorted(SHOTS, key=lambda s: any(k in s for k in VACE_KEYS)):
             except Exception:  # le crochet d'offload s'en charge alors au décodage
                 pass
             video = vae.decode(latents * std + mean, return_dict=False)[0]
-        frames = processor.postprocess_video(video.cpu(), output_type="np")[0]
+        frames = upscale(processor.postprocess_video(video.cpu(), output_type="np")[0])
         del vae, latents, video
     else:
         frames = pipe(**args).frames[0]
