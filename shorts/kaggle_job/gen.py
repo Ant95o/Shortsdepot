@@ -67,6 +67,10 @@ def load(cls, model: str, flow_shift: float):
     except Exception as exc:  # LoRA incompatible : génération classique, plus lente
         print(f"LoRA CausVid non chargé ({exc}), génération sans accélération", flush=True)
         fast = False
+    if cls is WanImageToVideoPipeline:
+        # En image→vidéo, Wan 2.2 calcule un pas de temps par jeton : ~3 Go de plus sur le GPU et le T4
+        # (15 Go) déborde. Les poids du transformeur sont stockés en fp8 et repassés en fp16 couche par couche.
+        pipe.transformer.enable_layerwise_casting(storage_dtype=torch.float8_e4m3fn, compute_dtype=dtype)
     pipe.enable_model_cpu_offload()
     try:
         pipe.vae.enable_tiling()  # l'encodage de la vidéo de contrôle tient alors sur le T4
