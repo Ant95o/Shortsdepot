@@ -96,7 +96,7 @@ jobs:
           git add clips/
           if git diff --cached --quiet; then echo "Aucun clip récupéré."; else
             git commit -m "Clips générés sur Kaggle"
-            git push origin HEAD:${{ github.ref_name }}
+            git pull --rebase -q origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }}
             gh workflow run rendu.yml --ref ${{ github.ref_name }}
           fi
           [ "$echec" != 1 ] || { echo "::error::Le notebook Kaggle a échoué sur au moins un plan."; exit 1; }
