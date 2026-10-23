@@ -58,6 +58,14 @@ def _reference(path: Path, start: float) -> str:
         return base64.b64encode(clip.read_bytes()).decode()
 
 
+def _derniere_image(video: Path) -> str:
+    """Dernière image d'un plan déjà généré, enregistrée à côté de lui pour servir de départ."""
+    image = video.with_name(video.stem + "_fin.jpg")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-sseof", "-0.1", "-i", str(video),
+                    "-frames:v", "1", "-q:v", "2", str(image)], check=True)
+    return str(image)
+
+
 def _shots(specs: list[Path]) -> list[dict]:
     shots = []
     for spec in specs:
@@ -72,8 +80,12 @@ def _shots(specs: list[Path]) -> list[dict]:
                 shot["depart"] = plan["depart"]
             if plan.get("modele"):
                 shot["modele"] = plan["modele"]
-            if plan.get("suite_de"):  # prolonge un plan généré dans le même envoi
-                shot["suite"] = next(s["out"] for s in shots if s["fichier"] == plan["suite_de"])
+            if plan.get("suite_de"):  # prolonge un plan généré dans le même envoi, ou déjà présent
+                prev = next((s["out"] for s in shots if s["fichier"] == plan["suite_de"]), None)
+                if prev:
+                    shot["suite"] = prev
+                else:
+                    shot["depart"] = _derniere_image(Path(plan["suite_de"]))
             shots.append(shot)
     return shots
 
