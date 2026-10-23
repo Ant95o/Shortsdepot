@@ -3,8 +3,6 @@ name: Essai Spaces Hugging Face (Wan 2.2)
 # Essai des démos gratuites de Wan 2.2 14B sur Hugging Face, sans carte bancaire.
 # Secret facultatif : HF_TOKEN (compte Hugging Face gratuit, plus de quota GPU).
 on:
-  push:
-    paths: ["essais/hf_spaces.py", ".github/workflows/essai-hf.yml"]
   workflow_dispatch:
     inputs:
       etape:
