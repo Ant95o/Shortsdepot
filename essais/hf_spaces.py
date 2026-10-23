@@ -250,6 +250,21 @@ SQUELETTE_PLANS = [
 ]
 
 
+# Variante « ça bouge » (demandée le 23/10) : le squelette se lève et danse comme Mercredi, le chat le regarde.
+DANSE_PLANS = [
+    ("danse_a", "Handheld phone footage at night, static framing: the plastic skeleton suddenly stands up from the "
+     "rocking chair and starts dancing on the porch, jerky robotic arm moves and head tilts like a creepy gothic "
+     "dance, while the ginger cat sitting on the path watches it, realistic, smooth motion, sharp details"),
+    ("danse_b", "Handheld phone footage at night, static framing: the skeleton keeps dancing energetically on the "
+     "porch, swinging its arms and kicking its legs to the beat, the ginger cat jumps back in surprise, realistic, "
+     "smooth motion, sharp details"),
+]
+
+
+def danse() -> None:
+    histoire(SQUELETTE_IMAGE, DANSE_PLANS, "danse")
+
+
 def squelette() -> None:
     histoire(SQUELETTE_IMAGE, SQUELETTE_PLANS, "squelette")
 
@@ -275,4 +290,4 @@ def histoire(texte_image: str, plans: list[tuple[str, str]], nom_image: str) -> 
 
 
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse}[sys.argv[1]]()
