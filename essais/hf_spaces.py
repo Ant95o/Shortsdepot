@@ -233,10 +233,35 @@ def derniere_image(video: Path) -> Path:
     return sortie
 
 
+# Trend « Goo Goo Muck » (23/10) : la déco d'Halloween qui prend vie, en vidéo de téléphone réaliste.
+SQUELETTE_IMAGE = (
+    "Smartphone photo, vertical, taken at night from the front path of a real suburban house, a wooden front porch "
+    "decorated for Halloween with a life-size plastic skeleton sitting on a rocking chair, three glowing carved "
+    "jack-o'-lanterns on the steps, warm porch light, a real ginger tabby cat on the left of the porch floor, "
+    "natural colors, sharp focus, photorealistic, no text")
+SQUELETTE_PLANS = [
+    ("squelette_a", "Handheld phone footage at night: the ginger cat walks slowly along the porch from left to right, "
+     "passing in front of the seated skeleton; as the cat passes, the skeleton's skull slowly turns its head to "
+     "follow the cat, the rest of the skeleton stays still, realistic, smooth motion, sharp details"),
+    ("squelette_b", "Handheld phone footage at night: the ginger cat suddenly stops, freezes and turns its head to "
+     "stare at the skeleton, its fur puffing up and its back arching, while the skeleton's skull keeps staring "
+     "at the cat, realistic cat reaction, smooth motion, sharp details"),
+]
+
+
+def squelette() -> None:
+    histoire(SQUELETTE_IMAGE, SQUELETTE_PLANS, "squelette")
+
+
 def dracula() -> None:
+    histoire(DRACULA_IMAGE, DRACULA_PLANS, "dracula")
+
+
+def histoire(texte_image: str, plans: list[tuple[str, str]], nom_image: str) -> None:
+    """Image de départ FLUX puis plans image→vidéo enchaînés, chacun partant de la dernière image du précédent."""
     OUT.mkdir(parents=True, exist_ok=True)
-    depart = essai("image dracula", lambda: image(DRACULA_IMAGE, "dracula_depart"))
-    for nom, mouvement in DRACULA_PLANS:
+    depart = essai(f"image {nom_image}", lambda: image(texte_image, f"{nom_image}_depart"))
+    for nom, mouvement in plans:
         if not depart:
             return
         essai(f"vidéo {nom}", lambda: copier(Client(SPACES["i2v"]).predict(
@@ -249,4 +274,4 @@ def dracula() -> None:
 
 
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette}[sys.argv[1]]()

@@ -1,0 +1,18 @@
+# Trend du 23/10 « Goo Goo Muck » : la déco d'Halloween qui prend vie. Histoire continue de 15 s sur
+# Kaggle (Wan 2.2 5B), chaque plan part de la dernière image du précédent. Son TikTok ajouté à la publication.
+generation:
+  plans:
+    - fichier: clips/squelette/plan1.mp4
+      modele: wan22-5b
+      graine: 42
+      prompt: "Handheld smartphone video filmed at night from the front path of a real suburban house. A wooden front porch decorated for Halloween with a life-size plastic skeleton sitting still on a rocking chair, three glowing carved jack-o'-lanterns on the steps, warm porch light. A real ginger tabby cat walks slowly along the porch from left to right toward the skeleton. Natural colors, photorealistic, sharp focus, crisp detail, realistic cat walk."
+    - fichier: clips/squelette/plan2.mp4
+      modele: wan22-5b
+      graine: 11
+      suite_de: clips/squelette/plan1.mp4
+      prompt: "Handheld smartphone video at night on a Halloween porch. The ginger tabby cat walks past the seated plastic skeleton, and the skeleton's skull slowly turns its head to follow the cat, while the rest of the skeleton stays perfectly still. Natural colors, photorealistic, sharp focus, crisp detail, smooth realistic motion."
+    - fichier: clips/squelette/plan3.mp4
+      modele: wan22-5b
+      graine: 7
+      suite_de: clips/squelette/plan2.mp4
+      prompt: "Handheld smartphone video at night on a Halloween porch. The ginger tabby cat suddenly freezes and stares at the skeleton, its fur puffing up and its back arching, while the skeleton's skull keeps staring at the cat. Natural colors, photorealistic, sharp focus, crisp detail, realistic cat reaction."
