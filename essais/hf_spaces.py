@@ -240,12 +240,13 @@ SQUELETTE_IMAGE = (
     "jack-o'-lanterns on the steps, warm porch light, a real ginger tabby cat on the left of the porch floor, "
     "natural colors, sharp focus, photorealistic, no text")
 SQUELETTE_PLANS = [
-    ("squelette_a", "Handheld phone footage at night: the ginger cat walks slowly along the porch from left to right, "
-     "passing in front of the seated skeleton; as the cat passes, the skeleton's skull slowly turns its head to "
-     "follow the cat, the rest of the skeleton stays still, realistic, smooth motion, sharp details"),
-    ("squelette_b", "Handheld phone footage at night: the ginger cat suddenly stops, freezes and turns its head to "
-     "stare at the skeleton, its fur puffing up and its back arching, while the skeleton's skull keeps staring "
-     "at the cat, realistic cat reaction, smooth motion, sharp details"),
+    ("squelette_a", "Handheld phone footage at night, static framing: the ginger cat walks slowly along the porch floor "
+     "and sits down calmly right in front of the seated skeleton; behind it, the skeleton's skull slowly turns "
+     "sideways and tilts down to look at the cat, the rest of the skeleton stays perfectly still, realistic, "
+     "smooth motion, sharp details"),
+    ("squelette_b", "Handheld phone footage at night, static framing: the sitting ginger cat slowly turns its head and "
+     "looks up at the skeleton, then freezes, fur puffing up and ears flattening back, staying in place, while the "
+     "skeleton's skull stays tilted down staring at the cat, realistic cat reaction, smooth motion, sharp details"),
 ]
 
 
