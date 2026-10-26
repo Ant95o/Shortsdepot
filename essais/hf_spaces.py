@@ -261,6 +261,24 @@ DANSE_PLANS = [
 ]
 
 
+# « Mon chat n'a peur de rien » (26/10) : accroche, attente (le chat s'en fiche du squelette), chute (une petite
+# citrouille le fait fuir).
+CHAT_PLANS = [
+    ("chat_a", "Handheld phone footage at night, static framing: the plastic skeleton suddenly stands up from the "
+     "rocking chair and dances wildly on the porch, swinging its arms and bony legs, while the ginger cat stays "
+     "sitting perfectly calm on the porch floor, completely unimpressed, and slowly yawns with its mouth wide open, "
+     "realistic, smooth motion, sharp details"),
+    ("chat_b", "Handheld phone footage at night, static framing: the smallest jack-o'-lantern on the steps slowly "
+     "turns its carved face toward the cat and its orange glow flares up brightly, the ginger cat jumps up in "
+     "fright, fur puffed, and sprints away out of the frame, the skeleton freezes, realistic, smooth motion, "
+     "sharp details"),
+]
+
+
+def chat() -> None:
+    histoire(SQUELETTE_IMAGE, CHAT_PLANS, "chat")
+
+
 def danse() -> None:
     histoire(SQUELETTE_IMAGE, DANSE_PLANS, "danse")
 
@@ -290,4 +308,4 @@ def histoire(texte_image: str, plans: list[tuple[str, str]], nom_image: str) -> 
 
 
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat}[sys.argv[1]]()
