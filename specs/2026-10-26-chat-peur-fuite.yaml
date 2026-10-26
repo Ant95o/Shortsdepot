@@ -5,10 +5,10 @@ generation:
     - fichier: clips/chat-peur/fuite1.mp4
       modele: wan22-5b
       graine: 42
-      depart: refs/chat-avant-fuite.png
+      depart: refs/chat-avant-fuite.jpg
       prompt: "Handheld smartphone video at night in front of a Halloween porch, static framing. The ginger tabby cat sitting on the path is suddenly terrified: it arches its back high, its fur puffs up, its ears flatten and it hisses with its mouth wide open showing its teeth, then it spins around and sprints away very fast out of the frame to the right. Natural colors, photorealistic, sharp focus, crisp detail, realistic scared cat."
     - fichier: clips/chat-peur/fuite2.mp4
       modele: wan22-5b
       graine: 7
-      depart: refs/chat-avant-fuite.png
+      depart: refs/chat-avant-fuite.jpg
       prompt: "Handheld smartphone video at night in front of a Halloween porch, static framing. The ginger tabby cat sitting on the path is suddenly terrified: it arches its back high, its fur puffs up, its ears flatten and it hisses with its mouth wide open showing its teeth, then it spins around and sprints away very fast out of the frame to the right. Natural colors, photorealistic, sharp focus, crisp detail, realistic scared cat."
