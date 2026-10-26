@@ -279,6 +279,24 @@ def chat() -> None:
     histoire(SQUELETTE_IMAGE, CHAT_PLANS, "chat")
 
 
+# Fin refaite (demandée le 26/10) : on doit voir la peur du chat avant qu'il s'enfuie en courant.
+FUITE = ("chat_c", "Handheld phone footage at night, static framing: the ginger cat sitting on the path suddenly gets "
+         "scared, its back arches high, its fur puffs up and its ears flatten, it jumps backwards, then turns and "
+         "runs away very fast out of the frame to the right, the skeleton stays still on the porch, realistic cat "
+         "reaction, smooth motion, sharp details")
+
+
+def fuite() -> None:
+    """Un seul plan, depuis l'image du chat juste après l'éclat de la petite citrouille."""
+    OUT.mkdir(parents=True, exist_ok=True)
+    nom, mouvement = FUITE
+    essai(f"vidéo {nom}", lambda: copier(Client(SPACES["i2v"]).predict(
+        input_image=handle_file("refs/chat-avant-fuite.png"), last_image=None, prompt=mouvement, steps=8,
+        negative_prompt=NEGATIF, duration_seconds=5, guidance_scale=1, guidance_scale_2=1, seed=42,
+        randomize_seed=False, quality=10, scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16,
+        safe_mode=False, video_component=True, api_name="/generate_video"), nom))
+
+
 def danse() -> None:
     histoire(SQUELETTE_IMAGE, DANSE_PLANS, "danse")
 
@@ -308,4 +326,4 @@ def histoire(texte_image: str, plans: list[tuple[str, str]], nom_image: str) -> 
 
 
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite}[sys.argv[1]]()
