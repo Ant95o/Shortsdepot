@@ -297,6 +297,28 @@ def fuite() -> None:
         safe_mode=False, video_component=True, api_name="/generate_video"), nom))
 
 
+# Photo de profil (27/10) : le chat roux des vidéos, lisible en petit rond.
+AVATARS = [
+    ("avatar_halloween", "Close-up portrait photo of a cute ginger tabby cat face looking straight at the camera with big "
+     "curious amber eyes, centered, next to a small glowing carved jack-o'-lantern, warm orange light, dark night "
+     "background, shallow depth of field, photorealistic, sharp focus, square framing, no text"),
+    ("avatar_studio", "Close-up portrait photo of a cute ginger tabby cat face, head slightly tilted, looking straight at "
+     "the camera, centered, plain bright orange studio background, soft light, photorealistic, sharp focus, square "
+     "framing, no text"),
+    ("avatar_surpris", "Close-up portrait photo of a ginger tabby cat with a funny surprised face, wide eyes and ears up, "
+     "looking straight at the camera, centered, plain deep purple background, photorealistic, sharp focus, square "
+     "framing, no text"),
+]
+
+
+def avatar() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    for nom, prompt in AVATARS:
+        essai(nom, lambda: copier(Client(SPACES["image_dev"]).predict(
+            prompt=prompt, seed=7, randomize_seed=False, width=1024, height=1024, guidance_scale=3.5,
+            num_inference_steps=28, api_name="/infer"), nom))
+
+
 def danse() -> None:
     histoire(SQUELETTE_IMAGE, DANSE_PLANS, "danse")
 
@@ -326,4 +348,4 @@ def histoire(texte_image: str, plans: list[tuple[str, str]], nom_image: str) -> 
 
 
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite, "avatar": avatar}[sys.argv[1]]()
