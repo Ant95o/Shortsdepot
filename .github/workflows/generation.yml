@@ -24,7 +24,7 @@ concurrency:
 jobs:
   generation:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 30
     env:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME || 'antoinesustrac' }}
       KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
@@ -67,19 +67,21 @@ jobs:
           kernel="$KAGGLE_USERNAME/shortsdepot-generation"
           echec=0
           if [ "${{ inputs.recuperer }}" != "true" ]; then
+            # On envoie et on s'arrête : attendre Kaggle ici coûtait ~45 min GitHub par plan.
+            # La récupération se lance ensuite à la main (recuperer=true), une fois le notebook fini.
             python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
             python -m shorts.kaggle pousser build/kernel NvidiaTeslaT4
-            sleep 60
-            for i in $(seq 1 200); do
-              status=$(kaggle kernels status "$kernel" 2>&1 || true)
-              echo "$status"
-              case "$status" in
-                *COMPLETE*|*complete*) break ;;
-                *ERROR*|*error*|*CANCEL*|*cancel*) echec=1; break ;;
-              esac
-              sleep 60
-            done
+            echo "Notebook envoyé. Relancer ce workflow avec recuperer=true quand il est fini (~45 min par plan)."
+            echo "echec=0" >> "$GITHUB_ENV"
+            exit 0
           fi
+          status=$(kaggle kernels status "$kernel" 2>&1 || true)
+          echo "$status"
+          case "$status" in
+            *COMPLETE*|*complete*) ;;
+            *ERROR*|*error*|*CANCEL*|*cancel*) echec=1 ;;
+            *) echo "Notebook pas encore fini : relancer la récupération plus tard."; echo "echec=0" >> "$GITHUB_ENV"; exit 0 ;;
+          esac
           kaggle kernels output "$kernel" -p build/sortie || true
           [ "$echec" = 1 ] && tail -50 build/sortie/*.log 2>/dev/null
           # Les plans réussis sont gardés même si le notebook a planté sur un plan suivant.
