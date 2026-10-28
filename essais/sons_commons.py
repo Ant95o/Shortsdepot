@@ -14,13 +14,11 @@ OUT = Path("essais/sons")
 UA = {"User-Agent": "Shortsdepot/1.0 (https://github.com/Ant95o/Shortsdepot)"}
 LIBRES = ("public domain", "cc0", "pd", "cc by", "cc-by")
 RECHERCHES = {
-    "chat_marche": "cat walking",
-    "chat_vers_camera": "cat walking towards camera",
-    "chat_roux": "ginger cat video",
-    "couloir": "castle corridor candles",
-    "chat_feule": "cat hissing video",
+    "musique_ukulele": "ukulele happy",
+    "musique_joyeuse": "cheerful music",
+    "musique_comique": "comedy music light",
 }
-TYPE = "video"  # « audio » pour les sons
+TYPE = "audio"  # « audio » pour les sons
 
 
 def api(**params) -> dict:
