@@ -1,0 +1,119 @@
+[
+  {
+    "cle": "musique_ukulele",
+    "titre": "File:Audionautix-com-ccby-happyukulele.mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Audionautix-com-ccby-happyukulele.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 3.0",
+    "auteur": "Created by Jason Shaw. Released under Creative Commons Attribution License 3.0. Required credit: \"music by audionautix.c",
+    "duree": "",
+    "fichier": "musique_ukulele0.mp3"
+  },
+  {
+    "cle": "musique_ukulele",
+    "titre": "File:Blue Island.wav",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Blue_Island.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Mikecolemusic",
+    "duree": "",
+    "fichier": "musique_ukulele1.wav"
+  },
+  {
+    "cle": "musique_ukulele",
+    "titre": "File:Daily Beetle (ISRC USUAN1500025).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Daily_Beetle_%28ISRC_USUAN1500025%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 3.0",
+    "auteur": "Kevin MacLeod",
+    "duree": "",
+    "fichier": "musique_ukulele2.mp3"
+  },
+  {
+    "cle": "musique_ukulele",
+    "titre": "File:Electro Cabello (ISRC USUAN1400048).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Electro_Cabello_%28ISRC_USUAN1400048%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 3.0",
+    "auteur": "Kevin MacLeod",
+    "duree": "",
+    "fichier": "musique_ukulele3.mp3"
+  },
+  {
+    "cle": "musique_ukulele",
+    "titre": "File:Luau, Hawaiian Ukulele Music.wav",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Luau%2C_Hawaiian_Ukulele_Music.wav?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Mikecolemusic",
+    "duree": "",
+    "fichier": "musique_ukulele4.wav"
+  },
+  {
+    "cle": "musique_joyeuse",
+    "titre": "File:160930 inleiding Barokorkest Brock olv Rodolfo Richter (audio).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/160930_inleiding_Barokorkest_Brock_olv_Rodolfo_Richter_%28audio%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 4.0",
+    "auteur": "deSingel\n",
+    "duree": "",
+    "fichier": "musique_joyeuse0.mp3"
+  },
+  {
+    "cle": "musique_joyeuse",
+    "titre": "File:Bright New Day by Sascha Ende.mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Bright_New_Day_by_Sascha_Ende.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 4.0",
+    "auteur": "Sascha Ende",
+    "duree": "",
+    "fichier": "musique_joyeuse1.mp3"
+  },
+  {
+    "cle": "musique_joyeuse",
+    "titre": "File:Etuda Mít tě tam na kytkách.ogg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Etuda_M%C3%ADt_t%C4%9B_tam_na_kytk%C3%A1ch.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Mike Beer",
+    "duree": "",
+    "fichier": "musique_joyeuse2.ogg"
+  },
+  {
+    "cle": "musique_joyeuse",
+    "titre": "File:Inleiding Anima Eterna Brugge olv. Jos van Immerseel (audio).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Inleiding_Anima_Eterna_Brugge_olv._Jos_van_Immerseel_%28audio%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 4.0",
+    "auteur": "deSingel\n",
+    "duree": "",
+    "fichier": "musique_joyeuse3.mp3"
+  },
+  {
+    "cle": "musique_joyeuse",
+    "titre": "File:Inleiding Apollon Musage`te Quartett & Gabriela Montero (audio).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Inleiding_Apollon_Musage%60te_Quartett_%26_Gabriela_Montero_%28audio%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 4.0",
+    "auteur": "deSingel\n",
+    "duree": "",
+    "fichier": "musique_joyeuse4.mp3"
+  },
+  {
+    "cle": "musique_joyeuse",
+    "titre": "File:Inleiding Collegium Vocale Gent - Monteverdi (audio).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Inleiding_Collegium_Vocale_Gent_-_Monteverdi_%28audio%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 4.0",
+    "auteur": "deSingel\n",
+    "duree": "",
+    "fichier": "musique_joyeuse5.mp3"
+  },
+  {
+    "cle": "musique_comique",
+    "titre": "File:Alexander Nakarada - Christmas Theme 2 (cc-by) (filmmusic).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Alexander_Nakarada_-_Christmas_Theme_2_%28cc-by%29_%28filmmusic%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 4.0",
+    "auteur": "Alexander Nakarada",
+    "duree": "",
+    "fichier": "musique_comique0.mp3"
+  },
+  {
+    "cle": "musique_comique",
+    "titre": "File:Hammock Fight (ISRC USUAN1100213).mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Hammock_Fight_%28ISRC_USUAN1100213%29.mp3?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "licence": "CC BY 3.0",
+    "auteur": "Kevin MacLeod",
+    "duree": "",
+    "fichier": "musique_comique1.mp3"
+  }
+]
