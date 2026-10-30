@@ -23,3 +23,23 @@ generation:
       graine: 42
       depart: refs/os-4.jpg
       prompt: "Static smartphone shot. The small red dachshund peeks its head through the gap in the wooden fence, stays very still and watches intently, its eyes slowly following something to the side, ears twitching slightly, sneaky look. Only the dachshund's head moves a little. Photorealistic, sharp focus."
+    - fichier: clips/os/plan5-perdu-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/os-5.jpg
+      prompt: "Static smartphone shot at dog height in a backyard garden. The golden retriever with a red collar stands on the lawn, tilts its head from one side to the other, confused, then sniffs the air and looks around the grass searching. Realistic dog behavior, photorealistic, sharp focus."
+    - fichier: clips/os/plan6-creuse-fou-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/os-6.jpg
+      prompt: "Static smartphone shot. The golden retriever with a red collar digs frantically in the lawn with fast alternating strokes of its front paws, clumps of dark soil flying backward into the air, the hole getting deeper. Energetic realistic dog digging, photorealistic, sharp focus."
+    - fichier: clips/os/plan7-trous-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/os-7.jpg
+      prompt: "Static high-angle smartphone shot of a garden lawn full of fresh dirt holes. The muddy golden retriever with a red collar sits at the bottom of the biggest hole, looks up, then slowly looks left and right at all the holes around it, panting, bewildered. Only the dog moves. Photorealistic, sharp focus."
+    - fichier: clips/os/plan8-teckel-ronge-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/os-8.jpg
+      prompt: "Static smartphone shot at ground level next to a wooden fence. The small red dachshund lies on the grass and calmly gnaws the dirty white bone held between its front paws, chewing slowly with satisfaction, eyes half closed. Only the dachshund's head and jaw move. Photorealistic, sharp focus."
