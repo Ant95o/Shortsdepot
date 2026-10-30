@@ -13,11 +13,11 @@ generation:
       graine: 42
       depart: refs/os-2.jpg
       prompt: "Static smartphone close shot. The golden retriever with a red collar digs a small hole in the lawn with quick strokes of its front paws, small clods of dirt flying, the white bone lying still on the grass next to the hole. Realistic dog digging, photorealistic, sharp focus."
-    - fichier: clips/os/plan3-recouvre-g42.mp4
+    - fichier: clips/os/plan3-recouvre-v2-g42.mp4
       modele: wan22-5b
       graine: 42
       depart: refs/os-3.jpg
-      prompt: "Static smartphone close-up. The golden retriever lowers its head and pushes the loose dirt with its nose in short nudges, sniffing the small mound of soil, focused and proud. The white bone stays still on the grass. Realistic dog behavior, photorealistic, sharp focus."
+      prompt: "Static smartphone close-up at ground level. The golden retriever lying on the lawn pushes loose dirt over the white bone in the small hole with short nudges of its nose, the soil slowly covering the bone, focused and proud. Realistic dog behavior, photorealistic, sharp focus."
     - fichier: clips/os/plan4-teckel-voit-g42.mp4
       modele: wan22-5b
       graine: 42
