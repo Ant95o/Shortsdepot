@@ -1,0 +1,19 @@
+# Trend STORM II (28/10, pari) : « POV : tu es un chat dans l'Égypte ancienne ». Images de départ Gemini (AntoineS).
+# Chute : le chat finit couché dans la même pose que le Sphinx derrière lui.
+generation:
+  plans:
+    - fichier: clips/egypte/plan1-course-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/egypte-1-course.jpg
+      prompt: "Epic cinematic tracking shot, the camera follows alongside. At sunset in ancient Egypt, the ginger tabby cat sprints at full speed along the stone wall of a temple roof, legs stretching and gathering in a real cat gallop, dust kicking up behind its paws, pyramids and palm trees in the background. Only the cat moves. Golden light, photorealistic, sharp focus, realistic cat running motion."
+    - fichier: clips/egypte/plan2-pyramides-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/egypte-2-pyramides.jpg
+      prompt: "Epic cinematic wide shot, the camera slowly pushes forward. At sunset, the ginger tabby cat seen from behind stands still on the edge of a rocky cliff, its tail slowly swaying, its ears turning, as it gazes at the three great pyramids and the shimmering Nile below. The wind gently moves the palm trees and the cat's fur. Purple and orange sky, photorealistic, sharp focus."
+    - fichier: clips/egypte/plan3-sphinx-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/egypte-3-sphinx.jpg
+      prompt: "Epic cinematic shot, the camera slowly pulls back to reveal the Great Sphinx. At sunset, the ginger tabby cat lies on a stone pedestal with front paws stretched forward, exactly like the Sphinx behind it. It slowly raises its head proudly, blinks once, and stares into the camera like a royal statue. Only the cat moves, the Sphinx stays still. Golden light, photorealistic, sharp focus, realistic cat motion."

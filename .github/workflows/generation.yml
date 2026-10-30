@@ -1,0 +1,104 @@
+name: Génération vidéo IA (Kaggle)
+
+# Génère sur les GPU gratuits de Kaggle les plans des fiches qui ont une section
+# « generation » et dont les clips manquent, les ajoute au dépôt puis lance le rendu.
+# Secret nécessaire : KAGGLE_API_TOKEN (KAGGLE_USERNAME facultatif, antoinesustrac par défaut).
+on:
+  push:
+    paths: ["specs/**", "refs/**", "shorts/kaggle.py", "shorts/kaggle_job/**", ".github/workflows/generation.yml"]
+  workflow_dispatch:
+    inputs:
+      recuperer:
+        description: "Récupérer seulement les plans déjà générés par le dernier notebook Kaggle (sans relancer)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: generation
+  cancel-in-progress: false
+
+jobs:
+  generation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME || 'antoinesustrac' }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fiches à générer
+        id: fiches
+        run: |
+          pip install -q pyyaml
+          specs=$(python -m shorts.kaggle a-generer | tr '\n' ' ')
+          echo "liste=$specs" >> "$GITHUB_OUTPUT"
+          if [ -z "$specs" ]; then echo "Rien à générer."; exit 0; fi
+          if [ -z "$KAGGLE_USERNAME" ] || [ -z "$KAGGLE_API_TOKEN" ]; then
+            echo "::warning::Secrets Kaggle absents : génération sautée."
+            echo "liste=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Envoi sur Kaggle et attente
+        if: steps.fiches.outputs.liste != ''
+        run: |
+          # Tolère un secret collé avec « export KAGGLE_API_TOKEN= », des guillemets ou des espaces.
+          token="${KAGGLE_API_TOKEN#export }"; token="${token#KAGGLE_API_TOKEN=}"
+          export KAGGLE_API_TOKEN=$(printf '%s' "$token" | tr -d '[:space:]"'"'")
+          echo "::add-mask::$KAGGLE_API_TOKEN"
+          pip install -q kaggle
+          if ! kaggle kernels list --mine --page-size 1 >/dev/null 2>&1; then
+            echo "::error::Kaggle refuse le jeton KAGGLE_API_TOKEN (invalide ou supprimé). Régénère-le sur kaggle.com/settings et remplace le secret."
+            exit 1
+          fi
+          command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          # Le propriétaire du notebook doit être le compte du jeton : on le demande à Kaggle.
+          compte=$(python -c "from kaggle.api.kaggle_api_extended import KaggleApi as K; a=K(); a.authenticate(); print(a.config_values['username'])")
+          echo "Compte Kaggle : $compte"
+          export KAGGLE_USERNAME="$compte"
+          kernel="$KAGGLE_USERNAME/shortsdepot-generation"
+          echec=0
+          if [ "${{ inputs.recuperer }}" != "true" ]; then
+            # On envoie et on s'arrête : attendre Kaggle ici coûtait ~45 min GitHub par plan.
+            # La récupération se lance ensuite à la main (recuperer=true), une fois le notebook fini.
+            python -m shorts.kaggle preparer build/kernel "$KAGGLE_USERNAME" ${{ steps.fiches.outputs.liste }}
+            python -m shorts.kaggle pousser build/kernel NvidiaTeslaT4
+            echo "Notebook envoyé. Relancer ce workflow avec recuperer=true quand il est fini (~45 min par plan)."
+            echo "echec=0" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          status=$(kaggle kernels status "$kernel" 2>&1 || true)
+          echo "$status"
+          case "$status" in
+            *COMPLETE*|*complete*) ;;
+            *ERROR*|*error*|*CANCEL*|*cancel*) echec=1 ;;
+            *) echo "Notebook pas encore fini : relancer la récupération plus tard."; echo "echec=0" >> "$GITHUB_ENV"; exit 0 ;;
+          esac
+          kaggle kernels output "$kernel" -p build/sortie || true
+          [ "$echec" = 1 ] && tail -50 build/sortie/*.log 2>/dev/null
+          # Les plans réussis sont gardés même si le notebook a planté sur un plan suivant.
+          python -m shorts.kaggle recuperer build/sortie ${{ steps.fiches.outputs.liste }} || echec=1
+          echo "echec=$echec" >> "$GITHUB_ENV"
+
+      - name: Ajout des clips et lancement du rendu
+        if: steps.fiches.outputs.liste != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add clips/
+          if git diff --cached --quiet; then echo "Aucun clip récupéré."; else
+            git commit -m "Clips générés sur Kaggle"
+            git pull --rebase -q origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }}
+            gh workflow run rendu.yml --ref ${{ github.ref_name }}
+          fi
+          [ "$echec" != 1 ] || { echo "::error::Le notebook Kaggle a échoué sur au moins un plan."; exit 1; }

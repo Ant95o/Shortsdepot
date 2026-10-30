@@ -1,0 +1,13 @@
+# Plan 1 du chien refait (retour AntoineS 28/10) : il doit d'abord vérifier que personne ne le voit, puis goûter en douce.
+generation:
+  plans:
+    - fichier: clips/cooper/plan1-g7.mp4
+      modele: wan22-5b
+      graine: 7
+      depart: refs/cooper-1-renifle.jpg
+      prompt: "Static smartphone shot, the camera does not move. In a bright home kitchen, the golden retriever stands with its front paws on the edge of the wooden table next to the birthday cake. It stays still and suspicious: it slowly turns its head to look left, then turns its head to look right, checking that nobody is watching, ears alert. Then it slowly and sneakily leans toward the cake and gives one quick discreet lick of the frosting. Only the dog moves, no people, no hands. Candle flames flicker. Natural daylight, photorealistic, sharp focus, realistic dog behavior."
+    - fichier: clips/cooper/plan1-g123.mp4
+      modele: wan22-5b
+      graine: 123
+      depart: refs/cooper-1-renifle.jpg
+      prompt: "Static smartphone shot, the camera does not move. In a bright home kitchen, the golden retriever stands with its front paws on the edge of the wooden table next to the birthday cake. It stays still and suspicious: it slowly turns its head to look left, then turns its head to look right, checking that nobody is watching, ears alert. Then it slowly and sneakily leans toward the cake and gives one quick discreet lick of the frosting. Only the dog moves, no people, no hands. Candle flames flicker. Natural daylight, photorealistic, sharp focus, realistic dog behavior."

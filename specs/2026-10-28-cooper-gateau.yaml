@@ -1,0 +1,20 @@
+# Chien et gâteau (Be OK), images de départ nettes générées par AntoineS dans Gemini.
+# Histoire : il renifle le gâteau sur la table, coupe, il le dévore par terre, coupe, il regarde la caméra l'air innocent.
+# 1re graine (42) ; 2e graine lancée après, dans une autre fiche.
+generation:
+  plans:
+    - fichier: clips/cooper/plan1-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/cooper-1-renifle.jpg
+      prompt: "Handheld smartphone video in a bright home kitchen. The golden retriever standing with its front paws on the wooden table sniffs the birthday cake eagerly, its nose twitching, then sticks out its tongue and licks the frosting, tail wagging fast. Candle flames flicker. Static camera, natural daylight, photorealistic, sharp focus, realistic dog motion."
+    - fichier: clips/cooper/plan2-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/cooper-2-mange.jpg
+      prompt: "Handheld smartphone video in a bright home kitchen. The golden retriever lying on the tiled floor greedily eats the smashed birthday cake, its head bobbing as it gulps big bites of frosting, crumbs flying, tail wagging. Static camera, natural daylight, photorealistic, sharp focus, realistic dog motion."
+    - fichier: clips/cooper/plan3-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/cooper-3-coupable.jpg
+      prompt: "Handheld smartphone video in a bright home kitchen. The golden retriever with frosting on its nose sits still next to the smashed cake, looks straight into the camera, slowly licks its nose with its tongue, then tilts its head to the side with an innocent look, ears moving. Static camera, natural daylight, photorealistic, sharp focus, realistic dog motion."

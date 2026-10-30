@@ -1,0 +1,24 @@
+# Trend « but d'Özil en IA » (Arsenal à Ludogorets, 1er novembre 2016), version chats contre chiens.
+gabarit: clips_commentes
+voix:
+  commentateur: {edge: fr-FR-HenriNeural, rate: "+18%", pitch: "+4Hz", espeak: fr}
+# 2 plans de 5 s générés dans Kling le 16/10 (le lob, puis la double glissade et le but).
+clips:
+  - clips/ozil-chats/plan1.mp4
+  - clips/ozil-chats/plan2.mp4
+score: {gauche: Chats, droite: Chiens, avant: "2-2", apres: "3-2", minute: "87'"}
+commentaire:
+  - {texte: "87e minute, deux partout entre les chats et les chiens.", a: 0.2}
+  - {texte: "Miaouzil part seul !"}
+  - {texte: "Le gardien sort… petit lob !", a: 3.2}
+  - {texte: "Mais deux chiens reviennent…", a: 5.0}
+  - {texte: "Il attend… il attend…"}
+  - {texte: "Il les efface tous les deux !", a: 6.6}
+  - {texte: "BUT ! MIAOUZIL !", a: 8.2, but: true}
+  - {texte: "Le but de la saison !"}
+fin: {texte: "Team chat ou team chien ?", duree: 2.5}
+publication:
+  titre: "Le but d'Özil… mais c'est un chat"
+  description: "Miaouzil contre l'équipe des chiens, 87e minute. Team chat ou team chien ?"
+  hashtags: ["#ozil", "#chat", "#chien", "#football", "#ia", "#pourtoi"]
+  contenu_ia: true

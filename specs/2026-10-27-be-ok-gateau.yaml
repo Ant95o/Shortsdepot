@@ -1,0 +1,13 @@
+# Trend du 27/10 « Be OK » : danse joyeuse + texte qui révèle la galère. Chute : on découvre le gâteau mangé.
+# Texte à l'écran (montage) : « Moi après avoir mangé tout le gâteau d'anniversaire ». Son « Be OK » ajouté à la publication.
+generation:
+  plans:
+    - fichier: clips/be-ok/plan1.mp4
+      modele: wan22-5b
+      graine: 42
+      prompt: "Handheld smartphone video in a real home kitchen in the evening, warm light. A happy golden retriever bounces and hops joyfully in place on the tiled floor, wagging its tail fast, tongue out, spinning around once, looking very proud of itself. Natural colors, photorealistic, sharp focus, crisp detail, realistic dog motion."
+    - fichier: clips/be-ok/plan2.mp4
+      modele: wan22-5b
+      graine: 11
+      suite_de: clips/be-ok/plan1.mp4
+      prompt: "Handheld smartphone video in a home kitchen, the camera slowly tilts down to the floor next to the golden retriever: an empty birthday cake tray covered in crumbs and smeared white frosting lies on the tiles. The dog stops moving, lowers its ears and looks up at the camera with a guilty face, frosting on its nose. Natural colors, photorealistic, sharp focus, crisp detail."
