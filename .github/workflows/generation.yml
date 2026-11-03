@@ -52,10 +52,15 @@ jobs:
         run: |
           # Tolère un secret collé avec « export KAGGLE_API_TOKEN= », des guillemets ou des espaces.
           token="${KAGGLE_API_TOKEN#export }"; token="${token#KAGGLE_API_TOKEN=}"
+          # Contenu de kaggle.json collé tel quel : on garde la clé.
+          case "$token" in *'"key"'*) token=$(printf '%s' "$token" | python3 -c 'import json,sys; print(json.load(sys.stdin)["key"])');; esac
           export KAGGLE_API_TOKEN=$(printf '%s' "$token" | tr -d '[:space:]"'"'")
           echo "::add-mask::$KAGGLE_API_TOKEN"
+          # Ancienne clé (32 caractères, sans « KGAT_ ») : la CLI l'attend dans KAGGLE_KEY.
+          case "$KAGGLE_API_TOKEN" in KGAT_*) echo "Jeton Kaggle : nouveau format";; *) echo "Jeton Kaggle : ancien format (${#KAGGLE_API_TOKEN} caractères)"; export KAGGLE_KEY="$KAGGLE_API_TOKEN"; unset KAGGLE_API_TOKEN;; esac
           pip install -q kaggle
-          if ! kaggle kernels list --mine --page-size 1 >/dev/null 2>&1; then
+          if ! kaggle kernels list --mine --page-size 1 >/tmp/kaggle-auth.log 2>&1; then
+            grep -iv "key\|token" /tmp/kaggle-auth.log | tail -3
             echo "::error::Kaggle refuse le jeton KAGGLE_API_TOKEN (invalide ou supprimé). Régénère-le sur kaggle.com/settings et remplace le secret."
             exit 1
           fi
