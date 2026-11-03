@@ -58,7 +58,7 @@ jobs:
           echo "::add-mask::$KAGGLE_API_TOKEN"
           # Ancienne clé (32 caractères, sans « KGAT_ ») : la CLI l'attend dans KAGGLE_KEY.
           case "$KAGGLE_API_TOKEN" in KGAT_*) echo "Jeton Kaggle : nouveau format";; *) echo "Jeton Kaggle : ancien format (${#KAGGLE_API_TOKEN} caractères)"; export KAGGLE_KEY="$KAGGLE_API_TOKEN"; unset KAGGLE_API_TOKEN;; esac
-          pip install -q kaggle
+          pip install -q kaggle six
           if ! kaggle kernels list --mine --page-size 1 >/tmp/kaggle-auth.log 2>&1; then
             tail -4 /tmp/kaggle-auth.log
             echo "::error::Kaggle refuse le jeton KAGGLE_API_TOKEN (invalide ou supprimé). Régénère-le sur kaggle.com/settings et remplace le secret."
