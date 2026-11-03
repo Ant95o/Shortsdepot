@@ -347,5 +347,20 @@ def histoire(texte_image: str, plans: list[tuple[str, str]], nom_image: str) -> 
         depart = derniere_image(video) if video.exists() else None
 
 
+# Secours du 03/11 (clé Kaggle refusée) : « Nicole Kidman », 4 plans depuis les images Gemini, plans de 3 s.
+def kidman() -> None:
+    import yaml
+    OUT.mkdir(parents=True, exist_ok=True)
+    plans = yaml.safe_load(open("specs/2026-11-02-nicole-kidman.yaml"))["generation"]["plans"]
+    for i, p in enumerate(plans, 1):
+        if [a for a in sys.argv[2:] if a.isdigit()] and str(i) not in sys.argv[2:]:
+            continue
+        essai(f"vidéo kidman{i}", lambda: copier(Client(SPACES["i2v"]).predict(
+            input_image=handle_file(p["depart"]), last_image=None, prompt=p["prompt"], steps=8,
+            negative_prompt=NEGATIF, duration_seconds=3, guidance_scale=1, guidance_scale_2=1, seed=42,
+            randomize_seed=False, quality=10, scheduler="UniPCMultistep", flow_shift=3.0, frame_multiplier=16,
+            safe_mode=False, video_component=True, api_name="/generate_video"), f"kidman{i}"))
+
+
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite, "avatar": avatar}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite, "avatar": avatar, "kidman": kidman}[sys.argv[1]]()
