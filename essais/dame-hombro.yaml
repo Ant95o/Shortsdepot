@@ -1,4 +1,4 @@
-# « Dame Hombro » : le chat valide ses croquettes. Images Gemini du 04/11 (plan 8 manquant), animation HF 3 s.
+# « Dame Hombro » : le chat valide ses croquettes. Images Gemini du 04/11 (10 plans), animation HF 3 s.
 plans:
   - depart: essais/refs/dh-1.jpg
     prompt: "Static low smartphone shot in a bright kitchen. The golden retriever with a red collar pushes the big colorful bag of kibble across the wooden floor with its nose and front paw, proud and happy. Natural dog motion, photorealistic, sharp focus."
@@ -14,6 +14,8 @@ plans:
     prompt: "Static close smartphone shot. The ginger tabby cat chews a piece of kibble slowly with its eyes closed, jaw moving, savoring it. Only the head moves. Photorealistic, sharp focus."
   - depart: essais/refs/dh-7.jpg
     prompt: "Static close smartphone shot. The ginger tabby cat stops chewing and freezes, eyes wide open in amazement, ears perking up, staring at the camera. Only tiny movements. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-8.jpg
+    prompt: "Static low smartphone shot in a bright kitchen. The golden retriever lying next to the kibble bag stares at the ginger tabby cat with worried, hopeful eyes, eyebrows moving, ears twitching, waiting for its verdict. The cat stays still. Only small movements. Photorealistic, sharp focus."
   - depart: essais/refs/dh-9.jpg
     prompt: "Static smartphone shot. The ginger tabby cat sitting behind the white bowl, eyes half closed with a smug satisfied face, rhythmically bounces its shoulders up and down, shimmying left and right to the beat, like dancing. Photorealistic, sharp focus."
   - depart: essais/refs/dh-10.jpg
