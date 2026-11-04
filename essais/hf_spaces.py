@@ -362,5 +362,23 @@ def kidman() -> None:
             safe_mode=False, video_component=True, api_name="/generate_video"), f"kidman{i}"))
 
 
+# Fiche HF générique : python essais/hf_spaces.py fiche essais/xxx.yaml [numéros de plans]
+def fiche() -> None:
+    import yaml
+    OUT.mkdir(parents=True, exist_ok=True)
+    chemin = sys.argv[2]
+    nom = Path(chemin).stem
+    plans = yaml.safe_load(open(chemin))["plans"]
+    choix = [a for a in sys.argv[3:] if a.isdigit()]
+    for i, p in enumerate(plans, 1):
+        if choix and str(i) not in choix:
+            continue
+        essai(f"vidéo {nom}{i}", lambda: copier(Client(SPACES["i2v"]).predict(
+            input_image=handle_file(p["depart"]), last_image=None, prompt=p["prompt"], steps=8,
+            negative_prompt=NEGATIF, duration_seconds=p.get("duree", 3), guidance_scale=1, guidance_scale_2=1,
+            seed=p.get("graine", 42), randomize_seed=False, quality=10, scheduler="UniPCMultistep", flow_shift=3.0,
+            frame_multiplier=16, safe_mode=False, video_component=True, api_name="/generate_video"), f"{nom}{i}"))
+
+
 if __name__ == "__main__":
-    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite, "avatar": avatar, "kidman": kidman}[sys.argv[1]]()
+    {"api": api, "generer": generer, "cles": cles, "trends": trends, "dracula": dracula, "squelette": squelette, "danse": danse, "chat": chat, "fuite": fuite, "avatar": avatar, "kidman": kidman, "fiche": fiche}[sys.argv[1]]()
