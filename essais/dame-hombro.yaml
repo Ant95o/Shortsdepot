@@ -1,9 +1,11 @@
-# « Dame Hombro » : le chat valide ses croquettes. Images Gemini du 04/11 (10 plans), animation HF 3 s.
+# « Dame Hombro » : 12 plans (index 1-12 dans cet ordre : 1,2,2b,3,4,5,6,7,8,9,9b,10).
 plans:
   - depart: essais/refs/dh-1.jpg
     prompt: "Static low smartphone shot in a bright kitchen. The golden retriever with a red collar pushes the big colorful bag of kibble across the wooden floor with its nose and front paw, proud and happy. Natural dog motion, photorealistic, sharp focus."
   - depart: essais/refs/dh-2.jpg
     prompt: "Static smartphone shot. The ginger tabby cat sitting on the wooden chair stares down suspiciously, narrows its eyes and slowly flicks its tail. Only small movements. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-2b.jpg
+    prompt: "Static smartphone shot in a bright kitchen. The ginger tabby cat jumps down from the wooden chair and lands softly on the wooden floor with its front paws, then takes a step forward. Natural cat motion, photorealistic, sharp focus."
   - depart: essais/refs/dh-3.jpg
     prompt: "Static smartphone shot. A hand tilts the colorful bag and brown kibble pours down into the white bowl on the wooden floor, kibble bouncing. The ginger cat in the background watches. Photorealistic, sharp focus."
   - depart: essais/refs/dh-4.jpg
@@ -15,8 +17,10 @@ plans:
   - depart: essais/refs/dh-7.jpg
     prompt: "Static close smartphone shot. The ginger tabby cat stops chewing and freezes, eyes wide open in amazement, ears perking up, staring at the camera. Only tiny movements. Photorealistic, sharp focus."
   - depart: essais/refs/dh-8.jpg
-    prompt: "Static low smartphone shot in a bright kitchen. The golden retriever lying next to the kibble bag stares at the ginger tabby cat with worried, hopeful eyes, eyebrows moving, ears twitching, waiting for its verdict. The cat stays still. Only small movements. Photorealistic, sharp focus."
+    prompt: "Static low smartphone shot in a bright kitchen. The golden retriever lying on the floor stares at the ginger tabby cat with worried, hopeful eyes, eyebrows moving, ears twitching, waiting. The cat sits still next to the white bowl of kibble. Only small movements. Photorealistic, sharp focus."
   - depart: essais/refs/dh-9.jpg
     prompt: "Static smartphone shot. The ginger tabby cat sitting behind the white bowl, eyes half closed with a smug satisfied face, rhythmically bounces its shoulders up and down, shimmying left and right to the beat, like dancing. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-9b.jpg
+    prompt: "Static low smartphone shot in a bright kitchen. The happy golden retriever with tongue out walks up next to the sitting ginger tabby cat behind the white bowl of kibble and sits down beside it, tail wagging. Natural dog motion, photorealistic, sharp focus."
   - depart: essais/refs/dh-10.jpg
     prompt: "Static smartphone shot in a bright kitchen. The golden retriever and the ginger tabby cat sitting side by side behind the white bowl of kibble both happily bounce their shoulders up and down to the beat, swaying left and right, eyes half closed with joy. Photorealistic, sharp focus."
