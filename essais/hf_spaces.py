@@ -373,8 +373,9 @@ def fiche() -> None:
     for i, p in enumerate(plans, 1):
         if choix and str(i) not in choix:
             continue
+        # `fin` (optionnel) : image d'arrivée, pour une transition entre deux images Gemini.
         essai(f"vidéo {nom}{i}", lambda: copier(Client(SPACES["i2v"]).predict(
-            input_image=handle_file(p["depart"]), last_image=None, prompt=p["prompt"], steps=8,
+            input_image=handle_file(p["depart"]), last_image=handle_file(p["fin"]) if p.get("fin") else None, prompt=p["prompt"], steps=8,
             negative_prompt=NEGATIF, duration_seconds=p.get("duree", 3), guidance_scale=1, guidance_scale_2=1,
             seed=p.get("graine", 42), randomize_seed=False, quality=10, scheduler="UniPCMultistep", flow_shift=3.0,
             frame_multiplier=16, safe_mode=False, video_component=True, api_name="/generate_video"), f"{nom}{i}"))
