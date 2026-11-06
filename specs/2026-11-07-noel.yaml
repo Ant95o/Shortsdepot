@@ -1,0 +1,63 @@
+# « All I Want for Christmas » : Noël démarre, 12 images Gemini (06/11). Tout sur Kaggle ; HF refait les actions 2, 4, 5, 6, 7, 8 le 07/11.
+generation:
+  plans:
+    - fichier: clips/noel/plan1-calme-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-1.jpg
+      prompt: "Static smartphone shot of a bright cozy living room in autumn light. The ginger and white tabby cat sleeps curled up on the beige sofa, breathing slowly, one ear twitching. The bare christmas tree stands by the window. Very small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan2-carton-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-2.jpg
+      prompt: "Static smartphone shot of the living room. The golden retriever with a red collar walks backward into the room, dragging a big cardboard box marked NOEL across the wooden floor with its mouth. The cat keeps sleeping on the sofa. Natural dog movement, photorealistic, sharp focus."
+    - fichier: clips/noel/plan3-oeil-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-3.jpg
+      prompt: "Static close-up smartphone shot. The ginger tabby cat lying on the sofa slowly opens one eye and looks toward the cardboard box, ears turning, intrigued. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan4-renverse-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-4.jpg
+      prompt: "Static smartphone shot of the living room floor. The cardboard box marked NOEL lies tipped over, red christmas balls roll slowly across the parquet floor, gold tinsel spills out. The golden retriever wags its tail. The cat on the sofa watches. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan5-saut-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-5.jpg
+      prompt: "Static smartphone shot. The ginger tabby cat leaps from the sofa toward the tipped-over cardboard box, front paws stretched, and lands on the floor next to the gold tinsel. Natural cat jump, photorealistic, sharp focus."
+    - fichier: clips/noel/plan6-plonge-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-6.jpg
+      prompt: "Static smartphone shot. The ginger tabby cat pushes its head and body deeper into the tipped-over cardboard box, only its back and tail sticking out, tail swishing. The golden retriever watches beside it. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan7-guirlande-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-7.jpg
+      prompt: "Static smartphone shot. The ginger tabby cat sits wrapped entirely in shiny gold tinsel, looking very serious at the camera, blinking slowly, the tinsel trembling. The golden retriever wags its tail next to the box. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan8-lumieres-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-8.jpg
+      prompt: "Static smartphone shot. The happy golden retriever sits holding a glowing string of lights in its mouth, wagging its tail. The ginger cat sits in the cardboard box tangled in the glowing lights, looking at the camera. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan9-sapin-vide-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-9.jpg
+      prompt: "Static smartphone shot from behind. The golden retriever and the ginger cat wrapped in gold tinsel and glowing lights sit side by side looking at the bare undecorated christmas tree. The dog turns its head slightly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan10-sapin-decore-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-10.jpg
+      prompt: "Static smartphone shot from behind in warm evening light. The golden retriever and the ginger cat sit looking at the fully decorated christmas tree, fairy lights twinkling. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan11-etoile-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-11.jpg
+      prompt: "Static smartphone shot from behind in warm evening light. The ginger cat sits proudly at the very top of the decorated christmas tree like a star, fairy lights twinkling, the golden retriever sits below looking up at it. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/noel/plan12-bonnet-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-12.jpg
+      prompt: "Static smartphone shot in warm evening light. The golden retriever wearing a red santa hat sits in front of the decorated christmas tree, looks up at the cat on top of the tree, tongue out, tail wagging on the floor. Small movements only. Photorealistic, sharp focus."
