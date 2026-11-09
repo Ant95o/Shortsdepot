@@ -1,0 +1,20 @@
+# Échelle, 2e passage Kaggle : N5 et N6 refaits avec la bonne image (au 1er passage, dh-2 = chat seul sur la chaise
+# et dh-10 = duo : les numéros du dépôt ne suivent pas ceux des dossiers vidéo), + 2e graine pour N3 (bonne image no-3).
+# À copier dans specs/ seulement quand le notebook Kaggle est libre.
+generation:
+  plans:
+    - fichier: clips/echelle/n5-patte-nez-v2-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-10.jpg
+      prompt: "Static shot in the kitchen. The ginger cat sitting next to the golden retriever raises one front paw and taps the dog on the nose. The dog flinches back in surprise, blinking. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n6-salto-v2-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-9.jpg
+      prompt: "Static shot in the kitchen. The ginger cat jumps straight up into the air, does a full backflip and lands back on its four paws behind the bowl of kibble. Acrobatic, fast motion. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n3-plongeon-v2-g7.mp4
+      modele: wan22-5b
+      graine: 7
+      depart: refs/no-3.jpg
+      prompt: "Static shot in the bright living room. The ginger cat lying on the sofa armrest leaps off and dives head first into the open cardboard box on the floor, disappearing inside, only its tail sticking out. Natural cat jump. Photorealistic, sharp focus."
