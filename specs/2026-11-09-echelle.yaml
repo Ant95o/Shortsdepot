@@ -1,0 +1,34 @@
+# Échelle de mouvements sur Kaggle (Wan 2.2 5B), 6 niveaux du plus simple au plus dur.
+# À copier dans specs/ UNIQUEMENT quand le notebook Kaggle est libre (sinon il écrase la production en cours).
+generation:
+  plans:
+    - fichier: clips/echelle/n1-baille-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-9.jpg
+      prompt: "Static close-up in the kitchen. The ginger cat slowly turns its head to the side, yawns widely, then looks back at the camera and blinks. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n2-traverse-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-1.jpg
+      prompt: "Static shot in the kitchen. The golden retriever walks calmly across the kitchen from left to right, then stops and sits down. Natural dog walk. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n3-plongeon-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/no-2.jpg
+      prompt: "Static shot in the bright living room. The ginger cat lying on the sofa leaps off and dives head first into the open cardboard box on the floor, disappearing inside, only its tail sticking out. Natural cat jump. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n4-tire-sac-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-1.jpg
+      prompt: "Static shot in the kitchen. The golden retriever bites the corner of the colorful kibble bag on the floor and drags it backward across the wooden floor, pulling with its head. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n5-patte-nez-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-2.jpg
+      prompt: "Static shot in the kitchen. The ginger cat sitting next to the golden retriever raises one front paw and taps the dog on the nose. The dog flinches back in surprise, blinking. Photorealistic, sharp focus."
+    - fichier: clips/echelle/n6-salto-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-10.jpg
+      prompt: "Static shot in the kitchen. The ginger cat jumps straight up into the air, does a full backflip and lands back on its four paws behind the bowl. Acrobatic, fast motion. Photorealistic, sharp focus."
