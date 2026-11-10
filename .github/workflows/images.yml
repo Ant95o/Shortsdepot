@@ -2,6 +2,8 @@ name: Images (génération gratuite)
 
 # Génère les images d'une fiche essais/images/*.yaml sans compte ni carte (Pollinations / FLUX).
 on:
+  push:
+    paths: ["essais/images/*.yaml"]
   workflow_dispatch:
     inputs:
       fiche:
@@ -22,11 +24,16 @@ jobs:
       SEULS: ${{ inputs.seuls }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -q gradio_client pyyaml
-      - run: python essais/images/generer.py "${{ inputs.fiche }}"
+      - run: |
+          fiches="${{ inputs.fiche }}"
+          [ -n "$fiches" ] || fiches=$(git diff --name-only HEAD~1 HEAD -- 'essais/images/*.yaml')
+          for f in $fiches; do [ -f "$f" ] && python essais/images/generer.py "$f"; done
       - name: Sauvegarde sur la branche essais
         if: always()
         run: |
