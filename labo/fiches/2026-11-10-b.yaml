@@ -1,0 +1,15 @@
+# Relance de B seul (le 1er essai a manqué de mémoire GPU : encodeur de texte et transformeur ensemble).
+taches:
+  # B. Les deux transitions d'Everlong ratées en HF (branche disparue, chien déjà assis)
+  - type: transition
+    debut: essais/refs/ev-6.jpg
+    fin: essais/refs/ev-7.jpg
+    prompt: "The golden retriever keeps dragging the huge leafy branch in its mouth to the open white french door, steps onto the stone step and tries to enter, the branch gets stuck across the door frame. Static smartphone shot, natural dog gait, photorealistic, sharp focus."
+    agrandir: 2
+    sortie: b-everlong-branche-porte
+  - type: transition
+    debut: essais/refs/ev-8.jpg
+    fin: essais/refs/ev-10.jpg
+    prompt: "The golden retriever gives up, lets go of the stuck branch, turns around and sits proudly on the grass facing the camera, tongue out, leaves on its head. Static smartphone shot, photorealistic, sharp focus."
+    agrandir: 2
+    sortie: b-everlong-assis

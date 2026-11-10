@@ -146,13 +146,24 @@ def transition(t: dict) -> None:
     decode = pipe.vae.decode
     pipe.vae.decode = lambda z, temb=None, **k: decode(  # le pipeline lui passe des latents en float16
         z.float(), temb.float() if torch.is_tensor(temb) else temb, **k)
-    pipe.enable_model_cpu_offload()
+    # T5 (9,5 Go) et transformeur ne tiennent pas ensemble sur le T4 : on encode le texte d'abord,
+    # puis on jette l'encodeur avant de monter le transformeur et le VAE sur le GPU.
+    neg = "worst quality, blurry, jittery, distorted, deformed paws, extra legs, morphing, text, watermark"
+    pipe.text_encoder.to("cuda")
+    with torch.no_grad():
+        pe, pm, ne, nm = pipe.encode_prompt(t["prompt"], neg, do_classifier_free_guidance=True,
+                                            max_sequence_length=256, device="cuda", dtype=DTYPE)
+    pipe.text_encoder = None
+    gc.collect()
+    torch.cuda.empty_cache()
+    pipe.transformer.to("cuda")
+    pipe.vae.to("cuda")
     pipe.vae.enable_tiling()
     conditions = [LTXVideoCondition(image=debut, frame_index=0), LTXVideoCondition(image=fin, frame_index=n - 1)]
     chrono = time.time()
     frames = pipe(
-        conditions=conditions, prompt=t["prompt"],
-        negative_prompt="worst quality, blurry, jittery, distorted, deformed paws, extra legs, morphing, text, watermark",
+        conditions=conditions, prompt_embeds=pe, prompt_attention_mask=pm,
+        negative_prompt_embeds=ne, negative_prompt_attention_mask=nm,
         width=w, height=h, num_frames=n, frame_rate=24, num_inference_steps=int(t.get("etapes", 40)), guidance_scale=3.0,
         decode_timestep=0.05, decode_noise_scale=0.025,
         generator=torch.Generator("cuda").manual_seed(int(t.get("graine", 42))), output_type="np",
