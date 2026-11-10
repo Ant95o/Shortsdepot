@@ -34,3 +34,16 @@ generation:
       modele: wan22-5b
       depart: refs/ga-12.jpg
       prompt: "Static shot. The ginger and white cat sits on the table next to a slice of strawberry cake, licks its whiskers once and stares into the camera without remorse. Small movements only. Photorealistic, sharp focus."
+    # Secours Kaggle du 10/11 au soir (quota HF épuisé) : gestes sur place uniquement.
+    - fichier: clips/gateau/plan7-pattes-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-7.jpg
+      prompt: "Static shot. The golden retriever standing with both front paws on the edge of the round wooden table sniffs the strawberry cake eagerly, head moving closer, tail wagging. He stays in place. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan8-leche-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-8.jpg
+      prompt: "Static close-up. The golden retriever licks the whipped cream on the cake with his tongue, two quick licks, cream on his nose. Head stays in place. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan9-porte-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-9.jpg
+      prompt: "Static shot. The wooden kitchen door on the right slowly swings open. The golden retriever sitting on the floor turns his head toward the door and sits very straight. Photorealistic, sharp focus."
