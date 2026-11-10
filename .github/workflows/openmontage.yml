@@ -1,0 +1,70 @@
+name: OpenMontage (installation et rendu)
+
+# OpenMontage (github.com/OpenMontageInc/OpenMontage, sous-module openmontage/, version figée) :
+# système de production vidéo piloté par Claude Code. Il complète notre pipeline (HF + Kaggle + montage
+# FFmpeg) sans le remplacer. Ce workflow l'installe sur GitHub Actions, liste les outils disponibles
+# (preflight) et fait un rendu de démonstration ; les sorties vont sur la branche openmontage-sorties.
+on:
+  push:
+    paths: [".github/workflows/openmontage.yml", ".gitmodules"]
+  workflow_dispatch:
+    inputs:
+      demo:
+        description: "Démo Remotion à rendre (vide = aucune)"
+        default: "world-in-numbers"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: openmontage
+  cancel-in-progress: false
+
+jobs:
+  openmontage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.23.4"
+
+      - name: Installation (make setup)
+        working-directory: openmontage
+        run: |
+          command -v ffmpeg || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg; }
+          make setup PYTHON_VERSION=3.12
+
+      - name: Outils disponibles (preflight)
+        working-directory: openmontage
+        run: |
+          mkdir -p /tmp/sortie
+          make preflight | tee /tmp/sortie/preflight.txt
+
+      - name: Rendu de démonstration
+        working-directory: openmontage
+        run: |
+          demo="${{ inputs.demo }}"; [ "${{ github.event_name }}" = push ] && demo=world-in-numbers
+          [ -n "$demo" ] || exit 0
+          .venv/bin/python render_demo.py "$demo"
+          cp projects/demos/renders/*.mp4 /tmp/sortie/
+
+      - name: Sauvegarde sur la branche openmontage-sorties
+        if: always()
+        run: |
+          [ -n "$(ls -A /tmp/sortie 2>/dev/null)" ] || exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin openmontage-sorties || true
+          git checkout -B openmontage-sorties origin/openmontage-sorties 2>/dev/null || git checkout --orphan openmontage-sorties
+          git rm -rfq --cached . || true
+          rm -rf sortie && mkdir sortie && cp -r /tmp/sortie/* sortie/
+          git add sortie && git commit -qm "OpenMontage : installation et rendu" && git push origin openmontage-sorties
