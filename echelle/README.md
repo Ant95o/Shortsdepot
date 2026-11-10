@@ -21,3 +21,10 @@ Critère : l'action demandée se voit, sans déformation ni changement d'animal.
 - N3 plongeon : l'action se voit (le chat plonge et disparaît dans le carton), mais le chat apparaît de nulle part et le cadre bouge.
 - N4 tirer le sac : raté, Cooper pousse le sac du nez puis la caméra bascule et il se déforme.
 - N5 / N6 : mauvaise image de départ (piège de numérotation), à refaire (spec-kaggle-2.yaml). Le salto n'a pas eu lieu (le chat se dresse et sautille).
+
+## Résultats Kaggle, 2e passage (10/11, bonnes images)
+- N3 plongeon (graine 7, no-3) : le chat saute et finit dans un carton, mais le carton apparaît d'un coup et le décor change. Action lisible, raccord impossible.
+- N5 patte sur le nez (dh-10) : le chat se colle à Cooper et pose la patte sur son torse, les deux corps fusionnent un instant ; pas de tape sur le nez, Cooper ne recule pas. Raté.
+- N6 salto (dh-9) : le chat s'envole à l'envers puis la caméra part en vrille et un bras humain apparaît. Raté.
+
+Bilan Kaggle 5B : fiable seulement au niveau 1 (geste sur place). Dès le niveau 2 (déplacement), le décor dérive ; contact entre deux animaux = fusion ; objets qui apparaissent/disparaissent.
