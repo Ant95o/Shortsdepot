@@ -1,0 +1,3326 @@
+==> Using existing virtual environment: .venv
+".venv/bin/python" -c "from tools.tool_registry import registry; import json; registry.discover(); print(json.dumps(registry.provider_menu(), indent=2))"
+{
+  "3d_asset_acquisition": {
+    "available": [
+      {
+        "name": "threejs_asset_catalog",
+        "provider": "multi",
+        "runtime": "hybrid",
+        "best_for": [
+          "Installing rights-safe GLTF/GLB libraries for detailed Three.js worlds",
+          "Recording model-level provenance before asset-gate review"
+        ],
+        "dependencies": [],
+        "install_instructions": "Network access for install; no API key. Bundled catalogs are CC0.",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 1,
+    "configured": 1
+  },
+  "3d_asset_generation": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "atlas_3d",
+        "provider": "atlas_cloud",
+        "runtime": "api",
+        "best_for": [
+          "Unique hero props and environment pieces described in text",
+          "Textured PBR GLB assets for Blender or Three.js"
+        ],
+        "dependencies": [
+          "env:ATLASCLOUD_API_KEY"
+        ],
+        "install_instructions": "Set ATLASCLOUD_API_KEY (ATLAS_CLOUD_API_KEY and ATLAS_API_KEY are also accepted). Create a key at https://www.atlascloud.ai/.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "fal_3d",
+        "provider": "fal",
+        "runtime": "api",
+        "best_for": [
+          "Image-conditioned hero props whose silhouette must match concept art",
+          "Extracting multiple textured GLBs and placements from a regional concept image",
+          "Rapid textured environment assets"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Set FAL_KEY (or FAL_AI_API_KEY). Create a key at https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 2,
+    "configured": 0
+  },
+  "3d_world_generation": {
+    "available": [
+      {
+        "name": "threejs_world",
+        "provider": "threejs",
+        "runtime": "local",
+        "best_for": [
+          "Editable cinematic 3D worlds and terrain fly-throughs",
+          "Free-viewpoint environments built without paid generation APIs",
+          "Region-aware terrain, biomes, landmarks, and diagnostic passes",
+          "Production worlds assembled from local licensed GLTF/PBR catalogs"
+        ],
+        "dependencies": [],
+        "install_instructions": "World authoring is dependency-free. Final rendering requires the configured HyperFrames runtime (Node.js >= 22, npx, and FFmpeg).",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 1,
+    "configured": 1
+  },
+  "3d_world_rendering": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "blender_world",
+        "provider": "blender",
+        "runtime": "local_gpu",
+        "best_for": [
+          "Production-quality world assembly from many generated and licensed assets",
+          "Dense terrain, lighting, material, camera, and contact-shadow work",
+          "Rendering a final image sequence for governed video composition"
+        ],
+        "dependencies": [],
+        "install_instructions": "Install Blender 4.5 LTS, set BLENDER_PATH, or place the portable runtime at .runtime/blender/blender-4.5.10-windows-x64/blender.exe.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "analysis": {
+    "available": [
+      {
+        "name": "audio_energy",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [
+          "finding where ambient music gets interesting (skip quiet intros)",
+          "choosing the best offset for a music track in a video",
+          "determining if a music track needs looping for a longer video"
+        ],
+        "dependencies": [
+          "binary:ffmpeg"
+        ],
+        "install_instructions": "Install ffmpeg:\n  Windows: winget install ffmpeg\n  macOS: brew install ffmpeg\n  Linux: sudo apt install ffmpeg",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "frame_sampler",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "scene_detect",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "FFmpeg is required. For better detection install PySceneDetect:\npip install scenedetect[opencv]",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "visual_qa",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg",
+          "cmd:ffprobe"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "audio_probe",
+        "provider": "ffprobe",
+        "runtime": "local",
+        "best_for": [
+          "getting audio/video duration before composition",
+          "validating media file format and codec",
+          "pre-render checks on asset files"
+        ],
+        "dependencies": [
+          "binary:ffprobe"
+        ],
+        "install_instructions": "Install ffmpeg (includes ffprobe):\n  Windows: winget install ffmpeg\n  macOS: brew install ffmpeg\n  Linux: sudo apt install ffmpeg",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "composition_validator",
+        "provider": "local",
+        "runtime": "local",
+        "best_for": [
+          "catching audio-video duration mismatches before render",
+          "verifying all referenced assets exist",
+          "pre-flight check before expensive render operations"
+        ],
+        "dependencies": [
+          "binary:ffprobe"
+        ],
+        "install_instructions": "Requires ffprobe on PATH (part of ffmpeg).",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "video_analyzer",
+        "provider": "multi",
+        "runtime": "local",
+        "best_for": [
+          "comprehensive video analysis",
+          "reference video understanding",
+          "style extraction from example video",
+          "understanding video structure and pacing"
+        ],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Core: FFmpeg is required (https://ffmpeg.org/download.html)\nFor URL downloads: pip install yt-dlp\nFor YouTube transcripts: pip install youtube-transcript-api\nFor local transcription: pip install faster-whisper\nFor scene detection: pip install scenedetect[opencv]\nAll dependencies are free and local \u2014 no API keys needed.",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [
+      {
+        "name": "azure_stt",
+        "provider": "azure",
+        "runtime": "api",
+        "best_for": [
+          "Cloud transcription with word-level timestamps and no GPU",
+          "Multi-language auto-detection across a candidate locale set",
+          "Speaker diarization without a HuggingFace token"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set your Azure AI Speech credentials:\n  export AZURE_SPEECH_KEY=your_speech_resource_key\n  export AZURE_SPEECH_REGION=eastus   # your Speech resource region\nCreate a Speech resource in the Azure portal (https://portal.azure.com) \u2014 the key and region are on its 'Keys and Endpoint' page. Optionally set AZURE_SPEECH_ENDPOINT to a full custom endpoint URL instead of the region.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "dashscope_asr",
+        "provider": "dashscope",
+        "runtime": "api",
+        "best_for": [
+          "word-level timestamp transcription for subtitle alignment",
+          "Mandarin and English speech recognition",
+          "replacing whisperx when word-level granularity is needed"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set DASHSCOPE_API_KEY to your Alibaba Cloud DashScope API key.\n  Get one at https://dashscope.aliyun.com/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "face_tracker",
+        "provider": "mediapipe",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "For best results install MediaPipe:\npip install mediapipe opencv-python\n\nFalls back to OpenCV Haar cascade (ships with opencv-python).",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "mistral_stt",
+        "provider": "mistral",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:MISTRAL_API_KEY"
+        ],
+        "install_instructions": "Configure MISTRAL_API_KEY from https://console.mistral.ai/.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "video_understand",
+        "provider": "transformers",
+        "runtime": "local_gpu",
+        "best_for": [],
+        "dependencies": [
+          "python:transformers",
+          "python:torch"
+        ],
+        "install_instructions": "pip install transformers torch  # For CLIP/BLIP-2 visual understanding",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "transcriber",
+        "provider": "whisperx",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "python:faster_whisper"
+        ],
+        "install_instructions": "pip install faster-whisper  # CPU mode\npip install faster-whisper[gpu]  # GPU mode (requires CUDA)\npip install whisperx  # For diarization support",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "transcript_fetcher",
+        "provider": "youtube-transcript-api",
+        "runtime": "local",
+        "best_for": [
+          "fast YouTube transcript extraction",
+          "caption-based analysis without video download",
+          "getting timestamped text from YouTube videos"
+        ],
+        "dependencies": [
+          "python:youtube_transcript_api"
+        ],
+        "install_instructions": "Install youtube-transcript-api: pip install youtube-transcript-api",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 14,
+    "configured": 7
+  },
+  "audio_processing": {
+    "available": [
+      {
+        "name": "audio_enhance",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "audio_mixer",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "FFmpeg is required. pydub is optional for advanced mixing:\npip install pydub",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 2,
+    "configured": 2
+  },
+  "avatar": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "heygen_avatar",
+        "provider": "heygen",
+        "runtime": "api",
+        "best_for": [
+          "Avatar V digital-twin presenters with explicit engine selection"
+        ],
+        "dependencies": [
+          "env:HEYGEN_API_KEY"
+        ],
+        "install_instructions": "Configure HEYGEN_API_KEY from your HeyGen API account.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_avatar",
+        "provider": "kling_official",
+        "runtime": "api",
+        "best_for": [
+          "official Kling cloud avatar presenter clips",
+          "high-quality image-to-video avatar generation from a supplied portrait",
+          "projects already using a Kling official account and resource pack"
+        ],
+        "dependencies": [
+          "env:KLING_API_KEY"
+        ],
+        "install_instructions": "Set KLING_API_KEY in .env for the official Kling API. Provide an avatar image plus either audio_id or sound_file/audio_path.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_lip_sync",
+        "provider": "kling_official",
+        "runtime": "api",
+        "best_for": [
+          "official Kling cloud lip-sync for existing presenter video",
+          "dubbing workflows that can use Kling face identification",
+          "manual or explicit automatic face selection before paid lip-sync generation"
+        ],
+        "dependencies": [
+          "env:KLING_API_KEY"
+        ],
+        "install_instructions": "Set KLING_API_KEY in .env for the official Kling API. Use identify_face first for multi-person clips, then pass face_choose or face_id.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "talking_head",
+        "provider": "sadtalker",
+        "runtime": "local_gpu",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "Clone https://github.com/OpenTalker/SadTalker and set SADTALKER_PATH env var\nRequires: PyTorch with CUDA, ffmpeg\npip install sadtalker  # or clone the repo",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "lip_sync",
+        "provider": "wav2lip",
+        "runtime": "local_gpu",
+        "best_for": [],
+        "dependencies": [
+          "python:torch",
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Option 1: pip install wav2lip (if available)\nOption 2: Clone https://github.com/Rudrabha/Wav2Lip and set WAV2LIP_PATH env var\nRequires: PyTorch with CUDA, ffmpeg",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 5,
+    "configured": 0
+  },
+  "character_animation": {
+    "available": [
+      {
+        "name": "action_timeline_compiler",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "character_animation_reviewer",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "character_rig_renderer",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "character_spec_generator",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [
+          "Converting approved concepts into structured character_design artifacts"
+        ],
+        "dependencies": [],
+        "install_instructions": "",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "pose_library_builder",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "svg_rig_builder",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 6,
+    "configured": 6
+  },
+  "clip_acquisition": {
+    "available": [
+      {
+        "name": "direct_clip_search",
+        "provider": "openmontage",
+        "runtime": "hybrid",
+        "best_for": [
+          "act-by-act documentary production with manual clip selection",
+          "fast B-roll acquisition when you know what you need",
+          "downloading clips from multiple providers in one call",
+          "building clip libraries without CLIP embedding overhead"
+        ],
+        "dependencies": [
+          "python:requests"
+        ],
+        "install_instructions": "At least one stock source must be configured:\n  PEXELS_API_KEY for Pexels (free at https://www.pexels.com/api/)\n  UNSPLASH_ACCESS_KEY for Unsplash (see https://unsplash.com/documentation)\n  archive.org, nasa, and wikimedia work without API keys",
+        "status": "available",
+        "source_provider_menu": [
+          {
+            "name": "pexels",
+            "display_name": "Pexels",
+            "provider": "pexels",
+            "status": "unavailable",
+            "install_instructions": "Set PEXELS_API_KEY in .env to enable Pexels stock search (free key at https://www.pexels.com/api/).",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "pixabay_video",
+            "display_name": "Pixabay Video",
+            "provider": "pixabay",
+            "status": "unavailable",
+            "install_instructions": "Set PIXABAY_API_KEY in .env to enable Pixabay Video search (free key at https://pixabay.com/api/docs/).",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "coverr",
+            "display_name": "Coverr",
+            "provider": "coverr",
+            "status": "available",
+            "install_instructions": "Coverr works without an API key (free tier, 50 req/hr). Set COVERR_API_KEY in .env for higher rate limits (Pro tier).",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "unsplash",
+            "display_name": "Unsplash",
+            "provider": "unsplash",
+            "status": "unavailable",
+            "install_instructions": "Set UNSPLASH_ACCESS_KEY in .env to enable Unsplash image search (see https://unsplash.com/documentation).",
+            "supports": {
+              "video": false,
+              "image": true
+            }
+          },
+          {
+            "name": "mixkit",
+            "display_name": "Mixkit",
+            "provider": "envato",
+            "status": "unavailable",
+            "install_instructions": "Mixkit works without an API key. Scrapes the Mixkit website. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "archive_org",
+            "display_name": "Archive.org",
+            "provider": "archive_org",
+            "status": "available",
+            "install_instructions": "No setup required. Archive.org is available without API keys.",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "openverse",
+            "display_name": "Openverse",
+            "provider": "openverse",
+            "status": "available",
+            "install_instructions": "Works without an API key (anonymous: 20 req/min, 200 req/day). Optional: set OPENVERSE_CLIENT_ID and OPENVERSE_CLIENT_SECRET in .env to raise the rate limit. Images only \u2014 Openverse has no video endpoint.",
+            "supports": {
+              "video": false,
+              "image": true
+            }
+          },
+          {
+            "name": "videvo",
+            "display_name": "Videvo",
+            "provider": "videvo",
+            "status": "unavailable",
+            "install_instructions": "Set VIDEVO_API_KEY in .env to enable Videvo stock search (get API access at https://www.videvo.net/api/).",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "wikimedia",
+            "display_name": "Wikimedia Commons",
+            "provider": "wikimedia",
+            "status": "available",
+            "install_instructions": "No setup required. Wikimedia Commons media search works without API keys.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "nasa",
+            "display_name": "NASA",
+            "provider": "nasa",
+            "status": "available",
+            "install_instructions": "No setup required. NASA media search works without an API key; NASA_API_KEY is optional for higher rate limits.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "nara",
+            "display_name": "U.S. National Archives",
+            "provider": "nara",
+            "status": "unavailable",
+            "install_instructions": "NARA requires an API key: without one the catalog returns HTML, not JSON.\nRequest a key from Catalog_API@nara.gov, then set NARA_API_KEY in .env.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "pond5_pd",
+            "display_name": "Pond5 Public Domain",
+            "provider": "pond5",
+            "status": "unavailable",
+            "install_instructions": "Set POND5_API_KEY in .env to enable Pond5 search.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "loc",
+            "display_name": "Library of Congress",
+            "provider": "loc",
+            "status": "available",
+            "install_instructions": "Library of Congress works without an API key. No setup needed.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "esa",
+            "display_name": "ESA (European Space Agency)",
+            "provider": "esa",
+            "status": "unavailable",
+            "install_instructions": "ESA works without an API key. Scrapes the ESA Multimedia gallery. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "noaa",
+            "display_name": "NOAA (Ocean & Atmosphere)",
+            "provider": "noaa",
+            "status": "unavailable",
+            "install_instructions": "NOAA works without an API key. Scrapes the NOAA multimedia pages. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "dareful",
+            "display_name": "Dareful",
+            "provider": "dareful",
+            "status": "unavailable",
+            "install_instructions": "Dareful works without an API key. Scrapes the Dareful website. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "jaxa",
+            "display_name": "JAXA (Japan Space Agency)",
+            "provider": "jaxa",
+            "status": "unavailable",
+            "install_instructions": "JAXA works without an API key. Scrapes the JAXA Digital Archives. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          }
+        ],
+        "source_provider_summary": {
+          "configured": 6,
+          "total": 17,
+          "available_source_names": [
+            "coverr",
+            "archive_org",
+            "openverse",
+            "wikimedia",
+            "nasa",
+            "loc"
+          ],
+          "unavailable_source_names": [
+            "pexels",
+            "pixabay_video",
+            "unsplash",
+            "mixkit",
+            "videvo",
+            "nara",
+            "pond5_pd",
+            "esa",
+            "noaa",
+            "dareful",
+            "jaxa"
+          ]
+        },
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 1,
+    "configured": 1
+  },
+  "clip_retrieval": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "clip_search",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [
+          "picking clips for a specific slot in a montage",
+          "finding collection-style sets from one seed clip",
+          "de-duplicating a candidate list before edit arrangement"
+        ],
+        "dependencies": [
+          "python:numpy",
+          "python:transformers",
+          "python:torch"
+        ],
+        "install_instructions": "pip install numpy transformers torch\nRequires a corpus built by corpus_builder at <corpus_dir>.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "corpus_population": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "corpus_builder",
+        "provider": "openmontage",
+        "runtime": "hybrid",
+        "best_for": [
+          "documentary-montage retrieval corpora",
+          "topic-based offline clip indexing",
+          "collecting candidate B-roll without repeated API calls per edit"
+        ],
+        "dependencies": [
+          "python:cv2",
+          "python:numpy",
+          "python:requests",
+          "python:PIL",
+          "python:transformers",
+          "python:torch"
+        ],
+        "install_instructions": "pip install opencv-python numpy requests pillow transformers torch\nAt least one stock source must be configured:\n  PEXELS_API_KEY for Pexels (free at https://www.pexels.com/api/)\n  UNSPLASH_ACCESS_KEY for Unsplash (see https://unsplash.com/documentation)\n  archive.org, nasa, and wikimedia work without API keys",
+        "status": "degraded",
+        "source_provider_menu": [
+          {
+            "name": "pexels",
+            "display_name": "Pexels",
+            "provider": "pexels",
+            "status": "unavailable",
+            "install_instructions": "Set PEXELS_API_KEY in .env to enable Pexels stock search (free key at https://www.pexels.com/api/).",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "pixabay_video",
+            "display_name": "Pixabay Video",
+            "provider": "pixabay",
+            "status": "unavailable",
+            "install_instructions": "Set PIXABAY_API_KEY in .env to enable Pixabay Video search (free key at https://pixabay.com/api/docs/).",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "coverr",
+            "display_name": "Coverr",
+            "provider": "coverr",
+            "status": "available",
+            "install_instructions": "Coverr works without an API key (free tier, 50 req/hr). Set COVERR_API_KEY in .env for higher rate limits (Pro tier).",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "unsplash",
+            "display_name": "Unsplash",
+            "provider": "unsplash",
+            "status": "unavailable",
+            "install_instructions": "Set UNSPLASH_ACCESS_KEY in .env to enable Unsplash image search (see https://unsplash.com/documentation).",
+            "supports": {
+              "video": false,
+              "image": true
+            }
+          },
+          {
+            "name": "mixkit",
+            "display_name": "Mixkit",
+            "provider": "envato",
+            "status": "unavailable",
+            "install_instructions": "Mixkit works without an API key. Scrapes the Mixkit website. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "archive_org",
+            "display_name": "Archive.org",
+            "provider": "archive_org",
+            "status": "available",
+            "install_instructions": "No setup required. Archive.org is available without API keys.",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "openverse",
+            "display_name": "Openverse",
+            "provider": "openverse",
+            "status": "available",
+            "install_instructions": "Works without an API key (anonymous: 20 req/min, 200 req/day). Optional: set OPENVERSE_CLIENT_ID and OPENVERSE_CLIENT_SECRET in .env to raise the rate limit. Images only \u2014 Openverse has no video endpoint.",
+            "supports": {
+              "video": false,
+              "image": true
+            }
+          },
+          {
+            "name": "videvo",
+            "display_name": "Videvo",
+            "provider": "videvo",
+            "status": "unavailable",
+            "install_instructions": "Set VIDEVO_API_KEY in .env to enable Videvo stock search (get API access at https://www.videvo.net/api/).",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "wikimedia",
+            "display_name": "Wikimedia Commons",
+            "provider": "wikimedia",
+            "status": "available",
+            "install_instructions": "No setup required. Wikimedia Commons media search works without API keys.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "nasa",
+            "display_name": "NASA",
+            "provider": "nasa",
+            "status": "available",
+            "install_instructions": "No setup required. NASA media search works without an API key; NASA_API_KEY is optional for higher rate limits.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "nara",
+            "display_name": "U.S. National Archives",
+            "provider": "nara",
+            "status": "unavailable",
+            "install_instructions": "NARA requires an API key: without one the catalog returns HTML, not JSON.\nRequest a key from Catalog_API@nara.gov, then set NARA_API_KEY in .env.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "pond5_pd",
+            "display_name": "Pond5 Public Domain",
+            "provider": "pond5",
+            "status": "unavailable",
+            "install_instructions": "Set POND5_API_KEY in .env to enable Pond5 search.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "loc",
+            "display_name": "Library of Congress",
+            "provider": "loc",
+            "status": "available",
+            "install_instructions": "Library of Congress works without an API key. No setup needed.",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "esa",
+            "display_name": "ESA (European Space Agency)",
+            "provider": "esa",
+            "status": "unavailable",
+            "install_instructions": "ESA works without an API key. Scrapes the ESA Multimedia gallery. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "noaa",
+            "display_name": "NOAA (Ocean & Atmosphere)",
+            "provider": "noaa",
+            "status": "unavailable",
+            "install_instructions": "NOAA works without an API key. Scrapes the NOAA multimedia pages. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          },
+          {
+            "name": "dareful",
+            "display_name": "Dareful",
+            "provider": "dareful",
+            "status": "unavailable",
+            "install_instructions": "Dareful works without an API key. Scrapes the Dareful website. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": false
+            }
+          },
+          {
+            "name": "jaxa",
+            "display_name": "JAXA (Japan Space Agency)",
+            "provider": "jaxa",
+            "status": "unavailable",
+            "install_instructions": "JAXA works without an API key. Scrapes the JAXA Digital Archives. Requires beautifulsoup4: pip install beautifulsoup4",
+            "supports": {
+              "video": true,
+              "image": true
+            }
+          }
+        ],
+        "source_provider_summary": {
+          "configured": 6,
+          "total": 17,
+          "available_source_names": [
+            "coverr",
+            "archive_org",
+            "openverse",
+            "wikimedia",
+            "nasa",
+            "loc"
+          ],
+          "unavailable_source_names": [
+            "pexels",
+            "pixabay_video",
+            "unsplash",
+            "mixkit",
+            "videvo",
+            "nara",
+            "pond5_pd",
+            "esa",
+            "noaa",
+            "dareful",
+            "jaxa"
+          ]
+        },
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "enhancement": {
+    "available": [
+      {
+        "name": "color_grade",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "face_enhance",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [
+      {
+        "name": "face_restore",
+        "provider": "codeformer",
+        "runtime": "local_gpu",
+        "best_for": [],
+        "dependencies": [
+          "python:gfpgan",
+          "python:torch"
+        ],
+        "install_instructions": "uv pip install gfpgan torch\nWorks on: CUDA (NVIDIA), MPS (Apple Silicon M-series, macOS >= 12.3), CPU fallback.\nNo CUDA build needed on macOS \u2014 uv pip install torch includes MPS support.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "eye_enhance",
+        "provider": "mediapipe",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "For best results install MediaPipe and OpenCV:\npip install mediapipe opencv-python numpy\n\nWithout MediaPipe, falls back to FFmpeg eye-region filter (less precise).",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minicut_upscale",
+        "provider": "minicut",
+        "runtime": "api",
+        "best_for": [
+          "upscaling a finished clip without a local GPU",
+          "paid runs that must show the price and wait for a yes"
+        ],
+        "dependencies": [
+          "cmd:minicut"
+        ],
+        "install_instructions": "Install the MiniCut CLI: curl -fsSL https://minicut.ai/install.sh | bash\n  Then sign in once: minicut login",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "upscale",
+        "provider": "realesrgan",
+        "runtime": "local_gpu",
+        "best_for": [],
+        "dependencies": [
+          "python:realesrgan",
+          "python:torch",
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "uv pip install realesrgan torch\nWorks on: CUDA (NVIDIA), MPS (Apple Silicon M-series, macOS >= 12.3), CPU fallback.\nNo separate CUDA build needed on macOS \u2014 uv pip install torch includes MPS support.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "bg_remove",
+        "provider": "rembg",
+        "runtime": "hybrid",
+        "best_for": [],
+        "dependencies": [
+          "python:rembg",
+          "python:PIL"
+        ],
+        "install_instructions": "pip install rembg       # CPU mode\npip install rembg[gpu]  # GPU mode (requires CUDA + onnxruntime-gpu)",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 7,
+    "configured": 2
+  },
+  "graphics": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "math_animate",
+        "provider": "manim",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:manim"
+        ],
+        "install_instructions": "Install ManimCE:\n  pip install manim\n  manim checkhealth\nRequires: Python 3.8+, FFmpeg, LaTeX (optional, for math formulas)\n  Windows: choco install miktex ffmpeg\n  macOS: brew install mactex ffmpeg\n  Linux: sudo apt install texlive-full ffmpeg",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "diagram_gen",
+        "provider": "mermaid",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "For Mermaid diagrams:\n  npm install -g @mermaid-js/mermaid-cli\nFor Pillow-based diagrams (fallback):\n  pip install Pillow",
+        "status": "degraded",
+        "provider_matrix": {},
+        "operation_statuses": {
+          "mermaid": "unavailable",
+          "flowchart": "available",
+          "boxes": "available"
+        }
+      },
+      {
+        "name": "code_snippet",
+        "provider": "pygments",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "python:pygments",
+          "python:PIL"
+        ],
+        "install_instructions": "pip install Pygments Pillow",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 3,
+    "configured": 0
+  },
+  "image_generation": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "atlas_image",
+        "provider": "atlascloud",
+        "runtime": "api",
+        "best_for": [
+          "Seedream 5.0 Pro generation, multi-image editing, and layer decomposition",
+          "GPT Image 2 generation and editing with arbitrary supported dimensions",
+          "Nano Banana 2 generation and editing up to 4K with as many as 14 references"
+        ],
+        "dependencies": [
+          "env:ATLASCLOUD_API_KEY"
+        ],
+        "install_instructions": "Set ATLASCLOUD_API_KEY to your Atlas Cloud API key.\n  Get one at https://www.atlascloud.ai/ -> Dashboard -> API Keys",
+        "status": "unavailable",
+        "provider_matrix": {
+          "bytedance/seedream-v5.0-pro": {
+            "generate": "bytedance/seedream-v5.0-pro/text-to-image",
+            "edit": "bytedance/seedream-v5.0-pro/edit",
+            "decompose": "bytedance/seedream-v5.0-pro/layer-decomposition"
+          },
+          "bytedance/seedream-v5.0-lite": {
+            "edit": "bytedance/seedream-v5.0-lite/edit"
+          },
+          "openai/gpt-image-2": {
+            "generate": "openai/gpt-image-2/text-to-image",
+            "edit": "openai/gpt-image-2/edit"
+          },
+          "google/nano-banana-2": {
+            "generate": "google/nano-banana-2/text-to-image",
+            "edit": "google/nano-banana-2/edit"
+          }
+        }
+      },
+      {
+        "name": "atlas_refresh_image",
+        "provider": "atlascloud",
+        "runtime": "api",
+        "best_for": [
+          "GPT Image 2.5 and Nano Banana Pro generation and edits on Atlas"
+        ],
+        "dependencies": [
+          "env:ATLASCLOUD_API_KEY"
+        ],
+        "install_instructions": "Configure ATLASCLOUD_API_KEY.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "bfl_image",
+        "provider": "bfl",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:BFL_API_KEY"
+        ],
+        "install_instructions": "Configure BFL_API_KEY from https://dashboard.bfl.ai/.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "bria_image",
+        "provider": "bria",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:BRIA_API_TOKEN"
+        ],
+        "install_instructions": "Configure BRIA_API_TOKEN from https://platform.bria.ai/.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "seedream_image",
+        "provider": "bytedance",
+        "runtime": "api",
+        "best_for": [
+          "raster brand and campaign assets",
+          "images with accurate text rendering",
+          "structured designs and dense layouts",
+          "multi-language text rendering (14 languages)"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Set FAL_KEY to your fal.ai API key.\n  Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "comfyui_image",
+        "provider": "comfyui",
+        "runtime": "local_gpu",
+        "best_for": [
+          "local GPU generation without API costs",
+          "Blackwell / DGX Spark hardware where diffusers is unsupported",
+          "full control over sampling via custom ComfyUI workflows"
+        ],
+        "dependencies": [],
+        "install_instructions": "Start a ComfyUI server and set COMFYUI_SERVER_URL (default http://localhost:8188).\nSee https://github.com/comfyanonymous/ComfyUI for setup.\nRunning a separate ComfyUI instance for images? Set COMFYUI_IMAGE_SERVER_URL instead -- it takes priority over COMFYUI_SERVER_URL for this tool only.",
+        "status": "unavailable",
+        "provider_matrix": {},
+        "setup_offer": {
+          "kind": "local_server",
+          "fix_complexity": "1-minute env-var if ComfyUI is already running; otherwise local install",
+          "env_var": "COMFYUI_SERVER_URL",
+          "default_url": "http://localhost:8188",
+          "health_check": "GET /system_stats",
+          "what_it_unlocks": [
+            "free local image generation through ComfyUI workflows",
+            "free local video generation through ComfyUI workflows",
+            "community workflow_json/workflow_path execution"
+          ],
+          "per_capability_env_var_overrides": {
+            "comfyui_image": "COMFYUI_IMAGE_SERVER_URL",
+            "comfyui_video": "COMFYUI_VIDEO_SERVER_URL",
+            "comfyui_music": "COMFYUI_MUSIC_SERVER_URL"
+          }
+        }
+      },
+      {
+        "name": "dashscope_image",
+        "provider": "dashscope",
+        "runtime": "api",
+        "best_for": [
+          "high-quality image generation with Qwen-Image models",
+          "Chinese-language prompt understanding",
+          "cost-effective image generation via Alibaba Cloud"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set DASHSCOPE_API_KEY to your Alibaba Cloud DashScope API key.\n  Get one at https://dashscope.aliyun.com/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "bria_fal_image",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "bria_fal_image"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "flux3_fal_image",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "flux3_fal_image"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "gemini_fal_image",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "Gemini 3 Pro Image with an existing fal account"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "ideogram_fal_image",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "Precise regional edits and readable typography"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_o3_fal_image",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "Kling Image O3 images and reference-image edits on fal.ai"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "openai_fal_image",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "GPT Image 2.5 with an existing fal account"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "flux_image",
+        "provider": "flux",
+        "runtime": "api",
+        "best_for": [
+          "photorealistic images",
+          "general-purpose image generation",
+          "high quality at low cost (~$0.03/image)"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set FAL_KEY to your fal.ai API key.\n  Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "google_imagen",
+        "provider": "google_imagen",
+        "runtime": "api",
+        "best_for": [
+          "high-quality photorealistic images",
+          "Google ecosystem integration",
+          "fast generation with multiple aspect ratios"
+        ],
+        "dependencies": [],
+        "install_instructions": "Auth option A \u2014 API key (AI Studio): set GOOGLE_API_KEY (or GEMINI_API_KEY).\n  Get one at https://aistudio.google.com/apikey\nAuth option B \u2014 service account (Vertex AI): set GOOGLE_APPLICATION_CREDENTIALS\n  to a service-account JSON key (needs the 'google-auth' package), plus\n  GOOGLE_CLOUD_PROJECT and optionally GOOGLE_CLOUD_LOCATION (default us-central1).\n  Requires the Vertex AI API enabled and billing on the project.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "grok_image",
+        "provider": "grok",
+        "runtime": "api",
+        "best_for": [
+          "single-image edits and style transfers",
+          "multi-image compositing into one generated frame",
+          "general-purpose image generation with aspect ratio control"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set XAI_API_KEY to your xAI API key.\n  Get one from the xAI developer console",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "hunyuan_image",
+        "provider": "hunyuan_cloud",
+        "runtime": "api",
+        "best_for": [
+          "Hunyuan text-to-image via Tencent TokenHub API",
+          "simple Bearer-token auth (no TC3 signing required)",
+          "direct Tencent Cloud quota usage (not through a third-party gateway)",
+          "Chinese-language prompt understanding"
+        ],
+        "dependencies": [
+          "env:TENCENT_TOKENHUB_API_KEY"
+        ],
+        "install_instructions": "Set TENCENT_TOKENHUB_API_KEY to your Tencent Cloud TokenHub API key.\n  Get it at https://console.cloud.tencent.com/tokenhub",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "ideogram_image",
+        "provider": "ideogram",
+        "runtime": "api",
+        "best_for": [
+          "Precise local edits preserving unchanged pixels and typography"
+        ],
+        "dependencies": [
+          "env:IDEOGRAM_API_KEY"
+        ],
+        "install_instructions": "Configure IDEOGRAM_API_KEY.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_official_image",
+        "provider": "kling_official",
+        "runtime": "api",
+        "best_for": [
+          "official Kling image generation",
+          "subject or face reference generation",
+          "Omni multi-reference image workflows"
+        ],
+        "dependencies": [
+          "env:KLING_API_KEY"
+        ],
+        "install_instructions": "Set KLING_API_KEY in .env for the official Kling API. Optionally set KLING_API_BASE_URL to override the default Singapore endpoint.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "local_diffusion",
+        "provider": "local_diffusion",
+        "runtime": "local_gpu",
+        "best_for": [
+          "offline/air-gapped generation",
+          "free image generation (no API cost)",
+          "privacy-sensitive workflows"
+        ],
+        "dependencies": [],
+        "install_instructions": "Install diffusers for local Stable Diffusion:\n  pip install diffusers transformers accelerate torch",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "mai_image",
+        "provider": "microsoft_mai",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:MAI_API_KEY",
+          "env:MAI_ENDPOINT",
+          "env:MAI_IMAGE_DEPLOYMENT"
+        ],
+        "install_instructions": "Configure MAI_API_KEY, MAI_ENDPOINT (Foundry resource HTTPS origin), MAI_IMAGE_DEPLOYMENT and MAI_IMAGE_MODEL (MAI-Image-2.6 or MAI-Image-2.6-Flash).",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minicut_image",
+        "provider": "minicut",
+        "runtime": "api",
+        "best_for": [
+          "GPT Image 2 stills and reference-guided edits on the same sign-in as MiniCut video, voice and music",
+          "paid runs that must show the price and wait for a yes"
+        ],
+        "dependencies": [
+          "cmd:minicut"
+        ],
+        "install_instructions": "Install the MiniCut CLI: curl -fsSL https://minicut.ai/install.sh | bash\n  Then sign in once: minicut login",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minimax_image",
+        "provider": "minimax",
+        "runtime": "api",
+        "best_for": [
+          "first-party MiniMax image generation",
+          "seeded multi-image generation",
+          "global and mainland China API routing"
+        ],
+        "dependencies": [
+          "env:MINIMAX_API_KEY"
+        ],
+        "install_instructions": "Set MINIMAX_API_KEY to your MiniMax API key. Optionally set MINIMAX_REGION to global or cn.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "image_gen",
+        "provider": "multi",
+        "runtime": "hybrid",
+        "best_for": [
+          "DEPRECATED \u2014 prefer image_selector which routes to per-provider tools (flux_image, openai_image, recraft_image, grok_image, local_diffusion, pexels_image, pixabay_image).",
+          "Kept only for backwards compatibility. New code should not call this."
+        ],
+        "dependencies": [],
+        "install_instructions": "Set one of these environment variables:\n  OPENAI_API_KEY \u2014 for GPT Image 2\n  FAL_KEY \u2014 for FLUX via fal.ai\nOr install diffusers for local generation:\n  pip install diffusers transformers accelerate torch",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "openai_image",
+        "provider": "openai",
+        "runtime": "api",
+        "best_for": [
+          "complex multi-element compositions",
+          "images with text/labels",
+          "following detailed instructions accurately"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set OPENAI_API_KEY to your OpenAI API key.\n  pip install openai",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "pexels_image",
+        "provider": "pexels",
+        "runtime": "api",
+        "best_for": [
+          "real-world photography (cities, nature, people, objects)",
+          "establishing shots and B-roll stills",
+          "free stock images \u2014 no cost, no attribution required"
+        ],
+        "dependencies": [
+          "env:PEXELS_API_KEY"
+        ],
+        "install_instructions": "Set PEXELS_API_KEY to your Pexels API key.\n  Get one free at https://www.pexels.com/api/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "pixabay_image",
+        "provider": "pixabay",
+        "runtime": "api",
+        "best_for": [
+          "large royalty-free library (5M+ images)",
+          "category-based filtering (nature, business, science, etc.)",
+          "free stock images \u2014 no cost, no attribution required"
+        ],
+        "dependencies": [
+          "env:PIXABAY_API_KEY"
+        ],
+        "install_instructions": "Set PIXABAY_API_KEY to your Pixabay API key.\n  Get one free at https://pixabay.com/api/docs/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "qwen_image_21",
+        "provider": "qwen_local",
+        "runtime": "local_gpu",
+        "best_for": [
+          "Local Qwen Image 2.1 generation, editing and native RGBA images"
+        ],
+        "dependencies": [],
+        "install_instructions": "Install Diffusers with QwenImage21Pipeline, torch, transformers >=5.17, accelerate and Pillow. Download Qwen/Qwen-Image-2.1 separately and set QWEN_IMAGE_21_PATH to its local directory.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "recraft_image",
+        "provider": "recraft",
+        "runtime": "api",
+        "best_for": [
+          "logos and brand assets",
+          "SVG vector output",
+          "images with accurate text rendering",
+          "clean professional graphics"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set FAL_KEY to your fal.ai API key.\n  Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "flux3_replicate_image",
+        "provider": "replicate",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:REPLICATE_API_TOKEN"
+        ],
+        "install_instructions": "Configure REPLICATE_API_TOKEN.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "gemini_replicate_image",
+        "provider": "replicate",
+        "runtime": "api",
+        "best_for": [
+          "Nano Banana Pro through Replicate"
+        ],
+        "dependencies": [
+          "env:REPLICATE_API_TOKEN"
+        ],
+        "install_instructions": "Configure REPLICATE_API_TOKEN.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 31,
+    "configured": 0
+  },
+  "music_generation": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "comfyui_music",
+        "provider": "comfyui",
+        "runtime": "local_gpu",
+        "best_for": [
+          "local GPU music generation without API costs",
+          "instrumentals and songs with lyrics via the bundled ACE-Step v1 workflow",
+          "full control over sampling or other ACE-Step versions/node packs via custom ComfyUI workflows"
+        ],
+        "dependencies": [],
+        "install_instructions": "Start a ComfyUI server and set COMFYUI_SERVER_URL (default http://localhost:8188).\nRequires ace_step_v1_3.5b.safetensors in ComfyUI's checkpoints directory for the bundled workflow.\nRunning a separate ComfyUI instance for music? Set COMFYUI_MUSIC_SERVER_URL instead -- it takes priority over COMFYUI_SERVER_URL for this tool only.",
+        "status": "unavailable",
+        "provider_matrix": {},
+        "setup_offer": {
+          "kind": "local_server",
+          "fix_complexity": "1-minute env-var if ComfyUI is already running; otherwise local install",
+          "env_var": "COMFYUI_SERVER_URL",
+          "default_url": "http://localhost:8188",
+          "health_check": "GET /system_stats",
+          "what_it_unlocks": [
+            "free local image generation through ComfyUI workflows",
+            "free local video generation through ComfyUI workflows",
+            "community workflow_json/workflow_path execution"
+          ],
+          "per_capability_env_var_overrides": {
+            "comfyui_image": "COMFYUI_IMAGE_SERVER_URL",
+            "comfyui_video": "COMFYUI_VIDEO_SERVER_URL",
+            "comfyui_music": "COMFYUI_MUSIC_SERVER_URL"
+          }
+        }
+      },
+      {
+        "name": "elevenlabs_soundtrack",
+        "provider": "elevenlabs",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:ELEVENLABS_API_KEY"
+        ],
+        "install_instructions": "Configure ELEVENLABS_API_KEY with video-to-music access.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "music_gen",
+        "provider": "elevenlabs",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "Set the ELEVENLABS_API_KEY environment variable:\n  export ELEVENLABS_API_KEY=your_key_here\nGet a key at https://elevenlabs.io",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "fal_elevenlabs_music",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "precisely timed instrumental background music",
+          "high-quality ElevenLabs Music through a shared fal.ai account",
+          "short-form social video soundtracks"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Set FAL_KEY to a fal.ai API key. Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "google_music",
+        "provider": "google",
+        "runtime": "api",
+        "best_for": [
+          "high-quality instrumental background music",
+          "genre-specific music guided by rich text prompts",
+          "Google ecosystem integration"
+        ],
+        "dependencies": [],
+        "install_instructions": "Configure Google credentials:\n  - Set GEMINI_API_KEY (or GOOGLE_API_KEY) in environment.\n  - Or set GOOGLE_APPLICATION_CREDENTIALS for Vertex AI service account.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minicut_music",
+        "provider": "minicut",
+        "runtime": "api",
+        "best_for": [
+          "Lyria 3.5 tracks, with or without singing, on the same sign-in as MiniCut video, images and voice",
+          "paid runs that must show the price and wait for a yes"
+        ],
+        "dependencies": [
+          "cmd:minicut"
+        ],
+        "install_instructions": "Install the MiniCut CLI: curl -fsSL https://minicut.ai/install.sh | bash\n  Then sign in once: minicut login",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minicut_music_fit",
+        "provider": "minicut",
+        "runtime": "local",
+        "best_for": [
+          "music that changes on every cut of a finished edit",
+          "a track exactly as long as the cut, made locally with no credits",
+          "short-form edits that are re-cut often (same cuts in, same song out)"
+        ],
+        "dependencies": [
+          "cmd:minicut"
+        ],
+        "install_instructions": "Install the MiniCut CLI: curl -fsSL https://minicut.ai/install.sh | bash\n  Then sign in once: minicut login\n  Then add the music tools once (instrument samples, about 396 MB): minicut setup",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "suno_music",
+        "provider": "suno",
+        "runtime": "api",
+        "best_for": [
+          "full song generation with vocals and lyrics",
+          "high-quality instrumental background music",
+          "genre-specific music (any genre)",
+          "longer tracks up to 8 minutes"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set the SUNO_API_KEY environment variable:\n  export SUNO_API_KEY=your_key_here\nGet a key at https://sunoapi.org/api-key",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 8,
+    "configured": 0
+  },
+  "music_library": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "music_library",
+        "provider": "local",
+        "runtime": "local",
+        "best_for": [
+          "user-provided, intentional background music",
+          "free music with no API key or generation cost",
+          "knowing music options at the proposal stage"
+        ],
+        "dependencies": [],
+        "install_instructions": "Create a 'music_library/' folder in the project root and drop royalty-free audio tracks into it (e.g. .mp3, .wav, .m4a, .flac, .ogg). Sources: your own files, YouTube Audio Library, Jamendo, Freesound, etc. Override the location with the MUSIC_LIBRARY_DIR environment variable.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "music_search": {
+    "available": [
+      {
+        "name": "pixabay_music",
+        "provider": "pixabay_music",
+        "runtime": "api",
+        "best_for": [
+          "quick background music with zero setup (no API key)",
+          "royalty-free music for any commercial project",
+          "high-quality produced tracks (not raw samples)"
+        ],
+        "dependencies": [],
+        "install_instructions": "No setup required. Pixabay Music is free and needs no API key.\nNote: This tool scrapes the Pixabay website. If it breaks, the\nsite's HTML structure may have changed. Use freesound_music as fallback.",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [
+      {
+        "name": "freesound_music",
+        "provider": "freesound",
+        "runtime": "api",
+        "best_for": [
+          "ambient and atmospheric background music",
+          "free Creative Commons licensed audio",
+          "searching by mood, genre, or instrument tags",
+          "finding loops, drones, and textural audio"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set the FREESOUND_API_KEY environment variable:\n  export FREESOUND_API_KEY=your_key_here\nGet a free key at https://freesound.org/apiv2/apply/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 2,
+    "configured": 1
+  },
+  "publish": {
+    "available": [
+      {
+        "name": "export_bundle",
+        "provider": "local",
+        "runtime": "local",
+        "best_for": [
+          "packaging a finished render for hand-off to any platform",
+          "producing a schema-valid publish_log without an external account",
+          "offline / no-API-key publishing"
+        ],
+        "dependencies": [],
+        "install_instructions": "No setup required \u2014 runs locally with the Python standard library.",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 1,
+    "configured": 1
+  },
+  "realtime_audio": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "realtime_audio",
+        "provider": "realtime_audio",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "python:websockets"
+        ],
+        "install_instructions": "Configure XAI_API_KEY, ELEVENLABS_API_KEY, or MAI_API_KEY + MAI_ENDPOINT + MAI_TRANSCRIBE_DEPLOYMENT for the selected provider.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "screen_capture": {
+    "available": [
+      {
+        "name": "cap_recorder",
+        "provider": "cap",
+        "runtime": "local",
+        "best_for": [
+          "Professional screen recordings with webcam overlay",
+          "Cursor highlight and click effect recordings",
+          "Recording with a visual UI (not CLI-driven)",
+          "Recordings that need polished audio capture"
+        ],
+        "dependencies": [],
+        "install_instructions": "Cap is a free, open-source Loom alternative.\n\nInstall from: https://cap.so/download\n  - Windows: Download and run the installer\n  - macOS: Download the .dmg or use: brew install --cask cap\n  - Linux: Download the AppImage from GitHub releases\n\nSource code: https://github.com/CapSoftware/cap\n\nCap provides webcam overlay, cursor highlighting, and a polished\nrecording UI that FFmpeg-based recording cannot match.",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "screen_recorder",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [
+          "Quick screen recording without additional software",
+          "Automated screen capture for demo pipelines",
+          "Recording specific screen regions for tutorials"
+        ],
+        "dependencies": [
+          "binary:ffmpeg"
+        ],
+        "install_instructions": "Install ffmpeg:\n  Windows: winget install ffmpeg\n  macOS: brew install ffmpeg\n  Linux: sudo apt install ffmpeg",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 2,
+    "configured": 2
+  },
+  "sound_effects": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "minicut_sfx",
+        "provider": "minicut",
+        "runtime": "api",
+        "best_for": [
+          "one sound effect from a line of text, 0.5 to 22 seconds",
+          "hits, whooshes and room sounds to place on the timeline with audio_mixer",
+          "paid runs that must show the price and wait for a yes"
+        ],
+        "dependencies": [
+          "cmd:minicut"
+        ],
+        "install_instructions": "Install the MiniCut CLI: curl -fsSL https://minicut.ai/install.sh | bash\n  Then sign in once: minicut login",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "source_ingest": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "video_downloader",
+        "provider": "yt-dlp",
+        "runtime": "local",
+        "best_for": [
+          "downloading reference video from URL",
+          "extracting audio from online video",
+          "downloading subtitles from YouTube",
+          "getting video metadata without downloading"
+        ],
+        "dependencies": [
+          "python:yt_dlp"
+        ],
+        "install_instructions": "Install yt-dlp: pip install yt-dlp\nFor YouTube support, also install Deno (JS runtime): https://deno.land/#installation\nWithout Deno, YouTube downloads may fail but other platforms still work.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  },
+  "subtitle": {
+    "available": [
+      {
+        "name": "subtitle_gen",
+        "provider": "openmontage",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [],
+        "install_instructions": "No external dependencies required.",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "remotion_caption_burn",
+        "provider": "remotion",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg",
+          "cmd:ffprobe"
+        ],
+        "install_instructions": "Remotion (optional, preferred): npm install in remotion-composer/\nFFmpeg (required for fallback): https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [],
+    "total": 2,
+    "configured": 2
+  },
+  "tts": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "azure_tts",
+        "provider": "azure",
+        "runtime": "api",
+        "best_for": [
+          "high-quality neural narration on Azure credentials",
+          "calm, confident explainer / founder-register delivery",
+          "cloud TTS that shares one key with azure_stt"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set your Azure AI Speech credentials (same resource as azure_stt):\n  export AZURE_SPEECH_KEY=your_speech_resource_key\n  export AZURE_SPEECH_REGION=eastus   # your Speech resource region\nCreate a Speech resource in the Azure portal (https://portal.azure.com) \u2014 the key and region are on its 'Keys and Endpoint' page. Optionally set AZURE_TTS_ENDPOINT to a full custom TTS host (e.g. https://<region>.tts.speech.microsoft.com).",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "cartesia_tts",
+        "provider": "cartesia",
+        "runtime": "api",
+        "best_for": [
+          "Sonic 3.6 multilingual narration"
+        ],
+        "dependencies": [
+          "env:CARTESIA_API_KEY"
+        ],
+        "install_instructions": "Configure CARTESIA_API_KEY from the Cartesia dashboard.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "dashscope_tts",
+        "provider": "dashscope",
+        "runtime": "api",
+        "best_for": [
+          "natural Mandarin and multilingual narration via Qwen-TTS",
+          "cost-effective TTS via Alibaba Cloud",
+          "Chinese-language voiceover production"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set DASHSCOPE_API_KEY to your Alibaba Cloud DashScope API key.\n  Get one at https://dashscope.aliyun.com/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "doubao_tts",
+        "provider": "doubao",
+        "runtime": "api",
+        "best_for": [
+          "natural Mandarin narration",
+          "Chinese explainer voiceovers with character-level timestamps",
+          "long-form narration that needs subtitle alignment"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set DOUBAO_SPEECH_API_KEY to a Volcengine Doubao Speech API Key.\nOptional: set DOUBAO_SPEECH_VOICE_TYPE to the default speaker voice.\nUse the new console API key flow; do not pass app id/access token as the API key.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "elevenlabs_tts",
+        "provider": "elevenlabs",
+        "runtime": "api",
+        "best_for": [
+          "high-quality narration",
+          "voice-sensitive spokesperson videos",
+          "multilingual spoken delivery"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set the ELEVENLABS_API_KEY environment variable:\n  export ELEVENLABS_API_KEY=your_key_here\nGet a key at https://elevenlabs.io\nIf fal_elevenlabs_tts is available, use it instead to access ElevenLabs speech through fal.ai without a separate ElevenLabs key.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "fal_elevenlabs_tts",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "expressive ElevenLabs narration through an existing fal.ai connection",
+          "emotionally directed voiceover with Eleven v3 audio tags",
+          "multilingual narration without a separate ElevenLabs credential"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Set FAL_KEY to a fal.ai API key. No separate ElevenLabs key is needed. Get a fal.ai key at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "fish_audio_tts",
+        "provider": "fish_audio",
+        "runtime": "api",
+        "best_for": [
+          "high-quality voice-clone narration via reference_id",
+          "expressive S2-model read-throughs with inline emotion tags",
+          "multilingual narration"
+        ],
+        "dependencies": [
+          "env:FISH_AUDIO_API_KEY"
+        ],
+        "install_instructions": "Set FISH_AUDIO_API_KEY to an API key from https://fish.audio/go-api/api-keys/\nCreate voice models in the fish.audio playground and pass their id as\nreference_id to reuse a cloned voice.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "gemini_tts",
+        "provider": "gemini",
+        "runtime": "api",
+        "best_for": [
+          "Expressive single-speaker narration and directed dialogue"
+        ],
+        "dependencies": [],
+        "install_instructions": "Configure Gemini credentials and google-genai >= 2.25.0.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "google_tts",
+        "provider": "google_tts",
+        "runtime": "api",
+        "best_for": [
+          "localization \u2014 700+ voices across 50+ languages",
+          "affordable high-quality TTS (Neural2, WaveNet)",
+          "Google ecosystem integration"
+        ],
+        "dependencies": [],
+        "install_instructions": "Auth option A \u2014 TTS-only API key: set GOOGLE_TTS_API_KEY.\n  GOOGLE_API_KEY or GEMINI_API_KEY remain supported for broader Google setups.\n  Google Cloud API key with Text-to-Speech enabled.\n  Enable the API at https://console.cloud.google.com/apis/library/texttospeech.googleapis.com\nAuth option B \u2014 service account: set GOOGLE_APPLICATION_CREDENTIALS to the\n  path of a service-account JSON key (needs the 'google-auth' package).",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "grok_tts",
+        "provider": "grok",
+        "runtime": "api",
+        "best_for": [
+          "Expressive xAI narration with character alignment"
+        ],
+        "dependencies": [
+          "env:XAI_API_KEY"
+        ],
+        "install_instructions": "Configure XAI_API_KEY from https://console.x.ai/.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "heygen_catalog_tts",
+        "provider": "heygen",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:HEYGEN_API_KEY"
+        ],
+        "install_instructions": "Configure HEYGEN_API_KEY; use a catalog voice from /v3/voices.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "heygen_tts",
+        "provider": "heygen",
+        "runtime": "api",
+        "best_for": [
+          "HeyGen native voice narration and cloning"
+        ],
+        "dependencies": [
+          "env:HEYGEN_API_KEY"
+        ],
+        "install_instructions": "Configure HEYGEN_API_KEY from https://platform.heygen.com/api-keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "inworld_tts",
+        "provider": "inworld",
+        "runtime": "api",
+        "best_for": [
+          "TTS-2 narration with expressive delivery and alignment metadata"
+        ],
+        "dependencies": [
+          "env:INWORLD_API_KEY"
+        ],
+        "install_instructions": "Configure INWORLD_API_KEY with the Base64 credential from the Inworld Portal.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_tts",
+        "provider": "kling_official",
+        "runtime": "api",
+        "best_for": [
+          "official Kling text-to-speech",
+          "Chinese or English narration when a Kling voice_id is known",
+          "keeping narration provider provenance inside the Kling official account"
+        ],
+        "dependencies": [
+          "env:KLING_API_KEY"
+        ],
+        "install_instructions": "Set KLING_API_KEY in .env for the official Kling API. Pass voice_id explicitly; OpenMontage does not guess Kling voice IDs.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "mai_tts",
+        "provider": "microsoft_mai",
+        "runtime": "api",
+        "best_for": [
+          "high-quality neural narration on Azure credentials",
+          "calm, confident explainer / founder-register delivery",
+          "cloud TTS that shares one key with azure_stt"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set your Azure AI Speech credentials (same resource as azure_stt):\n  export AZURE_SPEECH_KEY=your_speech_resource_key\n  export AZURE_SPEECH_REGION=eastus   # your Speech resource region\nCreate a Speech resource in the Azure portal (https://portal.azure.com) \u2014 the key and region are on its 'Keys and Endpoint' page. Optionally set AZURE_TTS_ENDPOINT to a full custom TTS host (e.g. https://<region>.tts.speech.microsoft.com).",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minicut_tts",
+        "provider": "minicut",
+        "runtime": "api",
+        "best_for": [
+          "ElevenLabs v3 narration on the same sign-in as MiniCut video, images and music",
+          "paid runs that must show the price and wait for a yes"
+        ],
+        "dependencies": [
+          "cmd:minicut"
+        ],
+        "install_instructions": "Install the MiniCut CLI: curl -fsSL https://minicut.ai/install.sh | bash\n  Then sign in once: minicut login",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "mistral_tts",
+        "provider": "mistral",
+        "runtime": "api",
+        "best_for": [
+          "Voxtral expressive narration with preset or reference voices"
+        ],
+        "dependencies": [
+          "env:MISTRAL_API_KEY"
+        ],
+        "install_instructions": "Configure MISTRAL_API_KEY from https://console.mistral.ai/.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "openai_tts",
+        "provider": "openai",
+        "runtime": "api",
+        "best_for": [
+          "general narration fallback",
+          "API-based production when ElevenLabs is unavailable"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set the OPENAI_API_KEY environment variable:\n  export OPENAI_API_KEY=your_key_here\nGet a key at https://platform.openai.com/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "piper_tts",
+        "provider": "piper",
+        "runtime": "local",
+        "best_for": [
+          "offline narration fallback",
+          "privacy-sensitive local-only workflows"
+        ],
+        "dependencies": [
+          "cmd:piper"
+        ],
+        "install_instructions": "Install Piper TTS:\n  pip install piper-tts\nOr download from https://github.com/rhasspy/piper/releases\nThen download a voice model:\n  python -m piper.download_voices --download-dir ~/.piper/models en_US-lessac-medium",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 19,
+    "configured": 0
+  },
+  "video_generation": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "seedance_ark",
+        "provider": "ark",
+        "runtime": "api",
+        "best_for": [
+          "direct Volcengine Ark Seedance 2.0 generation without a gateway",
+          "multimodal reference video with native synchronized audio",
+          "Standard 1080p or 4K output and Fast/Mini lower-cost output"
+        ],
+        "dependencies": [
+          "env:ARK_API_KEY"
+        ],
+        "install_instructions": "Set ARK_API_KEY to the API Key body from Volcengine Ark (without the 'Bearer ' prefix). Optional: ARK_SEEDANCE_MODEL and ARK_BASE_URL.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "atlas_video",
+        "provider": "atlascloud",
+        "runtime": "api",
+        "best_for": [
+          "Seedance 2.5/2.0 text, image, and mixed-reference video through Atlas Cloud",
+          "Gemini Omni Flash text, image, reference, and video-edit workflows",
+          "MiniMax H3 text, start/end image, and mixed-media reference generation up to 2K",
+          "one Atlas key with exact per-model request validation and cost estimates"
+        ],
+        "dependencies": [
+          "env:ATLASCLOUD_API_KEY"
+        ],
+        "install_instructions": "Set ATLASCLOUD_API_KEY to your Atlas Cloud API key.\n  Get one at https://www.atlascloud.ai/ -> Dashboard -> API Keys",
+        "status": "unavailable",
+        "provider_matrix": {
+          "bytedance/seedance-2.5": {
+            "text_to_video": "bytedance/seedance-2.5/text-to-video",
+            "image_to_video": "bytedance/seedance-2.5/image-to-video",
+            "reference_to_video": "bytedance/seedance-2.5/reference-to-video"
+          },
+          "bytedance/seedance-2.0": {
+            "text_to_video": "bytedance/seedance-2.0/text-to-video",
+            "image_to_video": "bytedance/seedance-2.0/image-to-video",
+            "reference_to_video": "bytedance/seedance-2.0/reference-to-video"
+          },
+          "google/gemini-omni-flash": {
+            "text_to_video": "google/gemini-omni-flash/text-to-video",
+            "image_to_video": "google/gemini-omni-flash/image-to-video",
+            "reference_to_video": "google/gemini-omni-flash/reference-to-video",
+            "video_edit": "google/gemini-omni-flash/video-edit",
+            "text_to_video_developer": "google/gemini-omni-flash/text-to-video-developer",
+            "image_to_video_developer": "google/gemini-omni-flash/image-to-video-developer",
+            "reference_to_video_developer": "google/gemini-omni-flash/reference-to-video-developer"
+          },
+          "minimax/h3": {
+            "text_to_video": "minimax/h3/text-to-video",
+            "image_to_video": "minimax/h3/image-to-video",
+            "reference_to_video": "minimax/h3/reference-to-video"
+          }
+        }
+      },
+      {
+        "name": "wan_atlas_video",
+        "provider": "atlascloud",
+        "runtime": "api",
+        "best_for": [
+          "Wan 3.0 native and ESR video through Atlas Cloud"
+        ],
+        "dependencies": [
+          "env:ATLASCLOUD_API_KEY"
+        ],
+        "install_instructions": "Configure ATLASCLOUD_API_KEY.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "cogvideo_video",
+        "provider": "cogvideo",
+        "runtime": "local_gpu",
+        "best_for": [
+          "lower-VRAM local video experimentation",
+          "teams that want an explicit CogVideo family path in the registry"
+        ],
+        "dependencies": [],
+        "install_instructions": "Enable local video generation and install the diffusers stack:\n  export VIDEO_GEN_LOCAL_ENABLED=true\n  uv pip install diffusers transformers accelerate torch pillow requests\n\nGPU support \u2014 pick what matches your hardware:\n  NVIDIA CUDA    \u2014 works out of the box with the above\n  Apple Silicon (MPS, macOS >= 12.3) \u2014 works out of the box; no extra build\n  CPU fallback   \u2014 slow but functional on any machine\n\nVRAM profile: see the selected tool's resource_profile for minimum VRAM.",
+        "status": "unavailable",
+        "provider_matrix": {
+          "cogvideo-5b": {
+            "tool": "cogvideo_video",
+            "name": "CogVideoX 1.5 (5B)",
+            "hf_id": "THUDM/CogVideoX-5b",
+            "pipeline_class": "CogVideoXPipeline",
+            "vram_mb": 12000,
+            "quality": "medium",
+            "speed": "medium",
+            "t2v": true,
+            "i2v": true,
+            "license": "Apache-2.0",
+            "default_width": 720,
+            "default_height": 480,
+            "default_num_frames": 49,
+            "fps": 8,
+            "mode": "local_gpu"
+          },
+          "cogvideo-2b": {
+            "tool": "cogvideo_video",
+            "name": "CogVideoX (2B)",
+            "hf_id": "THUDM/CogVideoX-2b",
+            "pipeline_class": "CogVideoXPipeline",
+            "vram_mb": 6000,
+            "quality": "medium",
+            "speed": "fast",
+            "t2v": true,
+            "i2v": false,
+            "license": "Apache-2.0",
+            "default_width": 720,
+            "default_height": 480,
+            "default_num_frames": 49,
+            "fps": 8,
+            "mode": "local_gpu"
+          }
+        }
+      },
+      {
+        "name": "comfyui_video",
+        "provider": "comfyui",
+        "runtime": "local_gpu",
+        "best_for": [
+          "local GPU video generation without API costs",
+          "Blackwell / DGX Spark hardware where diffusers is unsupported",
+          "image-to-video with WAN 2.2 14B (4-step accelerated)",
+          "text-to-video with WAN 2.2 14B (4-step accelerated)",
+          "custom low-VRAM ComfyUI workflows on 8GB-12GB GPUs",
+          "ComfyUI Partner Node workflows for Gemini Omni Flash, Seedance 2.5, and MiniMax H3",
+          "open-weight MiniMax H3 custom workflows with native stereo audio"
+        ],
+        "dependencies": [],
+        "install_instructions": "Start a ComfyUI server and set COMFYUI_SERVER_URL (default http://localhost:8188).\nBundled local WAN requires WAN 2.2 models and LightX2V LoRAs. Local MiniMax H3 requires its official model stack and exported API workflow.\nGemini Omni, Seedance 2.5, and MiniMax H3 Partner Nodes require a logged-in Comfy account, credits, and network access.\nRunning a separate ComfyUI instance for video? Set COMFYUI_VIDEO_SERVER_URL instead -- it takes priority over COMFYUI_SERVER_URL for this tool only.",
+        "status": "unavailable",
+        "provider_matrix": {},
+        "setup_offer": {
+          "kind": "local_server",
+          "fix_complexity": "1-minute env-var if ComfyUI is already running; otherwise local install",
+          "env_var": "COMFYUI_SERVER_URL",
+          "default_url": "http://localhost:8188",
+          "health_check": "GET /system_stats",
+          "what_it_unlocks": [
+            "free local image generation through ComfyUI workflows",
+            "free local video generation through ComfyUI workflows",
+            "community workflow_json/workflow_path execution"
+          ],
+          "per_capability_env_var_overrides": {
+            "comfyui_image": "COMFYUI_IMAGE_SERVER_URL",
+            "comfyui_video": "COMFYUI_VIDEO_SERVER_URL",
+            "comfyui_music": "COMFYUI_MUSIC_SERVER_URL"
+          }
+        },
+        "operation_statuses": {
+          "text_to_video": "unavailable",
+          "image_to_video": "unavailable"
+        },
+        "resource_profiles": {
+          "provider_floor": {
+            "vram_mb": 8000,
+            "ram_mb": 16000,
+            "applies_to": "ComfyUI provider availability and low-VRAM custom workflows. Actual requirements depend on workflow_json/workflow_path."
+          },
+          "bundled_wan22_14b_fp8": {
+            "vram_mb": 16000,
+            "ram_mb": 32000,
+            "applies_to": "Bundled WAN 2.2 14B FP8 T2V/I2V workflows. This is not a ComfyUI provider-wide requirement."
+          },
+          "low_vram_custom_workflows": {
+            "vram_mb": "8000-12000",
+            "ram_mb": "16000-32000",
+            "examples": [
+              "Wan 2.1 1.3B",
+              "LTX-Video / LTXV FP8 or quantized workflows",
+              "Wan 2.2 GGUF / quantized community workflows"
+            ]
+          }
+        },
+        "resource_profile_note": "The top-level resource_profile is a ComfyUI provider floor, not a promise that every workflow fits 8GB VRAM. Bundled WAN 2.2 14B FP8 workflows recommend 16GB VRAM; custom low-VRAM workflows can target 8GB-12GB depending on model, quantization, resolution, and frame count."
+      },
+      {
+        "name": "flux3_video",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "flux3_video"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "h3_max_video",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "Fast H3 Max drafts and final clips with reference control"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_o3_fal_video",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "Kling O3 video generation, reference continuity and editing via fal.ai"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "vidu_video",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "vidu_video"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "wan_fal_video",
+        "provider": "fal.ai",
+        "runtime": "api",
+        "best_for": [
+          "Wan 3.0 generation using a fal account"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Configure FAL_KEY using https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "gemini_omni_fal",
+        "provider": "gemini_omni",
+        "runtime": "api",
+        "best_for": [
+          "Gemini Omni Flash with a fal.ai key",
+          "reference-image-driven 3-10 second video with synchronized audio"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Set FAL_KEY (or FAL_AI_API_KEY) from https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "gemini_omni_video",
+        "provider": "gemini_omni",
+        "runtime": "api",
+        "best_for": [
+          "iterative natural-language video editing (edit a clip without regenerating it)",
+          "reference-image-driven clips via <FIRST_FRAME>/<IMAGE_REF_N> prompt tags",
+          "fast 3-10s clips with synced audio, rendered text, and timecoded beats from one Google key"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set GEMINI_API_KEY or GOOGLE_API_KEY to a Google AI Studio API key.\n  Get one at https://aistudio.google.com/apikey\n  Gemini Omni Flash is paid-tier only (no free tier); ~$0.10 per second of video.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "grok_video",
+        "provider": "grok",
+        "runtime": "api",
+        "best_for": [
+          "cinematic clips with native synchronized audio (dialogue, SFX, music)",
+          "reference-conditioned video with product/character consistency",
+          "lip-synced dialogue and foley in a single generation pass",
+          "cost-effective high-quality video ($0.07/s at 720p)"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set XAI_API_KEY to your xAI API key.\n  Get one from the xAI developer console",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "heygen_video",
+        "provider": "heygen",
+        "runtime": "api",
+        "best_for": [
+          "premium cloud video generation without local GPU setup",
+          "fast access to VEO, Sora, Kling, Runway, and Seedance providers"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set the HEYGEN_API_KEY environment variable:\n  set HEYGEN_API_KEY=your_key_here\nGet a key at https://app.heygen.com/settings/api",
+        "status": "unavailable",
+        "provider_matrix": {
+          "veo_3_1": {
+            "tool": "heygen_video",
+            "name": "Google VEO 3.1",
+            "quality": "highest",
+            "speed": "slow",
+            "mode": "api"
+          },
+          "veo_3_1_fast": {
+            "tool": "heygen_video",
+            "name": "Google VEO 3.1 Fast",
+            "quality": "high",
+            "speed": "medium",
+            "mode": "api"
+          },
+          "veo3": {
+            "tool": "heygen_video",
+            "name": "Google VEO 3",
+            "quality": "high",
+            "speed": "slow",
+            "mode": "api"
+          },
+          "veo3_fast": {
+            "tool": "heygen_video",
+            "name": "Google VEO 3 Fast",
+            "quality": "high",
+            "speed": "medium",
+            "mode": "api"
+          },
+          "veo2": {
+            "tool": "heygen_video",
+            "name": "Google VEO 2",
+            "quality": "medium",
+            "speed": "medium",
+            "mode": "api"
+          },
+          "kling_pro": {
+            "tool": "heygen_video",
+            "name": "Kling Pro",
+            "quality": "high",
+            "speed": "medium",
+            "mode": "api"
+          },
+          "kling_v2": {
+            "tool": "heygen_video",
+            "name": "Kling v2",
+            "quality": "medium",
+            "speed": "fast",
+            "mode": "api"
+          },
+          "sora_v2": {
+            "tool": "heygen_video",
+            "name": "Sora v2",
+            "quality": "high",
+            "speed": "slow",
+            "mode": "api"
+          },
+          "sora_v2_pro": {
+            "tool": "heygen_video",
+            "name": "Sora v2 Pro",
+            "quality": "highest",
+            "speed": "slow",
+            "mode": "api"
+          },
+          "runway_gen4": {
+            "tool": "heygen_video",
+            "name": "Runway Gen-4",
+            "quality": "high",
+            "speed": "medium",
+            "mode": "api"
+          },
+          "seedance_lite": {
+            "tool": "heygen_video",
+            "name": "Seedance Lite (1.x)",
+            "quality": "medium",
+            "speed": "fast",
+            "mode": "api"
+          },
+          "seedance_pro": {
+            "tool": "heygen_video",
+            "name": "Seedance Pro (1.x)",
+            "quality": "high",
+            "speed": "medium",
+            "mode": "api"
+          },
+          "ltx_distilled": {
+            "tool": "heygen_video",
+            "name": "LTX Distilled",
+            "quality": "low",
+            "speed": "fastest",
+            "mode": "api"
+          }
+        }
+      },
+      {
+        "name": "higgsfield_video",
+        "provider": "higgsfield",
+        "runtime": "api",
+        "best_for": [
+          "preferred premium video gen on Higgsfield (Seedance 2.0 is the default model)",
+          "cinematic trailers, teasers, and high-fidelity clips with native synchronized audio",
+          "character-consistent video generation (Soul ID + Seedance 2.0 identity consistency)",
+          "director-level camera control and multi-shot editing in a single generation",
+          "lip-sync from quoted dialogue in prompts",
+          "multi-model access through a single API (Seedance 2.0, Kling, Veo, Sora, WAN)"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set HIGGSFIELD_API_KEY and HIGGSFIELD_API_SECRET for your Higgsfield Cloud credentials.\n  Get them at https://cloud.higgsfield.ai/api-keys\n  Alternatively, set HIGGSFIELD_KEY as a combined key:secret value.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "hunyuan_video",
+        "provider": "hunyuan",
+        "runtime": "local_gpu",
+        "best_for": [
+          "local generation when Hunyuan motion behavior fits the brief",
+          "teams that want one known Hunyuan baseline instead of multiple variants"
+        ],
+        "dependencies": [],
+        "install_instructions": "Enable local video generation and install the diffusers stack:\n  export VIDEO_GEN_LOCAL_ENABLED=true\n  uv pip install diffusers transformers accelerate torch pillow requests\n\nGPU support \u2014 pick what matches your hardware:\n  NVIDIA CUDA    \u2014 works out of the box with the above\n  Apple Silicon (MPS, macOS >= 12.3) \u2014 works out of the box; no extra build\n  CPU fallback   \u2014 slow but functional on any machine\n\nVRAM profile: see the selected tool's resource_profile for minimum VRAM.",
+        "status": "unavailable",
+        "provider_matrix": {
+          "hunyuan-1.5": {
+            "tool": "hunyuan_video",
+            "name": "HunyuanVideo 1.5",
+            "hf_id": "tencent/HunyuanVideo-1.5",
+            "pipeline_class": "HunyuanVideoPipeline",
+            "vram_mb": 14000,
+            "quality": "high",
+            "speed": "medium",
+            "t2v": true,
+            "i2v": true,
+            "license": "Apache-2.0",
+            "default_width": 848,
+            "default_height": 480,
+            "default_num_frames": 121,
+            "fps": 24,
+            "mode": "local_gpu"
+          }
+        }
+      },
+      {
+        "name": "hunyuan_cloud_video",
+        "provider": "hunyuan_cloud",
+        "runtime": "api",
+        "best_for": [
+          "Hunyuan text-to-video and image-to-video via Tencent TokenHub API",
+          "simple Bearer-token auth (no TC3 signing required)",
+          "direct Tencent Cloud quota usage (not through a third-party gateway)",
+          "Chinese-language prompt understanding"
+        ],
+        "dependencies": [
+          "env:TENCENT_TOKENHUB_API_KEY"
+        ],
+        "install_instructions": "Set TENCENT_TOKENHUB_API_KEY to your Tencent Cloud TokenHub API key.\n  Get it at https://console.cloud.tencent.com/tokenhub",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_video",
+        "provider": "kling",
+        "runtime": "api",
+        "best_for": [
+          "cinematic B-roll with highest visual fidelity",
+          "fluid motion and camera direction",
+          "professional video clips"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set FAL_KEY to your fal.ai API key.\n  Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "kling_official_video",
+        "provider": "kling_official",
+        "runtime": "api",
+        "best_for": [
+          "official Kling direct API access",
+          "text-to-video and image-to-video with Kling model controls",
+          "projects that need provider provenance separate from fal.ai Kling"
+        ],
+        "dependencies": [
+          "env:KLING_API_KEY"
+        ],
+        "install_instructions": "Set KLING_API_KEY in .env for the official Kling API. Optionally set KLING_API_BASE_URL to override the default Singapore endpoint.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "ltx_api_video",
+        "provider": "ltx",
+        "runtime": "api",
+        "best_for": [
+          "LTX-2.5 Fast/Pro direct video at verified resolution and FPS combinations"
+        ],
+        "dependencies": [
+          "env:LTX_API_KEY"
+        ],
+        "install_instructions": "Configure LTX_API_KEY from https://console.ltx.io.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "ltx_video_local",
+        "provider": "ltx",
+        "runtime": "local_gpu",
+        "best_for": [
+          "local LTX workflows already tuned around LTX prompting",
+          "teams that want one dedicated LTX local path in the registry"
+        ],
+        "dependencies": [],
+        "install_instructions": "Enable local video generation and install the diffusers stack:\n  export VIDEO_GEN_LOCAL_ENABLED=true\n  uv pip install diffusers transformers accelerate torch pillow requests\n\nGPU support \u2014 pick what matches your hardware:\n  NVIDIA CUDA    \u2014 works out of the box with the above\n  Apple Silicon (MPS, macOS >= 12.3) \u2014 works out of the box; no extra build\n  CPU fallback   \u2014 slow but functional on any machine\n\nVRAM profile: see the selected tool's resource_profile for minimum VRAM.",
+        "status": "unavailable",
+        "provider_matrix": {
+          "ltx2-local": {
+            "tool": "ltx_video_local",
+            "name": "LTX-2 (Local)",
+            "hf_id": "Lightricks/LTX-2",
+            "pipeline_class": "LTXPipeline",
+            "vram_mb": 12000,
+            "quality": "high",
+            "speed": "medium",
+            "t2v": true,
+            "i2v": true,
+            "license": "LTX-2-Community",
+            "default_width": 768,
+            "default_height": 512,
+            "default_num_frames": 121,
+            "fps": 30,
+            "mode": "local_gpu"
+          }
+        }
+      },
+      {
+        "name": "ltx_video_modal",
+        "provider": "ltx-modal",
+        "runtime": "api",
+        "best_for": [
+          "self-hosted cloud GPU rendering for LTX without local workstation dependence"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set the MODAL_LTX2_ENDPOINT_URL environment variable to your deployed LTX endpoint:\n  set MODAL_LTX2_ENDPOINT_URL=https://<your-modal-endpoint>",
+        "status": "unavailable",
+        "provider_matrix": {
+          "ltx2-modal": {
+            "tool": "ltx_video_modal",
+            "name": "LTX-2 (Modal)",
+            "mode": "api",
+            "quality": "high",
+            "speed": "medium"
+          }
+        }
+      },
+      {
+        "name": "minimax_fal_video",
+        "provider": "minimax",
+        "runtime": "api",
+        "best_for": [
+          "MiniMax H3 through an existing fal.ai account",
+          "2K multimodal reference video"
+        ],
+        "dependencies": [
+          "env:FAL_KEY"
+        ],
+        "install_instructions": "Set FAL_KEY (or FAL_AI_API_KEY) from https://fal.ai/dashboard/keys.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "minimax_video",
+        "provider": "minimax",
+        "runtime": "api",
+        "best_for": [
+          "2K text, image, first/last-frame, and reference video generation with MiniMax-H3",
+          "prompt-following with camera directions and high-texture footage",
+          "direct first-party API access with global and mainland China routing"
+        ],
+        "dependencies": [
+          "env:MINIMAX_API_KEY"
+        ],
+        "install_instructions": "Set MINIMAX_API_KEY to your MiniMax API key.\n  Get one at https://platform.minimax.io/ (global) or https://platform.minimaxi.com/ (CN).\n  Optionally set MINIMAX_REGION=cn to route to the mainland China host, or MINIMAX_BASE_URL to override the endpoint entirely.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "sora_video",
+        "provider": "openai",
+        "runtime": "api",
+        "best_for": [
+          "OpenAI Sora 2 / Sora 2 Pro clips from the project .env credentials",
+          "short cinematic product-ad inserts with native ambience or dialogue",
+          "4, 8, or 12 second social-video clips that OpenMontage can stitch and compose"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set OPENAI_API_KEY to your OpenAI API key with Sora API access.\n  pip install 'openai>=2.44.0'",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "pexels_video",
+        "provider": "pexels",
+        "runtime": "api",
+        "best_for": [
+          "real-world B-roll footage (cities, nature, people, offices)",
+          "establishing shots and transitions",
+          "free stock video \u2014 no cost, no attribution required"
+        ],
+        "dependencies": [
+          "env:PEXELS_API_KEY"
+        ],
+        "install_instructions": "Set PEXELS_API_KEY to your Pexels API key.\n  Get one free at https://www.pexels.com/api/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "pika_video",
+        "provider": "pika",
+        "runtime": "api",
+        "best_for": [
+          "3-15 second clips with native synchronized dialogue, ambience and music",
+          "multi-shot storytelling, motion graphics and product films from one prompt",
+          "reference-guided animation from up to 9 images, 3 videos and 3 audio clips",
+          "first/last-frame conditioning and 1080p/2k/4k delivery from one API"
+        ],
+        "dependencies": [
+          "env:PIKA_API_KEY"
+        ],
+        "install_instructions": "Set PIKA_API_KEY to a Pika API key.\n  1. Sign in at https://dev.pika.art and create an organization.\n  2. Open API Keys and create a key.\n  3. Add funds under Billing; generation is prepaid with no free tier.\n  Optional: PIKA_API_BASE_URL overrides https://api.dev.pika.art.\n  Support: support@pika.art",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "pixabay_video",
+        "provider": "pixabay",
+        "runtime": "api",
+        "best_for": [
+          "large royalty-free video library",
+          "category-based filtering",
+          "free stock video \u2014 no cost, no attribution required"
+        ],
+        "dependencies": [
+          "env:PIXABAY_API_KEY"
+        ],
+        "install_instructions": "Set PIXABAY_API_KEY to your Pixabay API key.\n  Get one free at https://pixabay.com/api/docs/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "wan_replicate_video",
+        "provider": "replicate",
+        "runtime": "api",
+        "best_for": [
+          "Wan 3.0 text or first-frame video through Replicate"
+        ],
+        "dependencies": [
+          "env:REPLICATE_API_TOKEN"
+        ],
+        "install_instructions": "Configure REPLICATE_API_TOKEN.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "runway_video",
+        "provider": "runway",
+        "runtime": "api",
+        "best_for": [
+          "Seedance 2.5 clips up to 30 seconds with large multimodal reference sets",
+          "Gemini Omni Flash generation and video editing",
+          "MiniMax H3 / Hailuo 3.0 generation through Runway",
+          "professional video production"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set RUNWAY_API_KEY to your Runway API secret.\n  Get one at https://dev.runwayml.com/",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "seedance_replicate",
+        "provider": "seedance",
+        "runtime": "api",
+        "best_for": [
+          "preferred premium video gen when REPLICATE_API_TOKEN is available",
+          "cinematic trailers, teasers, and high-fidelity clips with native synchronized audio",
+          "director-level camera control and multi-shot editing in a single generation",
+          "lip-sync from quoted dialogue in prompts",
+          "consistent character identity across shots"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set REPLICATE_API_TOKEN to your Replicate API token.\n  Get one at https://replicate.com/account/api-tokens",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "seedance_video",
+        "provider": "seedance",
+        "runtime": "api",
+        "best_for": [
+          "preferred premium video gen when FAL_KEY is available",
+          "cinematic trailers, teasers, and high-fidelity clips with native synchronized audio",
+          "director-level camera control and multi-shot editing in a single generation",
+          "lip-sync from quoted dialogue in prompts",
+          "Seedance 2.5 reference generation (up to 30 images + 10 video + 10 audio clips)",
+          "consistent character identity across shots"
+        ],
+        "dependencies": [],
+        "install_instructions": "Set FAL_KEY to your fal.ai API key.\n  Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "veo_video",
+        "provider": "veo",
+        "runtime": "api",
+        "best_for": [
+          "videos with synchronized dialogue and audio",
+          "cutting-edge quality from Google DeepMind",
+          "ambient sound and music generation built in"
+        ],
+        "dependencies": [],
+        "install_instructions": "Configure at least one backend API key:\n  - Direct Google backend: Configure Vertex AI service-account credentials.\n    Get a key at https://aistudio.google.com/\n    Or set GOOGLE_APPLICATION_CREDENTIALS for Vertex AI service account.\n  - FAL.ai backend: Set FAL_KEY (or FAL_AI_API_KEY).\n    Get one at https://fal.ai/dashboard/keys",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "jimeng_video",
+        "provider": "volcengine",
+        "runtime": "api",
+        "best_for": [
+          "Jimeng 3.0 Pro text-to-video and image-to-video via Volcengine",
+          "direct ByteDance API quota usage (not through a gateway)",
+          "Chinese-language prompt understanding"
+        ],
+        "dependencies": [
+          "env:VOLC_ACCESSKEY",
+          "env:VOLC_SECRETKEY"
+        ],
+        "install_instructions": "Set VOLC_ACCESSKEY and VOLC_SECRETKEY to your Volcengine IAM credentials.\n  Get them at https://console.volcengine.com/iam/keymanage\n  Ensure your account has access to Jimeng AI (\u5373\u68a6) video generation.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      },
+      {
+        "name": "wan_video",
+        "provider": "wan",
+        "runtime": "local_gpu",
+        "best_for": [
+          "best quality-to-VRAM ratio for local generation",
+          "long local clips (20s+) assembled by image-to-video chaining",
+          "local pipelines that need image-to-video and video-to-video"
+        ],
+        "dependencies": [],
+        "install_instructions": "Enable local video generation and install the diffusers stack:\n  export VIDEO_GEN_LOCAL_ENABLED=true\n  uv pip install diffusers transformers accelerate torch pillow requests\n\nGPU support \u2014 pick what matches your hardware:\n  NVIDIA CUDA    \u2014 works out of the box with the above\n  Apple Silicon (MPS, macOS >= 12.3) \u2014 works out of the box; no extra build\n  CPU fallback   \u2014 slow but functional on any machine\n\nVRAM profile: see the selected tool's resource_profile for minimum VRAM.",
+        "status": "unavailable",
+        "provider_matrix": {
+          "wan2.2-ti2v-5b": {
+            "tool": "wan_video",
+            "name": "Wan 2.2 TI2V (5B)",
+            "hf_id": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+            "pipeline_class": "WanPipeline",
+            "params_b": 5.0,
+            "vram_mb": 12000,
+            "quality": "high",
+            "speed": "medium",
+            "operations": [
+              "text_to_video",
+              "image_to_video",
+              "video_to_video",
+              "first_last_frame",
+              "text_to_image"
+            ],
+            "t2v": true,
+            "i2v": true,
+            "license": "Apache-2.0",
+            "default_width": 1280,
+            "default_height": 704,
+            "default_num_frames": 121,
+            "default_steps": 50,
+            "default_guidance": 5.0,
+            "spatial_alignment": 32,
+            "temporal_scale": 4,
+            "fps": 24,
+            "mode": "local_gpu"
+          },
+          "wan2.2-t2v-a14b": {
+            "tool": "wan_video",
+            "name": "Wan 2.2 T2V MoE (A14B)",
+            "hf_id": "Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+            "pipeline_class": "WanPipeline",
+            "params_b": 28.0,
+            "vram_mb": 40000,
+            "quality": "highest",
+            "speed": "slow",
+            "operations": [
+              "text_to_video",
+              "text_to_image"
+            ],
+            "t2v": true,
+            "i2v": false,
+            "license": "Apache-2.0",
+            "default_width": 1280,
+            "default_height": 720,
+            "default_num_frames": 81,
+            "default_steps": 40,
+            "default_guidance": 4.0,
+            "spatial_alignment": 16,
+            "temporal_scale": 4,
+            "fps": 16,
+            "mode": "local_gpu"
+          },
+          "wan2.2-i2v-a14b": {
+            "tool": "wan_video",
+            "name": "Wan 2.2 I2V MoE (A14B)",
+            "hf_id": "Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+            "pipeline_class": "WanImageToVideoPipeline",
+            "params_b": 28.0,
+            "vram_mb": 40000,
+            "quality": "highest",
+            "speed": "slow",
+            "operations": [
+              "image_to_video",
+              "first_last_frame"
+            ],
+            "t2v": false,
+            "i2v": true,
+            "license": "Apache-2.0",
+            "default_width": 1280,
+            "default_height": 720,
+            "default_num_frames": 81,
+            "default_steps": 40,
+            "default_guidance": 3.5,
+            "spatial_alignment": 16,
+            "temporal_scale": 4,
+            "fps": 16,
+            "mode": "local_gpu"
+          },
+          "wan2.1-1.3b": {
+            "tool": "wan_video",
+            "name": "Wan 2.1 T2V (1.3B)",
+            "hf_id": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+            "pipeline_class": "WanPipeline",
+            "params_b": 1.3,
+            "vram_mb": 8000,
+            "quality": "medium",
+            "speed": "fast",
+            "operations": [
+              "text_to_video",
+              "video_to_video",
+              "text_to_image"
+            ],
+            "t2v": true,
+            "i2v": false,
+            "license": "Apache-2.0",
+            "default_width": 832,
+            "default_height": 480,
+            "default_num_frames": 81,
+            "default_steps": 50,
+            "default_guidance": 5.0,
+            "spatial_alignment": 16,
+            "temporal_scale": 4,
+            "fps": 16,
+            "mode": "local_gpu"
+          },
+          "wan2.1-14b": {
+            "tool": "wan_video",
+            "name": "Wan 2.1 (14B)",
+            "hf_id": "Wan-AI/Wan2.1-T2V-14B-Diffusers",
+            "hf_image_to_video_id": "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers",
+            "hf_first_last_frame_id": "Wan-AI/Wan2.1-FLF2V-14B-720P-diffusers",
+            "pipeline_class": "WanPipeline",
+            "params_b": 14.0,
+            "vram_mb": 24000,
+            "quality": "highest",
+            "speed": "slow",
+            "operations": [
+              "text_to_video",
+              "image_to_video",
+              "video_to_video",
+              "first_last_frame",
+              "text_to_image"
+            ],
+            "t2v": true,
+            "i2v": true,
+            "license": "Apache-2.0",
+            "default_width": 1280,
+            "default_height": 720,
+            "default_num_frames": 81,
+            "default_steps": 50,
+            "default_guidance": 5.0,
+            "spatial_alignment": 16,
+            "temporal_scale": 4,
+            "fps": 16,
+            "mode": "local_gpu"
+          }
+        }
+      }
+    ],
+    "total": 35,
+    "configured": 0
+  },
+  "video_post": {
+    "available": [
+      {
+        "name": "auto_reframe",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "FFmpeg is required. For face-tracked reframing, also install:\npip install mediapipe opencv-python\n\nWithout MediaPipe/OpenCV, falls back to center-crop.",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "green_screen_composite",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg",
+          "python:numpy",
+          "python:PIL"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html \u2014 pip install numpy Pillow",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "green_screen_processor",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html  For rembg method: pip install rembg[gpu] onnxruntime",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "showcase_card",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg",
+          "cmd:ffprobe"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "silence_cutter",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "video_compose",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [
+          "Final render for explainer and animation pipelines",
+          "Image-to-video with spring animations (Remotion)",
+          "Animated text cards, stat cards, charts (Remotion)",
+          "Complex transitions between scenes (Remotion)",
+          "Pure video concat and trim (FFmpeg)"
+        ],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html",
+        "status": "available",
+        "render_engines": {
+          "ffmpeg": true,
+          "remotion": true,
+          "hyperframes": true
+        },
+        "remotion_note": "Remotion is available for React-based rendering. Use it for image-to-video with spring animations, animated text/stat cards, charts, callouts, comparisons, and word-level caption burn. Prefer Remotion over Ken Burns pan-and-zoom for explainer and motion-graphics pipelines that already use the scene-component stack.",
+        "provider_matrix": {}
+      },
+      {
+        "name": "video_stitch",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg",
+          "cmd:ffprobe"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html\nWindows: winget install FFmpeg\nmacOS: brew install ffmpeg\nLinux: sudo apt install ffmpeg",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "video_trimmer",
+        "provider": "ffmpeg",
+        "runtime": "local",
+        "best_for": [],
+        "dependencies": [
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Install FFmpeg: https://ffmpeg.org/download.html\nWindows: winget install FFmpeg\nmacOS: brew install ffmpeg\nLinux: sudo apt install ffmpeg",
+        "status": "available",
+        "provider_matrix": {}
+      },
+      {
+        "name": "hyperframes_compose",
+        "provider": "hyperframes",
+        "runtime": "local",
+        "best_for": [
+          "HTML/CSS/GSAP composition: kinetic typography, product promos, launch reels",
+          "Motion-graphics-heavy briefs where the scene library in remotion-composer/ doesn't fit",
+          "Website-to-video / UI-driven compositions",
+          "Registry-block-driven scenes (hyperframes add data-chart, grain-overlay, etc.)",
+          "Hand-authored atelier workspaces, including deterministic Three.js worlds"
+        ],
+        "dependencies": [
+          "cmd:npx",
+          "cmd:ffmpeg"
+        ],
+        "install_instructions": "Requires Node.js >= 22 (https://nodejs.org/) and FFmpeg (https://ffmpeg.org/download.html). The HyperFrames CLI is fetched on first use via `npx hyperframes` (npm package: `hyperframes`). Note: the upstream monorepo develops the package as `@hyperframes/cli`, but it publishes to npm as `hyperframes`. `npx @hyperframes/cli` returns 404 -- do NOT use that form. Verify setup with `npx hyperframes doctor` or run the `doctor` operation on this tool.",
+        "status": "available",
+        "provider_matrix": {}
+      }
+    ],
+    "unavailable": [
+      {
+        "name": "bgm_montage_lite",
+        "provider": "bmts-lite",
+        "runtime": "local",
+        "best_for": [
+          "Fast beat-led montage from one music track and supplied video clips",
+          "Reference-free local rendering with automatic framing and source reuse"
+        ],
+        "dependencies": [
+          "cmd:ffmpeg",
+          "cmd:ffprobe"
+        ],
+        "install_instructions": "Clone https://github.com/sharbvane/BMTS-Lite, create an isolated Python 3.11 environment, and install its requirements-runtime.txt. Set BGM_MONTAGE_LITE_ROOT to that checkout and optionally BGM_MONTAGE_LITE_PYTHON to the environment's interpreter. Install FFmpeg and ffprobe on PATH. See docs/bgm-montage-lite.md.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 10,
+    "configured": 9
+  },
+  "voice_conversion": {
+    "available": [],
+    "unavailable": [
+      {
+        "name": "heygen_voice_convert",
+        "provider": "heygen",
+        "runtime": "api",
+        "best_for": [],
+        "dependencies": [
+          "env:HEYGEN_API_KEY"
+        ],
+        "install_instructions": "Configure HEYGEN_API_KEY; use an ACTIVE workspace instant voice.",
+        "status": "unavailable",
+        "provider_matrix": {}
+      }
+    ],
+    "total": 1,
+    "configured": 0
+  }
+}
