@@ -28,3 +28,21 @@ Critère : l'action demandée se voit, sans déformation ni changement d'animal.
 - N6 salto (dh-9) : le chat s'envole à l'envers puis la caméra part en vrille et un bras humain apparaît. Raté.
 
 Bilan Kaggle 5B : fiable seulement au niveau 1 (geste sur place). Dès le niveau 2 (déplacement), le décor dérive ; contact entre deux animaux = fusion ; objets qui apparaissent/disparaissent.
+
+## Résultats HF 14B (10/11, 3 s, graine 42)
+- N3 plongeon : réussi. Le chat se lève, plonge tête la première dans le carton NOËL, la queue dépasse puis disparaît. Décor stable.
+- N4 tirer le sac : réussi. Cooper mord le sac et le tire en reculant, cuisine intacte.
+- N5 patte sur le nez : à moitié. Le chat lève la patte et touche le museau, mais Cooper ne réagit pas (pas de recul).
+- N6 salto : raté sur le salto, mais saut vertical propre et réception nette, sans déformation.
+
+## Conclusion
+| Niveau | Kaggle 5B | HF 14B |
+|---|---|---|
+| 1 geste sur place | oui | oui (déjà vu) |
+| 2 déplacement | non (décor dérive) | oui (déjà vu) |
+| 3 saut vers une cible | lisible mais objets qui apparaissent | oui |
+| 4 objet tenu/tiré | non | oui |
+| 5 action + réaction à deux | non (fusion) | geste oui, réaction non |
+| 6 acrobatie | non | non (saut simple seulement) |
+
+Règles : actions → HF ; Kaggle pour les plans calmes. Action + réaction = 2 plans (geste, puis réaction de l'autre). Acrobatie = Kling, ou montage (saut HF + coupe + réception).
