@@ -46,3 +46,9 @@ Bilan Kaggle 5B : fiable seulement au niveau 1 (geste sur place). Dès le niveau
 | 6 acrobatie | non | non (saut simple seulement) |
 
 Règles : actions → HF ; Kaggle pour les plans calmes. Action + réaction = 2 plans (geste, puis réaction de l'autre). Acrobatie = Kling, ou montage (saut HF + coupe + réception).
+
+## 2e série : les astuces (10/11, HF)
+- Réaction en plan séparé (départ = dernière image du coup de patte) : Cooper retire la tête et baisse les yeux. Réaction visible mais discrète. Monté avec le coup de patte : demo-patte-puis-recul.mp4.
+- Poursuite à deux : ratée, le chat et Cooper partent chacun de leur côté. Deux animaux qui bougent ensemble = à découper (un plan par animal).
+- Plan enchaîné (départ = dernière image du sac tiré) : réussi, Cooper continue de tirer, rien ne saute au raccord. demo-sac-2-plans.mp4.
+- Salto truqué au montage (sans IA) : saut HF + rotation de 0,4 s au sommet + réception : salto-montage-astuce.mp4.
