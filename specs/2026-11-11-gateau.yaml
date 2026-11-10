@@ -1,0 +1,36 @@
+# « Why Would I Deceive You? » : Cooper et le gâteau à la fraise. Images Gemini via la tâche mail (10/11).
+# Plans calmes sur Kaggle ; 6 à 9 attendent les images refaites, actions clés sur HF.
+generation:
+  plans:
+    - fichier: clips/gateau/plan1-gateau-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-1.jpg
+      prompt: "Static smartphone shot of a bright kitchen, a strawberry cream cake on a white cake stand on a round wooden table, soft morning light, curtains moving very slightly. Nobody moves. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan2-repere-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-2.jpg
+      prompt: "Static shot. The golden retriever with a red collar sits on the floor next to the round table and stares up at the strawberry cake, licking his lips, tail sweeping the floor slowly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan3-innocent-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-3.jpg
+      prompt: "Static close-up. The golden retriever looks into the camera with big innocent eyes, tilts his head slightly and blinks, tongue slightly out. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan4-chat-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-4.jpg
+      prompt: "Static shot. On the kitchen counter in the background, the ginger and white cat narrows its eyes and slowly flicks its tail, watching the dog. The dog stays still looking at the cake. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan5-porte-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-5.jpg
+      prompt: "Static shot from behind the sitting golden retriever. A hand slowly closes the wooden kitchen door on the right. The dog stays seated, watching the door. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan10-crime-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-10.jpg
+      prompt: "Slow push-in on the half-eaten strawberry cake on the round wooden table, crumbs and smeared cream everywhere. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan11-coupable-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-11.jpg
+      prompt: "Static shot. The golden retriever sits very straight with whipped cream on his muzzle and a strawberry piece on his nose, looks innocently into the camera and blinks slowly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/gateau/plan12-chat-g42.mp4
+      modele: wan22-5b
+      depart: refs/ga-12.jpg
+      prompt: "Static shot. The ginger and white cat sits on the table next to a slice of strawberry cake, licks its whiskers once and stares into the camera without remorse. Small movements only. Photorealistic, sharp focus."
