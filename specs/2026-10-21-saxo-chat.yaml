@@ -1,0 +1,19 @@
+# Trend « The saxophones are getting louder » du 21/10, version animale : le chat et le vase.
+# Plan 1 : Hugging Face ; suite1 : prolongée sur Kaggle depuis sa dernière image (~9 s au total).
+# Le texte et la coupure au noir sont ajoutés au montage ; le son s'ajoute dans l'appli.
+generation:
+  plans:
+    - fichier: clips/saxo-chat/plan1.mp4
+      graine: 42
+      prompt: "A cat sitting on a wooden shelf next to a blue ceramic vase at the very edge, the cat stares straight into the camera without blinking, slow push-in toward the cat, the cat slowly raises one paw toward the vase. Cozy living room, warm light, realistic fur, cinematic."
+    - fichier: clips/saxo-chat/plan2.mp4
+      graine: 7
+      prompt: "Close-up of a tabby cat on a kitchen counter beside a blue vase near the edge, the cat looks directly at the camera with a mischievous stare, slowly lifts its paw and touches the vase which wobbles, slow dolly-in. Realistic fur, warm evening light, cinematic."
+    - fichier: clips/saxo-chat/suite1.mp4
+      depart: refs/trends/saxo-fin.jpg
+      graine: 11
+      prompt: "The ginger fluffy cat on the sunny windowsill keeps staring straight into the camera with a calm, mischievous look while slowly pushing the dark blue vase with its paw toward the edge of the sill, the vase tilts more and more over the edge. Slow push-in toward the cat, warm golden window light, realistic fur, cinematic."
+publication:
+  titre: "Les saxophones deviennent de plus en plus forts 🎷🐈"
+  hashtags: ["#saxophone", "#chat", "#vase", "#humour", "#pourtoi"]
+  contenu_ia: true

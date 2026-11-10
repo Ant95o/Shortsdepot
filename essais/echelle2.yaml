@@ -1,0 +1,8 @@
+# Échelle, 2e série : tester les astuces. Index : 1=A réaction en plan séparé, 2=B poursuite à deux, 3=C plan enchaîné (suite du sac).
+plans:
+  - depart: essais/refs/ech-n5-fin.jpg
+    prompt: "Static shot in the kitchen. The cat's paw touches the golden retriever's nose. The dog jerks its head back in surprise, eyes wide, and leans away from the cat. The cat lowers its paw. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-10.jpg
+    prompt: "Static shot in the kitchen. The ginger cat suddenly dashes away to the left across the wooden floor and the golden retriever jumps up and chases after it, both running out of frame. Fast motion. Photorealistic, sharp focus."
+  - depart: essais/refs/ech-n4-fin.jpg
+    prompt: "Static shot in the kitchen. The golden retriever keeps biting the kibble bag and drags it backward across the floor toward the right, tail wagging, pulling hard. Photorealistic, sharp focus."

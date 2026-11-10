@@ -1,0 +1,11 @@
+# Échelle de mouvements (test, pas une vidéo à publier). HF : niveaux 3 à 6 seulement
+# (marche, assis, petits gestes déjà réussis sur HF). Index : 1=N3, 2=N4, 3=N5, 4=N6.
+plans:
+  - depart: essais/refs/no-3.jpg
+    prompt: "Static shot in the bright living room. The ginger cat lying on the sofa armrest leaps off and dives head first into the open cardboard box on the floor, disappearing inside, only its tail sticking out. Natural cat jump. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-1.jpg
+    prompt: "Static shot in the kitchen. The golden retriever bites the corner of the colorful kibble bag on the floor and drags it backward across the wooden floor, pulling with its head. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-10.jpg
+    prompt: "Static shot in the kitchen. The ginger cat sitting next to the golden retriever raises one front paw and taps the dog on the nose. The dog flinches back in surprise, blinking. Photorealistic, sharp focus."
+  - depart: essais/refs/dh-9.jpg
+    prompt: "Static shot in the kitchen. The ginger cat jumps straight up into the air, does a full backflip and lands back on its four paws behind the bowl of kibble. Acrobatic, fast motion. Photorealistic, sharp focus."
