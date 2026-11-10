@@ -1,0 +1,36 @@
+# Gâteau (Why Would I Deceive You?) remonté avec OpenMontage : mêmes plans et coupes que videos/gateau/montage.sh.
+nom: gateau
+musique:
+  src: openmontage-projets/gateau/musique.mp3
+  debut: 0.8
+  volume: 0.7
+plans:
+- source: openmontage-projets/gateau/plan1-gateau-g42.mp4
+  duree: 2.0
+  texte: Ne touche pas au gâteau.
+- source: openmontage-projets/gateau/plan2-repere-g42.mp4
+  duree: 2.0
+- source: openmontage-projets/gateau/plan3-innocent-g42.mp4
+  duree: 2.0
+  texte: Promis.
+- source: openmontage-projets/gateau/plan4-chat-g42.mp4
+  duree: 2.0
+- source: openmontage-projets/gateau/plan5-porte-g42.mp4
+  duree: 3.0
+- source: openmontage-projets/gateau/plan7-pattes-g42.mp4
+  duree: 2.75
+  texte: Seul avec le gâteau…
+- source: openmontage-projets/gateau/plan8-leche-g42.mp4
+  duree: 2.5
+- source: openmontage-projets/gateau/plan9-porte-g42.mp4
+  duree: 1.667
+  texte: Quelqu'un rentre !
+- source: openmontage-projets/gateau/plan10-zoom.mp4
+  duree: 2.75
+  texte: Le gâteau !?
+- source: openmontage-projets/gateau/plan11-coupable-g42.mp4
+  duree: 2.5
+  texte: Pourquoi je te mentirais ?
+- source: openmontage-projets/gateau/plan12-chat-g42.mp4
+  duree: 3.0
+  texte: Le vrai coupable ?
