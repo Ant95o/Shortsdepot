@@ -6,12 +6,15 @@ name: OpenMontage (installation et rendu)
 # (preflight) et fait un rendu de démonstration ; les sorties vont sur la branche openmontage-sorties.
 on:
   push:
-    paths: [".github/workflows/openmontage.yml", ".gitmodules"]
+    paths: [".github/workflows/openmontage.yml", ".gitmodules", "openmontage-projets/**/projet.yaml"]
   workflow_dispatch:
     inputs:
+      projet:
+        description: "Projet à monter (ex. openmontage-projets/angel/projet.yaml)"
+        default: ""
       demo:
         description: "Démo Remotion à rendre (vide = aucune)"
-        default: "world-in-numbers"
+        default: ""
 
 permissions:
   contents: write
@@ -28,6 +31,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+          fetch-depth: 2
 
       - uses: actions/setup-python@v5
         with:
@@ -49,13 +53,20 @@ jobs:
           mkdir -p /tmp/sortie
           make preflight | tee /tmp/sortie/preflight.txt
 
-      - name: Rendu de démonstration
-        working-directory: openmontage
+      - name: Montage du projet ou rendu de démonstration
         run: |
-          demo="${{ inputs.demo }}"; [ "${{ github.event_name }}" = push ] && demo=world-in-numbers
-          [ -n "$demo" ] || exit 0
-          .venv/bin/python render_demo.py "$demo"
-          cp projects/demos/renders/*.mp4 /tmp/sortie/
+          projet="${{ inputs.projet }}"
+          if [ "${{ github.event_name }}" = push ]; then
+            projet=$(git diff --name-only HEAD~1 HEAD -- 'openmontage-projets/*/projet.yaml' | tail -1)
+          fi
+          if [ -n "$projet" ]; then
+            nom=$(basename "$(dirname "$projet")")
+            openmontage/.venv/bin/pip install -q pyyaml
+            openmontage/.venv/bin/python openmontage-projets/monter.py "$projet" "/tmp/sortie/$nom-openmontage.mp4"
+            exit 0
+          fi
+          demo="${{ inputs.demo }}"; [ -n "$demo" ] || exit 0
+          cd openmontage && .venv/bin/python render_demo.py "$demo" && cp projects/demos/renders/*.mp4 /tmp/sortie/
 
       - name: Sauvegarde sur la branche openmontage-sorties
         if: always()
