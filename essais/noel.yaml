@@ -1,0 +1,14 @@
+# Noël sur HF : plans d'action. Index : 1=plan2, 2=plan4, 3=plan5, 4=plan6, 5=plan7, 6=plan8. 6 plans max (quota).
+plans:
+  - depart: essais/refs/no-2.jpg
+    prompt: "Static smartphone shot of the living room. The golden retriever with a red collar walks backward into the room, dragging a big cardboard box marked NOEL across the wooden floor with its mouth. The cat keeps sleeping on the sofa. Natural dog movement, photorealistic, sharp focus."
+  - depart: essais/refs/no-4.jpg
+    prompt: "Static smartphone shot of the living room floor. The cardboard box marked NOEL lies tipped over, red christmas balls roll slowly across the parquet floor, gold tinsel spills out. The golden retriever wags its tail. The cat on the sofa watches. Photorealistic, sharp focus."
+  - depart: essais/refs/no-5.jpg
+    prompt: "Static smartphone shot. The ginger tabby cat leaps from the sofa toward the tipped-over cardboard box, front paws stretched, and lands on the floor next to the gold tinsel. Natural cat jump, photorealistic, sharp focus."
+  - depart: essais/refs/no-6.jpg
+    prompt: "Static smartphone shot. The ginger tabby cat pushes its head and body deeper into the tipped-over cardboard box, only its back and tail sticking out, tail swishing. The golden retriever watches beside it. Photorealistic, sharp focus."
+  - depart: essais/refs/no-7.jpg
+    prompt: "Static smartphone shot. The ginger tabby cat sits wrapped entirely in shiny gold tinsel, looking very serious at the camera, blinking slowly, the tinsel trembling. The golden retriever wags its tail next to the box. Small movements only. Photorealistic, sharp focus."
+  - depart: essais/refs/no-8.jpg
+    prompt: "Static smartphone shot. The happy golden retriever sits holding a glowing string of lights in its mouth, wagging its tail. The ginger cat sits in the cardboard box tangled in the glowing lights, looking at the camera. Small movements only. Photorealistic, sharp focus."

@@ -1,0 +1,93 @@
+name: Labo (repos open source sur Kaggle)
+
+# Essais d'outils open source (RIFE, Real-ESRGAN, LTX-Video…) sur nos plans, sur le GPU gratuit de Kaggle.
+# Pousser une fiche labo/fiches/*.yaml l'envoie ; relancer avec recuperer=true quand le notebook est fini.
+# Les sorties vont sur la branche labo-sorties. Ne touche ni au quota Hugging Face ni au notebook de génération.
+on:
+  push:
+    paths: ["labo/fiches/**"]
+  workflow_dispatch:
+    inputs:
+      fiche:
+        description: "Fiche à envoyer (ex. labo/fiches/2026-11-10-a-b.yaml)"
+        default: ""
+      recuperer:
+        description: "Récupérer les sorties du dernier essai (sans relancer)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: labo
+  cancel-in-progress: false
+
+jobs:
+  labo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME || 'antoinesustrac' }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN2 || secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Connexion à Kaggle
+        run: |
+          token="${KAGGLE_API_TOKEN#export }"; token="${token#KAGGLE_API_TOKEN=}"
+          case "$token" in *'"key"'*) token=$(printf '%s' "$token" | python3 -c 'import json,sys; print(json.load(sys.stdin)["key"])');; esac
+          token=$(printf '%s' "$token" | tr -d '[:space:]"'"'")
+          echo "::add-mask::$token"
+          case "$token" in KGAT_*) echo "KAGGLE_API_TOKEN=$token" >> "$GITHUB_ENV";; *) echo "KAGGLE_KEY=$token" >> "$GITHUB_ENV"; echo "KAGGLE_API_TOKEN=" >> "$GITHUB_ENV";; esac
+          pip install -q kaggle six pyyaml
+
+      - name: Envoi de l'essai
+        if: ${{ !inputs.recuperer }}
+        run: |
+          [ -n "$KAGGLE_API_TOKEN" ] || unset KAGGLE_API_TOKEN
+          compte=$(python -c "from kaggle.api.kaggle_api_extended import KaggleApi as K; a=K(); a.authenticate(); print(a.config_values['username'])")
+          echo "Compte Kaggle : $compte"
+          fiche="${{ inputs.fiche }}"
+          [ -n "$fiche" ] || fiche=$(git diff --name-only HEAD~1 HEAD -- labo/fiches | tail -1)
+          [ -n "$fiche" ] || { echo "Aucune fiche modifiée."; exit 0; }
+          echo "Fiche : $fiche"
+          python labo/labo.py preparer "$fiche" "$compte"
+          d="$compte/shortsdepot-labo-entrees"
+          s=$(kaggle datasets status "$d" 2>&1 || true); echo "jeu de données existant : $s"
+          case "$s" in
+            *ready*|*pending*) kaggle datasets version -p build/labo-donnees -m "$fiche" -r skip ;;
+            *) kaggle datasets create -p build/labo-donnees -r skip ;;
+          esac
+          # Le notebook prend la version du jeu de données disponible à l'envoi : on attend qu'elle soit prête.
+          sleep 20
+          for i in $(seq 1 40); do
+            s=$(kaggle datasets status "$d" 2>&1 || true); echo "jeu de données : $s"
+            case "$s" in *ready*) break;; esac; sleep 15
+          done
+          kaggle kernels push -p build/labo-kernel --accelerator NvidiaTeslaT4 || kaggle kernels push -p build/labo-kernel
+          echo "Essai envoyé. Relancer ce workflow avec recuperer=true quand le notebook est fini."
+
+      - name: Récupération des sorties
+        if: ${{ inputs.recuperer }}
+        run: |
+          [ -n "$KAGGLE_API_TOKEN" ] || unset KAGGLE_API_TOKEN
+          compte=$(python -c "from kaggle.api.kaggle_api_extended import KaggleApi as K; a=K(); a.authenticate(); print(a.config_values['username'])")
+          k="$compte/shortsdepot-labo"
+          s=$(kaggle kernels status "$k" 2>&1 || true); echo "$s"
+          case "$s" in *COMPLETE*|*complete*|*ERROR*|*error*) ;; *) echo "Notebook pas encore fini."; exit 0;; esac
+          mkdir -p /tmp/sortie && kaggle kernels output "$k" -p /tmp/sortie || true
+          ls -la /tmp/sortie
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin labo-sorties || true
+          git checkout -B labo-sorties origin/labo-sorties 2>/dev/null || git checkout --orphan labo-sorties
+          git rm -rfq . || true
+          mkdir -p sortie && cp -r /tmp/sortie/* sortie/ 2>/dev/null || true
+          git add sortie && git commit -qm "Labo : sorties Kaggle" && git push origin labo-sorties

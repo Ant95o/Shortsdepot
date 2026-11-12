@@ -1,0 +1,17 @@
+# Angel of My Dreams (publiée le 09/11) remontée avec OpenMontage : mêmes plans et mêmes coupes
+# que videos/angel/montage.sh, pour comparer le montage FFmpeg et le montage Remotion d'OpenMontage.
+nom: angel
+musique: {src: openmontage-projets/angel/musique.mp3, debut: 0.8, volume: 0.7}
+plans:
+  - {source: clips/angel/plan1-dort-g42.mp4, duree: 2.0, texte: "Il rêvait de défilés…"}
+  - {source: clips/angel/plan2-reve-g42.mp4, duree: 2.0}
+  - {source: clips/angel/plan3-podium-g42.mp4, duree: 1.67}
+  - {source: openmontage-projets/angel/hf4.mp4, duree: 2.5}
+  - {source: openmontage-projets/angel/hf1.mp4, duree: 3.06}
+  - {source: openmontage-projets/angel/hf5.mp4, duree: 2.5}
+  - {source: clips/angel/plan7-pose-g42.mp4, duree: 2.5, texte: "Trop beau pour être vrai"}
+  - {source: clips/angel/plan8-flashs-g42.mp4, duree: 2.0}
+  - {source: openmontage-projets/angel/hf2.mp4, duree: 3.06}
+  - {source: clips/angel/plan10-reveil-g42.mp4, duree: 1.5, texte: "Et puis…"}
+  - {source: openmontage-projets/angel/hf3.mp4, duree: 1.5, texte: "Le rêve a été volé"}
+  - {source: clips/angel/plan12-outre-g42.mp4, duree: 3.0}

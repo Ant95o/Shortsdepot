@@ -1,0 +1,35 @@
+# Zombies ép. 1 remonté avec OpenMontage : mêmes plans et coupes que videos/zombies-ep1/montage.sh.
+nom: zombies-ep1
+musique:
+  src: openmontage-projets/zombies-ep1/musique.mp3
+  debut: 0.8
+  volume: 0.7
+plans:
+- source: openmontage-projets/zombies-ep1/plan1-salon-g42.mp4
+  duree: 1.333
+  texte: Nuit du 12 novembre…
+- source: openmontage-projets/zombies-ep1/plan2-voyant-g42.mp4
+  duree: 2.0
+  texte: Il s'est réveillé.
+- source: openmontage-projets/zombies-ep1/plan3-chat-g42.mp4
+  duree: 2.0
+- source: openmontage-projets/zombies-ep1/zombies11.mp4
+  duree: 3.062
+- source: openmontage-projets/zombies-ep1/zombies1b1.mp4
+  duree: 3.062
+- source: openmontage-projets/zombies-ep1/plan6-cooper-g42.mp4
+  duree: 2.5
+- source: openmontage-projets/zombies-ep1/zombies14.mp4
+  duree: 2.75
+  texte: Ils sont plusieurs…
+- source: openmontage-projets/zombies-ep1/zombies13.mp4
+  duree: 2.0
+- source: openmontage-projets/zombies-ep1/zombies12.mp4
+  duree: 2.5
+- source: openmontage-projets/zombies-ep1/plan10-regards-g42.mp4
+  duree: 2.0
+- source: openmontage-projets/zombies-ep1/plan11-encercles-g42.mp4
+  duree: 3.0
+- source: openmontage-projets/zombies-ep1/plan12-noir-g42.mp4
+  duree: 2.5
+  texte: À suivre… épisode 2

@@ -1,0 +1,33 @@
+# Essai du 10/11 : A = fluidité + netteté (RIFE + Real-ESRGAN), B = raccords (LTX-Video, image de départ → image d'arrivée).
+taches:
+  # A. Plans HF d'Angel (480x832, 16 i/s) : 16 → 30 i/s puis Real-ESRGAN x4 → 1080x1920
+  - type: fluidite
+    entree: labo/entrees/angel-hf1-defile.mp4
+    fps: 30
+    agrandir: 4
+    sortie: a-hf1-defile
+  - type: fluidite
+    entree: labo/entrees/angel-hf2-demi-tour.mp4
+    fps: 30
+    agrandir: 4
+    sortie: a-hf2-demi-tour
+  # A. Plan Kaggle d'Angel (déjà agrandi x2) : repart de 544x960, Real-ESRGAN x4 au lieu de x2, 24 → 30 i/s
+  - type: fluidite
+    entree: clips/angel/plan1-dort-g42.mp4
+    reduire: [544, 960]
+    fps: 30
+    agrandir: 4
+    sortie: a-kaggle-plan1-dort
+  # B. Les deux transitions d'Everlong ratées en HF (branche disparue, chien déjà assis)
+  - type: transition
+    debut: essais/refs/ev-6.jpg
+    fin: essais/refs/ev-7.jpg
+    prompt: "The golden retriever keeps dragging the huge leafy branch in its mouth to the open white french door, steps onto the stone step and tries to enter, the branch gets stuck across the door frame. Static smartphone shot, natural dog gait, photorealistic, sharp focus."
+    agrandir: 2
+    sortie: b-everlong-branche-porte
+  - type: transition
+    debut: essais/refs/ev-8.jpg
+    fin: essais/refs/ev-10.jpg
+    prompt: "The golden retriever gives up, lets go of the stuck branch, turns around and sits proudly on the grass facing the camera, tongue out, leaves on its head. Static smartphone shot, photorealistic, sharp focus."
+    agrandir: 2
+    sortie: b-everlong-assis

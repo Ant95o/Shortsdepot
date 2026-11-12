@@ -1,0 +1,63 @@
+# « Angel of My Dreams » : le chat rêve qu'il défile, Cooper lui vole la cape. 12 images Gemini (09/11).
+generation:
+  plans:
+    - fichier: clips/angel/plan1-dort-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-1.jpg
+      prompt: "Static smartphone shot. The ginger and white tabby cat sleeps curled up on a beige cushion by a garden door, breathing slowly. Very small movements only. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan2-reve-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-2.jpg
+      prompt: "Static close-up. The sleeping ginger cat's whiskers twitch, golden sparkles drift and swirl around its head like a dream. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan3-podium-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-3.jpg
+      prompt: "Static shot of an empty glossy white fashion runway, golden spotlights, light haze drifting, photographers' flashes popping on both sides. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan4-entree-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-4.jpg
+      prompt: "Static shot down the fashion runway. Far away at the end, the ginger cat wearing a small gold sequin cape steps onto the runway and starts walking toward the camera, flashes popping. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan5-defile-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-5.jpg
+      prompt: "Static shot. The ginger cat in a gold sequin cape walks confidently down the middle of the glossy runway toward the camera like a top model, tail held high, flashes popping on both sides. Natural cat walk. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan6-cooper-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-6.jpg
+      prompt: "Static shot. In the foreground the golden retriever with a red collar sits in the front row, mouth open in amazement, looking at the runway where the small ginger cat walks in the distance, flashes popping. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan7-pose-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-7.jpg
+      prompt: "Static shot. The ginger cat in a gold sequin cape sits at the end of the runway, lifts its chin and poses proudly like a top model, blinking slowly, flashes popping all around. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan8-flashs-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-8.jpg
+      prompt: "Static shot. Dozens of camera flashes burst around the ginger cat in its sparkling gold cape posing at the end of the runway, light flickering. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan9-demi-tour-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-9.jpg
+      prompt: "Static shot from behind. The ginger cat turns around on the runway and walks away, its gold sequin cape swirling and flowing behind it, flashes popping. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan10-reveil-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-10.jpg
+      prompt: "Static shot in a bright living room. The ginger cat lying on a beige ottoman wakes up with wide surprised eyes, ears twitching, looking around. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan11-cooper-defile-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-11.jpg
+      prompt: "Static shot in the living room. The golden retriever wearing the cat's gold sequin cape walks proudly across the rug like a runway model, tail wagging, while the cat lying on the ottoman watches. Natural dog walk. Photorealistic, sharp focus."
+    - fichier: clips/angel/plan12-outre-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/an-12.jpg
+      prompt: "Static shot in the living room. The ginger cat sits up on the ottoman and stares at the golden retriever in the gold cape, ears flattening back, outraged. The dog looks away innocently. Small movements only. Photorealistic, sharp focus."
