@@ -1,0 +1,28 @@
+# « Housewife » (Tate McRae) : la fête secrète de Cooper. 13 plans depuis les images Gemini, animés sur HF (3 s).
+plans:
+  - depart: essais/refs/hw-1.jpg
+    prompt: "Static smartphone shot in a bright apartment hallway. A hand pulls the white front door closed. The golden retriever with a red collar sits still facing the door, looking up, only its head follows the door. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-2.jpg
+    prompt: "Static close-up. The golden retriever with a red collar presses its ear against the closed white door, eyes half closed, listening carefully, ears twitching slightly. Only small head movements. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-3.jpg
+    prompt: "Static smartphone shot. The golden retriever sitting in front of the door slowly turns its head toward the camera over its shoulder with a mischievous look, mouth slightly opening into a sly grin. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-4.jpg
+    prompt: "Static low smartphone shot in the hallway. The golden retriever walks slowly and confidently straight toward the camera like a boss, head high, slow motion, natural gait. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-5.jpg
+    prompt: "Static smartphone shot. The ginger tabby cat curled up asleep on a cushion on the radiator opens one eye, lifts its head slightly and looks annoyed. Only the cat's head moves. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-6.jpg
+    prompt: "Static smartphone shot. The ginger tabby cat jumps down from the radiator and lands softly on the wooden floor with its front paws, then walks away. Natural cat motion, photorealistic, sharp focus."
+  - depart: essais/refs/hw-7.jpg
+    prompt: "Static low smartphone shot in a bright living room. The golden retriever and the ginger tabby cat walk side by side slowly toward the camera with determined looks, slow motion. Natural gait, photorealistic, sharp focus."
+  - depart: essais/refs/hw-8.jpg
+    prompt: "Static smartphone shot of a living room. The happy golden retriever with tongue out leaps off the beige sofa and lands on the wooden floor, joyful and energetic. Natural dog motion, photorealistic, sharp focus."
+  - depart: essais/refs/hw-9.jpg
+    prompt: "Static smartphone shot. The golden retriever standing on the beige sofa shakes a cushion in its mouth from side to side, white feathers flying and slowly falling around it. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-10.jpg
+    prompt: "Static smartphone shot. The ginger tabby cat sitting on the wooden shelf slowly pushes the terracotta plant pot over the edge with its paw while staring at the camera with an insolent look. The pot tips and falls down. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-11.jpg
+    prompt: "Static smartphone shot of a messy living room floor with a tipped terracotta pot, spilled soil and leaves. A few white feathers slowly drift down to the floor. The cat's tail disappears behind the shelf. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-12.jpg
+    prompt: "Static smartphone shot. The golden retriever and the ginger tabby cat stand frozen in the messy living room, ears perked up, both slowly turning their heads toward the front door with a startled look. Photorealistic, sharp focus."
+  - depart: essais/refs/hw-13.jpg
+    prompt: "Smartphone shot from the opening front door. The golden retriever with a small white feather on its nose and the ginger tabby cat stand still in the messy living room looking innocent, the dog blinks slowly and glances away guiltily. Only small movements. Photorealistic, sharp focus."

@@ -1,0 +1,33 @@
+name: Sons libres (Wikimedia Commons)
+
+# Télécharge des sons libres de droits (domaine public, CC0, CC BY) pour le montage
+# et les dépose sur la branche « essais » (dossier sons/).
+on:
+  workflow_dispatch:
+  push:
+    paths: ["essais/sons_commons.py", ".github/workflows/sons.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  sons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python essais/sons_commons.py
+      - name: Dépôt sur la branche essais
+        run: |
+          [ -n "$(ls -A essais/sons 2>/dev/null)" ] || exit 0
+          mv essais/sons /tmp/sons
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin essais || true
+          git checkout -B essais origin/essais 2>/dev/null || git checkout --orphan essais
+          git rm -rfq . || true
+          mkdir -p sons && cp -r /tmp/sons/* sons/
+          git add sons && git commit -qm "Sons libres (Wikimedia Commons)" && git push origin essais
