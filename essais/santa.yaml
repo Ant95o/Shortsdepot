@@ -1,0 +1,12 @@
+# Santa Tell Me sur HF. Index : 1=plan4, 2=plan5, 3=plan12, 4=plan9, 5=plan2.
+plans:
+  - depart: essais/refs/sa-4.jpg
+    prompt: "Static shot in a cosy Christmas living room. The golden retriever with a red collar walks up to the wooden coffee table and sniffs the drawing on the paper, the ginger cat sitting on the table turns its head toward him. Natural dog movement. Photorealistic, sharp focus."
+  - depart: essais/refs/sa-5.jpg
+    prompt: "Static shot. The golden retriever puts his front paw on the sheet of paper on the coffee table and drags it toward himself, the ginger cat on the table flattens its ears, annoyed. Clear visible motion. Photorealistic, sharp focus."
+  - depart: essais/refs/sa-12.jpg
+    prompt: "Static shot on Christmas morning. The golden retriever and the ginger cat run happily across the rug toward the presents under the Christmas tree. Fast natural running motion. Photorealistic, sharp focus."
+  - depart: essais/refs/sa-9.jpg
+    prompt: "Static shot at night. Santa's black boots step down onto the stone hearth next to the fireplace, the red coat with white fur moves, a little soot falls. The cat sleeping on the rug in the background does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/sa-2.jpg
+    prompt: "Static shot in a cosy Christmas living room with a fire burning. The ginger cat sitting on the coffee table looks down at the sheet of paper, picks up the red pencil with its paw and taps it on the paper. Small movements. Photorealistic, sharp focus."
