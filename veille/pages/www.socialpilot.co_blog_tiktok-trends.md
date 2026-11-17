@@ -16,22 +16,22 @@ TikTok moves fast, and the brands still planning last week’s trend are already
 
 ![top-icon](https://www.socialpilot.co/wp-content/themes/wp-bootstrap-starter/inc/assets/images/svg/tp.svg)
 
-- [What's Trending on TikTok Right Now (November 17 – 25, 2026)](https://www.socialpilot.co/blog/tiktok-trends#whats-trending-on-tiktok-right-now-november-17-25-2026)
+- [What’s Trending on TikTok Right Now (November 17 – 25, 2026)](https://www.socialpilot.co/blog/tiktok-trends#whats-trending-on-tiktok-right-now-november-17-25-2026)
 - [Trending TikTok Formats and Challenges This Week](https://www.socialpilot.co/blog/tiktok-trends#trending-tiktok-formats-and-challenges-this-week)
-- [1\. "My Moon My Man" Soft Launch](https://www.socialpilot.co/blog/tiktok-trends#1-my-moon-my-man-soft-launch)
+- [1\. “My Moon My Man” Soft Launch](https://www.socialpilot.co/blog/tiktok-trends#1-my-moon-my-man-soft-launch)
 - [2\. Same Spot, Years Apart](https://www.socialpilot.co/blog/tiktok-trends#2-same-spot-years-apart)
-- [3\. "You Paid Me No Mind"](https://www.socialpilot.co/blog/tiktok-trends#3-you-paid-me-no-mind)
-- [4\. Tsundere "Camera Shy"](https://www.socialpilot.co/blog/tiktok-trends#4-tsundere-camera-shy)
-- [5\. "You're Under Arrest" Challenge](https://www.socialpilot.co/blog/tiktok-trends#5-youre-under-arrest-challenge)
+- [3\. “You Paid Me No Mind”](https://www.socialpilot.co/blog/tiktok-trends#3-you-paid-me-no-mind)
+- [4\. Tsundere “Camera Shy”](https://www.socialpilot.co/blog/tiktok-trends#4-tsundere-camera-shy)
+- [5\. “You’re Under Arrest” Challenge](https://www.socialpilot.co/blog/tiktok-trends#5-youre-under-arrest-challenge)
 - [Trending TikTok Sounds and Audio Right Now](https://www.socialpilot.co/blog/tiktok-trends#trending-tiktok-sounds-and-audio-right-now)
-- [1\. "my moon my man finneas cover" — niki](https://www.socialpilot.co/blog/tiktok-trends#1-my-moon-my-man-finneas-cover-niki)
-- [2\. " som original" — por um propósito](https://www.socialpilot.co/blog/tiktok-trends#2-som-original-por-um-proposito)
-- [3\. "original sound" — Krissy's PNW adventures](https://www.socialpilot.co/blog/tiktok-trends#3-original-sound-krissys-pnw-adventures)
-- [4\. "original sound" — Heaven](https://www.socialpilot.co/blog/tiktok-trends#4-original-sound-heaven)
-- [5\. "original sound" — Alex](https://www.socialpilot.co/blog/tiktok-trends#5-original-sound-alex)
-- [6\. "original sound" — Niki](https://www.socialpilot.co/blog/tiktok-trends#6-original-sound-niki)
-- [7\. "You're Under Arrest" — ILLIT](https://www.socialpilot.co/blog/tiktok-trends#7-youre-under-arrest-illit)
-- [8\. "All I Want for Christmas Is You" — Mariah Carey](https://www.socialpilot.co/blog/tiktok-trends#8-all-i-want-for-christmas-is-you-mariah-carey)
+- [1\. “my moon my man finneas cover” — niki](https://www.socialpilot.co/blog/tiktok-trends#1-my-moon-my-man-finneas-cover-niki)
+- [2\. ” som original” — por um propósito](https://www.socialpilot.co/blog/tiktok-trends#2-som-original-por-um-proposito)
+- [3\. “original sound” — Krissy’s PNW adventures](https://www.socialpilot.co/blog/tiktok-trends#3-original-sound-krissys-pnw-adventures)
+- [4\. “original sound” — Heaven](https://www.socialpilot.co/blog/tiktok-trends#4-original-sound-heaven)
+- [5\. “original sound” — Alex](https://www.socialpilot.co/blog/tiktok-trends#5-original-sound-alex)
+- [6\. “original sound” — Niki](https://www.socialpilot.co/blog/tiktok-trends#6-original-sound-niki)
+- [7\. “You’re Under Arrest” — ILLIT](https://www.socialpilot.co/blog/tiktok-trends#7-youre-under-arrest-illit)
+- [8\. “All I Want for Christmas Is You” — Mariah Carey](https://www.socialpilot.co/blog/tiktok-trends#8-all-i-want-for-christmas-is-you-mariah-carey)
 - [Trending TikTok Cultural Moments That Drive Reach](https://www.socialpilot.co/blog/tiktok-trends#trending-tiktok-cultural-moments-that-drive-reach)
 - [Trending TikTok Hashtags This Week](https://www.socialpilot.co/blog/tiktok-trends#trending-tiktok-hashtags-this-week)
 - [How to Find TikTok Trends Before They Peak](https://www.socialpilot.co/blog/tiktok-trends#how-to-find-tiktok-trends-before-they-peak)
@@ -66,7 +66,7 @@ That’s what separates brands that ride TikTok trends from brands that get buri
 - Cultural moments (film releases, awards shows, tentpole events) generate the longest trend windows, often 2–3 weeks.
 - The brands that win on TikTok aren’t the fastest, they’re the most specific.
 
-## What's Trending on TikTok Right Now (November 17 – 25, 2026)
+## What’s Trending on TikTok Right Now (November 17 – 25, 2026)
 
 This week is packed: Starbucks Red Cup Day lands on November 17, GTA VI launches on November 19, and The Hunger Games: Sunrise on the Reaping opens in theaters on November 20. Thanksgiving prep and TikTok Shop’s Black Friday deals fill the rest of the feed.
 
@@ -76,11 +76,11 @@ The pattern is the soft reveal. Couples hint at a partner before showing them on
 
 Five formats this cycle, all new to this page. The theme is the payoff you have to wait for: a hidden partner, a then-and-now cut, a pet who finally looks at the camera.
 
-### 1\. "My Moon My Man" Soft Launch
+### 1\. “My Moon My Man” Soft Launch
 
 Show a hint of someone, like a hand, a jacket, or a shadow, and save the full reveal for the chorus of Finneas’ “My Moon My Man.” People stay to see who it is, so watch time goes up.
 
-Wedding photographers, venues, and jewelers can soft-launch a couple or a ring, then reveal the full shot. The example below is a UK wedding photographer.
+Wedding photographers, venues, and jewelers can soft-launch a couple or a ring, then reveal the full shot.
 
 Hashtag: #mymoonmyman
 
@@ -88,11 +88,29 @@ Hashtag: #mymoonmyman
 
 Recreate an old photo or video in the same place, then cut between the two on Pink Floyd’s “Time.” Everyone feels time passing, so it lands with almost any audience.
 
-Dance studios, gyms, schools, and family businesses can recreate their opening-day photo with the same people. The example shows a dancer redoing the same solo four years apart.
+Dance studios, gyms, schools, and family businesses can recreate their opening-day photo with the same people.
 
 Hashtag: #nostalgia
 
-### 3\. "You Paid Me No Mind"
+> ![Video Cover](https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o4DkIQBqBghIAjRXMEoyfCfA0SnD9Fi6BcvHwE~tplv-tiktokx-origin.image?dr=9636&x-expires=1795093200&x-signature=au%2FzFWMynZLcHOgUIyH4oUiRbbw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=a70a8312&idc=useast8)
+>
+> [Visit shavinnnnn's video on TikTok](https://www.tiktok.com/@shavinnnnn/video/7706819050713795861?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861)
+>
+> [![](https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/32e65e66335fe236f13c89d4a4cc16f9~tplv-tiktokx-cropcenter:100:100.jpeg?dr=9640&refresh_token=6815e045&x-expires=1795093200&x-signature=5irLwVIl6GQxtUkK1rNNjhoPegg%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8)\\
+> \\
+> Shavinnnnn\\
+> \\
+> shavinnnnn](https://www.tiktok.com/@shavinnnnn?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861)
+>
+> [same spot, a year apart🤍 funny how a year can change so much🐽@jasvinnaa #fyp #deepavali #busukgf #bestfriend](https://www.tiktok.com/@shavinnnnn/video/7706819050713795861?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861) more
+>
+> [original sound - SR BGM - SR BGM](https://www.tiktok.com/@shavinnnnn/video/7706819050713795861?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861)
+>
+> 00:00/00:00
+>
+> [155](https://www.tiktok.com/@shavinnnnn/video/7706819050713795861?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861) [0](https://www.tiktok.com/@shavinnnnn/video/7706819050713795861?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861) [8](https://www.tiktok.com/@shavinnnnn/video/7706819050713795861?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7706819050713795861%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7706819050713795861)
+
+### 3\. “You Paid Me No Mind”
 
 Lip-sync “you paid me no mind” over the moment someone ignored you, usually while they walk past with a smoothie. It comes from a Dancing with the Stars meme about Jennifer Lawrence on 8th Avenue, and the joke is how dramatic it is over nothing.
 
@@ -108,7 +126,7 @@ Hashtag: #8thavenue #youpayedmenomind
 >
 > [Visit TikTok](https://www.tiktok.com/?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7707029275266043139%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1)
 
-### 4\. Tsundere "Camera Shy"
+### 4\. Tsundere “Camera Shy”
 
 Act shy or grumpy at the camera (“hmph”), then give in and dance. It started with bunnies, and pets still do it best.
 
@@ -118,7 +136,7 @@ Hashtag: #tsundere
 
 > [@kiaramia.w](https://www.tiktok.com/@kiaramia.w?refer=embed "@kiaramia.w")
 
-### 5\. "You're Under Arrest" Challenge
+### 5\. “You’re Under Arrest” Challenge
 
 Learn the short “arrest” hook from ILLIT’s chorus and pass it to a partner. Big K-pop groups like Stray Kids keep joining, which keeps it in fans’ feeds in the US and Europe.
 
@@ -132,7 +150,7 @@ Hashtag: #You\_re\_Under\_Arrest
 
 Here are the top trending sounds for November 17 – 25, 2026. Each links to its TikTok music page, so you can tap through, save it, and see the top videos using it.
 
-### 1\. "my moon my man finneas cover" — niki
+### 1\. “my moon my man finneas cover” — niki
 
 - **Stage:** Peak
 - **Video count:** 547.1K videos
@@ -140,8 +158,26 @@ Here are the top trending sounds for November 17 – 25, 2026. Each links to its
 The main sound behind the soft-launch trend (see Formats), adding about 75,000 videos a day. It’s sweet and a little teasing. Florists and jewelers can hint at a new collection, then show it on the chorus.
 
 > [@marteen2003](https://www.tiktok.com/@marteen2003?refer=embed "@marteen2003")
+>
+> ![Video Cover](https://p19-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/ooaVMcAfVFfxf8pgevUdBSRp7fCEA7xwxAAeAA~tplv-tiktokx-origin.image?dr=9636&x-expires=1795093200&x-signature=pOjQKsiHUOg9tjDvD3CU8Erw3eU%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=a70a8312&idc=useast8)
+>
+> [Visit marteen2003's video on TikTok](https://www.tiktok.com/@marteen2003/video/7708545085792701727?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727)
+>
+> [![](https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/a124bdf7edeb5d824f45fce299778a89~tplv-tiktokx-cropcenter:100:100.jpeg?dr=9640&refresh_token=9ec89285&x-expires=1795093200&x-signature=xMlOsQRbYVxg8zFswBS0BiTpL80%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8)\\
+> \\
+> marteenredman\\
+> \\
+> marteen2003](https://www.tiktok.com/@marteen2003?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727)
+>
+> [gotta keep it interesting for everyone #bf #neighbors](https://www.tiktok.com/@marteen2003/video/7708545085792701727?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727)
+>
+> [my moon my man finneas cover - . ˖ ꒰𑁬 niki ໒꒱ ˖ .](https://www.tiktok.com/@marteen2003/video/7708545085792701727?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727)
+>
+> 00:00/00:00
+>
+> [2.1M](https://www.tiktok.com/@marteen2003/video/7708545085792701727?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727) [2363](https://www.tiktok.com/@marteen2003/video/7708545085792701727?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727) [62.3K](https://www.tiktok.com/@marteen2003/video/7708545085792701727?utm_campaign=&utm_source=unknown&refer=player_v1&referrer_url=https%3A%2F%2Fwww.tiktok.com%2Fplayer%2Fv1%2F7708545085792701727%3Flang%3Den-US%26referrer%3Dhttps%253A%252F%252Fwww.socialpilot.co%252Fblog%252Ftiktok-trends%26embed_from%3Dembed_video%26autoplay%3D1%26muted%3D1%26music_info%3D1%26description%3D1%26ab_version%3Dv1&referer_video_id=7708545085792701727)
 
-### 2\. " som original" — por um propósito
+### 2\. ” som original” — por um propósito
 
 - **Stage:** Peak
 - **Video count:** 529.9K videos
@@ -150,7 +186,7 @@ A second upload of the same Finneas song, and the fastest-growing US sound on No
 
 > [@finneas](https://www.tiktok.com/@finneas?refer=embed "@finneas")
 
-### 3\. "original sound" — Krissy's PNW adventures
+### 3\. “original sound” — Krissy’s PNW adventures
 
 - **Stage:** Peak
 - **Video count:** 556.4K videos
@@ -159,7 +195,7 @@ A clip of Pink Floyd’s “Time” that powers then-and-now videos (see Formats
 
 > [@camrynandcowboy](https://www.tiktok.com/@camrynandcowboy?refer=embed "@camrynandcowboy")
 
-### 4\. "original sound" — Heaven
+### 4\. “original sound” — Heaven
 
 - **Stage:** Peak
 - **Video count:** 241.3K videos
@@ -168,7 +204,7 @@ The “ [you paid me no mind](https://www.tiktok.com/tag/youpayedmenomind)” li
 
 > [@kristennlarose](https://www.tiktok.com/@kristennlarose?refer=embed "@kristennlarose")
 
-### 5\. "original sound" — Alex
+### 5\. “original sound” — Alex
 
 - **Stage:** Peak
 - **Video count:** 335.5K videos
@@ -177,7 +213,7 @@ A Prince Royce lyric clip (“entiende, corazón”) carrying comedy skits for S
 
 > [@malafama.27](https://www.tiktok.com/@malafama.27?refer=embed "@malafama.27")
 
-### 6\. "original sound" — Niki
+### 6\. “original sound” — Niki
 
 - **Stage:** Rising
 - **Video count:** 196.6K videos
@@ -186,7 +222,7 @@ The bouncy sound behind the tsundere “camera shy” bit (see Formats). It’s 
 
 > [@artthuroficial\_](https://www.tiktok.com/@artthuroficial_?refer=embed "@artthuroficial_")
 
-### 7\. "You're Under Arrest" — ILLIT
+### 7\. “You’re Under Arrest” — ILLIT
 
 - **Stage:** Rising
 - **Video count:** 109.8K videos
@@ -195,7 +231,7 @@ ILLIT’s dance challenge, still picking up new K-pop collaborations on November
 
 > [@ok.choom3r](https://www.tiktok.com/@ok.choom3r?refer=embed "@ok.choom3r")
 
-### 8\. "All I Want for Christmas Is You" — Mariah Carey
+### 8\. “All I Want for Christmas Is You” — Mariah Carey
 
 - **Stage:** Peak
 - **Video count:** 16.4M videos
@@ -241,15 +277,15 @@ _Looking for sounds your brand can actually use? Filter by “Approved for Busin
 
 |     |     |     |
 | --- | --- | --- |
-| **Hashtag** | **What It's For** | **Momentum** |
+| **Hashtag** | **What It’s For** | **Momentum** |
 | #mymoonmyman | Soft launches and couple reveals — wedding photographers, jewelers, florists | Peaking |
 | #bf | Boyfriend reveals and couple skits — lifestyle and gifting brands | Rising |
-| #weddingphotography | Wedding-photo drops on "My Moon My Man" — photographers, venues | Steady |
+| #weddingphotography | Wedding-photo drops on “My Moon My Man” — photographers, venues | Steady |
 | #weddinginspo | Wedding ideas and reveals — planners, florists, bridal shops | Steady |
 | #nostalgia | Same-spot, years-apart videos — studios, gyms, family businesses | Rising |
-| #8thavenue | "You paid me no mind" lip-syncs — cafes, retailers, any brand with humor | Peaking |
+| #8thavenue | “You paid me no mind” lip-syncs — cafes, retailers, any brand with humor | Peaking |
 | #youpayedmenomind | Same trend, alternate spelling — cafes, retailers | Peaking |
-| #tsundere | "Camera shy" bunny and pet clips — pet shops, groomers, vets | Rising |
+| #tsundere | “Camera shy” bunny and pet clips — pet shops, groomers, vets | Rising |
 | #You\_re\_Under\_Arrest | ILLIT dance challenge — dance studios, youth brands | Rising |
 | #christmasgift | Gift-guide videos on the Mariah sound — gift shops, beauty, retail | Rising |
 | #TikTokShopBlackFriday | TikTok Shop Black Friday deals — TikTok Shop sellers | Peaking |
