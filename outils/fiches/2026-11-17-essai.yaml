@@ -1,0 +1,15 @@
+# Premier essai de la boîte à outils : 6 voix FR sur le même texte, sous-titres calés, contrôle de plans.
+voix:
+  texte: "Ce chat pensait que le gâteau était pour lui. Il attend que tout le monde parte. Et là, surprise !"
+  essais:
+    - {moteur: kokoro, voix: ff_siwis}
+    - {moteur: piper, voix: fr_FR-siwis-medium}
+    - {moteur: piper, voix: fr_FR-tom-medium}
+    - {moteur: piper, voix: "fr_FR-upmc-medium:0"}
+    - {moteur: piper, voix: "fr_FR-upmc-medium:1"}
+    - {moteur: piper, voix: fr_FR-gilles-low}
+soustitres:
+  audio: voix
+  video: clips/gateau/plan1-gateau-g42.mp4
+plans:
+  clips: ["clips/gateau/*.mp4", "clips/zombies1/*.mp4"]

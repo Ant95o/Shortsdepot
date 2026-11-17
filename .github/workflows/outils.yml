@@ -1,0 +1,66 @@
+name: Outils (voix, sous-titres, contrôle des plans)
+
+# Boîte à outils gratuite, sur le CPU de GitHub Actions (ne touche ni au quota Hugging Face ni à Kaggle) :
+# - voix off FR : Kokoro 82M et Piper (outils/voix.py)
+# - sous-titres FR mot à mot : WhisperX, repli faster-whisper (outils/soustitres.py)
+# - repérage des plans figés, coupés, fondus ou flous : PySceneDetect + mesures maison, auto-editor (outils/plans.py)
+# Pousser une fiche outils/fiches/*.yaml la lance ; les sorties vont sur la branche outils-sorties (écrasée).
+on:
+  push:
+    paths: ["outils/fiches/**"]
+  workflow_dispatch:
+    inputs:
+      fiche:
+        description: "Fiche à lancer (ex. outils/fiches/2026-11-17-essai.yaml)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: outils
+  cancel-in-progress: false
+
+jobs:
+  outils:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Choix de la fiche
+        run: |
+          fiche="${{ inputs.fiche }}"
+          [ -n "$fiche" ] || fiche=$(git diff --name-only HEAD~1 HEAD -- 'outils/fiches/*.yaml' | tail -1)
+          echo "FICHE=$fiche" >> "$GITHUB_ENV"; echo "Fiche : $fiche"
+
+      - name: Installation
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng fonts-dejavu-core
+          pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q pyyaml numpy soundfile "scenedetect[opencv-headless]" auto-editor piper-tts \
+                         "kokoro>=0.9.4" "misaki[fr]" whisperx faster-whisper || true
+          pip list 2>/dev/null | grep -i -E '^(torch|whisperx|faster-whisper|kokoro|piper-tts|scenedetect|auto-editor) '
+
+      - name: Lancement
+        run: python -m outils.fiche "$FICHE" /tmp/sortie
+
+      - name: Sauvegarde sur la branche outils-sorties
+        if: always()
+        run: |
+          [ -n "$(ls -A /tmp/sortie 2>/dev/null)" ] || exit 0
+          cp "$FICHE" /tmp/sortie/ 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan outils-sorties-tmp
+          git rm -rfq --cached . && find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r /tmp/sortie/* .
+          git add -A && git commit -qm "Sorties : $FICHE"
+          git push -f origin HEAD:outils-sorties
