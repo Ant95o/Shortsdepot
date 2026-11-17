@@ -1,0 +1,36 @@
+# « It's Time! » : le chat dégèle pour lancer Noël. Images Gemini envoyées dans le fil (16/11).
+# Plans calmes sur Kaggle ; actions 5, 6, 7, 9 sur HF (essais/its-time.yaml).
+generation:
+  plans:
+    - fichier: clips/its-time/plan1-terrasse-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-1.jpg
+      prompt: "Static smartphone shot of a frosty garden at dawn, a ginger and white cat sits completely still, frozen on the frosty wooden terrace next to a glass door. Light frost particles drift in the cold air. The cat does not move. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan2-gele-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-2.jpg
+      prompt: "Static close-up of the frozen ginger cat's face, eyes closed, frost on its fur and whiskers, tiny ice crystals glitter. Very slow push-in. The cat does not move. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan3-cooper-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-3.jpg
+      prompt: "Static shot inside a cosy living room. The golden retriever with a red collar sits by the glass door, looks out at the frozen cat on the terrace, tilts his head and whines softly, worried. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan4-oeil-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-4.jpg
+      prompt: "Static close-up. Small cracks spread on the thin ice covering the cat's nose, tiny ice flakes fall, the ginger cat opens its eye wide. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan8-carton-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-8.jpg
+      prompt: "Slow push-in on an open cardboard box marked NOËL on a wooden floor, full of gold tinsel and red and gold Christmas baubles that sparkle in the warm lamp light. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan10-bonnet-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-10.jpg
+      prompt: "Static shot. The golden retriever wearing a red Santa hat sits proudly next to the box of decorations, he lifts his chin and wags his tail, the ginger cat behind blinks. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan11-sapin-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-11.jpg
+      prompt: "Static shot of a cosy living room in the evening, a decorated Christmas tree with twinkling warm lights. The golden retriever in a Santa hat and the ginger cat sit side by side in front of it, the dog wags his tail. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/its-time/plan12-clin-g42.mp4
+      modele: wan22-5b
+      depart: refs/it-12.jpg
+      prompt: "Static close-up of the ginger cat sitting in front of a twinkling Christmas tree. The cat slowly winks one eye at the camera, then opens it again. Tree lights twinkle. Small movements only. Photorealistic, sharp focus."
