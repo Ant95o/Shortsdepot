@@ -82,18 +82,37 @@ def _norm(x: str) -> str:
     return re.sub(r"[^a-z0-9à-ÿ ]+", " ", x.lower()).split(" by ")[0].strip()
 
 
+def titres(texte: str) -> list[str]:
+    """Titres de sons d'une page : lignes « Titre – Artiste » ou « Titre by Artiste » (titres, listes)."""
+    out = []
+    for ligne in texte.splitlines():
+        if not re.match(r"\s*(#+|[-*]|\d+\\?[.)]|\*\*)", ligne):
+            continue
+        brut = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", ligne)      # liens markdown → texte
+        brut = re.sub(r"^\s*(#+|[-*]|\d+\\?[.)])\s*", "", brut)
+        brut = re.sub(r"^\d+\\?[.)]\s*", "", brut.replace("**", "")).strip(" \"“”«»'")
+        if len(brut) > 90:
+            continue
+        parties = re.split(r"\s[–—-]\s|\sby\s|\s:\s", brut, maxsplit=1)
+        if len(parties) < 2:
+            continue
+        titre = re.sub(r"^\\?#?\d+\\?\.?\s+", "", parties[0]).strip(" *\"“”«»'")
+        n = _norm(titre)
+        if len(n) >= 2 and not titre.startswith(("👉", "This page")) and len(n) >= 2 and len(n.split()) <= 7 and not set(n.split()) & BANAL and titre not in out:
+            out.append(titre)
+    return out
+
+
 def croiser_sons(pages: dict[str, str]) -> list[tuple[str, list[str]]]:
     """Un titre listé sur une page est retenu s'il apparaît aussi sur au moins une autre page."""
-    textes = {u: _norm(t) for u, t in pages.items()}
+    textes = {u: f" {_norm(t)} " for u, t in pages.items()}
     vus = {}
     for u, t in pages.items():
-        for m in LIGNE.finditer(t):
-            brut = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", m.group(1))
-            titre = re.split(r"\s[–—-]\s|\sby\s|:", brut)[0].strip(" *#\"“”")
+        for titre in titres(t):
             n = _norm(titre)
-            if len(n) < 4 or len(n.split()) > 7 or n in vus or n.isdigit() or set(n.split()) & BANAL:
+            if n in vus:
                 continue
-            ailleurs = [v for v, tx in textes.items() if v != u and f" {n} " in f" {tx} "]
+            ailleurs = [v for v, tx in textes.items() if v != u and f" {n} " in tx]
             if ailleurs:
                 vus[n] = (titre, sorted({urllib.parse.urlparse(x).netloc.removeprefix("www.") for x in [u, *ailleurs]}))
     return sorted(vus.values(), key=lambda x: -len(x[1]))
@@ -121,6 +140,11 @@ def main(dossier: str = "veille") -> None:
     md = [f"# Veille trends du {jour} (Firecrawl, résultats de moins de 7 jours)", "",
           "## Sons et trends listés par au moins 2 sites de classement différents", ""]
     md += [f"- **{t}** : {len(d)} sites ({', '.join(d)})" for t, d in sons[:30]] or ["- aucun"]
+    md += ["", "## Sons listés par chaque site (dans l'ordre de la page)", ""]
+    for u, t in pages.items():
+        liste = titres(t)[:12]
+        if liste:
+            md.append(f"- {urllib.parse.urlparse(u).netloc.removeprefix('www.')} : " + " · ".join(liste))
     md += ["", "## Autres noms cités par au moins 2 sites (actualités)", ""]
     md += [f"- **{n}** : {len(d)} sites ({', '.join(sorted(d))})" for n, d in candidats[:25]] or ["- aucun"]
     md += ["", "À vérifier ensuite sur TikTok et Instagram (nombre de vidéos, vidéos d'exemple) avant de proposer.",
