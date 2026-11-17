@@ -178,11 +178,116 @@ def transition(t: dict) -> None:
         ecrire(cadrer(agrandir(frames, int(t["agrandir"]))), 24, f"{t['sortie']}.mp4")
 
 
+def _hf(repo: str, motif: str, dossier: Path) -> str:
+    """Télécharge le premier fichier du dépôt HF dont le chemin contient tous les mots de `motif`."""
+    from huggingface_hub import list_repo_files
+
+    mots = motif.lower().split()
+    nom = next(f for f in sorted(list_repo_files(repo)) if all(m in f.lower() for m in mots))
+    dossier.mkdir(parents=True, exist_ok=True)
+    chemin = hf_hub_download(repo, nom, local_dir="/tmp/hf")
+    cible = dossier / Path(nom).name
+    if not cible.exists():
+        cible.symlink_to(chemin)
+    print(f"{repo} : {nom}", flush=True)
+    return cible.name
+
+
+def comfyui(t: dict) -> None:
+    """ComfyUI sans interface : Wan 2.2 14B image→vidéo (GGUF Q4, LoRA lightx2v 4 étapes), le même modèle
+    que le Space HF mais sans quota, puis RIFE + Real-ESRGAN dans la foulée si `fluidite` est demandé."""
+    import urllib.request
+
+    racine = Path("/tmp/ComfyUI")
+    if not racine.exists():
+        subprocess.run(["git", "clone", "-q", "--depth", "1", "https://github.com/comfyanonymous/ComfyUI", str(racine)], check=True)
+        subprocess.run(["git", "clone", "-q", "--depth", "1", "https://github.com/city96/ComfyUI-GGUF",
+                        str(racine / "custom_nodes" / "ComfyUI-GGUF")], check=True)
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(racine / "requirements.txt"),
+                        "gguf", "av"], check=True)
+    m = racine / "models"
+    quant = t.get("quant", "Q4_K_S")
+    haut = _hf("QuantStack/Wan2.2-I2V-A14B-GGUF", f"high {quant}.gguf", m / "unet")
+    bas = _hf("QuantStack/Wan2.2-I2V-A14B-GGUF", f"low {quant}.gguf", m / "unet")
+    rep = "Comfy-Org/Wan_2.2_ComfyUI_Repackaged"
+    clip = _hf(rep, "text_encoders umt5 fp8", m / "text_encoders")
+    vae = _hf(rep, "vae wan_2.1_vae", m / "vae")
+    lora_h = _hf(rep, "loras i2v lightx2v 4steps high", m / "loras")
+    lora_b = _hf(rep, "loras i2v lightx2v 4steps low", m / "loras")
+    (racine / "input").mkdir(exist_ok=True)
+    img = "depart-" + Path(t["debut"]).name
+    w, h = int(t.get("largeur", 480)), int(t.get("hauteur", 832))
+    Image.fromarray(cadrer([np.asarray(Image.open(ENTREES / t["debut"]).convert("RGB"))], w, h)[0]).save(racine / "input" / img)
+
+    serveur = subprocess.Popen([sys.executable, "main.py", "--listen", "127.0.0.1", "--port", "8188",
+                                "--lowvram", "--disable-auto-launch"], cwd=racine)
+    for _ in range(120):
+        try:
+            urllib.request.urlopen("http://127.0.0.1:8188/system_stats", timeout=2)
+            break
+        except Exception:
+            time.sleep(2)
+    etapes, graine = int(t.get("etapes", 4)), int(t.get("graine", 42))
+    neg = ("blurry, morphing, crossfade, distorted, deformed paws, extra legs, extra hands, human hands, "
+           "text, watermark, static, frozen, low quality")
+    g = {
+        "1": {"class_type": "UnetLoaderGGUF", "inputs": {"unet_name": haut}},
+        "2": {"class_type": "UnetLoaderGGUF", "inputs": {"unet_name": bas}},
+        "3": {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["1", 0], "lora_name": lora_h, "strength_model": 1.0}},
+        "4": {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["2", 0], "lora_name": lora_b, "strength_model": 1.0}},
+        "5": {"class_type": "ModelSamplingSD3", "inputs": {"model": ["3", 0], "shift": 5.0}},
+        "6": {"class_type": "ModelSamplingSD3", "inputs": {"model": ["4", 0], "shift": 5.0}},
+        "7": {"class_type": "CLIPLoader", "inputs": {"clip_name": clip, "type": "wan", "device": "cpu"}},
+        "8": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["7", 0], "text": t["prompt"]}},
+        "9": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["7", 0], "text": neg}},
+        "10": {"class_type": "VAELoader", "inputs": {"vae_name": vae}},
+        "11": {"class_type": "LoadImage", "inputs": {"image": img}},
+        "12": {"class_type": "WanImageToVideo", "inputs": {
+            "positive": ["8", 0], "negative": ["9", 0], "vae": ["10", 0], "start_image": ["11", 0],
+            "width": w, "height": h, "length": int(t.get("images", 81)), "batch_size": 1}},
+        "13": {"class_type": "KSamplerAdvanced", "inputs": {
+            "model": ["5", 0], "positive": ["12", 0], "negative": ["12", 1], "latent_image": ["12", 2],
+            "add_noise": "enable", "noise_seed": graine, "steps": etapes, "cfg": 1.0, "sampler_name": "euler",
+            "scheduler": "simple", "start_at_step": 0, "end_at_step": etapes // 2, "return_with_leftover_noise": "enable"}},
+        "14": {"class_type": "KSamplerAdvanced", "inputs": {
+            "model": ["6", 0], "positive": ["12", 0], "negative": ["12", 1], "latent_image": ["13", 0],
+            "add_noise": "disable", "noise_seed": graine, "steps": etapes, "cfg": 1.0, "sampler_name": "euler",
+            "scheduler": "simple", "start_at_step": etapes // 2, "end_at_step": 10000, "return_with_leftover_noise": "disable"}},
+        "15": {"class_type": "VAEDecode", "inputs": {"samples": ["14", 0], "vae": ["10", 0]}},
+        "16": {"class_type": "SaveImage", "inputs": {"images": ["15", 0], "filename_prefix": t["sortie"]}},
+    }
+    chrono = time.time()
+    req = urllib.request.Request("http://127.0.0.1:8188/prompt", data=json.dumps({"prompt": g}).encode(),
+                                 headers={"Content-Type": "application/json"})
+    pid = json.loads(urllib.request.urlopen(req).read())["prompt_id"]
+    while True:
+        time.sleep(10)
+        hist = json.loads(urllib.request.urlopen(f"http://127.0.0.1:8188/history/{pid}").read())
+        if pid in hist and hist[pid].get("status", {}).get("completed") is not None:
+            break
+        if serveur.poll() is not None:
+            raise RuntimeError("ComfyUI s'est arrêté")
+    statut = hist[pid]["status"]
+    if statut.get("status_str") != "success":
+        raise RuntimeError(f"ComfyUI : {json.dumps(statut.get('messages', []))[-1500:]}")
+    images = sorted((racine / "output").glob(f"{t['sortie']}_*.png"))
+    print(f"ComfyUI Wan 2.2 14B : {len(images)} images en {time.time() - chrono:.0f} s", flush=True)
+    serveur.terminate()
+    serveur.wait(timeout=60)
+    torch.cuda.empty_cache()
+    frames = [np.asarray(Image.open(p).convert("RGB")) for p in images]
+    ecrire(frames, 16, f"{t['sortie']}-brut.mp4")
+    if t.get("fluidite"):
+        frames = interpoler(frames, 16, 30)
+        frames = agrandir(frames, int(t.get("agrandir", 4)))
+        ecrire(cadrer(frames), 30, f"{t['sortie']}.mp4")
+
+
 bilan = {}
 for tache in TACHES:
     print(f"=== {tache['type']} → {tache['sortie']}", flush=True)
     try:
-        {"fluidite": fluidite, "transition": transition}[tache["type"]](tache)
+        {"fluidite": fluidite, "transition": transition, "comfyui": comfyui}[tache["type"]](tache)
         bilan[tache["sortie"]] = "ok"
     except Exception as exc:
         traceback.print_exc()

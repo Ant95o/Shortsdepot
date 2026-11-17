@@ -1,0 +1,12 @@
+# C. ComfyUI sur Kaggle : Wan 2.2 14B (même modèle que le Space HF, en GGUF Q4 + LoRA 4 étapes), sans quota HF.
+# Deux actions que Kaggle 5B et LTX ont ratées : Cooper qui se dresse vers le gâteau, Cooper qui lâche la branche et s'assoit.
+taches:
+  - type: comfyui
+    debut: essais/refs/ga-6.jpg
+    prompt: "Static shot. The golden retriever with a red collar turns toward the strawberry cake, stands up on his hind legs and puts both front paws on the edge of the round wooden table, nose close to the cake. Natural dog movement. Photorealistic, sharp focus."
+    fluidite: true
+    sortie: c-gateau-se-dresse
+  - type: comfyui
+    debut: essais/refs/ev-8.jpg
+    prompt: "The golden retriever lets go of the stuck branch, turns around and sits down on the grass facing the camera, tongue out. Static smartphone shot, natural dog movement, photorealistic, sharp focus."
+    sortie: c-everlong-lache-assis
