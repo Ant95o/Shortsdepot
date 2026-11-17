@@ -53,6 +53,52 @@ def chercher(q: str, source: str, pays: str) -> list[dict]:
     return items
 
 
+# Pages qui listent les sons du moment (mises à jour chaque semaine) : croisées entre elles.
+AGREGATEURS = [
+    "https://metricool.com/trending-tiktok-songs/",
+    "https://kurrently.io/trending-tiktok-sounds/",
+    "https://tokchart.com/fr/musique-tiktok",
+    "https://socialbee.com/blog/trending-instagram-songs-this-week/",
+    "https://later.com/blog/tiktok-trends/",
+    "https://later.com/blog/instagram-reels-trends/",
+    "https://www.epidemicsound.com/blog/latest-tiktok-trends/",
+    "https://www.socialpilot.co/blog/tiktok-trends",
+    "https://metricool.com/trending-instagram-songs/",
+]
+BANAL = {"tiktok", "instagram", "reels", "reel", "trend", "trends", "trending", "sound", "sounds", "song", "songs",
+         "audio", "how", "what", "why", "best", "top", "2026", "2025", "faq", "use", "find", "tendances", "musique",
+         "contents", "table", "conclusion", "related", "share", "follow", "subscribe", "newsletter"}
+LIGNE = re.compile(r"^\s*(?:[-*]|\d+[.)]|#+)\s*(?:\*\*)?[\"“«]?([^\n]{4,70}?)[\"”»]?(?:\*\*)?\s*$", re.M)
+
+
+def lire_page(url: str) -> str:
+    r = subprocess.run(["firecrawl", "scrape", url, "--only-main-content"], capture_output=True, text=True, timeout=150)
+    if r.returncode:
+        print(f"Échec lecture {url} : {r.stderr.strip()[:150]}")
+    return r.stdout or ""
+
+
+def _norm(x: str) -> str:
+    return re.sub(r"[^a-z0-9à-ÿ ]+", " ", x.lower()).split(" by ")[0].strip()
+
+
+def croiser_sons(pages: dict[str, str]) -> list[tuple[str, list[str]]]:
+    """Un titre listé sur une page est retenu s'il apparaît aussi sur au moins une autre page."""
+    textes = {u: _norm(t) for u, t in pages.items()}
+    vus = {}
+    for u, t in pages.items():
+        for m in LIGNE.finditer(t):
+            brut = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", m.group(1))
+            titre = re.split(r"\s[–—-]\s|\sby\s|:", brut)[0].strip(" *#\"“”")
+            n = _norm(titre)
+            if len(n) < 4 or len(n.split()) > 7 or n in vus or n.isdigit() or set(n.split()) & BANAL:
+                continue
+            ailleurs = [v for v, tx in textes.items() if v != u and f" {n} " in f" {tx} "]
+            if ailleurs:
+                vus[n] = (titre, sorted({urllib.parse.urlparse(x).netloc.removeprefix("www.") for x in [u, *ailleurs]}))
+    return sorted(vus.values(), key=lambda x: -len(x[1]))
+
+
 def main(dossier: str = "veille") -> None:
     jour = dt.date.today().isoformat()
     out = Path(dossier)
@@ -65,9 +111,17 @@ def main(dossier: str = "veille") -> None:
             nom = (m.group(1) or m.group(2) or "").strip(" .,!?").lower()
             if 3 <= len(nom) <= 40 and len(nom.split()) <= 6:
                 cites[nom].add(dom)
+    pages = {u: lire_page(u) for u in AGREGATEURS}
+    (out / "pages").mkdir(exist_ok=True)
+    for u, t in pages.items():
+        (out / "pages" / (urllib.parse.urlparse(u).netloc + urllib.parse.urlparse(u).path).strip("/").replace("/", "_")
+         ).with_suffix(".md").write_text(t)
+    sons = [(t, d) for t, d in croiser_sons(pages) if len(d) >= 2]
     candidats = sorted(((n, d) for n, d in cites.items() if len(d) >= 2), key=lambda x: -len(x[1]))
     md = [f"# Veille trends du {jour} (Firecrawl, résultats de moins de 7 jours)", "",
-          "## Candidats cités par au moins 2 sites différents", ""]
+          "## Sons et trends listés par au moins 2 sites de classement différents", ""]
+    md += [f"- **{t}** : {len(d)} sites ({', '.join(d)})" for t, d in sons[:30]] or ["- aucun"]
+    md += ["", "## Autres noms cités par au moins 2 sites (actualités)", ""]
     md += [f"- **{n}** : {len(d)} sites ({', '.join(sorted(d))})" for n, d in candidats[:25]] or ["- aucun"]
     md += ["", "À vérifier ensuite sur TikTok et Instagram (nombre de vidéos, vidéos d'exemple) avant de proposer.",
            "", "## Toutes les sources", ""]
