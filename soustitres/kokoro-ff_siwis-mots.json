@@ -1,0 +1,102 @@
+[
+ {
+  "mot": "Ce",
+  "debut": 0.461,
+  "fin": 0.602
+ },
+ {
+  "mot": "chat",
+  "debut": 0.642,
+  "fin": 0.862
+ },
+ {
+  "mot": "pensait",
+  "debut": 0.882,
+  "fin": 1.203
+ },
+ {
+  "mot": "que",
+  "debut": 1.243,
+  "fin": 1.344
+ },
+ {
+  "mot": "le",
+  "debut": 1.364,
+  "fin": 1.444
+ },
+ {
+  "mot": "gâteau",
+  "debut": 1.484,
+  "fin": 1.765
+ },
+ {
+  "mot": "était",
+  "debut": 1.805,
+  "fin": 2.005
+ },
+ {
+  "mot": "pour",
+  "debut": 2.025,
+  "fin": 2.166
+ },
+ {
+  "mot": "lui.",
+  "debut": 2.206,
+  "fin": 2.687
+ },
+ {
+  "mot": "Il",
+  "debut": 2.747,
+  "fin": 2.827
+ },
+ {
+  "mot": "attend",
+  "debut": 2.888,
+  "fin": 3.128
+ },
+ {
+  "mot": "que",
+  "debut": 3.168,
+  "fin": 3.269
+ },
+ {
+  "mot": "tout",
+  "debut": 3.309,
+  "fin": 3.409
+ },
+ {
+  "mot": "le",
+  "debut": 3.449,
+  "fin": 3.509
+ },
+ {
+  "mot": "monde",
+  "debut": 3.529,
+  "fin": 3.73
+ },
+ {
+  "mot": "parte.",
+  "debut": 3.79,
+  "fin": 4.231
+ },
+ {
+  "mot": "Et",
+  "debut": 4.271,
+  "fin": 4.432
+ },
+ {
+  "mot": "là,",
+  "debut": 4.472,
+  "fin": 4.632
+ },
+ {
+  "mot": "surprise",
+  "debut": 4.672,
+  "fin": 5.174
+ },
+ {
+  "mot": "!",
+  "debut": 5.194,
+  "fin": 5.214
+ }
+]

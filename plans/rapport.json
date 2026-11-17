@@ -1,0 +1,187 @@
+[
+ {
+  "clip": "clips/gateau/plan1-gateau-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 3.29,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan10-crime-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 5.74,
+  "verdicts": [
+   "FONDU"
+  ],
+  "details": [
+   "mélange d'images à 3.8-4.0 s"
+  ],
+  "moments": [
+   3.8333333333333335
+  ]
+ },
+ {
+  "clip": "clips/gateau/plan11-coupable-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 2.16,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan12-chat-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.38,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan2-repere-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.47,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan3-innocent-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.88,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan4-chat-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.19,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan5-porte-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.6,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan7-pattes-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 4.09,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan8-leche-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 4.65,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/gateau/plan9-porte-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 2.14,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/zombies1/plan1-salon-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 0.58,
+  "verdicts": [
+   "FIGÉ"
+  ],
+  "details": [
+   "presque aucun mouvement sur tout le plan (moyenne 0.58)"
+  ],
+  "moments": []
+ },
+ {
+  "clip": "clips/zombies1/plan10-regards-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 0.95,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/zombies1/plan11-encercles-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.75,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/zombies1/plan12-noir-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 0.2,
+  "verdicts": [
+   "FIGÉ"
+  ],
+  "details": [
+   "2.2 s immobiles (0.6-1.7 s, 3.9-5.0 s)"
+  ],
+  "moments": [
+   0.5833333333333334,
+   3.875
+  ]
+ },
+ {
+  "clip": "clips/zombies1/plan2-voyant-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 1.02,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ },
+ {
+  "clip": "clips/zombies1/plan3-chat-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 2.26,
+  "verdicts": [
+   "FONDU"
+  ],
+  "details": [
+   "mélange d'images à 3.7-4.0 s"
+  ],
+  "moments": [
+   3.6666666666666665
+  ]
+ },
+ {
+  "clip": "clips/zombies1/plan6-cooper-g42.mp4",
+  "duree": 5.04,
+  "fps": 24.0,
+  "mouvement_moyen": 0.73,
+  "verdicts": [],
+  "details": [],
+  "moments": []
+ }
+]
