@@ -114,8 +114,8 @@ def main(dossier: str = "veille") -> None:
     pages = {u: lire_page(u) for u in AGREGATEURS}
     (out / "pages").mkdir(exist_ok=True)
     for u, t in pages.items():
-        (out / "pages" / (urllib.parse.urlparse(u).netloc + urllib.parse.urlparse(u).path).strip("/").replace("/", "_")
-         + ".md").write_text(t)
+        nom = (urllib.parse.urlparse(u).netloc + urllib.parse.urlparse(u).path).strip("/").replace("/", "_")
+        (out / "pages" / f"{nom}.md").write_text(t)
     sons = [(t, d) for t, d in croiser_sons(pages) if len(d) >= 2]
     candidats = sorted(((n, d) for n, d in cites.items() if len(d) >= 2), key=lambda x: -len(x[1]))
     md = [f"# Veille trends du {jour} (Firecrawl, résultats de moins de 7 jours)", "",
