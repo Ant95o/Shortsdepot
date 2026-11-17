@@ -1,0 +1,41 @@
+name: Veille trends (Firecrawl, chaque matin)
+
+# Recherches web/actualités de la semaine sur les trends TikTok, Reels et Shorts, croisées (≥ 2 sites),
+# rangées sur la branche veille (veille/AAAA-MM-JJ.md). Palier gratuit sans clé ;
+# secret facultatif FIRECRAWL_API_KEY (compte gratuit firecrawl.dev, sans carte) pour plus de résultats.
+on:
+  schedule:
+    - cron: "30 6 * * *"   # 7 h 30 heure de Paris (hiver), avant la tâche « Trends du jour »
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/veille.yml", "outils/veille.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Recherches
+        run: |
+          npm install -g -s firecrawl-cli@1.29.0
+          cp outils/veille.py /tmp/
+          git fetch origin veille && git checkout -B veille origin/veille || git checkout --orphan veille
+          git rm -rfq --cached . 2>/dev/null || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name veille -exec rm -rf {} +
+          python3 /tmp/veille.py veille
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add veille && git commit -qm "Veille du $(date +%F)" && git push origin HEAD:veille || echo "rien de neuf"
