@@ -1,116 +1,197 @@
-[{"stream_name":"stdout","time":13.604032789,"data":"GPU : Tesla T4 ; entrées : /kaggle/input/datasets/antoinesustrac/shortsdepot-labo-entrees\n"}
-,{"stream_name":"stdout","time":13.604095216,"data":"=== transition → b-everlong-branche-porte\n"}
-,{"stream_name":"stderr","time":37.061586777,"data":"/usr/local/lib/python3.13/dist-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.\n"}
-,{"stream_name":"stderr","time":37.061630425,"data":"  deprecate(\"torch_dtype\", \"1.0.0\", _TORCH_DTYPE_DEPRECATION_MESSAGE)\n"}
-,{"stream_name":"stderr","time":37.201409913,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
-,{"stream_name":"stderr","time":149.41275347,"data":"\rFetching 16 files:   0%|          | 0/16 [00:00\u003c?, ?it/s]\rFetching 16 files:  19%|█▉        | 3/16 [00:00\u003c00:00, 28.41it/s]\rFetching 16 files:  62%|██████▎   | 10/16 [00:15\u003c00:10,  1.71s/it]\rFetching 16 files:  69%|██████▉   | 11/16 [01:52\u003c01:12, 14.58s/it]\rFetching 16 files: 100%|██████████| 16/16 [01:52\u003c00:00,  7.01s/it]\n"}
-,{"stream_name":"stderr","time":165.300740583,"data":"\rLoading pipeline components...:   0%|          | 0/5 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  20%|██        | 1/5 [00:07\u003c00:31,  7.94s/it]\rLoading pipeline components...:  40%|████      | 2/5 [00:15\u003c00:23,  7.72s/it]\rLoading pipeline components...:  80%|████████  | 4/5 [00:15\u003c00:02,  2.95s/it]\n"}
-,{"stream_name":"stderr","time":166.235750174,"data":"\rLoading weights:   0%|          | 0/219 [00:00\u003c?, ?it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":168.898775672,"data":"\rLoading weights:   0%|          | 1/219 [00:00\u003c03:23,  1.07it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":171.142232379,"data":"\rLoading weights:   3%|▎         | 7/219 [00:03\u003c01:44,  2.02it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":173.510517145,"data":"\rLoading weights:   7%|▋         | 16/219 [00:05\u003c01:07,  3.00it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":173.690270061,"data":"\rLoading weights:  11%|█▏        | 25/219 [00:08\u003c00:58,  3.34it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":175.771477026,"data":"\rLoading weights:  12%|█▏        | 26/219 [00:08\u003c00:56,  3.44it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":177.050799043,"data":"\rLoading weights:  16%|█▌        | 34/219 [00:10\u003c00:51,  3.61it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":177.412866676,"data":"\rLoading weights:  20%|█▉        | 43/219 [00:11\u003c00:38,  4.54it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":177.872035748,"data":"\rLoading weights:  24%|██▎       | 52/219 [00:12\u003c00:25,  6.54it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":178.327929962,"data":"\rLoading weights:  25%|██▍       | 54/219 [00:12\u003c00:26,  6.21it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":178.604674021,"data":"\rLoading weights:  26%|██▋       | 58/219 [00:13\u003c00:24,  6.66it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":180.467599713,"data":"\rLoading weights:  27%|██▋       | 59/219 [00:13\u003c00:25,  6.26it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":180.771684547,"data":"\rLoading weights:  28%|██▊       | 61/219 [00:15\u003c00:47,  3.35it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":183.120802843,"data":"\rLoading weights:  31%|███       | 68/219 [00:15\u003c00:26,  5.62it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":185.270121165,"data":"\rLoading weights:  32%|███▏      | 70/219 [00:17\u003c00:50,  2.95it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":185.462445194,"data":"\rLoading weights:  36%|███▌      | 79/219 [00:19\u003c00:40,  3.47it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":187.897579839,"data":"\rLoading weights:  37%|███▋      | 80/219 [00:20\u003c00:39,  3.56it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":190.094627163,"data":"\rLoading weights:  40%|████      | 88/219 [00:22\u003c00:38,  3.43it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":190.247161852,"data":"\rLoading weights:  44%|████▍     | 97/219 [00:24\u003c00:33,  3.68it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":192.835570537,"data":"\rLoading weights:  45%|████▍     | 98/219 [00:24\u003c00:31,  3.79it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":194.920279758,"data":"\rLoading weights:  48%|████▊     | 106/219 [00:27\u003c00:32,  3.46it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":197.500508672,"data":"\rLoading weights:  53%|█████▎    | 115/219 [00:29\u003c00:27,  3.76it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":199.834794562,"data":"\rLoading weights:  57%|█████▋    | 124/219 [00:32\u003c00:25,  3.66it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":202.184728091,"data":"\rLoading weights:  61%|██████    | 133/219 [00:34\u003c00:23,  3.72it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":202.465048895,"data":"\rLoading weights:  65%|██████▍   | 142/219 [00:36\u003c00:20,  3.76it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":204.633502716,"data":"\rLoading weights:  65%|██████▌   | 143/219 [00:37\u003c00:20,  3.75it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":204.745275849,"data":"\rLoading weights:  69%|██████▉   | 151/219 [00:39\u003c00:18,  3.73it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":206.955781514,"data":"\rLoading weights:  69%|██████▉   | 152/219 [00:39\u003c00:17,  3.86it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":207.245528937,"data":"\rLoading weights:  73%|███████▎  | 160/219 [00:41\u003c00:15,  3.76it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":209.011402025,"data":"\rLoading weights:  74%|███████▎  | 161/219 [00:41\u003c00:15,  3.74it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":209.768141264,"data":"\rLoading weights:  77%|███████▋  | 169/219 [00:43\u003c00:12,  4.05it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":211.593597567,"data":"\rLoading weights:  78%|███████▊  | 170/219 [00:44\u003c00:13,  3.52it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":211.956081974,"data":"\rLoading weights:  81%|████████▏ | 178/219 [00:46\u003c00:10,  3.86it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":214.197027783,"data":"\rLoading weights:  82%|████████▏ | 179/219 [00:46\u003c00:10,  3.75it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":214.359293676,"data":"\rLoading weights:  85%|████████▌ | 187/219 [00:48\u003c00:08,  3.67it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":216.839148732,"data":"\rLoading weights:  86%|████████▌ | 188/219 [00:49\u003c00:08,  3.78it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":219.058682191,"data":"\rLoading weights:  89%|████████▉ | 196/219 [00:51\u003c00:06,  3.50it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":219.181210535,"data":"\rLoading weights:  94%|█████████▎| 205/219 [00:53\u003c00:03,  3.72it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":221.029246525,"data":"\rLoading weights:  94%|█████████▍| 206/219 [00:53\u003c00:03,  3.85it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":222.453834766,"data":"\rLoading weights:  98%|█████████▊| 214/219 [00:55\u003c00:01,  4.04it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":222.454163416,"data":"\rLoading weights: 100%|██████████| 219/219 [00:57\u003c00:00,  3.88it/s]\u001b[A\rLoading weights: 100%|██████████| 219/219 [00:57\u003c00:00,  3.83it/s]\n"}
-,{"stream_name":"stderr","time":222.475523811,"data":"\rLoading pipeline components...: 100%|██████████| 5/5 [01:13\u003c00:00, 19.77s/it]\rLoading pipeline components...: 100%|██████████| 5/5 [01:13\u003c00:00, 14.61s/it]\n"}
-,{"stream_name":"stderr","time":222.477471137,"data":"There are modules in AutoencoderKLLTXVideo that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
-,{"stream_name":"stderr","time":246.382767997,"data":"`timesteps` were passed without `sigmas`. The timesteps are used as given, while the sigmas derived from them go through the scheduler's shifting, so the two may not be consistent. Pass `sigmas` to get a shifted schedule, or pass both `sigmas` and `timesteps` to control them separately.\n"}
-,{"stream_name":"stderr","time":431.184926866,"data":"\r  0%|          | 0/40 [00:00\u003c?, ?it/s]\r  2%|▎         | 1/40 [00:04\u003c02:37,  4.04s/it]\r  5%|▌         | 2/40 [00:05\u003c01:39,  2.61s/it]\r  8%|▊         | 3/40 [00:09\u003c02:00,  3.25s/it]\r 10%|█         | 4/40 [00:13\u003c02:07,  3.55s/it]\r 12%|█▎        | 5/40 [00:17\u003c02:10,  3.73s/it]\r 15%|█▌        | 6/40 [00:21\u003c02:11,  3.85s/it]\r 18%|█▊        | 7/40 [00:25\u003c02:10,  3.95s/it]\r 20%|██        | 8/40 [00:30\u003c02:08,  4.01s/it]\r 22%|██▎       | 9/40 [00:34\u003c02:06,  4.08s/it]\r 25%|██▌       | 10/40 [00:38\u003c02:03,  4.12s/it]\r 28%|██▊       | 11/40 [00:42\u003c02:00,  4.17s/it]\r 30%|███       | 12/40 [00:47\u003c01:57,  4.21s/it]\r 32%|███▎      | 13/40 [00:51\u003c01:54,  4.24s/it]\r 35%|███▌      | 14/40 [00:55\u003c01:51,  4.27s/it]\r 38%|███▊      | 15/40 [01:00\u003c01:47,  4.31s/it]\r 40%|████      | 16/40 [01:04\u003c01:44,  4.35s/it]\r 42%|████▎     | 17/40 [01:09\u003c01:40,  4.39s/it]\r 45%|████▌     | 18/40 [01:13\u003c01:37,  4.43s/it]\r 48%|████▊     | 19/40 [01:18\u003c01:34,  4.48s/it]\r 50%|█████     | 20/40 [01:22\u003c01:30,  4.51s/it]\r 52%|█████▎    | 21/40 [01:27\u003c01:26,  4.54s/it]\r 55%|█████▌    | 22/40 [01:32\u003c01:22,  4.59s/it]\r 57%|█████▊    | 23/40 [01:36\u003c01:19,  4.65s/it]\r 60%|██████    | 24/40 [01:41\u003c01:15,  4.72s/it]\r 62%|██████▎   | 25/40 [01:46\u003c01:12,  4.80s/it]\r 65%|██████▌   | 26/40 [01:51\u003c01:08,  4.89s/it]\r 68%|██████▊   | 27/40 [01:57\u003c01:04,  4.97s/it]\r 70%|███████   | 28/40 [02:02\u003c01:00,  5.02s/it]\r 72%|███████▎  | 29/40 [02:07\u003c00:55,  5.05s/it]\r 75%|███████▌  | 30/40 [02:12\u003c00:50,  5.02s/it]\r 78%|███████▊  | 31/40 [02:17\u003c00:44,  4.97s/it]\r 80%|████████  | 32/40 [02:21\u003c00:39,  4.92s/it]\r 82%|████████▎ | 33/40 [02:26\u003c00:34,  4.87s/it]\r 85%|████████▌ | 34/40 [02:31\u003c00:28,  4.82s/it]\r 88%|████████▊ | 35/40 [02:36\u003c00:23,  4.79s/it]\r 90%|█████████ | 36/40 [02:40\u003c00:19,  4.76s/it]\r 92%|█████████▎| 37/40 [02:45\u003c00:14,  4.75s/it]\r 95%|█████████▌| 38/40 [02:50\u003c00:09,  4.76s/it]\r 98%|█████████▊| 39/40 [02:55\u003c00:04,  4.78s/it]\r100%|██████████| 40/40 [03:00\u003c00:00,  4.81s/it]\r100%|██████████| 40/40 [03:00\u003c00:00,  4.50s/it]\n"}
-,{"stream_name":"stdout","time":460.950204328,"data":"LTX-Video : 97 images en 215 s\n"}
-,{"stream_name":"stdout","time":468.983480958,"data":"b-everlong-branche-porte-brut.mp4 : 97 images 512x896 à 24 i/s\n"}
-,{"stream_name":"stdout","time":572.354170133,"data":"b-everlong-branche-porte.mp4 : 97 images 1080x1920 à 24 i/s\n"}
-,{"stream_name":"stdout","time":572.813254939,"data":"=== transition → b-everlong-assis\n"}
-,{"stream_name":"stderr","time":591.102733801,"data":"\rLoading pipeline components...:   0%|          | 0/5 [00:00\u003c?, ?it/s]\rLoading pipeline components...:  20%|██        | 1/5 [00:06\u003c00:25,  6.44s/it]\rLoading pipeline components...:  40%|████      | 2/5 [00:17\u003c00:27,  9.24s/it]\n"}
-,{"stream_name":"stderr","time":592.021139878,"data":"\rLoading weights:   0%|          | 0/219 [00:00\u003c?, ?it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":594.43257382,"data":"\rLoading weights:   0%|          | 1/219 [00:00\u003c03:20,  1.09it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":596.3864003,"data":"\rLoading weights:   3%|▎         | 7/219 [00:03\u003c01:36,  2.19it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":598.775740981,"data":"\rLoading weights:   7%|▋         | 16/219 [00:05\u003c01:00,  3.35it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":599.927137908,"data":"\rLoading weights:  11%|█▏        | 25/219 [00:07\u003c00:54,  3.54it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":601.992057806,"data":"\rLoading weights:  16%|█▌        | 34/219 [00:08\u003c00:40,  4.56it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":603.073636399,"data":"\rLoading weights:  20%|█▉        | 43/219 [00:10\u003c00:39,  4.48it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":603.888986156,"data":"\rLoading weights:  24%|██▎       | 52/219 [00:11\u003c00:31,  5.33it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":604.039327971,"data":"\rLoading weights:  24%|██▍       | 53/219 [00:12\u003c00:36,  4.54it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":605.561930568,"data":"\rLoading weights:  27%|██▋       | 59/219 [00:12\u003c00:25,  6.25it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":606.426206554,"data":"\rLoading weights:  28%|██▊       | 61/219 [00:14\u003c00:37,  4.22it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":608.12364295,"data":"\rLoading weights:  29%|██▉       | 63/219 [00:15\u003c00:41,  3.74it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":608.592730916,"data":"\rLoading weights:  32%|███▏      | 70/219 [00:17\u003c00:38,  3.90it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":609.547678374,"data":"\rLoading weights:  32%|███▏      | 71/219 [00:17\u003c00:40,  3.65it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":610.735272417,"data":"\rLoading weights:  36%|███▌      | 79/219 [00:18\u003c00:27,  5.02it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":610.893845876,"data":"\rLoading weights:  40%|████      | 88/219 [00:19\u003c00:22,  5.89it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":612.728073938,"data":"\rLoading weights:  41%|████      | 89/219 [00:19\u003c00:21,  5.91it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":612.904399279,"data":"\rLoading weights:  44%|████▍     | 97/219 [00:21\u003c00:23,  5.14it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":615.042889507,"data":"\rLoading weights:  47%|████▋     | 104/219 [00:21\u003c00:15,  7.36it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":617.278524306,"data":"\rLoading weights:  48%|████▊     | 106/219 [00:23\u003c00:28,  3.97it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":619.570455274,"data":"\rLoading weights:  53%|█████▎    | 115/219 [00:26\u003c00:26,  4.00it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":621.862798678,"data":"\rLoading weights:  57%|█████▋    | 124/219 [00:28\u003c00:23,  3.97it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":624.210340482,"data":"\rLoading weights:  61%|██████    | 133/219 [00:30\u003c00:21,  3.95it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":624.379910139,"data":"\rLoading weights:  65%|██████▍   | 142/219 [00:33\u003c00:19,  3.91it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":626.400602502,"data":"\rLoading weights:  65%|██████▌   | 143/219 [00:33\u003c00:19,  3.98it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":626.511136288,"data":"\rLoading weights:  69%|██████▉   | 151/219 [00:35\u003c00:17,  3.97it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":628.654345322,"data":"\rLoading weights:  69%|██████▉   | 152/219 [00:35\u003c00:16,  4.11it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":628.820707238,"data":"\rLoading weights:  73%|███████▎  | 160/219 [00:37\u003c00:14,  3.95it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":630.648927182,"data":"\rLoading weights:  74%|███████▎  | 161/219 [00:37\u003c00:14,  4.04it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":630.962495127,"data":"\rLoading weights:  77%|███████▋  | 169/219 [00:39\u003c00:11,  4.18it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":632.994871243,"data":"\rLoading weights:  78%|███████▊  | 170/219 [00:39\u003c00:11,  4.09it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":633.212257926,"data":"\rLoading weights:  81%|████████▏ | 178/219 [00:41\u003c00:10,  4.02it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":635.343936195,"data":"\rLoading weights:  82%|████████▏ | 179/219 [00:42\u003c00:09,  4.06it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":637.482283318,"data":"\rLoading weights:  85%|████████▌ | 187/219 [00:44\u003c00:08,  3.91it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":637.8206085,"data":"\rLoading weights:  89%|████████▉ | 196/219 [00:46\u003c00:05,  4.03it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":640.012470891,"data":"\rLoading weights:  90%|████████▉ | 197/219 [00:46\u003c00:05,  3.94it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":640.138643288,"data":"\rLoading weights:  94%|█████████▎| 205/219 [00:48\u003c00:03,  3.81it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":641.469569865,"data":"\rLoading weights:  94%|█████████▍| 206/219 [00:49\u003c00:03,  3.96it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":641.589299547,"data":"\rLoading weights:  98%|█████████▊| 214/219 [00:50\u003c00:01,  4.66it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":642.878005305,"data":"\rLoading weights:  98%|█████████▊| 215/219 [00:50\u003c00:00,  4.82it/s]\u001b[A\n"}
-,{"stream_name":"stderr","time":642.878306829,"data":"\rLoading weights: 100%|██████████| 219/219 [00:51\u003c00:00,  4.14it/s]\u001b[A\rLoading weights: 100%|██████████| 219/219 [00:51\u003c00:00,  4.23it/s]\n"}
-,{"stream_name":"stderr","time":642.893874043,"data":"\rLoading pipeline components...: 100%|██████████| 5/5 [01:09\u003c00:00, 15.02s/it]\rLoading pipeline components...: 100%|██████████| 5/5 [01:09\u003c00:00, 13.91s/it]\n"}
-,{"stream_name":"stderr","time":642.894662051,"data":"There are modules in AutoencoderKLLTXVideo that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.\n"}
-,{"stream_name":"stderr","time":664.870255315,"data":"`timesteps` were passed without `sigmas`. The timesteps are used as given, while the sigmas derived from them go through the scheduler's shifting, so the two may not be consistent. Pass `sigmas` to get a shifted schedule, or pass both `sigmas` and `timesteps` to control them separately.\n"}
-,{"stream_name":"stderr","time":858.10248688,"data":"\r  0%|          | 0/40 [00:00\u003c?, ?it/s]\r  2%|▎         | 1/40 [00:04\u003c02:53,  4.44s/it]\r  5%|▌         | 2/40 [00:06\u003c01:49,  2.89s/it]\r  8%|▊         | 3/40 [00:10\u003c02:14,  3.64s/it]\r 10%|█         | 4/40 [00:15\u003c02:24,  4.02s/it]\r 12%|█▎        | 5/40 [00:19\u003c02:27,  4.22s/it]\r 15%|█▌        | 6/40 [00:24\u003c02:28,  4.36s/it]\r 18%|█▊        | 7/40 [00:29\u003c02:28,  4.49s/it]\r 20%|██        | 8/40 [00:34\u003c02:27,  4.61s/it]\r 22%|██▎       | 9/40 [00:39\u003c02:25,  4.70s/it]\r 25%|██▌       | 10/40 [00:44\u003c02:24,  4.81s/it]\r 28%|██▊       | 11/40 [00:49\u003c02:22,  4.90s/it]\r 30%|███       | 12/40 [00:54\u003c02:19,  4.99s/it]\r 32%|███▎      | 13/40 [00:59\u003c02:15,  5.04s/it]\r 35%|███▌      | 14/40 [01:04\u003c02:11,  5.06s/it]\r 38%|███▊      | 15/40 [01:09\u003c02:05,  5.02s/it]\r 40%|████      | 16/40 [01:14\u003c01:59,  4.97s/it]\r 42%|████▎     | 17/40 [01:19\u003c01:53,  4.92s/it]\r 45%|████▌     | 18/40 [01:24\u003c01:47,  4.88s/it]\r 48%|████▊     | 19/40 [01:28\u003c01:41,  4.83s/it]\r 50%|█████     | 20/40 [01:33\u003c01:35,  4.79s/it]\r 52%|█████▎    | 21/40 [01:38\u003c01:30,  4.76s/it]\r 55%|█████▌    | 22/40 [01:42\u003c01:25,  4.75s/it]\r 57%|█████▊    | 23/40 [01:47\u003c01:20,  4.75s/it]\r 60%|██████    | 24/40 [01:52\u003c01:16,  4.77s/it]\r 62%|██████▎   | 25/40 [01:57\u003c01:12,  4.81s/it]\r 65%|██████▌   | 26/40 [02:02\u003c01:07,  4.85s/it]\r 68%|██████▊   | 27/40 [02:07\u003c01:03,  4.91s/it]\r 70%|███████   | 28/40 [02:12\u003c00:59,  4.95s/it]\r 72%|███████▎  | 29/40 [02:17\u003c00:54,  4.97s/it]\r 75%|███████▌  | 30/40 [02:22\u003c00:49,  4.94s/it]\r 78%|███████▊  | 31/40 [02:27\u003c00:44,  4.92s/it]\r 80%|████████  | 32/40 [02:32\u003c00:39,  4.89s/it]\r 82%|████████▎ | 33/40 [02:36\u003c00:34,  4.86s/it]\r 85%|████████▌ | 34/40 [02:41\u003c00:29,  4.84s/it]\r 88%|████████▊ | 35/40 [02:46\u003c00:24,  4.82s/it]\r 90%|█████████ | 36/40 [02:51\u003c00:19,  4.80s/it]\r 92%|█████████▎| 37/40 [02:55\u003c00:14,  4.80s/it]\r 95%|█████████▌| 38/40 [03:00\u003c00:09,  4.81s/it]\r 98%|█████████▊| 39/40 [03:05\u003c00:04,  4.82s/it]\r100%|██████████| 40/40 [03:10\u003c00:00,  4.83s/it]\r100%|██████████| 40/40 [03:10\u003c00:00,  4.76s/it]\n"}
-,{"stream_name":"stdout","time":887.811521114,"data":"LTX-Video : 97 images en 223 s\n"}
-,{"stream_name":"stdout","time":891.22310821,"data":"b-everlong-assis-brut.mp4 : 97 images 512x896 à 24 i/s\n"}
-,{"stream_name":"stdout","time":977.94768624,"data":"b-everlong-assis.mp4 : 97 images 1080x1920 à 24 i/s\n"}
-,{"stream_name":"stdout","time":978.490304914,"data":"{\n"}
-,{"stream_name":"stdout","time":978.490340946,"data":"  \"b-everlong-branche-porte\": \"ok\",\n"}
-,{"stream_name":"stdout","time":978.490345234,"data":"  \"b-everlong-assis\": \"ok\"\n"}
-,{"stream_name":"stdout","time":978.490348454,"data":"}\n"}
-,{"stream_name":"stderr","time":986.27644948,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":986.276483515,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":986.541067428,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":986.541110639,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":987.659144064,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":988.570696467,"data":"[NbConvertApp] Writing 327698 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":15.583323174,"data":"GPU : Tesla T4 ; entrées : /kaggle/input/datasets/antoinesustrac/shortsdepot-labo-entrees\n"}
+,{"stream_name":"stdout","time":15.583354272,"data":"=== comfyui → c-gateau-se-dresse\n"}
+,{"stream_name":"stderr","time":48.007857614,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":87.43391975,"data":"QuantStack/Wan2.2-I2V-A14B-GGUF : HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_S.gguf\n"}
+,{"stream_name":"stdout","time":121.860901157,"data":"QuantStack/Wan2.2-I2V-A14B-GGUF : LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_S.gguf\n"}
+,{"stream_name":"stdout","time":152.463769284,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors\n"}
+,{"stream_name":"stdout","time":168.455877691,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/vae/wan_2.1_vae.safetensors\n"}
+,{"stream_name":"stdout","time":173.329062505,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors\n"}
+,{"stream_name":"stdout","time":178.407412916,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors\n"}
+,{"stream_name":"stderr","time":185.968328611,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.schemas\n"}
+,{"stream_name":"stderr","time":185.968431952,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.tables\n"}
+,{"stream_name":"stderr","time":185.968548769,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.types\n"}
+,{"stream_name":"stderr","time":185.968676,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.constraints\n"}
+,{"stream_name":"stderr","time":185.968738109,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.defaults\n"}
+,{"stream_name":"stderr","time":185.968887564,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.comments\n"}
+,{"stream_name":"stderr","time":185.968952653,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.ext.checkconstraint_byname\n"}
+,{"stream_name":"stderr","time":198.239864328,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'int8_linear', 'na3d', 'quantize_and_rotate_rowwise', 'quantize_int8_rowwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'w4a8_int8_linear']}\n"}
+,{"stream_name":"stderr","time":198.23992364,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend cuda: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'closest_hit_on_mesh', 'closest_point_on_mesh', 'connected_components', 'convrot_w4a4_linear', 'delaunay3d', 'dequantize_convrot_w4a4_weight', 'dequantize_int8_convrot_weight', 'dequantize_int8_convrot_weight_dtype', 'dequantize_int8_simple', 'dequantize_int8_simple_dtype', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'dequantize_w4a8_int8_weight', 'edge_collapse_checks', 'fp16_conv3d', 'fp16_conv3d_out', 'fp16_linear', 'gemv_awq_w4a16', 'group_norm_silu_pad3d', 'group_norm_silu_pad3d_out', 'group_norm_stats3d', 'int8_linear', 'mesh_bvh', 'min_cut', 'na3d', 'prepare_int4_weight_for_int8_linear', 'quantize_and_rotate_rowwise', 'quantize_convrot_w4a4_weight', 'quantize_int8_convrot_weight', 'quantize_int8_rowwise', 'quantize_int8_tensorwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'quantize_svdquant_w4a4', 'quantize_w4a8_int8_weight', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'rotate_int8_convrot_weight', 'scaled_mm_nvfp4', 'scaled_mm_svdquant_w4a4', 'sol_attn', 'stochastic_rounding_fp8', 'w4a8_int8_linear', 'w4a8_packed_linear', 'window_attention']}\n"}
+,{"stream_name":"stderr","time":198.240028328,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend hip: {'available': False, 'disabled': False, 'unavailable_reason': 'PyTorch ROCm/HIP runtime not available', 'capabilities': []}\n"}
+,{"stream_name":"stderr","time":198.240177468,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'convrot_w4a4_linear', 'dequantize_convrot_w4a4_weight', 'dequantize_int8_convrot_weight', 'dequantize_int8_convrot_weight_dtype', 'dequantize_int8_embedding', 'dequantize_int8_simple', 'dequantize_int8_simple_dtype', 'dequantize_mxfp8', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'dequantize_w4a8_int8_weight', 'fp16_conv3d', 'fp16_conv3d_out', 'fp16_linear', 'gemv_awq_w4a16', 'group_norm_silu_pad3d', 'group_norm_silu_pad3d_out', 'group_norm_stats3d', 'int8_linear', 'int8_linear_modulated', 'int8_linear_rms_modulated', 'na3d', 'prepare_int4_weight_for_int8_linear', 'quantize_and_rotate_rowwise', 'quantize_convrot_w4a4_weight', 'quantize_int8_convrot_weight', 'quantize_int8_rowwise', 'quantize_int8_tensorwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'quantize_svdquant_w4a4', 'quantize_w4a8_int8_weight', 'rms_adaln', 'rms_gated_residual', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'rotate_int8_convrot_weight', 'scaled_mm_mxfp8', 'scaled_mm_nvfp4', 'scaled_mm_svdquant_w4a4', 'sol_attn', 'stochastic_rounding_fp8', 'w4a8_int8_linear', 'w4a8_packed_linear', 'window_attention']}\n"}
+,{"stream_name":"stderr","time":198.240254557,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend ascend: {'available': False, 'disabled': False, 'unavailable_reason': \"torch-npu is not installed: No module named 'torch_npu'\", 'capabilities': []}\n"}
+,{"stream_name":"stderr","time":198.303778531,"data":"\u001b[32m[INFO]\u001b[0m Checkpoint files will always be loaded safely.\n"}
+,{"stream_name":"stderr","time":198.644602441,"data":"\u001b[32m[INFO]\u001b[0m Total VRAM 14912 MB, total RAM 30720 MB\n"}
+,{"stream_name":"stderr","time":198.645162419,"data":"\u001b[32m[INFO]\u001b[0m RAM limited by cgroup to 30720 MB (host has 32099 MB)\n"}
+,{"stream_name":"stderr","time":198.645229346,"data":"\u001b[32m[INFO]\u001b[0m pytorch version: 2.11.0+cu130\n"}
+,{"stream_name":"stderr","time":198.646121338,"data":"\u001b[32m[INFO]\u001b[0m Set vram state to: LOW_VRAM\n"}
+,{"stream_name":"stderr","time":198.646576859,"data":"\u001b[32m[INFO]\u001b[0m Device: cuda:0 Tesla T4 : cudaMallocAsync\n"}
+,{"stream_name":"stderr","time":198.646804608,"data":"\u001b[32m[INFO]\u001b[0m Device: cuda:1 Tesla T4 : cudaMallocAsync\n"}
+,{"stream_name":"stderr","time":198.646959576,"data":"\u001b[32m[INFO]\u001b[0m Using async weight offloading with 2 streams\n"}
+,{"stream_name":"stderr","time":198.647658484,"data":"\u001b[32m[INFO]\u001b[0m Enabled pinned memory 14336\n"}
+,{"stream_name":"stderr","time":199.849185876,"data":"\u001b[32m[INFO]\u001b[0m Using pytorch attention\n"}
+,{"stream_name":"stderr","time":216.855266653,"data":"\u001b[32m[INFO]\u001b[0m aimdo: /project/src/control.c:283:INFO:comfy-aimdo inited for GPU: Tesla T4 (VRAM: 14911 MB)\n"}
+,{"stream_name":"stderr","time":216.855296762,"data":"\u001b[32m[INFO]\u001b[0m aimdo: /project/src/control.c:283:INFO:comfy-aimdo inited for GPU: Tesla T4 (VRAM: 14911 MB)\n"}
+,{"stream_name":"stderr","time":216.855365125,"data":"\u001b[32m[INFO]\u001b[0m DynamicVRAM support detected and enabled\n"}
+,{"stream_name":"stderr","time":216.855457517,"data":"\u001b[32m[INFO]\u001b[0m Python version: 3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]\n"}
+,{"stream_name":"stderr","time":216.855499976,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI version: 0.45.0\n"}
+,{"stream_name":"stderr","time":216.856298162,"data":"\u001b[32m[INFO]\u001b[0m comfy-aimdo version: 0.6.0\n"}
+,{"stream_name":"stderr","time":216.857235323,"data":"\u001b[32m[INFO]\u001b[0m comfy-kitchen version: 0.2.41\n"}
+,{"stream_name":"stderr","time":216.857689614,"data":"\u001b[1m\u001b[33m[WARNING]\u001b[0m ****** User settings have been changed to be stored on the server instead of browser storage. ******\n"}
+,{"stream_name":"stderr","time":216.857708426,"data":"\u001b[1m\u001b[33m[WARNING]\u001b[0m ****** For multi-user setups add the --multi-user CLI argument to enable multiple user profiles. ******\n"}
+,{"stream_name":"stderr","time":216.861097824,"data":"\u001b[32m[INFO]\u001b[0m comfyui-frontend-package version: 1.59.1\n"}
+,{"stream_name":"stderr","time":216.861114924,"data":"\u001b[32m[INFO]\u001b[0m comfyui-workflow-templates version: 0.11.110\n"}
+,{"stream_name":"stderr","time":216.861244247,"data":"\u001b[32m[INFO]\u001b[0m comfyui-embedded-docs version: 0.5.17\n"}
+,{"stream_name":"stderr","time":216.861345788,"data":"\u001b[32m[INFO]\u001b[0m comfy-aimdo version: 0.6.0\n"}
+,{"stream_name":"stderr","time":216.86136126,"data":"\u001b[32m[INFO]\u001b[0m comfy-kitchen version: 0.2.41\n"}
+,{"stream_name":"stderr","time":216.862402512,"data":"\u001b[32m[INFO]\u001b[0m [Prompt Server] web root: /usr/local/lib/python3.13/dist-packages/comfyui_frontend_package/static\n"}
+,{"stream_name":"stderr","time":216.863772853,"data":"\u001b[32m[INFO]\u001b[0m Asset seeder disabled\n"}
+,{"stream_name":"stderr","time":219.130201656,"data":"\u001b[32m[INFO]\u001b[0m No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'\n"}
+,{"stream_name":"stderr","time":222.676534775,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI-GGUF: Allowing full torch compile\n"}
+,{"stream_name":"stderr","time":222.684175108,"data":"\u001b[32m[INFO]\u001b[0m \n"}
+,{"stream_name":"stderr","time":222.684193341,"data":"Import times for custom nodes:\n"}
+,{"stream_name":"stderr","time":222.684199219,"data":"\u001b[32m[INFO]\u001b[0m    0.0 seconds: /tmp/ComfyUI/custom_nodes/websocket_image_save.py\n"}
+,{"stream_name":"stderr","time":222.684276617,"data":"\u001b[32m[INFO]\u001b[0m    0.1 seconds: /tmp/ComfyUI/custom_nodes/ComfyUI-GGUF\n"}
+,{"stream_name":"stderr","time":222.684338063,"data":"\u001b[32m[INFO]\u001b[0m \n"}
+,{"stream_name":"stderr","time":222.764826294,"data":"\u001b[32m[INFO]\u001b[0m Using RAM pressure cache.\n"}
+,{"stream_name":"stderr","time":222.76513271,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI is developed by Comfy Org. We also offer commercial products to deploy ComfyUI as scalable cloud endpoints. Visit platform.comfy.org/ascii for more information.\n"}
+,{"stream_name":"stderr","time":222.765622968,"data":"\u001b[32m[INFO]\u001b[0m Starting server\n"}
+,{"stream_name":"stderr","time":222.765634748,"data":"\n"}
+,{"stream_name":"stderr","time":222.766054058,"data":"\u001b[32m[INFO]\u001b[0m To see the GUI go to: http://127.0.0.1:8188\n"}
+,{"stream_name":"stderr","time":223.190243498,"data":"\u001b[32m[INFO]\u001b[0m got prompt\n"}
+,{"stream_name":"stderr","time":223.204144303,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=['/tmp/hf/split_files/vae/wan_2.1_vae.safetensors']\n"}
+,{"stream_name":"stderr","time":223.213439989,"data":"\u001b[32m[INFO]\u001b[0m Using pytorch attention in VAE\n"}
+,{"stream_name":"stderr","time":223.214982812,"data":"\u001b[32m[INFO]\u001b[0m Using pytorch attention in VAE\n"}
+,{"stream_name":"stderr","time":223.550618756,"data":"\u001b[32m[INFO]\u001b[0m VAE load device: cuda:0, offload device: cpu, dtype: torch.float16\n"}
+,{"stream_name":"stderr","time":223.620192963,"data":"\u001b[32m[INFO]\u001b[0m Found quantization metadata version 1\n"}
+,{"stream_name":"stderr","time":223.620911309,"data":"\u001b[32m[INFO]\u001b[0m Using MixedPrecisionOps for text encoder\n"}
+,{"stream_name":"stderr","time":224.255171399,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=['/tmp/hf/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors']\n"}
+,{"stream_name":"stderr","time":225.090732165,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WanTEModel\n"}
+,{"stream_name":"stderr","time":225.127441081,"data":"\u001b[32m[INFO]\u001b[0m loaded completely;  6419.48 MB loaded, full load: True\n"}
+,{"stream_name":"stderr","time":225.135454082,"data":"\u001b[32m[INFO]\u001b[0m CLIP/text encoder model load device: cpu, offload device: cpu, current: cpu, dtype: torch.float16\n"}
+,{"stream_name":"stderr","time":332.075488078,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WanVAE\n"}
+,{"stream_name":"stderr","time":332.105723733,"data":"\u001b[32m[INFO]\u001b[0m Model WanVAE prepared for dynamic VRAM loading. 241MB Staged. 0 patches attached. Force pre-loaded 60 weights: 61 KB.\n"}
+,{"stream_name":"stderr","time":348.577479911,"data":"\u001b[32m[INFO]\u001b[0m gguf qtypes: F16 (694), Q4_K (356), Q5_K (44), F32 (1)\n"}
+,{"stream_name":"stderr","time":348.623454428,"data":"\u001b[32m[INFO]\u001b[0m model weight dtype torch.float16, manual cast: None\n"}
+,{"stream_name":"stderr","time":348.627533594,"data":"\u001b[32m[INFO]\u001b[0m model_type FLOW\n"}
+,{"stream_name":"stderr","time":348.631277265,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=[]\n"}
+,{"stream_name":"stderr","time":348.794505419,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WAN21\n"}
+,{"stream_name":"stderr","time":383.614858999,"data":"\u001b[32m[INFO]\u001b[0m loaded partially; 8323.89 MB usable, 8244.21 MB loaded, 231.25 MB offloaded, 96.28 MB buffer reserved, lowvram patches: 0\n"}
+,{"stream_name":"stderr","time":650.263563624,"data":"\r  0%|          | 0/2 [00:00\u003c?, ?it/s]\r  0%|          | 0/2 [00:00\u003c?, ?it/s,   Model Initializing ...  ]\r  0%|          | 0/2 [02:13\u003c?, ?it/s,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [02:13\u003c02:13, 133.03s/it,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [04:27\u003c02:13, 133.03s/it]                                   \r100%|██████████| 2/2 [04:27\u003c00:00, 133.50s/it]\r100%|██████████| 2/2 [04:27\u003c00:00, 133.50s/it]\n"}
+,{"stream_name":"stderr","time":650.505367235,"data":"\u001b[32m[INFO]\u001b[0m gguf qtypes: F16 (694), Q4_K (356), Q5_K (44), F32 (1)\n"}
+,{"stream_name":"stderr","time":650.552364493,"data":"\u001b[32m[INFO]\u001b[0m model weight dtype torch.float16, manual cast: None\n"}
+,{"stream_name":"stderr","time":650.556488589,"data":"\u001b[32m[INFO]\u001b[0m model_type FLOW\n"}
+,{"stream_name":"stderr","time":650.559753904,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=[]\n"}
+,{"stream_name":"stderr","time":650.683491018,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WAN21\n"}
+,{"stream_name":"stderr","time":693.199253102,"data":"\u001b[32m[INFO]\u001b[0m loaded partially; 8304.76 MB usable, 8230.14 MB loaded, 245.32 MB offloaded, 96.28 MB buffer reserved, lowvram patches: 0\n"}
+,{"stream_name":"stderr","time":963.682556476,"data":"\r  0%|          | 0/2 [00:00\u003c?, ?it/s]\r  0%|          | 0/2 [00:00\u003c?, ?it/s,   Model Initializing ...  ]\r  0%|          | 0/2 [02:18\u003c?, ?it/s,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [02:18\u003c02:18, 138.08s/it,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [04:24\u003c02:18, 138.08s/it]                                   \r100%|██████████| 2/2 [04:24\u003c00:00, 132.38s/it]\r100%|██████████| 2/2 [04:24\u003c00:00, 132.38s/it]\n"}
+,{"stream_name":"stderr","time":963.842611825,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WanVAE\n"}
+,{"stream_name":"stderr","time":963.926417085,"data":"\u001b[32m[INFO]\u001b[0m Model WanVAE prepared for dynamic VRAM loading. 241MB Staged. 0 patches attached. Force pre-loaded 60 weights: 61 KB.\n"}
+,{"stream_name":"stderr","time":995.661709587,"data":"\u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 00:12:52\u001b[0m\n"}
+,{"stream_name":"stderr","time":995.661821695,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI is developed by Comfy Org. We also offer commercial products to deploy ComfyUI as scalable cloud endpoints. Visit platform.comfy.org/ascii-job for more information.\n"}
+,{"stream_name":"stdout","time":1003.328740986,"data":"ComfyUI Wan 2.2 14B : 81 images en 780 s\n"}
+,{"stream_name":"stdout","time":1009.357105235,"data":"c-gateau-se-dresse-brut.mp4 : 81 images 480x832 à 16 i/s\n"}
+,{"stream_name":"stdout","time":1011.679983497,"data":"Downloading: https://github.com/EutropicAI/ccvfi/releases/download/model_zoo/RIFE_IFNet_v426_heavy.pkl to /usr/local/lib/python3.13/dist-packages/ccvfi/cache_models/RIFE_IFNet_v426_heavy.pkl\n"}
+,{"stream_name":"stdout","time":1011.680016938,"data":"\n"}
+,{"stream_name":"stderr","time":1012.087621309,"data":"\r  0%|          | 0.00/23.8M [00:00\u003c?, ?B/s]\r 19%|█▉        | 4.62M/23.8M [00:00\u003c00:00, 48.2MB/s]\r 88%|████████▊ | 21.0M/23.8M [00:00\u003c00:00, 117MB/s] \r100%|██████████| 23.8M/23.8M [00:00\u003c00:00, 104MB/s]\n"}
+,{"stream_name":"stderr","time":1012.556122976,"data":"/kaggle/src/script.py:69: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)\n"}
+,{"stream_name":"stderr","time":1012.556180066,"data":"  tens = [torch.from_numpy(f).permute(2, 0, 1)[None].half().cuda() / 255 for f in frames]\n"}
+,{"stream_name":"stdout","time":1441.314137391,"data":"c-gateau-se-dresse.mp4 : 151 images 1080x1920 à 30 i/s\n"}
+,{"stream_name":"stdout","time":1441.557629731,"data":"=== comfyui → c-everlong-lache-assis\n"}
+,{"stream_name":"stdout","time":1441.66131519,"data":"QuantStack/Wan2.2-I2V-A14B-GGUF : HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_S.gguf\n"}
+,{"stream_name":"stdout","time":1441.70769364,"data":"QuantStack/Wan2.2-I2V-A14B-GGUF : LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_S.gguf\n"}
+,{"stream_name":"stdout","time":1441.798238625,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors\n"}
+,{"stream_name":"stdout","time":1441.910802213,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/vae/wan_2.1_vae.safetensors\n"}
+,{"stream_name":"stdout","time":1441.991426112,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors\n"}
+,{"stream_name":"stdout","time":1442.068997434,"data":"Comfy-Org/Wan_2.2_ComfyUI_Repackaged : split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors\n"}
+,{"stream_name":"stderr","time":1443.041685733,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.schemas\n"}
+,{"stream_name":"stderr","time":1443.04171526,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.tables\n"}
+,{"stream_name":"stderr","time":1443.041720535,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.types\n"}
+,{"stream_name":"stderr","time":1443.041875732,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.constraints\n"}
+,{"stream_name":"stderr","time":1443.04192799,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.defaults\n"}
+,{"stream_name":"stderr","time":1443.041941838,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.autogenerate.comments\n"}
+,{"stream_name":"stderr","time":1443.042040016,"data":"\u001b[32m[INFO]\u001b[0m setup plugin alembic.ext.checkconstraint_byname\n"}
+,{"stream_name":"stderr","time":1447.166707497,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend cuda: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'closest_hit_on_mesh', 'closest_point_on_mesh', 'connected_components', 'convrot_w4a4_linear', 'delaunay3d', 'dequantize_convrot_w4a4_weight', 'dequantize_int8_convrot_weight', 'dequantize_int8_convrot_weight_dtype', 'dequantize_int8_simple', 'dequantize_int8_simple_dtype', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'dequantize_w4a8_int8_weight', 'edge_collapse_checks', 'fp16_conv3d', 'fp16_conv3d_out', 'fp16_linear', 'gemv_awq_w4a16', 'group_norm_silu_pad3d', 'group_norm_silu_pad3d_out', 'group_norm_stats3d', 'int8_linear', 'mesh_bvh', 'min_cut', 'na3d', 'prepare_int4_weight_for_int8_linear', 'quantize_and_rotate_rowwise', 'quantize_convrot_w4a4_weight', 'quantize_int8_convrot_weight', 'quantize_int8_rowwise', 'quantize_int8_tensorwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'quantize_svdquant_w4a4', 'quantize_w4a8_int8_weight', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'rotate_int8_convrot_weight', 'scaled_mm_nvfp4', 'scaled_mm_svdquant_w4a4', 'sol_attn', 'stochastic_rounding_fp8', 'w4a8_int8_linear', 'w4a8_packed_linear', 'window_attention']}\n"}
+,{"stream_name":"stderr","time":1447.166745012,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend hip: {'available': False, 'disabled': False, 'unavailable_reason': 'PyTorch ROCm/HIP runtime not available', 'capabilities': []}\n"}
+,{"stream_name":"stderr","time":1447.166800334,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend ascend: {'available': False, 'disabled': False, 'unavailable_reason': \"torch-npu is not installed: No module named 'torch_npu'\", 'capabilities': []}\n"}
+,{"stream_name":"stderr","time":1447.166897364,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend eager: {'available': True, 'disabled': False, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'convrot_w4a4_linear', 'dequantize_convrot_w4a4_weight', 'dequantize_int8_convrot_weight', 'dequantize_int8_convrot_weight_dtype', 'dequantize_int8_embedding', 'dequantize_int8_simple', 'dequantize_int8_simple_dtype', 'dequantize_mxfp8', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'dequantize_w4a8_int8_weight', 'fp16_conv3d', 'fp16_conv3d_out', 'fp16_linear', 'gemv_awq_w4a16', 'group_norm_silu_pad3d', 'group_norm_silu_pad3d_out', 'group_norm_stats3d', 'int8_linear', 'int8_linear_modulated', 'int8_linear_rms_modulated', 'na3d', 'prepare_int4_weight_for_int8_linear', 'quantize_and_rotate_rowwise', 'quantize_convrot_w4a4_weight', 'quantize_int8_convrot_weight', 'quantize_int8_rowwise', 'quantize_int8_tensorwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'quantize_svdquant_w4a4', 'quantize_w4a8_int8_weight', 'rms_adaln', 'rms_gated_residual', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'rotate_int8_convrot_weight', 'scaled_mm_mxfp8', 'scaled_mm_nvfp4', 'scaled_mm_svdquant_w4a4', 'sol_attn', 'stochastic_rounding_fp8', 'w4a8_int8_linear', 'w4a8_packed_linear', 'window_attention']}\n"}
+,{"stream_name":"stderr","time":1447.166972503,"data":"\u001b[32m[INFO]\u001b[0m Found comfy_kitchen backend triton: {'available': True, 'disabled': True, 'unavailable_reason': None, 'capabilities': ['adaln', 'apply_rope', 'apply_rope1', 'apply_rope1_', 'apply_rope_', 'apply_rope_split_half', 'apply_rope_split_half1', 'apply_rope_split_half1_', 'apply_rope_split_half_', 'dequantize_nvfp4', 'dequantize_per_tensor_fp8', 'int8_linear', 'na3d', 'quantize_and_rotate_rowwise', 'quantize_int8_rowwise', 'quantize_mxfp8', 'quantize_nvfp4', 'quantize_per_tensor_fp8', 'rms_adaln', 'rms_rope', 'rms_rope1', 'rms_rope1_', 'rms_rope_', 'rms_rope_split_half', 'rms_rope_split_half1', 'rms_rope_split_half1_', 'rms_rope_split_half_', 'w4a8_int8_linear']}\n"}
+,{"stream_name":"stderr","time":1447.173638593,"data":"\u001b[32m[INFO]\u001b[0m Checkpoint files will always be loaded safely.\n"}
+,{"stream_name":"stderr","time":1447.412532094,"data":"\u001b[32m[INFO]\u001b[0m Total VRAM 14912 MB, total RAM 30720 MB\n"}
+,{"stream_name":"stderr","time":1447.412853818,"data":"\u001b[32m[INFO]\u001b[0m RAM limited by cgroup to 30720 MB (host has 32099 MB)\n"}
+,{"stream_name":"stderr","time":1447.412943083,"data":"\u001b[32m[INFO]\u001b[0m pytorch version: 2.11.0+cu130\n"}
+,{"stream_name":"stderr","time":1447.413351461,"data":"\u001b[32m[INFO]\u001b[0m Set vram state to: LOW_VRAM\n"}
+,{"stream_name":"stderr","time":1447.413726651,"data":"\u001b[32m[INFO]\u001b[0m Device: cuda:0 Tesla T4 : cudaMallocAsync\n"}
+,{"stream_name":"stderr","time":1447.413919255,"data":"\u001b[32m[INFO]\u001b[0m Device: cuda:1 Tesla T4 : cudaMallocAsync\n"}
+,{"stream_name":"stderr","time":1447.414131366,"data":"\u001b[32m[INFO]\u001b[0m Using async weight offloading with 2 streams\n"}
+,{"stream_name":"stderr","time":1447.414601676,"data":"\u001b[32m[INFO]\u001b[0m Enabled pinned memory 14336\n"}
+,{"stream_name":"stderr","time":1447.450800053,"data":"\u001b[32m[INFO]\u001b[0m Using pytorch attention\n"}
+,{"stream_name":"stderr","time":1454.305989011,"data":"\u001b[32m[INFO]\u001b[0m aimdo: /project/src/control.c:283:INFO:comfy-aimdo inited for GPU: Tesla T4 (VRAM: 14911 MB)\n"}
+,{"stream_name":"stderr","time":1454.306078865,"data":"\u001b[32m[INFO]\u001b[0m aimdo: /project/src/control.c:283:INFO:comfy-aimdo inited for GPU: Tesla T4 (VRAM: 14911 MB)\n"}
+,{"stream_name":"stderr","time":1454.306179121,"data":"\u001b[32m[INFO]\u001b[0m DynamicVRAM support detected and enabled\n"}
+,{"stream_name":"stderr","time":1454.306294817,"data":"\u001b[32m[INFO]\u001b[0m Python version: 3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]\n"}
+,{"stream_name":"stderr","time":1454.306371793,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI version: 0.45.0\n"}
+,{"stream_name":"stderr","time":1454.307093785,"data":"\u001b[32m[INFO]\u001b[0m comfy-aimdo version: 0.6.0\n"}
+,{"stream_name":"stderr","time":1454.308218453,"data":"\u001b[32m[INFO]\u001b[0m comfy-kitchen version: 0.2.41\n"}
+,{"stream_name":"stderr","time":1454.312024819,"data":"\u001b[32m[INFO]\u001b[0m comfyui-frontend-package version: 1.59.1\n"}
+,{"stream_name":"stderr","time":1454.312053107,"data":"\u001b[32m[INFO]\u001b[0m comfyui-workflow-templates version: 0.11.110\n"}
+,{"stream_name":"stderr","time":1454.312175892,"data":"\u001b[32m[INFO]\u001b[0m comfyui-embedded-docs version: 0.5.17\n"}
+,{"stream_name":"stderr","time":1454.312255957,"data":"\u001b[32m[INFO]\u001b[0m comfy-aimdo version: 0.6.0\n"}
+,{"stream_name":"stderr","time":1454.312328281,"data":"\u001b[32m[INFO]\u001b[0m comfy-kitchen version: 0.2.41\n"}
+,{"stream_name":"stderr","time":1454.313382816,"data":"\u001b[32m[INFO]\u001b[0m [Prompt Server] web root: /usr/local/lib/python3.13/dist-packages/comfyui_frontend_package/static\n"}
+,{"stream_name":"stderr","time":1454.314800025,"data":"\u001b[32m[INFO]\u001b[0m Asset seeder disabled\n"}
+,{"stream_name":"stderr","time":1454.855818783,"data":"\u001b[32m[INFO]\u001b[0m No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'\n"}
+,{"stream_name":"stderr","time":1456.504496328,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI-GGUF: Allowing full torch compile\n"}
+,{"stream_name":"stderr","time":1456.507035747,"data":"\u001b[32m[INFO]\u001b[0m \n"}
+,{"stream_name":"stderr","time":1456.507052775,"data":"Import times for custom nodes:\n"}
+,{"stream_name":"stderr","time":1456.507070024,"data":"\u001b[32m[INFO]\u001b[0m    0.0 seconds: /tmp/ComfyUI/custom_nodes/websocket_image_save.py\n"}
+,{"stream_name":"stderr","time":1456.507155773,"data":"\u001b[32m[INFO]\u001b[0m    0.0 seconds: /tmp/ComfyUI/custom_nodes/ComfyUI-GGUF\n"}
+,{"stream_name":"stderr","time":1456.507187695,"data":"\u001b[32m[INFO]\u001b[0m \n"}
+,{"stream_name":"stderr","time":1456.58254401,"data":"\u001b[32m[INFO]\u001b[0m Using RAM pressure cache.\n"}
+,{"stream_name":"stderr","time":1456.582817048,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI is developed by Comfy Org. We also offer commercial products to deploy ComfyUI as scalable cloud endpoints. Visit platform.comfy.org/ascii for more information.\n"}
+,{"stream_name":"stderr","time":1456.583320566,"data":"\u001b[32m[INFO]\u001b[0m Starting server\n"}
+,{"stream_name":"stderr","time":1456.583330728,"data":"\n"}
+,{"stream_name":"stderr","time":1456.583747534,"data":"\u001b[32m[INFO]\u001b[0m To see the GUI go to: http://127.0.0.1:8188\n"}
+,{"stream_name":"stderr","time":1458.491156843,"data":"\u001b[32m[INFO]\u001b[0m got prompt\n"}
+,{"stream_name":"stderr","time":1458.506701543,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=['/tmp/hf/split_files/vae/wan_2.1_vae.safetensors']\n"}
+,{"stream_name":"stderr","time":1458.511687501,"data":"\u001b[32m[INFO]\u001b[0m Using pytorch attention in VAE\n"}
+,{"stream_name":"stderr","time":1458.513167707,"data":"\u001b[32m[INFO]\u001b[0m Using pytorch attention in VAE\n"}
+,{"stream_name":"stderr","time":1458.804460024,"data":"\u001b[32m[INFO]\u001b[0m VAE load device: cuda:0, offload device: cpu, dtype: torch.float16\n"}
+,{"stream_name":"stderr","time":1458.832529127,"data":"\u001b[32m[INFO]\u001b[0m Found quantization metadata version 1\n"}
+,{"stream_name":"stderr","time":1458.833322634,"data":"\u001b[32m[INFO]\u001b[0m Using MixedPrecisionOps for text encoder\n"}
+,{"stream_name":"stderr","time":1459.442243548,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=['/tmp/hf/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors']\n"}
+,{"stream_name":"stderr","time":1468.033687353,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WanTEModel\n"}
+,{"stream_name":"stderr","time":1468.071491454,"data":"\u001b[32m[INFO]\u001b[0m loaded completely;  6419.48 MB loaded, full load: True\n"}
+,{"stream_name":"stderr","time":1468.079304847,"data":"\u001b[32m[INFO]\u001b[0m CLIP/text encoder model load device: cpu, offload device: cpu, current: cpu, dtype: torch.float16\n"}
+,{"stream_name":"stderr","time":1582.111333111,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WanVAE\n"}
+,{"stream_name":"stderr","time":1582.139261485,"data":"\u001b[32m[INFO]\u001b[0m Model WanVAE prepared for dynamic VRAM loading. 241MB Staged. 0 patches attached. Force pre-loaded 60 weights: 61 KB.\n"}
+,{"stream_name":"stderr","time":1596.633446795,"data":"\u001b[32m[INFO]\u001b[0m gguf qtypes: F16 (694), Q4_K (356), Q5_K (44), F32 (1)\n"}
+,{"stream_name":"stderr","time":1596.678710762,"data":"\u001b[32m[INFO]\u001b[0m model weight dtype torch.float16, manual cast: None\n"}
+,{"stream_name":"stderr","time":1596.683109068,"data":"\u001b[32m[INFO]\u001b[0m model_type FLOW\n"}
+,{"stream_name":"stderr","time":1596.686588509,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=[]\n"}
+,{"stream_name":"stderr","time":1596.841688899,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WAN21\n"}
+,{"stream_name":"stderr","time":1631.666680944,"data":"\u001b[32m[INFO]\u001b[0m loaded partially; 8181.89 MB usable, 8103.49 MB loaded, 371.97 MB offloaded, 96.28 MB buffer reserved, lowvram patches: 0\n"}
+,{"stream_name":"stderr","time":1901.582307679,"data":"\r  0%|          | 0/2 [00:00\u003c?, ?it/s]\r  0%|          | 0/2 [00:00\u003c?, ?it/s,   Model Initializing ...  ]\r  0%|          | 0/2 [02:16\u003c?, ?it/s,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [02:16\u003c02:16, 136.10s/it,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [04:27\u003c02:16, 136.10s/it]                                   \r100%|██████████| 2/2 [04:27\u003c00:00, 133.73s/it]\r100%|██████████| 2/2 [04:27\u003c00:00, 133.73s/it]\n"}
+,{"stream_name":"stderr","time":1901.834232086,"data":"\u001b[32m[INFO]\u001b[0m gguf qtypes: F16 (694), Q4_K (356), Q5_K (44), F32 (1)\n"}
+,{"stream_name":"stderr","time":1901.882190923,"data":"\u001b[32m[INFO]\u001b[0m model weight dtype torch.float16, manual cast: None\n"}
+,{"stream_name":"stderr","time":1901.886283886,"data":"\u001b[32m[INFO]\u001b[0m model_type FLOW\n"}
+,{"stream_name":"stderr","time":1901.889690819,"data":"\u001b[32m[INFO]\u001b[0m Model storage policy: fast_disk=False paths=[]\n"}
+,{"stream_name":"stderr","time":1902.019068848,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WAN21\n"}
+,{"stream_name":"stderr","time":1944.44674484,"data":"\u001b[32m[INFO]\u001b[0m loaded partially; 8162.76 MB usable, 8089.41 MB loaded, 386.05 MB offloaded, 96.28 MB buffer reserved, lowvram patches: 0\n"}
+,{"stream_name":"stderr","time":2213.357112061,"data":"\r  0%|          | 0/2 [00:00\u003c?, ?it/s]\r  0%|          | 0/2 [00:00\u003c?, ?it/s,   Model Initializing ...  ]\r  0%|          | 0/2 [02:14\u003c?, ?it/s,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [02:14\u003c02:14, 134.83s/it,  Model Initialization complete!  ]\r 50%|█████     | 1/2 [04:28\u003c02:14, 134.83s/it]                                   \r100%|██████████| 2/2 [04:28\u003c00:00, 134.06s/it]\r100%|██████████| 2/2 [04:28\u003c00:00, 134.06s/it]\n"}
+,{"stream_name":"stderr","time":2213.514626922,"data":"\u001b[32m[INFO]\u001b[0m Requested to load WanVAE\n"}
+,{"stream_name":"stderr","time":2213.537182818,"data":"\u001b[32m[INFO]\u001b[0m Model WanVAE prepared for dynamic VRAM loading. 241MB Staged. 0 patches attached. Force pre-loaded 60 weights: 61 KB.\n"}
+,{"stream_name":"stderr","time":2244.917353128,"data":"\u001b[32m[INFO]\u001b[0m \u001b[32mPrompt executed in 00:13:06\u001b[0m\n"}
+,{"stream_name":"stderr","time":2244.91768445,"data":"\u001b[32m[INFO]\u001b[0m ComfyUI is developed by Comfy Org. We also offer commercial products to deploy ComfyUI as scalable cloud endpoints. Visit platform.comfy.org/ascii-job for more information.\n"}
+,{"stream_name":"stdout","time":2248.630066498,"data":"ComfyUI Wan 2.2 14B : 81 images en 790 s\n"}
+,{"stream_name":"stdout","time":2256.438859976,"data":"c-everlong-lache-assis-brut.mp4 : 81 images 480x832 à 16 i/s\n"}
+,{"stream_name":"stdout","time":2256.574395183,"data":"{\n"}
+,{"stream_name":"stdout","time":2256.574421249,"data":"  \"c-gateau-se-dresse\": \"ok\",\n"}
+,{"stream_name":"stdout","time":2256.574425539,"data":"  \"c-everlong-lache-assis\": \"ok\"\n"}
+,{"stream_name":"stdout","time":2256.574429056,"data":"}\n"}
+,{"stream_name":"stderr","time":2264.333129273,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2264.333159622,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2264.631891192,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2264.631915234,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2265.463849756,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2266.494374682,"data":"[NbConvertApp] Writing 365191 bytes to __results__.html\n"}
 ]
