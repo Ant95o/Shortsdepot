@@ -1,0 +1,10 @@
+# Zombies épisode 3 sur HF. Index : 1=plan3 (robots entrent), 2=plan4 (chat saute), 3=plan6 (patte tire le câble), 4=plan9 (robots repartent).
+plans:
+  - depart: essais/refs/z3-3.jpg
+    prompt: "Static shot in a dark kitchen at night, white tiles. Three round black robot vacuums with glowing green rings glide slowly forward one behind the other through the half-open wooden door onto the tiled floor, toward the camera. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/z3-4.jpg
+    prompt: "Static shot in a dark kitchen at night. The ginger and white cat sitting on the white tiles crouches and jumps up toward the wall shelf where a black internet box blinks green. Clear jump upward. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/z3-6.jpg
+    prompt: "Close-up of a black internet box with green lights on a wooden wall shelf in a dark kitchen. The ginger cat's white paw hooks the black cable and pulls it down hard, the plug comes out of the back of the box. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/z3-9.jpg
+    prompt: "Static shot in a dark kitchen at night, white tiles. Three round black robot vacuums with soft blue rings turn around and glide slowly away one behind the other through the half-open door into the dark living room. The golden retriever with a red collar sits still in the foreground, seen from behind, watching them leave. The camera does not move. Photorealistic, sharp focus."
