@@ -1,0 +1,19 @@
+{
+  "video": "2026-10-16-un-seul-mot.mp4",
+  "duree_s": 38.79,
+  "voix": [
+    "edge"
+  ],
+  "publication": {
+    "titre": "J'ai forcé l'IA à répondre en un seul mot",
+    "description": "La dernière réponse fait peur. Pose ta question en commentaire, je la lui transmets.",
+    "hashtags": [
+      "#ia",
+      "#unseulmot",
+      "#humour",
+      "#chatgpt",
+      "#pourtoi"
+    ],
+    "contenu_ia": true
+  }
+}
