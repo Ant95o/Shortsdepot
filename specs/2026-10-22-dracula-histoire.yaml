@@ -1,0 +1,14 @@
+# Essai du 22/10 : histoire continue de 15 s sur Kaggle (Wan 2.2 5B), chaque plan part de la
+# dernière image du précédent (même chat, même couloir). Plan 1 = clips/dracula-kaggle/plan1.mp4.
+generation:
+  plans:
+    - fichier: clips/dracula-histoire/plan2.mp4
+      modele: wan22-5b
+      graine: 11
+      depart: refs/dracula-kaggle-fin1.jpg
+      prompt: "Handheld smartphone video filmed at floor level in a real apartment hallway at night with warm lights and a wooden floor. The ginger tabby cat in the black Dracula cape with red lining stops right in front of the camera, sits down and stares into the lens with a menacing look, slowly lowering its head, eyes narrowing. Natural colors, photorealistic, sharp focus, crisp fur detail, steady realistic motion."
+    - fichier: clips/dracula-histoire/plan3.mp4
+      modele: wan22-5b
+      graine: 7
+      suite_de: clips/dracula-histoire/plan2.mp4
+      prompt: "Handheld smartphone video filmed at floor level in a real apartment hallway at night with warm lights and a wooden floor. The ginger tabby cat in the black Dracula cape with red lining, sitting in front of the camera, suddenly opens its mouth wide and hisses at the lens, showing its sharp little fangs, ears flattening back. Natural colors, photorealistic, sharp focus, crisp fur detail."

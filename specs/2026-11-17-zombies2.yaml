@@ -1,0 +1,40 @@
+# Zombies épisode 2 : le plan de la balle. Images Gemini envoyées dans le fil (17/11).
+# Plans calmes sur Kaggle ; actions 5, 6, 8 sur HF (essais/zombies2.yaml).
+generation:
+  plans:
+    - fichier: clips/zombies2/plan1-encercles-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-1.jpg
+      prompt: "Static shot of a dark living room at night. The golden retriever and the ginger and white cat stand on the grey sofa, surrounded by robot vacuums with glowing green rings on the parquet floor. The green rings pulse slowly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan2-reflechit-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-2.jpg
+      prompt: "Static close-up. The ginger cat lies on the sofa armrest next to a tennis ball, narrows its eyes slowly, thinking, its ears twitch. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan3-balle-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-3.jpg
+      prompt: "Static close-up. The ginger cat puts its paw on the tennis ball on the sofa armrest and pushes it slightly toward the golden retriever, who looks at the ball. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan4-cooper-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-4.jpg
+      prompt: "Static shot. The golden retriever stands on the sofa armrest holding a tennis ball in his mouth, looking at the floor, ready. The cat watches him. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan7-saute-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-7.jpg
+      prompt: "Static low shot. The golden retriever steps carefully down from the sofa onto the parquet floor, looking ahead, the cat watches from the sofa. Robot vacuums with green rings in the background. Slow movement. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan9-cuisine-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-9.jpg
+      prompt: "Static shot of a dark kitchen at night. The ginger cat stands on the counter, the golden retriever stands still looking at the closed door, a green glow flickers under the door. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan10-lueur-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-10.jpg
+      prompt: "Static low shot of a closed wooden door in a dark kitchen, a green light flickers and pulses under the door on the white tiles. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan11-lasers-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-11.jpg
+      prompt: "Static shot. Green light beams sweep slowly across the kitchen walls and floor, the ginger cat on the counter and the golden retriever stare at the door, frozen. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies2/plan12-porte-g42.mp4
+      modele: wan22-5b
+      depart: refs/z2-12.jpg
+      prompt: "Static shot. The kitchen door is ajar, green light beams move across the floor, the golden retriever sniffs the door, the ginger cat sitting on the floor stares at it. Small movements only. Photorealistic, sharp focus."

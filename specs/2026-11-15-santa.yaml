@@ -1,0 +1,24 @@
+# « Santa Tell Me » : la lettre au Père Noël. Images Gemini envoyées dans le fil (15/11, 768x1376).
+# Plans calmes sur Kaggle ; actions 2, 4, 5, 9, 12 sur HF (essais/santa.yaml). Image 7 manquante, image 8 ratée (deux chats).
+generation:
+  plans:
+    - fichier: clips/santa/plan1-salon-g42.mp4
+      modele: wan22-5b
+      depart: refs/sa-1.jpg
+      prompt: "Static smartphone shot of a cosy Christmas living room in the evening, the fire crackles in the stone fireplace, the Christmas tree lights twinkle softly. Nobody in the room. Photorealistic, sharp focus."
+    - fichier: clips/santa/plan3-dessin-g42.mp4
+      modele: wan22-5b
+      depart: refs/sa-3.jpg
+      prompt: "Static close-up of a sheet of paper on a wooden table with a red fish and a ball of yarn drawn on it. The cat's paw slowly pushes the red pencil across the paper. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/santa/plan6-os-g42.mp4
+      modele: wan22-5b
+      depart: refs/sa-6.jpg
+      prompt: "Slow push-in on a sheet of paper on a wooden table: a big clumsy red bone drawn next to a fish and a ball of yarn, red paw prints around. The candle flame flickers in the background. Photorealistic, sharp focus."
+    - fichier: clips/santa/plan10-oeil-g42.mp4
+      modele: wan22-5b
+      depart: refs/sa-10.jpg
+      prompt: "Static close-up at night. The ginger cat lying on the rug slowly opens one eye wide, a red glow reflects in its eye, its ear twitches. Christmas tree lights twinkle in the background. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/santa/plan11-cadeaux-g42.mp4
+      modele: wan22-5b
+      depart: refs/sa-11.jpg
+      prompt: "Slow push-in on Christmas morning: under the Christmas tree, a big bone wrapped with a red ribbon and a plush fish with a golden bow lie on the rug. Tree lights twinkle softly. Photorealistic, sharp focus."

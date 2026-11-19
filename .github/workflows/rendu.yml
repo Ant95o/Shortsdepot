@@ -1,0 +1,62 @@
+name: Rendu des shorts
+
+# Fabrique les vidéos des fiches de specs/ et les dépose sur la branche « rendus »
+# pour validation avant publication.
+on:
+  push:
+    paths: ["specs/**", "shorts/**", ".github/workflows/rendu.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rendu
+  cancel-in-progress: false
+
+jobs:
+  rendu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Outils système
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng
+
+      - name: Dépendances Python
+        run: pip install -r requirements.txt
+
+      - name: Rendu des fiches modifiées
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+            specs=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'specs/*.yaml' || true)
+          fi
+          [ -z "$specs" ] && specs=$(ls specs/*.yaml)
+          python -m shorts $specs --sortie rendus
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rendus
+          path: rendus/
+
+      - name: Dépôt sur la branche rendus
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -z "$(ls rendus 2>/dev/null)" ]; then echo "Aucune vidéo rendue (clips manquants ?)"; exit 0; fi
+          mv rendus /tmp/rendus
+          if git fetch origin rendus 2>/dev/null; then
+            git checkout -B rendus origin/rendus
+          else
+            git checkout --orphan rendus && git rm -rfq .
+          fi
+          cp /tmp/rendus/* .
+          git add *.mp4 *.json
+          git commit -m "Rendu de ${GITHUB_SHA::7}" || exit 0
+          git push origin rendus

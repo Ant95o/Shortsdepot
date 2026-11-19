@@ -1,0 +1,24 @@
+# Halloween v2 (Ramalama) : la soirée vue de l'intérieur, les invités arrivent par la porte ouverte.
+# Chat vampire, corgi citrouille, la fête au salon, puis la tortue fantôme qui arrive enfin (chute : « arrivé 3 h après »).
+generation:
+  plans:
+    - fichier: clips/soiree/plan1-chat-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/soiree-1-chat.jpg
+      prompt: "Static smartphone shot from inside a house at ground level, the front door is wide open on a Halloween night street. The black cat wearing a red and black vampire cape steps over the threshold and walks confidently into the house toward the camera, the cape swaying. Only the cat moves in the foreground, the street stays calm. Warm light, photorealistic, sharp focus, realistic cat walk."
+    - fichier: clips/soiree/plan2-corgi-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/soiree-2-corgi.jpg
+      prompt: "Static smartphone shot from inside a house at ground level, the front door is wide open on a Halloween night street. The happy corgi in an orange pumpkin costume hops over the threshold and trots joyfully into the house toward the camera, tongue out, ears bouncing. Only the corgi moves in the foreground. Warm light, photorealistic, sharp focus, realistic dog motion."
+    - fichier: clips/soiree/plan3-fete-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/soiree-3-fete.jpg
+      prompt: "Static smartphone shot of a Halloween party in a cozy decorated living room. The costumed animals stay in place and move naturally: the corgi pants happily with its tongue out and wags, the golden retriever in a witch hat turns its head, the black vampire cat blinks, the pirate cat looks around, the skeleton rabbit twitches its nose. Candles and string lights flicker. Warm festive light, photorealistic, sharp focus."
+    - fichier: clips/soiree/plan4-tortue-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/soiree-4-tortue.jpg
+      prompt: "Static smartphone shot from inside a house at ground level, the front door is wide open on an empty Halloween street late at night. The small tortoise wearing a white sheet ghost costume walks very slowly across the doormat toward the camera, one heavy step at a time, its head peeking out under the sheet. Only the tortoise moves. Warm light from the hallway, photorealistic, sharp focus."

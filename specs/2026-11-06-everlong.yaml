@@ -1,0 +1,63 @@
+# « Everlong » : chiot puis adulte, 10 images Gemini + 2 plans « suite » (traîne, tire). Tout sur Kaggle (même rendu).
+generation:
+  plans:
+    - fichier: clips/everlong/plan1-assis-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-1.jpg
+      prompt: "Static smartphone shot in a sunny garden. The golden retriever puppy with a red collar sitting in the grass holds a small stick in its mouth, wags its tail and tilts its head proudly at the camera. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan2-trottine-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-2.jpg
+      prompt: "Static low smartphone shot in a sunny garden. The golden retriever puppy trots happily toward the camera with a small stick in its mouth, ears bouncing, tail wagging. Natural puppy gait, photorealistic, sharp focus."
+    - fichier: clips/everlong/plan3-depose-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-3.jpg
+      prompt: "Static smartphone shot looking down at white sneakers on the grass. The golden retriever puppy stands in front of the sneakers, the small stick on the grass at its feet, it wags its tail happily and looks up at the camera. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan4-fier-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-4.jpg
+      prompt: "Static smartphone shot looking down at white sneakers on the grass. The golden retriever puppy sits proudly in front of the small stick, slowly tilts its head to the side, tongue out. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan5-branche-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-5.jpg
+      prompt: "Static smartphone shot looking down at white sneakers on the grass. The adult golden retriever with a red collar stands holding a huge long leafy branch in its mouth, wags its tail proudly and looks at the camera. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan6-traine-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-6.jpg
+      prompt: "Static smartphone shot in a sunny garden. The adult golden retriever walks slowly toward the open white french door of the house, dragging a huge leafy branch in its mouth across the grass, leaves scraping the ground. Natural dog gait, photorealistic, sharp focus."
+    - fichier: clips/everlong/plan6s-traine-suite-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      suite_de: clips/everlong/plan6-traine-g42.mp4
+      prompt: "Static smartphone shot in a sunny garden. The golden retriever keeps dragging the huge leafy branch in its mouth toward the open french door, getting closer to the stone step. Natural dog gait, photorealistic, sharp focus."
+    - fichier: clips/everlong/plan7-coince-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-7.jpg
+      prompt: "Static smartphone shot from the garden. The golden retriever seen from behind tries to walk through the open white french door, the huge branch in its mouth gets stuck across the door frame, the dog stops and pushes, leaves shaking. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan8-tire-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-8.jpg
+      prompt: "Static smartphone shot from the garden. The golden retriever pulls backward hard with the stuck branch in its mouth, back legs braced on the stone step, the branch stays blocked across the door frame, leaves falling. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan8s-tire-suite-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      suite_de: clips/everlong/plan8-tire-g42.mp4
+      prompt: "Static smartphone shot from the garden. The golden retriever keeps tugging backward on the stuck branch, shaking its head, more leaves falling, the branch does not move. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan9-chat-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-9.jpg
+      prompt: "Static smartphone shot from inside the living room. The ginger tabby cat sitting on the beige rug in the foreground slowly blinks and looks away, unimpressed. Behind it, through the open french door, the golden retriever outside tugs at the branch stuck in the doorway. Photorealistic, sharp focus."
+    - fichier: clips/everlong/plan10-fin-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ev-10.jpg
+      prompt: "Static smartphone shot in a sunny garden. The golden retriever with leaves on its head sits proudly on the grass in front of the house, tongue out, panting happily and wagging its tail, the huge branch still stuck in the french door behind it. Small movements only. Photorealistic, sharp focus."

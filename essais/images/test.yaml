@@ -1,0 +1,6 @@
+# Test : 2 images du gâteau (plan 2 et plan 7).
+style: "Vertical realistic smartphone photo, photorealistic, sharp focus, soft morning light, natural colors."
+images:
+  - prompt: "A bright kitchen with a light wood countertop, white cabinets, a wooden table in the center and a window on the left. A golden retriever with a red collar sits on the floor in front of the table, staring at a big strawberry and whipped cream cake on a white plate on the table, tongue slightly out."
+  - prompt: "A bright kitchen with a light wood countertop, white cabinets, a wooden table in the center and a window on the left. A golden retriever with a red collar stands up on his hind legs, both front paws on the edge of the wooden table, his nose a few centimeters from a big strawberry and whipped cream cake on a white plate. A ginger and white tabby cat sits on the countertop in the background watching suspiciously."
+# relance

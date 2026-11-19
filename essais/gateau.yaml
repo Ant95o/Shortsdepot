@@ -1,0 +1,9 @@
+# Gâteau sur HF : actions clés (les plus importantes d'abord). Index : 1=plan7 (6→7, se dresse), 2=plan8 (lèche), 3=plan9 (porte s'ouvre).
+plans:
+  - depart: essais/refs/ga-6.jpg
+    fin: essais/refs/ga-7.jpg
+    prompt: "Static shot. The golden retriever with a red collar turns toward the strawberry cake, stands up on his hind legs and puts both front paws on the edge of the round wooden table, nose close to the cake. Natural dog movement. Photorealistic, sharp focus."
+  - depart: essais/refs/ga-8.jpg
+    prompt: "Static close-up. The golden retriever licks the whipped cream on the cake with his tongue, two quick licks, cream sticks to his nose. Natural dog movement. Photorealistic, sharp focus."
+  - depart: essais/refs/ga-9.jpg
+    prompt: "Static shot. The wooden kitchen door on the right swings open. The golden retriever sitting on the floor quickly turns his head toward the door and sits very straight, looking innocent. Photorealistic, sharp focus."

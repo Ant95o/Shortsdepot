@@ -1,0 +1,15 @@
+# Trend du 27/10 « Pray For Me » : entrée dramatique au ralenti. Suite de « Mon chat n'a peur de rien » :
+# le chat roux revient avec deux copains pour se venger de la petite citrouille. Chute : elle s'allume (zoom au
+# montage, comme la v3), les trois s'enfuient. Son « Pray For Me » ajouté à la publication.
+generation:
+  plans:
+    - fichier: clips/pray-for-me/plan1.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/porche-vide.jpg
+      prompt: "Handheld smartphone video at night in front of a Halloween porch, static framing, slow motion. Three cats, a ginger tabby in the middle, a black cat and a grey cat on each side, walk side by side up the stone path toward the porch in dramatic slow motion like a movie squad, determined, staring at the jack-o'-lanterns. Natural colors, photorealistic, sharp focus, crisp detail, realistic cats walking."
+    - fichier: clips/pray-for-me/plan2.mp4
+      modele: wan22-5b
+      graine: 5
+      suite_de: clips/pray-for-me/plan1.mp4
+      prompt: "Handheld smartphone video at night in front of a Halloween porch, static framing. The three cats on the path are suddenly terrified, their fur puffs up, they jump and spin around and run away fast toward the camera, out of the frame. Natural colors, photorealistic, sharp focus, crisp detail, realistic scared cats."
