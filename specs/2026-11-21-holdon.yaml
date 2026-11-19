@@ -1,0 +1,36 @@
+# « Hold On, We're Going Home » : Cooper rentre. Images Gemini envoyées dans le fil (19/11).
+# Plans calmes sur Kaggle ; actions 5, 6, 10, 11 sur HF (essais/holdon.yaml).
+generation:
+  plans:
+    - fichier: clips/holdon/plan1-pension-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-1.jpg
+      prompt: "Static shot in a bright dog boarding kennel at late afternoon. The golden retriever with a red collar lies alone behind the white gate of his pen, head on his paws, sad, he sighs slowly and blinks. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan2-regard-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-2.jpg
+      prompt: "Close-up through white gate bars. The golden retriever with a red collar lies with his head down, ears low, and slowly moves his eyes toward the big window, sad. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan3-voiture-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-3.jpg
+      prompt: "Static view through a big glass window of a parking lot at golden hour. A red car with its headlights on drives slowly forward and parks. The camera does not move. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan4-oreilles-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-4.jpg
+      prompt: "Close-up through white gate bars. The golden retriever with a red collar lifts his head, ears pricked up, eyes wide open, staring at the red car outside the window. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan7-route-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-7.jpg
+      prompt: "The happy golden retriever with a red collar looks out of the open window of a moving red car, his ears and fur blowing in the wind, tongue out, the countryside passes by in the background. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan8-maison-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-8.jpg
+      prompt: "Static shot of a stone cottage with a blue front door and climbing roses, a red car parked in front, golden late afternoon light, the roses sway gently in the breeze. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan9-chat-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-9.jpg
+      prompt: "Static shot in a house entrance with a herringbone parquet floor and an open blue front door on a sunny garden. The ginger and white cat sits still in the middle of the entrance, its ears twitch and it looks toward the door. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/holdon/plan12-panier-g42.mp4
+      modele: wan22-5b
+      depart: refs/ho-12.jpg
+      prompt: "Static shot of a cosy living room in warm evening lamp light. The golden retriever and the ginger and white cat sleep curled up together in a knitted beige basket, breathing slowly. Small movements only. Photorealistic, sharp focus."
