@@ -1,0 +1,28 @@
+# Clin d'œil GTA 6 « Le casse du frigo ». Images Gemini envoyées dans le fil (23/11), ordre remis + chat en double effacé (p6, p7).
+# Plans calmes sur Kaggle ; actions 2, 3, 5, 9 sur HF (essais/casse.yaml).
+generation:
+  plans:
+    - fichier: clips/casse/plan1-cuisine-g42.mp4
+      modele: wan22-5b
+      depart: refs/cf-1.jpg
+      prompt: "Static shot of an empty modern kitchen at night lit by pink and purple neon lights, black and white checkered floor, white cabinets, a big silver fridge. The pendant lamp glows softly, the neon light flickers slightly. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/casse/plan4-plan-de-travail-g42.mp4
+      modele: wan22-5b
+      depart: refs/cf-4.jpg
+      prompt: "Static shot of a kitchen at night with pink and purple neon light. The ginger and white cat wearing black sunglasses stands on the white marble counter next to the silver fridge, it turns its head toward the fridge handle and its tail sways slowly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/casse/plan6-saucisses-g42.mp4
+      modele: wan22-5b
+      depart: refs/cf-6.jpg
+      prompt: "Static shot of a kitchen at night, the silver fridge is wide open and its white light fills the room. The golden retriever wearing black sunglasses sits in front of the fridge, looks up at the plate of sausages on the counter, tongue out, licking his lips and wagging his tail. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/casse/plan7-saucisse-gueule-g42.mp4
+      modele: wan22-5b
+      depart: refs/cf-7.jpg
+      prompt: "Static shot of a kitchen at night, the silver fridge is wide open and lit. The golden retriever wearing black sunglasses sits holding a sausage in his mouth, proudly lifting his head, while the ginger cat with sunglasses on the counter nods slowly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/casse/plan8-chaussons-g42.mp4
+      modele: wan22-5b
+      depart: refs/cf-8.jpg
+      prompt: "Static first-person view from a kitchen doorway at night, pink and purple neon light, black and white checkered floor. Two feet in fluffy grey slippers and plaid pajama pants stand still on the threshold, the toes wiggle slightly. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/casse/plan10-canape-g42.mp4
+      modele: wan22-5b
+      depart: refs/cf-10.jpg
+      prompt: "Static shot of a living room at night in soft pink and purple light. The golden retriever and the ginger and white cat, both wearing black sunglasses, sit perfectly still side by side on a grey sofa, looking innocent; the dog slowly chews, a piece of sausage sticking out of his mouth. Small movements only. Photorealistic, sharp focus."

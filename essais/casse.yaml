@@ -1,0 +1,10 @@
+# Casse du frigo sur HF. Index : 1=plan2 (ils avancent), 2=plan3 (saut du chat), 3=plan5 (patte ouvre le frigo), 4=plan9 (ils filent dans le couloir).
+plans:
+  - depart: essais/refs/cf-2.jpg
+    prompt: "Static shot of a kitchen at night lit by pink and purple neon, black and white checkered floor. The golden retriever and the ginger and white cat, both wearing black sunglasses, walk slowly side by side straight toward the camera, cool and confident like action movie heroes. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/cf-3.jpg
+    prompt: "Static shot of a kitchen at night lit by pink and purple neon, black and white checkered floor. The ginger and white cat wearing black sunglasses, sitting on the floor, crouches and jumps up onto the white marble counter on the right. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/cf-5.jpg
+    prompt: "Close-up of a silver fridge at night in pink neon light. The ginger cat wearing black sunglasses hangs on the fridge handle and pulls it with its paws, the fridge door swings open and bright white light pours out. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/cf-9.jpg
+    prompt: "Static shot of a house hallway at night with a herringbone parquet floor and pink and purple light. The golden retriever with a sausage in his mouth and the ginger and white cat, both wearing black sunglasses, run fast side by side down the hallway away from the camera. The camera does not move. Photorealistic, sharp focus."
