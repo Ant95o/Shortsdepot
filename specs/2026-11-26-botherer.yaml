@@ -1,0 +1,19 @@
+# « Do not bother the botherer ». Images Gemini du 24/11 (7, ordre inversé remis). Kaggle 1,4,5,7 ; HF 2,3,6 (essais/botherer.yaml).
+generation:
+  plans:
+    - fichier: clips/botherer/plan1-dort-g42.mp4
+      modele: wan22-5b
+      depart: refs/bo-1.jpg
+      prompt: "Static shot of a bright living room with sunlight on the parquet floor. The golden retriever with a red collar sleeps peacefully curled up in a beige dog bed, breathing slowly, his ear twitches once. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/botherer/plan4-oeil-g42.mp4
+      modele: wan22-5b
+      depart: refs/bo-4.jpg
+      prompt: "Close-up in warm sunlight. The golden retriever lying in his beige bed slowly opens one eye and looks sideways at the ginger and white cat sitting right next to his face, annoyed and tired. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/botherer/plan5-soupir-g42.mp4
+      modele: wan22-5b
+      depart: refs/bo-5.jpg
+      prompt: "Static shot of a sunny living room. The golden retriever lying in his beige bed with his chin on the edge lets out a big sigh, his cheeks puff and he closes his eyes, while the ginger and white cat sits on the floor next to him and stares at him. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/botherer/plan7-fin-g42.mp4
+      modele: wan22-5b
+      depart: refs/bo-7.jpg
+      prompt: "Static shot of a sunny living room. The golden retriever sleeps in his beige bed and the ginger and white cat sleeps curled up on top of his head, both breathing slowly and peacefully. Small movements only. Photorealistic, sharp focus."

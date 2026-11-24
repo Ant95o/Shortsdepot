@@ -1,0 +1,8 @@
+# Botherer sur HF. Index : 1=plan2 (le chat arrive), 2=plan3 (patte sur le museau), 3=plan6 (il grimpe sur la tête).
+plans:
+  - depart: essais/refs/bo-2.jpg
+    prompt: "Static shot of a sunny living room. The ginger and white cat steps slowly and stealthily into the beige dog bed next to the sleeping golden retriever, looking guilty and mischievous, the dog keeps sleeping. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/bo-3.jpg
+    prompt: "Close-up in warm sunlight. The white paw of the ginger cat taps the nose of the sleeping golden retriever gently two times, the dog's nose twitches. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/bo-6.jpg
+    prompt: "Static shot of a sunny living room. The ginger and white cat climbs onto the head of the sleeping golden retriever in his beige bed and lies down on top of it, the dog does not move. The camera does not move. Photorealistic, sharp focus."
