@@ -1,0 +1,33 @@
+# « Housewife » : plans 8 à 13 (quota Hugging Face épuisé après le plan 7), sur Kaggle.
+generation:
+  plans:
+    - fichier: clips/housewife/plan8-saute-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/hw-8.jpg
+      prompt: "Static smartphone shot of a living room. The happy golden retriever with tongue out leaps off the beige sofa and lands on the wooden floor, joyful and energetic. Natural dog motion, photorealistic, sharp focus."
+    - fichier: clips/housewife/plan9-coussin-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/hw-9.jpg
+      prompt: "Static smartphone shot. The golden retriever standing on the beige sofa shakes a cushion in its mouth from side to side, white feathers flying and slowly falling around it. Photorealistic, sharp focus."
+    - fichier: clips/housewife/plan10-plante-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/hw-10.jpg
+      prompt: "Static smartphone shot. The ginger tabby cat sitting on the wooden shelf slowly pushes the terracotta plant pot over the edge with its paw while staring at the camera with an insolent look. The pot tips and falls down. Photorealistic, sharp focus."
+    - fichier: clips/housewife/plan11-terre-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/hw-11.jpg
+      prompt: "Static smartphone shot of a messy living room floor with a tipped terracotta pot, spilled soil and leaves. A few white feathers slowly drift down to the floor. The cat's tail disappears behind the shelf. Photorealistic, sharp focus."
+    - fichier: clips/housewife/plan12-figes-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/hw-12.jpg
+      prompt: "Static smartphone shot. The golden retriever and the ginger tabby cat stand frozen in the messy living room, ears perked up, both slowly turning their heads toward the front door with a startled look. Photorealistic, sharp focus."
+    - fichier: clips/housewife/plan13-innocents-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/hw-13.jpg
+      prompt: "Smartphone shot from the opening front door. The golden retriever with a small white feather on its nose and the ginger tabby cat stand still in the messy living room looking innocent, the dog blinks slowly and glances away guiltily. Only small movements. Photorealistic, sharp focus."

@@ -1,0 +1,10 @@
+# Pray For Me sur HF. Index : 1=plan4 (Cooper avance), 2=plan5 (chat avance), 3=plan9 (Cooper se penche), 4=plan10 (coup de patte).
+plans:
+  - depart: essais/refs/pf-4.jpg
+    prompt: "Static low shot in a backlit kitchen at golden sunset. The golden retriever with a red collar walks slowly and heroically toward the camera along the tiled floor, a single kibble in the foreground stays still. Slow motion feeling, dust floating in the light. Photorealistic, sharp focus."
+  - depart: essais/refs/pf-5.jpg
+    prompt: "Static low shot in a backlit kitchen at golden sunset. The ginger and white cat walks slowly toward the camera along the tiled floor, staring, a single kibble in the foreground stays still. Dust floating in the light. Photorealistic, sharp focus."
+  - depart: essais/refs/pf-9.jpg
+    prompt: "Static shot in a backlit kitchen at golden sunset. The golden retriever lowers his head slowly toward the kibble on the floor with his mouth open, the ginger cat facing him raises its front paw higher, ready to strike. Photorealistic, sharp focus."
+  - depart: essais/refs/pf-10.jpg
+    prompt: "Static low shot on the tiled kitchen floor at golden sunset. The ginger cat's paw swipes fast and hits the kibble, which slides quickly across the tiles and disappears under the grey refrigerator. Clear fast motion. Photorealistic, sharp focus."

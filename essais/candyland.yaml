@@ -1,0 +1,14 @@
+# Candyland (28/11), plans HF. Index : 1=p3 Cooper jaillit, 2=p8 coincé chatière, 3=p12 chat figé, 4=p2 Cooper relève la tête, 5=p6 pouf, 6=p7 chatière qui bat. p10 (cuisine vide) = zoom au montage.
+plans:
+  - depart: essais/refs/ca-03.jpg
+    prompt: "Fast action in a living room: the golden retriever with a red collar, already mid-air leaping out of his grey dog bed, lands on the wooden floor and sprints out of frame to the left, ears flapping. Only one dog, no cat. The camera stays still. Photorealistic, sharp focus."
+  - depart: essais/refs/ca-08.jpg
+    prompt: "The golden retriever with his head stuck in the small plastic cat flap of the white door wiggles his whole rear end and wags his tail very fast, his back paws shuffle on the parquet floor, he pushes but stays stuck. Only one dog, no cat. The camera stays still. Photorealistic, sharp focus."
+  - depart: essais/refs/ca-12.jpg
+    prompt: "The ginger and white cat sitting on top of the wooden garden fence stops chewing instantly, freezes, its eyes open wide staring straight at the camera, its ears slowly flatten backward. Only one cat, no dog. The camera slowly pushes in on its face. Photorealistic, sharp focus."
+  - depart: essais/refs/ca-02.jpg
+    prompt: "The golden retriever with a red collar lying in his grey dog bed suddenly snaps his head up and to the left, ears perked up, eyes wide, alert, sniffing the air. Only one dog, no cat. The camera quickly pushes in on his face. Photorealistic, sharp focus."
+  - depart: essais/refs/ca-06.jpg
+    prompt: "In a living room, the round mustard velvet pouf that is tipping over falls onto its side on the wooden floor and rolls away, the grey cushion drops flat on the floor. No animal in the frame. The camera stays still. Photorealistic, sharp focus."
+  - depart: essais/refs/ca-07.jpg
+    prompt: "The clear plastic flap of the cat door at the bottom of the white door swings back and forth several times then slowly stops, the garden grass visible through it. No animal in the frame. The camera stays still. Photorealistic, sharp focus."

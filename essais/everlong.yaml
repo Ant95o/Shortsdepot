@@ -1,0 +1,18 @@
+# « Everlong » sur HF : plans d'action et transitions (fin = image d'arrivée). Index : 1=plan2, 2=plan3, 3=plan6, 4=transition 6→7, 5=plan7, 6=plan8, 7=transition 8→10.
+plans:
+  - depart: essais/refs/ev-2.jpg
+    prompt: "Static low smartphone shot in a sunny garden. The golden retriever puppy trots happily toward the camera with a small stick in its mouth, ears bouncing, tail wagging. Natural puppy gait, photorealistic, sharp focus."
+  - depart: essais/refs/ev-3.jpg
+    prompt: "Static smartphone shot looking down at white sneakers on the grass. The golden retriever puppy drops the small stick on the grass in front of the sneakers, wags its tail happily and looks up. Photorealistic, sharp focus."
+  - depart: essais/refs/ev-6.jpg
+    prompt: "Static smartphone shot in a sunny garden. The adult golden retriever walks slowly toward the open white french door, dragging a huge leafy branch in its mouth across the grass, leaves scraping the ground. Natural dog gait, photorealistic, sharp focus."
+  - depart: essais/refs/ev-6.jpg
+    fin: essais/refs/ev-7.jpg
+    prompt: "Smooth continuous shot. The golden retriever keeps dragging the huge leafy branch to the open french door, steps onto the stone step and tries to enter, the branch gets stuck across the door frame. Photorealistic, sharp focus."
+  - depart: essais/refs/ev-7.jpg
+    prompt: "Static smartphone shot from the garden. The golden retriever seen from behind pushes forward into the open french door, the huge branch in its mouth stuck across the door frame, leaves shaking, it cannot enter. Photorealistic, sharp focus."
+  - depart: essais/refs/ev-8.jpg
+    prompt: "Static smartphone shot from the garden. The golden retriever pulls backward hard with the stuck branch in its mouth, shaking its head, back legs braced, the branch stays blocked across the door frame, leaves falling. Photorealistic, sharp focus."
+  - depart: essais/refs/ev-8.jpg
+    fin: essais/refs/ev-10.jpg
+    prompt: "Smooth continuous shot. The golden retriever gives up, lets go of the stuck branch, turns around and sits proudly on the grass facing the camera, tongue out, leaves on its head. Photorealistic, sharp focus."

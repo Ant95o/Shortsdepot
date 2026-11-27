@@ -1,0 +1,31 @@
+# November version dynamique (25/11). Index : 1=p6 plongeon (départ p6, fin p7), 2=p5 le chat bondit, 3=p2 Cooper pousse, 4=p6 plongeon essai 2, 5=p5 essai 2, 6=p3 tas, 7=p7 explosion, 8=p8 dépité, 9=p2 essai 2, 10=p1 jardin, 11=p4 fier, 12=p9 fenêtre.
+plans:
+  - depart: essais/refs/nov-6.jpg
+    fin: essais/refs/nov-7.jpg
+    prompt: "Fast dynamic action in an autumn garden: the ginger and white cat flying in the air dives head first into the big pile of red leaves, the pile explodes and leaves burst high into the air in every direction, the golden retriever flinches in surprise. Quick handheld camera shake on impact. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-5.jpg
+    prompt: "Fast dynamic action in an autumn garden: the ginger and white cat crouching behind the terracotta pot wiggles its rear end, then explodes forward and leaps out of frame toward the pile of leaves in one powerful jump. The camera quickly pans to follow the jump. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-2.jpg
+    prompt: "Dynamic shot in an autumn garden: the golden retriever with a red collar energetically pushes the fallen leaves forward with his nose, walking fast, leaves flying up around his head. The camera tracks alongside him at ground level. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-6.jpg
+    fin: essais/refs/nov-7.jpg
+    graine: 7
+    prompt: "The ginger and white cat leaps from the air straight down into the big pile of autumn leaves, the leaves explode upward and rain down everywhere, the golden retriever jerks his head back surprised. Fast motion, camera shake on impact. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-5.jpg
+    graine: 7
+    prompt: "The ginger and white cat hidden behind the terracotta pot crouches low, wiggles, then bursts out and sprints fast across the leaves toward the leaf pile and the golden retriever in the background. The camera pushes in fast. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-3.jpg
+    prompt: "The golden retriever behind a big pile of autumn leaves shakes his head vigorously, the leaves stuck on his face fly off in all directions, then he looks proudly at the camera. Fast motion, leaves falling from the red tree. The camera slowly pushes in. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-7.jpg
+    prompt: "Autumn garden: leaves are flying everywhere in the air after an explosion of the leaf pile, the ginger cat covered in leaves shakes its whole body hard, leaves spray off, the golden retriever stares with big eyes. Fast motion. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-8.jpg
+    prompt: "The golden retriever sits among scattered autumn leaves with a leaf on his head, he lowers his ears, lets out a big sigh and the leaf slides off his head, looking very disappointed. The camera slowly pushes in on his face. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-2.jpg
+    graine: 7
+    prompt: "The golden retriever with a red collar runs back and forth pushing a wave of fallen leaves with his nose, tail wagging fast, leaves swirling in the air. The camera follows him. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-1.jpg
+    prompt: "Autumn garden with a big red maple tree: a gust of wind blows many red and orange leaves off the tree, they swirl and fall fast toward the camera. The camera glides forward along the stone path. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-4.jpg
+    prompt: "The golden retriever sits proudly behind his big pile of autumn leaves, he puffs out his chest, lifts his head high and wags his tail, leaves fall from the red tree behind. The camera quickly pushes in on him. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-9.jpg
+    prompt: "Cosy evening by a rainy window, warm lamp light: the golden retriever and the ginger cat sleep curled up together on a knitted blanket, the cat snuggles closer and the dog sighs, rain streams down the glass. The camera slowly pushes in. Photorealistic, sharp focus."

@@ -1,0 +1,36 @@
+# « Pray For Me » : le duel de la croquette. Images Gemini envoyées dans le fil (17/11).
+# Plans calmes sur Kaggle ; actions 4, 5, 9, 10 sur HF (essais/pray.yaml).
+generation:
+  plans:
+    - fichier: clips/pray/plan1-croquette-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-1.jpg
+      prompt: "Static low shot on a tiled kitchen floor, backlit by a golden sunset through a large glass door. A single brown kibble lies in the middle of the floor. Dust floats slowly in the sunbeams. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan2-chat-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-2.jpg
+      prompt: "Static low shot. At the end of the backlit golden kitchen, the ginger and white cat sits still, staring at the kibble in the foreground, its tail flicks slowly. Dust floats in the light. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan3-cooper-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-3.jpg
+      prompt: "Static low shot. The golden retriever with a red collar stands at the end of the backlit golden kitchen, staring at the kibble in the foreground, determined, his ears move slightly. Dust floats in the light. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan6-yeux-cooper-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-6.jpg
+      prompt: "Extreme close-up of the golden retriever's eyes, intense stare, he narrows his eyes slowly. Golden sunset light. Very slow push-in. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan7-yeux-chat-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-7.jpg
+      prompt: "Extreme close-up of the ginger cat's green eyes, pupils narrow to thin slits, intense stare. Golden sunset light. Very slow push-in. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan8-face-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-8.jpg
+      prompt: "Static shot in the backlit golden kitchen. The golden retriever and the ginger cat face each other in profile, the kibble on the floor between them, they stare at each other without moving. Dust floats in the light. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan11-frigo-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-11.jpg
+      prompt: "Static low shot on the tiled kitchen floor at golden sunset, a brown kibble lies at the base of a grey refrigerator, in the shadow. Dust floats in the light. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/pray/plan12-defaite-g42.mp4
+      modele: wan22-5b
+      depart: refs/pf-12.jpg
+      prompt: "Static low shot. The golden retriever and the ginger cat lie side by side on the kitchen floor, noses against the bottom of the grey refrigerator, dejected, the dog sighs slowly. Golden sunset light. Small movements only. Photorealistic, sharp focus."

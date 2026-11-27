@@ -1,0 +1,36 @@
+# Zombies épisode 3 : la source. Images Gemini envoyées dans le fil (18/11).
+# Plans calmes sur Kaggle ; actions 3, 4, 6, 9 sur HF (essais/zombies3.yaml).
+generation:
+  plans:
+    - fichier: clips/zombies3/plan1-porte-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-1.jpg
+      prompt: "Static shot in a dark kitchen at night. The golden retriever with a red collar and the ginger and white cat sit side by side on the white tiles, seen from behind, staring at the closed wooden door; an eerie green glow pulses slowly under the door. Small movements only, the dog's ears twitch. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan2-box-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-2.jpg
+      prompt: "Static shot in a dark kitchen at night. The ginger and white cat sitting on the tiles slowly turns its head up toward the wall shelf on the right where a black internet box blinks green. The golden retriever beside it keeps staring at the door. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan5-aboie-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-5.jpg
+      prompt: "Static shot in a dark kitchen at night. The golden retriever with a red collar stands in profile and barks angrily, mouth opening and closing, hackles raised, facing robot vacuums with green rings that stay still on the floor. The camera does not move. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan7-fier-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-7.jpg
+      prompt: "Static close-up in a dark kitchen. The ginger and white cat sits proudly on a wooden wall shelf next to a black internet box whose lights are all off, the unplugged cable hangs down. The cat slowly closes its eyes with satisfaction. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan8-bleu-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-8.jpg
+      prompt: "Static low shot on the white tiles of a dark kitchen at night. Three round black robot vacuums sit still near the half-open door, their rings glow soft blue and pulse slowly. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan10-soulages-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-10.jpg
+      prompt: "Static shot in a dark kitchen at night. The golden retriever with a red collar and the ginger and white cat sit apart on the white tiles and look at each other, relieved, the dog wags his tail slowly. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan11-matin-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-11.jpg
+      prompt: "Static shot of a cosy living room in warm morning sunlight. The golden retriever sleeps curled in his beige basket, breathing slowly, the ginger cat sleeps on the grey sofa. A robot vacuum rests on its charging base with a soft blue ring. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies3/plan12-vert-g42.mp4
+      modele: wan22-5b
+      depart: refs/z3-12.jpg
+      prompt: "Static low close-up on a parquet floor in a sunny living room. A black robot vacuum sits on its charging base; its ring light slowly turns bright green and starts to glow. Nothing else moves. Photorealistic, sharp focus."

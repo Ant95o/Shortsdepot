@@ -1,0 +1,32 @@
+# Zombies épisode 1 : les aspirateurs-robots se réveillent. Images Gemini envoyées dans le fil (12/11).
+# Plans calmes sur Kaggle ; actions 4, 5, 7, 8, 9 sur HF (essais/zombies1.yaml).
+generation:
+  plans:
+    - fichier: clips/zombies1/plan1-salon-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-1.jpg
+      prompt: "Static smartphone shot of a cosy living room at night, moonlight through the window, a small lamp on, a black robot vacuum on its charging dock with a small blue light. The leaves of the plant move very slightly. Nothing else moves. Photorealistic, sharp focus."
+    - fichier: clips/zombies1/plan2-voyant-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-2.jpg
+      prompt: "Static low close-up at night. The light on the black robot vacuum and its dock pulses bright green, the eerie green glow flickers on the parquet floor. Slow push-in. Photorealistic, sharp focus."
+    - fichier: clips/zombies1/plan3-chat-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-3.jpg
+      prompt: "Static shot at night. The ginger and white cat curled on the sofa armrest slowly opens one eye, its ear twitches, it stares at the green glow on the floor. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies1/plan6-cooper-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-6.jpg
+      prompt: "Static shot at night. The golden retriever sitting in his dog bed raises his ears, tilts his head and stares at the black robot vacuum glowing green, a low worried look. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies1/plan10-regards-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-10.jpg
+      prompt: "Static close-up at night. The dog and the ginger cat side by side on the sofa back look down with wide eyes, then glance at each other, worried. Small movements only. Photorealistic, sharp focus."
+    - fichier: clips/zombies1/plan11-encercles-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-11.jpg
+      prompt: "Static low shot at night. Three black robot vacuums with glowing green rings slowly circle around the sofa on the parquet floor. The dog's paws at the top stay still. Smooth steady motion. Photorealistic, sharp focus."
+    - fichier: clips/zombies1/plan12-noir-g42.mp4
+      modele: wan22-5b
+      depart: refs/zo-12.jpg
+      prompt: "Static shot of a dark living room at night. Only the green glowing rings of the robot vacuums pulse on the floor, and the animals' eyes glow and blink in the dark. Very slow push-in. Photorealistic, sharp focus."

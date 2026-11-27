@@ -1,0 +1,13 @@
+# November suite. Index : 1=p5 bond du chat (nouvel essai), 2=p4 fier, 3=p8 dépité, 4=p1 jardin, 5=p9 fenêtre. Cooper pousse et l'explosion sont faits sur Flow (Veo).
+plans:
+  - depart: essais/refs/nov-5.jpg
+    graine: 11
+    prompt: "The ginger and white cat crouching behind the terracotta pot springs out and leaps high through the air in one powerful jump, front paws stretched forward, body fully extended in mid-air. Only one cat. The camera stays still. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-4.jpg
+    prompt: "The golden retriever sits proudly behind his big pile of autumn leaves, he puffs out his chest, lifts his head high and wags his tail, leaves fall from the red tree behind. The camera quickly pushes in on him. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-8.jpg
+    prompt: "The golden retriever sits among scattered autumn leaves with a leaf on his head, he lowers his ears, lets out a big sigh and the leaf slides off his head, looking very disappointed. The camera slowly pushes in on his face. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-1.jpg
+    prompt: "Autumn garden with a big red maple tree: a gust of wind blows many red and orange leaves off the tree, they swirl and fall fast toward the camera. The camera glides forward along the stone path. Photorealistic, sharp focus."
+  - depart: essais/refs/nov-9.jpg
+    prompt: "Cosy evening by a rainy window, warm lamp light: the golden retriever and the ginger cat sleep curled up together on a knitted blanket, the cat snuggles closer and the dog sighs, rain streams down the glass. The camera slowly pushes in. Photorealistic, sharp focus."

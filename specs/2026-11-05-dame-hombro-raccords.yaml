@@ -1,0 +1,18 @@
+# « Dame Hombro » : images de raccord 2b, 8, 9b sur Kaggle (secours de HF).
+generation:
+  plans:
+    - fichier: clips/dame-hombro/plan2b-saut-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-2b.jpg
+      prompt: "Static smartphone shot in a bright kitchen. The ginger tabby cat jumps down from the wooden chair and lands softly on the wooden floor with its front paws, then takes a step forward. Natural cat motion, photorealistic, sharp focus."
+    - fichier: clips/dame-hombro/plan8-attend-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-8.jpg
+      prompt: "Static low smartphone shot in a bright kitchen. The golden retriever lying on the floor stares at the ginger tabby cat with worried, hopeful eyes, eyebrows moving, ears twitching, waiting. The cat sits still next to the white bowl of kibble. Only small movements. Photorealistic, sharp focus."
+    - fichier: clips/dame-hombro/plan9b-rejoint-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/dh-9b.jpg
+      prompt: "Static low smartphone shot in a bright kitchen. The happy golden retriever with tongue out walks up next to the sitting ginger tabby cat behind the white bowl of kibble and sits down beside it, tail wagging. Natural dog motion, photorealistic, sharp focus."

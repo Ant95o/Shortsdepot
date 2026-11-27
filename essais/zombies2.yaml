@@ -1,0 +1,8 @@
+# Zombies 2 sur HF. Index : 1=plan5 (balles), 2=plan6 (robots suivent), 3=plan8 (fuite).
+plans:
+  - depart: essais/refs/z2-5.jpg
+    prompt: "Static shot. Tennis balls bounce and roll fast across the parquet floor away from the sofa, the golden retriever on the sofa armrest and the cat watch them. Clear fast motion. Photorealistic, sharp focus."
+  - depart: essais/refs/z2-6.jpg
+    prompt: "Static low shot. The three robot vacuums with green glowing rings drive away fast across the parquet floor, chasing a tennis ball that rolls toward the hallway. Clear visible motion. Photorealistic, sharp focus."
+  - depart: essais/refs/z2-8.jpg
+    prompt: "Static shot from behind. The golden retriever and the ginger cat run fast down the hallway toward the kitchen door, past the robot vacuums. Clear fast motion. Photorealistic, sharp focus."

@@ -1,0 +1,10 @@
+# Hold On sur HF. Index : 1=plan5 (debout contre la barrière), 2=plan6 (il court), 3=plan10 (il entre en courant), 4=plan11 (câlin).
+plans:
+  - depart: essais/refs/ho-5.jpg
+    prompt: "Static shot in a bright dog boarding kennel. The golden retriever with a red collar stands on his hind legs, front paws on the top of the white gate, wagging his tail fast and bouncing with excitement, looking toward the entrance. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/ho-6.jpg
+    prompt: "Static shot in a bright dog boarding kennel corridor. The happy golden retriever with a red collar runs fast toward the camera through the open white gate, ears flapping, tongue out. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/ho-10.jpg
+    prompt: "Static shot inside a house entrance with a light herringbone parquet floor and an open blue front door. The golden retriever runs in from the sunny garden through the door toward the ginger and white cat sitting still on the floor in the foreground. The camera does not move. Photorealistic, sharp focus."
+  - depart: essais/refs/ho-11.jpg
+    prompt: "Static shot in a house entrance with a light parquet floor and an open blue front door. The ginger and white cat rubs its head affectionately against the neck of the sitting golden retriever, the dog wags his tail and closes his eyes happily. Small gentle movements. The camera does not move. Photorealistic, sharp focus."

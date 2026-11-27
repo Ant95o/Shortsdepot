@@ -1,0 +1,19 @@
+# Trend Ramalama (28/10) : défilé d'Halloween. Chat vampire, corgi citrouille, puis la tortue fantôme qui arrive en dernier (chute).
+# Images de départ générées par AntoineS dans Gemini. Comportements crédibles : chaque animal marche à son rythme.
+generation:
+  plans:
+    - fichier: clips/ramalama/plan1-chat-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ramalama-1-chat.jpg
+      prompt: "Low angle smartphone video at ground level, the camera slowly moves backward. On a Halloween night sidewalk lined with glowing jack-o'-lanterns, the black cat wearing a small vampire cape walks confidently straight toward the camera like on a runway, steady elegant steps, the cape gently swaying, yellow eyes fixed on the lens. Only the cat moves in the foreground. Warm orange light, photorealistic, sharp focus, realistic cat walk."
+    - fichier: clips/ramalama/plan2-corgi-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ramalama-2-corgi.jpg
+      prompt: "Low angle smartphone video at ground level, the camera slowly moves backward. On a Halloween night sidewalk lined with glowing jack-o'-lanterns, the happy corgi wearing an orange pumpkin costume trots joyfully straight toward the camera on its short legs, tongue out, ears bouncing, body wiggling. Only the corgi moves in the foreground. Warm orange light, photorealistic, sharp focus, realistic dog motion."
+    - fichier: clips/ramalama/plan3-tortue-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/ramalama-3-tortue.jpg
+      prompt: "Low angle smartphone video at ground level, static camera. On a Halloween night sidewalk lined with glowing jack-o'-lanterns, the tortoise wearing a small white sheet ghost costume walks very slowly toward the camera, one heavy step at a time, its head peeking out under the sheet, the sheet gently moving. Only the tortoise moves in the foreground. Warm orange light, photorealistic, sharp focus, realistic tortoise motion."

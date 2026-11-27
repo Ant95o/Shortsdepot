@@ -1,0 +1,24 @@
+# « Nicole Kidman » (ADÉLA) : le chat roux arrive en star à la soirée… et Cooper le videur le refoule.
+# 4 plans depuis les images Gemini.
+generation:
+  plans:
+    - fichier: clips/kidman/plan1-voiture-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/kidman-1.jpg
+      prompt: "Smartphone shot from outside a moving car at night. The ginger cat wearing round black sunglasses leans out of the open car window, paws on the door, fur and whiskers blowing in the wind, calm and confident like a celebrity. City lights and traffic slide past in the blurred background. Photorealistic, sharp focus on the cat."
+    - fichier: clips/kidman/plan2-arrive-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/kidman-2.jpg
+      prompt: "Static smartphone shot at cat height on a stone path at night. The ginger cat wearing round black sunglasses walks slowly and proudly toward the camera like a star on a red carpet, tail held high, a party with string lights in the house behind it. Realistic cat gait, photorealistic, sharp focus."
+    - fichier: clips/kidman/plan3-videur-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/kidman-3.jpg
+      prompt: "Static smartphone shot from behind the ginger cat on the stone path at night. In front of the party house, the golden retriever wearing a black bow tie sits blocking the steps like a bouncer, stays still, then slowly shakes its head from side to side, refusing. The cat stays still in the foreground. Photorealistic, sharp focus."
+    - fichier: clips/kidman/plan4-vexe-g42.mp4
+      modele: wan22-5b
+      graine: 42
+      depart: refs/kidman-4.jpg
+      prompt: "Static smartphone close shot at night. The ginger cat sits facing the camera with its round black sunglasses slipped down its nose, looking offended and grumpy, it blinks slowly and flattens its ears a little. The golden retriever with a bow tie stays seated in the blurred background. Only the cat moves a little. Photorealistic, sharp focus."

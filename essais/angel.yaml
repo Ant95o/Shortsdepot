@@ -1,0 +1,12 @@
+# Angel sur HF : actions (5 plans max, les plus importants d'abord). Index : 1=plan5, 2=plan9, 3=plan11, 4=plan4, 5=plan6.
+plans:
+  - depart: essais/refs/an-5.jpg
+    prompt: "Static shot. The ginger cat in a gold sequin cape walks confidently down the middle of the glossy runway toward the camera like a top model, tail held high, flashes popping on both sides. Natural cat walk. Photorealistic, sharp focus."
+  - depart: essais/refs/an-9.jpg
+    prompt: "Static shot from behind. The ginger cat turns around on the runway and walks away, its gold sequin cape swirling and flowing behind it, flashes popping. Photorealistic, sharp focus."
+  - depart: essais/refs/an-11.jpg
+    prompt: "Static shot in the living room. The golden retriever wearing the cat's gold sequin cape walks proudly across the rug like a runway model, tail wagging, while the cat lying on the ottoman watches. Natural dog walk. Photorealistic, sharp focus."
+  - depart: essais/refs/an-4.jpg
+    prompt: "Static shot down the fashion runway. Far away at the end, the ginger cat wearing a small gold sequin cape steps onto the runway and starts walking toward the camera, flashes popping. Photorealistic, sharp focus."
+  - depart: essais/refs/an-6.jpg
+    prompt: "Static shot. In the foreground the golden retriever with a red collar sits in the front row, mouth open in amazement, looking at the runway where the small ginger cat walks in the distance, flashes popping. Photorealistic, sharp focus."

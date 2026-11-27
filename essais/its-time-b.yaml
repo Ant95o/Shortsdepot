@@ -1,0 +1,8 @@
+# It's Time! HF lot b. Index : 1=plan6, 2=plan7, 3=plan9.
+plans:
+  - depart: essais/refs/it-6.jpg
+    prompt: "Static shot on a frosty wooden terrace. The ginger and white cat turns around and runs fast through the open glass door into the warm living room where the golden retriever waits, the dog stands up and wags his tail. Photorealistic, sharp focus."
+  - depart: essais/refs/it-7.jpg
+    prompt: "Static shot in a cosy living room. The golden retriever with a red collar pulls a cardboard box marked NOËL out of the open cupboard with his mouth, walking backwards and dragging it across the wooden floor, the ginger cat watches. Photorealistic, sharp focus."
+  - depart: essais/refs/it-9.jpg
+    prompt: "Static shot. The ginger cat pulls a long gold tinsel garland out of the cardboard box with its paw, the tinsel unrolls onto the wooden floor, the golden retriever sniffs it. Clear visible motion. Photorealistic, sharp focus."

@@ -1,0 +1,13 @@
+# Plan 3 du chien refait : en graine 42 une main apporte une 2e assiette de gâteau (incohérent). 2 graines, prompt verrouillé.
+generation:
+  plans:
+    - fichier: clips/cooper/plan3-g7.mp4
+      modele: wan22-5b
+      graine: 7
+      depart: refs/cooper-3-coupable.jpg
+      prompt: "Static smartphone shot, the camera does not move. The golden retriever with white frosting on its nose stays seated in place on the tiled floor and looks straight into the camera, slowly licks its nose with its tongue, then tilts its head to the side with an innocent guilty look. Only the dog moves. The smashed cake stays on the floor, nothing else enters the frame, no people, no hands, no plates. Natural daylight, photorealistic, sharp focus."
+    - fichier: clips/cooper/plan3-g123.mp4
+      modele: wan22-5b
+      graine: 123
+      depart: refs/cooper-3-coupable.jpg
+      prompt: "Static smartphone shot, the camera does not move. The golden retriever with white frosting on its nose stays seated in place on the tiled floor and looks straight into the camera, slowly licks its nose with its tongue, then tilts its head to the side with an innocent guilty look. Only the dog moves. The smashed cake stays on the floor, nothing else enters the frame, no people, no hands, no plates. Natural daylight, photorealistic, sharp focus."
